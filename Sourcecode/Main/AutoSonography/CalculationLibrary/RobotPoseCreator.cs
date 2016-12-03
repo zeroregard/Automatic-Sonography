@@ -8,9 +8,18 @@ using Microsoft.Kinect.Fusion;
 
 namespace CalculationLibrary
 {
+    /// <summary>
+    /// Given a list of vertices in a mesh, this class determines how the robot tool center point position offset and rotation should look like
+    /// </summary>
     public class RobotPoseCreator
     {
-        public static float UR_PROBE_OFFSET = 0.10f;
+        public static float UR_PROBE_OFFSET = 0.10f; //The length of whatever is attached to the tool center point in meters.
+        /// <summary>
+        /// Finds robot arm tool center point poses for a list of vertices
+        /// </summary>
+        /// <param name="vectorPath">A list of vertices in a mesh. Vertices must exist in mesh and be part of at least one face each</param>
+        /// <param name="mesh">The mesh that the vectorPath belongs to</param>
+        /// <returns>A list of URPoses used to feed the robot arm later</returns>
         public List<URPose> ToURPath(List<VertexIndex> vectorPath, CVMesh mesh)
         {
             List<URPose> poses = new List<URPose>();
@@ -34,6 +43,9 @@ namespace CalculationLibrary
             return snippet;
         }
 
+        /// <summary>
+        /// Converts all direction vectors in a list of poses to rotation vectors
+        /// </summary>
         private void ConvertDirectionVectors(List<URPose> poses)
         {
             foreach (var urPose in poses)
@@ -129,6 +141,11 @@ namespace CalculationLibrary
             return rotationVector;
         }
 
+        /// <summary>
+        /// Find the offset position for the TCP given a position, a direction vector and the offset value
+        /// </summary>
+        /// <param name="vertexPosition">A position of a vertex in a mesh</param>
+        /// <param name="vertexNormal">A direction vector for a vertex indicating its normal</param>
         public Vector3 FindURPosition(Vector3 vertexPosition, Vector3 vertexNormal)
         {
             Vector3 pos = vertexPosition;
@@ -137,6 +154,12 @@ namespace CalculationLibrary
             return offsetPos;
         }
 
+        /// <summary>
+        /// Find the direction vector for a vertex by taking the average direction vector of the faces the vertex belongs to
+        /// </summary>
+        /// <param name="vertex">Vertex in a mesh</param>
+        /// <param name="mesh">Mesh which vertex is a part of.</param>
+        /// <returns>Normal/Direction vector for vertex</returns>
         public Vector3 FindVertexNormal(VertexIndex vertex, CVMesh mesh)
         {
             mesh.Faces = Extensions.ToFaces(mesh.TriangleIndeces);
@@ -155,6 +178,12 @@ namespace CalculationLibrary
             return Extensions.Normalize(Extensions.AvgVector(faceNormals));
         }
 
+        /// <summary>
+        /// Find the normal of a face
+        /// </summary>
+        /// <param name="i">Index of face in mesh.Faces</param>
+        /// <param name="m">Mesh</param>
+        /// <returns>A direction vector indicating the normal of a face</returns>
         public Vector3 GetFaceNormal(int i, CVMesh m)
         {
             Vector3 v1 = m.Vertices[m.Faces[i].index1];

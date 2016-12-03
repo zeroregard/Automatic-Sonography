@@ -10,6 +10,9 @@ using DataStructures;
 using Microsoft.Kinect.Fusion;
 namespace CalculationLibrary
 {
+    /// <summary>
+    /// This class determines which vertices in a mesh should be used for figuring which positions and rotations should be made in RobotPoseCreator
+    /// </summary>
     public class PathCreator
     {
         public CameraToRobotCalibrator calibrator;
