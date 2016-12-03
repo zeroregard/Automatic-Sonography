@@ -79,7 +79,7 @@ namespace DataStructures
 
         public static float ToDegrees(float radians)
         {
-            
+            return (float) (radians/(Math.PI/180));
         }
 
         public static List<Vector3> PrunePoints(List<Vector3> vertices)
