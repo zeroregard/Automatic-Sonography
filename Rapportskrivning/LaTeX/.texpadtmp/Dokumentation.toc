@@ -1,0 +1,109 @@
+\changetocdepth {2}
+\select@language {danish}
+\contentsline {chapter}{Forkortelser}{iii}{chapter*.1}
+\contentsline {chapter}{\chapternumberline {1}Kravspecifikation}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Ikke-funktionelle krav}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Usability}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Reliability}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Performance}{2}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}Supportability}{3}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.5}Andre (+)}{3}{subsection.1.1.5}
+\contentsline {subsubsection}{Brugssituationer}{3}{section*.2}
+\contentsline {subsubsection}{Interface}{3}{section*.3}
+\contentsline {section}{\numberline {1.2}Funktionelle krav}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Akt\IeC {\o }r-kontekstdiagram}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Akt\IeC {\o }rbeskrivelse}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Use case-diagram}{7}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Use Case 1}{8}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Use Case 2}{9}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}Use Case 3}{10}{subsection.1.2.6}
+\contentsline {subsection}{\numberline {1.2.7}Use Case 4}{11}{subsection.1.2.7}
+\contentsline {subsection}{\numberline {1.2.8}Use Case 5}{13}{subsection.1.2.8}
+\contentsline {subsection}{\numberline {1.2.9}Use Case 6}{14}{subsection.1.2.9}
+\contentsline {subsection}{\numberline {1.2.10}Use Case 7}{15}{subsection.1.2.10}
+\contentsline {subsection}{\numberline {1.2.11}Use Case 8}{16}{subsection.1.2.11}
+\contentsline {chapter}{\chapternumberline {2}Design}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Systemet}{17}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Systemsekvensdiagrammer}{18}{subsection.2.1.1}
+\contentsline {subsubsection}{UC1: T\IeC {\ae }nd system}{18}{section*.8}
+\contentsline {subsubsection}{UC2: Foretagm\IeC {\r a}ling}{19}{section*.10}
+\contentsline {subsubsection}{UC3: Filtrer m\IeC {\r a}ling}{20}{section*.12}
+\contentsline {subsubsection}{UC4: Tilf\IeC {\o }j patient}{21}{section*.14}
+\contentsline {subsubsection}{UC5: Alarmer operat\IeC {\o }r}{22}{section*.16}
+\contentsline {subsubsection}{UC6: Skift alarmeringsgr\IeC {\ae }nser}{23}{section*.18}
+\contentsline {subsubsection}{UC7: Nulstil data (ikke implementeret)}{24}{section*.20}
+\contentsline {subsubsection}{UC8: Sluk system}{25}{section*.22}
+\contentsline {section}{\numberline {2.2}Hardware}{26}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}BDD-diagram}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}IBD-diagram}{28}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Eksterne gr\IeC {\ae }nseflader}{30}{subsection.2.2.3}
+\contentsline {subsubsection}{Transducer}{30}{section*.26}
+\contentsline {subsubsection}{Forst\IeC {\ae }rker}{31}{section*.28}
+\contentsline {subsubsection}{Filter}{32}{section*.30}
+\contentsline {section}{\numberline {2.3}Software}{33}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Pakkediagram}{33}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Dom\IeC {\ae }nemodel}{37}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Applikationsmodel}{37}{subsection.2.3.3}
+\contentsline {subsubsection}{Klassediagram}{37}{section*.35}
+\contentsline {subsection}{\numberline {2.3.4}Metodeskrivelse}{38}{subsection.2.3.4}
+\contentsline {subsubsection}{PL: GUI}{38}{section*.37}
+\contentsline {subsubsection}{BL: Tilf\IeC {\o }j patient (ikke implementeret)}{39}{section*.38}
+\contentsline {subsubsection}{BL: Alarm}{39}{section*.39}
+\contentsline {subsubsection}{BL: Nulstil data (ikke implementeret)}{40}{section*.40}
+\contentsline {subsubsection}{BL: Filter}{41}{section*.41}
+\contentsline {subsubsection}{BL: M\IeC {\r a}ling}{41}{section*.42}
+\contentsline {subsubsection}{BL: Nulstildata (Ikke implementeret)}{42}{section*.43}
+\contentsline {subsubsection}{BL: Behandl}{42}{section*.44}
+\contentsline {subsubsection}{DL: Sundhedsdata}{43}{section*.45}
+\contentsline {subsubsection}{DL: Input}{43}{section*.46}
+\contentsline {subsection}{\numberline {2.3.5}Sekvensdiagrammer}{44}{subsection.2.3.5}
+\contentsline {subsubsection}{UC2: Foretag m\IeC {\r a}ling}{44}{section*.47}
+\contentsline {subsubsection}{UC3: Filtrer m\IeC {\r a}ling}{45}{section*.49}
+\contentsline {subsubsection}{UC4: Tilf\IeC {\o }j patient}{46}{section*.51}
+\contentsline {subsubsection}{UC5: Alarmer operat\IeC {\o }r}{46}{section*.53}
+\contentsline {subsubsection}{UC6: Skift alarmeringsgr\IeC {\ae }nse}{47}{section*.55}
+\contentsline {subsubsection}{UC7: Nulstil data}{48}{section*.57}
+\contentsline {chapter}{\chapternumberline {3}Implementering og test}{49}{chapter.3}
+\contentsline {section}{\numberline {3.1}Hardware}{49}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Transducer}{50}{subsection.3.1.1}
+\contentsline {subsubsection}{Implementering}{50}{section*.60}
+\contentsline {subsection}{\numberline {3.1.2}Forst\IeC {\ae }rker}{50}{subsection.3.1.2}
+\contentsline {subsubsection}{Implementering}{50}{section*.61}
+\contentsline {subsubsection}{Test}{52}{section*.64}
+\contentsline {subsection}{\numberline {3.1.3}Filter}{55}{subsection.3.1.3}
+\contentsline {subsubsection}{Implementering}{55}{section*.67}
+\contentsline {subsubsection}{Test}{57}{section*.70}
+\contentsline {subsection}{\numberline {3.1.4}T\IeC {\ae }nd/sluk knap}{62}{subsection.3.1.4}
+\contentsline {subsubsection}{Implementering}{62}{section*.77}
+\contentsline {subsubsection}{Test}{62}{section*.78}
+\contentsline {section}{\numberline {3.2}Software}{63}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Implementering}{63}{subsection.3.2.1}
+\contentsline {subsubsection}{Analysen}{63}{section*.79}
+\contentsline {subsubsection}{GUI}{64}{section*.81}
+\contentsline {subsection}{\numberline {3.2.2}Test}{64}{subsection.3.2.2}
+\contentsline {subsubsection}{Enhedstest}{65}{section*.82}
+\contentsline {subsubsection}{Integrationstest}{66}{section*.83}
+\contentsline {chapter}{\chapternumberline {4}Accepttest}{69}{chapter.4}
+\contentsline {section}{\numberline {4.1}Fors\IeC {\o }gsopstilling}{69}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ikke-funktionelle krav}{71}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Usability}{71}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Reliability}{71}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Performance}{72}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Supportability}{74}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Andre (+)}{74}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Funktionelle krav}{76}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}UC1: T\IeC {\ae }nd systemet}{76}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}UC2: Foretag m\IeC {\r a}ling}{76}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}UC3: Filtrer m\IeC {\r a}ling}{77}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}UC4: Tilf\IeC {\o }j patient}{77}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}UC5: Alarmer operat\IeC {\o }r}{78}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}UC6: Skift alarmeringsgr\IeC {\ae }nser}{78}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.3.7}UC7: Nulstil data (skal slettes)}{78}{subsection.4.3.7}
+\contentsline {subsection}{\numberline {4.3.8}UC8: Sluk apparat}{80}{subsection.4.3.8}
+\contentsline {chapter}{Bilag}{81}{chapter*.85}
+\contentsline {section}{Bilag 1: Samarbejdsaftale}{82}{section*.86}
+\contentsline {section}{Bilag 2: Tidsplan}{84}{section*.87}
+\contentsline {section}{Bilag 3: Hardware versioner}{86}{section*.89}
+\contentsline {section}{Bilag 4: Software versioner}{87}{section*.90}
+\contentsline {section}{Bilag 5: Logbog}{88}{section*.91}
+\contentsline {section}{Bilag 6: M\IeC {\o }dereferater}{89}{section*.92}

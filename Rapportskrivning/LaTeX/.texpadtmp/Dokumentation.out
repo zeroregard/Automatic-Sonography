@@ -1,0 +1,66 @@
+\BOOKMARK [0][-]{chapter*.1}{Forkortelser}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Kravspecifikation}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Ikke-funktionelle krav}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Usability}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Reliability}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.3}{Performance}{section.1.1}% 6
+\BOOKMARK [2][-]{subsection.1.1.4}{Supportability}{section.1.1}% 7
+\BOOKMARK [2][-]{subsection.1.1.5}{Andre \(+\)}{section.1.1}% 8
+\BOOKMARK [1][-]{section.1.2}{Funktionelle krav}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.2.1}{Akt\370r-kontekstdiagram}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.2}{Akt\370rbeskrivelse}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.3}{Use case-diagram}{section.1.2}% 12
+\BOOKMARK [2][-]{subsection.1.2.4}{Use Case 1}{section.1.2}% 13
+\BOOKMARK [2][-]{subsection.1.2.5}{Use Case 2}{section.1.2}% 14
+\BOOKMARK [2][-]{subsection.1.2.6}{Use Case 3}{section.1.2}% 15
+\BOOKMARK [2][-]{subsection.1.2.7}{Use Case 4}{section.1.2}% 16
+\BOOKMARK [2][-]{subsection.1.2.8}{Use Case 5}{section.1.2}% 17
+\BOOKMARK [2][-]{subsection.1.2.9}{Use Case 6}{section.1.2}% 18
+\BOOKMARK [2][-]{subsection.1.2.10}{Use Case 7}{section.1.2}% 19
+\BOOKMARK [2][-]{subsection.1.2.11}{Use Case 8}{section.1.2}% 20
+\BOOKMARK [0][-]{chapter.2}{Design}{}% 21
+\BOOKMARK [1][-]{section.2.1}{Systemet}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.1.1}{Systemsekvensdiagrammer}{section.2.1}% 23
+\BOOKMARK [1][-]{section.2.2}{Hardware}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.1}{BDD-diagram}{section.2.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.2}{IBD-diagram}{section.2.2}% 26
+\BOOKMARK [2][-]{subsection.2.2.3}{Eksterne gr\346nseflader}{section.2.2}% 27
+\BOOKMARK [1][-]{section.2.3}{Software}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.3.1}{Pakkediagram}{section.2.3}% 29
+\BOOKMARK [2][-]{subsection.2.3.2}{Dom\346nemodel}{section.2.3}% 30
+\BOOKMARK [2][-]{subsection.2.3.3}{Applikationsmodel}{section.2.3}% 31
+\BOOKMARK [2][-]{subsection.2.3.4}{Metodeskrivelse}{section.2.3}% 32
+\BOOKMARK [2][-]{subsection.2.3.5}{Sekvensdiagrammer}{section.2.3}% 33
+\BOOKMARK [0][-]{chapter.3}{Implementering og test}{}% 34
+\BOOKMARK [1][-]{section.3.1}{Hardware}{chapter.3}% 35
+\BOOKMARK [2][-]{subsection.3.1.1}{Transducer}{section.3.1}% 36
+\BOOKMARK [2][-]{subsection.3.1.2}{Forst\346rker}{section.3.1}% 37
+\BOOKMARK [2][-]{subsection.3.1.3}{Filter}{section.3.1}% 38
+\BOOKMARK [2][-]{subsection.3.1.4}{T\346nd/sluk knap}{section.3.1}% 39
+\BOOKMARK [1][-]{section.3.2}{Software}{chapter.3}% 40
+\BOOKMARK [2][-]{subsection.3.2.1}{Implementering}{section.3.2}% 41
+\BOOKMARK [2][-]{subsection.3.2.2}{Test}{section.3.2}% 42
+\BOOKMARK [0][-]{chapter.4}{Accepttest}{}% 43
+\BOOKMARK [1][-]{section.4.1}{Fors\370gsopstilling}{chapter.4}% 44
+\BOOKMARK [1][-]{section.4.2}{Ikke-funktionelle krav}{chapter.4}% 45
+\BOOKMARK [2][-]{subsection.4.2.1}{Usability}{section.4.2}% 46
+\BOOKMARK [2][-]{subsection.4.2.2}{Reliability}{section.4.2}% 47
+\BOOKMARK [2][-]{subsection.4.2.3}{Performance}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.4}{Supportability}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.5}{Andre \(+\)}{section.4.2}% 50
+\BOOKMARK [1][-]{section.4.3}{Funktionelle krav}{chapter.4}% 51
+\BOOKMARK [2][-]{subsection.4.3.1}{UC1: T\346nd systemet}{section.4.3}% 52
+\BOOKMARK [2][-]{subsection.4.3.2}{UC2: Foretag m\345ling}{section.4.3}% 53
+\BOOKMARK [2][-]{subsection.4.3.3}{UC3: Filtrer m\345ling}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.4}{UC4: Tilf\370j patient}{section.4.3}% 55
+\BOOKMARK [2][-]{subsection.4.3.5}{UC5: Alarmer operat\370r}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.6}{UC6: Skift alarmeringsgr\346nser}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.7}{UC7: Nulstil data \(skal slettes\)}{section.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.3.8}{UC8: Sluk apparat}{section.4.3}% 59
+\BOOKMARK [0][-]{chapter*.85}{Bilag}{}% 60
+\BOOKMARK [1][-]{section*.86}{Bilag 1: Samarbejdsaftale}{chapter*.85}% 61
+\BOOKMARK [1][-]{section*.87}{Bilag 2: Tidsplan}{chapter*.85}% 62
+\BOOKMARK [1][-]{section*.89}{Bilag 3: Hardware versioner}{chapter*.85}% 63
+\BOOKMARK [1][-]{section*.90}{Bilag 4: Software versioner}{chapter*.85}% 64
+\BOOKMARK [1][-]{section*.91}{Bilag 5: Logbog}{chapter*.85}% 65
+\BOOKMARK [1][-]{section*.92}{Bilag 6: M\370dereferater}{chapter*.85}% 66

@@ -1,0 +1,32 @@
+\input{preamble_jacob}
+\raggedbottom
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\externaldocument[D-]{Dokumentation}
+\externaldocument{Bilagsliste}
+
+\begin{document}
+
+\include{formalia/Udviklings_Forside}
+\cleardoublepage
+
+		
+\mainmatter
+\tableofcontents 
+
+% Her findes de nummererede kapitler modsat \frontmatter og \backmatter.
+%\include{afiler/Forkortelser}
+\include{ufiler/Versionshistorik}
+\include{ufiler/Indledning}
+\include{ufiler/Systemarkitektur}
+\include{ufiler/Systemdesign}
+\include{ufiler/Udvikling}
+\include{ufiler/Test}
+
+\backmatter
+\include{ufiler/Bilag}
+
+\bibliographystyle{plain}
+\bibliography{bibliografi/PRJ3}  % Sætter bibliografien bagerst i dokumentet. Bruger bib-filen PRJ3.
+
+\end{document}

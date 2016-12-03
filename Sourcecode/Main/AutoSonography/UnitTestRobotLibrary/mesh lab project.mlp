@@ -1,0 +1,14 @@
+<!DOCTYPE MeshLabDocument>
+<MeshLabProject>
+ <MeshGroup>
+  <MLMesh label="chest.ply" filename="chest.ply">
+   <MLMatrix44>
+-0.000940417 0.0103319 -0.000252307 -1.37735 
+-0.0102529 -0.00096454 -0.00128238 -0.497143 
+-0.00130017 0.000133064 0.0102951 -0.17062 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+ </MeshGroup>
+ <RasterGroup/>
+</MeshLabProject>

@@ -1,0 +1,30 @@
+\@doanenote {1}
+macro:->\url
+{http://www.physionet.org/physiobank/}
+\@endanenote 
+\@doanenote {2}
+macro:->\url
+{http://www.eit.ihk-edu.dk/subjects/mmi/}
+\@endanenote 
+\@doanenote {3}
+macro:->Sigurd,
+B.;
+Sandøe,
+E.
+–
+Klinisk
+Elektrokardiologi
+–
+Publishing
+Partners
+Verlags
+GMBH,
+1991
+–
+s.
+3
+\@endanenote 
+\@doanenote {4}
+macro:->\url
+{http://msdn.microsoft.com/en-us/library/hh191443.aspx}
+\@endanenote 

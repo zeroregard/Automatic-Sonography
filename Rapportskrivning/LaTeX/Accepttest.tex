@@ -1,0 +1,32 @@
+\input{preamble_jacob}
+\raggedbottom
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\externaldocument[D-]{Dokumentation}
+\externaldocument{Bilagsliste}
+\begin{document}
+	
+							
+\include{formalia/Accepttest_Forside}
+\cleardoublepage
+		
+\mainmatter
+\tableofcontents                  % Indsætter en indholdsfortegnelse før Indledning.
+
+% Her findes de nummererede kapitler modsat \frontmatter og \backmatter.
+%\include{afiler/Forkortelser}
+
+\include{afiler/Versionshistorik}
+\include{afiler/Indledning}
+\include{afiler/Testresultat}
+\include{afiler/Testformalia}
+\include{afiler/Funktionellekrav}
+\include{afiler/Ikkefunktionellekrav}
+
+\backmatter
+\include{afiler/Bilag}
+
+\bibliographystyle{plain}
+\bibliography{bibliografi/PRJ3}    % Sætter bibliografien bagerst i dokumentet. Bruger bib-filen PRJ3.
+
+\end{document}

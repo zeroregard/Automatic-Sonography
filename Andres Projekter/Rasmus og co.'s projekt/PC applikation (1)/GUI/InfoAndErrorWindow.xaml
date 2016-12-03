@@ -1,0 +1,15 @@
+﻿<Window x:Class="GUI.InfoAndErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InfoAndErrorWindow" Height="179" Width="360" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Border Margin="0,0,0,50" Height="50">
+            <TextBlock Text="Her kommer meddelesen til at stå" Name="lb_message"
+                   TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <StackPanel Name="Panel_Btn" Orientation="Horizontal" HorizontalAlignment="Center" Width="auto" Height="Auto" Margin="75,95,75,10">
+            <Button Content="Confirmation" MinWidth="80" Name="btn_confirmation" Width="Auto" Height="Auto" Margin="5" Click="btn_confirmation_Click" RenderTransformOrigin="2.738,-0.667"></Button>
+            <Button Content="Confirmation" MinWidth="80" x:Name="btn_cancel" Width="Auto" Height="Auto" Margin="5" Click="btn_cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

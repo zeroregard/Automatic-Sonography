@@ -1,0 +1,35 @@
+﻿<Window x:Class="GUI.EstablishmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Etablér forbindelse" Height="300" Width="400" ResizeMode="NoResize" Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Name="sp_unitList" Margin="10,10">
+                <Label Content="Vælg ønsket scanningsenhed"/>
+                <ListBox Name="lb_units" Height="200" Width="150" HorizontalAlignment="Left" Margin="10,10" 
+                         SelectionMode="Single"
+                         SelectionChanged="lb_units_SelectionChanged"
+                         LostFocus="lb_units_LostFocus">
+                </ListBox>
+            </StackPanel>
+            <StackPanel Name="sp_buttons" VerticalAlignment="Center" Margin="10,10" Width="170">
+                <Button Name="btn_establishConnection" 
+                        Content="Etablér forbindelse"
+                        Margin="5,5" Click="btn_establishConnection_Click"
+                        IsEnabled="False"
+                        />
+                <Button Name="btn_addNewUnit" 
+                        Content="Tilføj ny scanningsenhed"
+                        Margin="5,5" Click="btn_addNewUnit_Click"
+                        />
+                <Label Content="Forbinder..." Name="lb_connecting"
+                       Visibility="Hidden"/>
+                <ProgressBar Name="pgb_connectionProgress" Height="10" Margin="5"
+                             IsIndeterminate="False"
+                             Visibility="Hidden"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

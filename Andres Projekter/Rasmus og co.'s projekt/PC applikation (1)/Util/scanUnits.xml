@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ScanUnits xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Unit id="Hopper 025">
+    <location>Hopper 025</location>
+    <urIpAddress>10.11.97.105</urIpAddress>
+    <rdIpAddress>10.11.97.129</rdIpAddress>
+    <vfIpAddress>10.11.97.156</vfIpAddress>
+    <projectName>URControl</projectName>
+    <Majorversion>3</Majorversion>
+    <Minorversion>1</Minorversion>
+    <svnRevision>18024</svnRevision>
+    <buildDate>Jul 07 2015, 15:22:03</buildDate>
+  </Unit>
+  <Unit id="AUH">
+    <location>Aarhus Universitetshospital</location>
+    <urIpAddress>10.11.97.105</urIpAddress>
+    <rdIpAddress>10.11.97.129</rdIpAddress>
+    <vfIpAddress>10.11.97.156</vfIpAddress>
+    <projectName>URControl</projectName>
+    <Majorversion>3</Majorversion>
+    <Minorversion>1</Minorversion>
+    <svnRevision>18024</svnRevision>
+    <buildDate>Jul 07 2015, 15:22:03</buildDate>
+  </Unit>
+  <Unit id="Karsten">
+    <location>Hopper</location>
+    <urIpAddress>10.11.97.105</urIpAddress>
+    <rdIpAddress>10.11.97.158</rdIpAddress>
+    <vfIpAddress>10.11.97.158</vfIpAddress>
+    <projectName>URControl</projectName>
+    <Majorversion>3</Majorversion>
+    <Minorversion>1</Minorversion>
+    <svnRevision>18024</svnRevision>
+    <buildDate>Jul 07 2015, 15:22:03</buildDate>
+  </Unit>
+  <Unit id="Rasmus">
+    <location>Hopper</location>
+    <urIpAddress>10.0.0.1</urIpAddress>
+    <rdIpAddress>10.0.0.2</rdIpAddress>
+    <vfIpAddress>10.0.0.2</vfIpAddress>
+    <projectName>URControl</projectName>
+    <Majorversion>3</Majorversion>
+    <Minorversion>1</Minorversion>
+    <svnRevision>18024</svnRevision>
+    <buildDate>Jul 07 2015, 15:22:03</buildDate>
+  </Unit>
+  <Unit id="UR5">
+    <location>Navitas</location>
+    <urIpAddress>10.0.0.1</urIpAddress>
+    <rdIpAddress>10.0.0.2</rdIpAddress>
+    <vfIpAddress>10.0.0.2</vfIpAddress>
+    <projectName>URControl</projectName>
+    <Majorversion>3</Majorversion>
+    <Minorversion>2</Minorversion>
+    <svnRevision>18744</svnRevision>
+    <buildDate>Oct 07 2015, 11:12:33</buildDate>
+  </Unit>
+</ScanUnits>

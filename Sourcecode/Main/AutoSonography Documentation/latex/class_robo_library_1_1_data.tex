@@ -1,0 +1,98 @@
+\hypertarget{class_robo_library_1_1_data}{}\section{Robo\+Library.\+Data Class Reference}
+\label{class_robo_library_1_1_data}\index{Robo\+Library.\+Data@{Robo\+Library.\+Data}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_robo_library_1_1_data_ab82bf5ac661fb88659696f401b1a7037}{}\label{class_robo_library_1_1_data_ab82bf5ac661fb88659696f401b1a7037} 
+delegate void {\bfseries Configuration\+Event\+Handler} (bool result)
+\item 
+\hypertarget{class_robo_library_1_1_data_ab6c5d04b89fa699ceaf7146d536e7c39}{}\label{class_robo_library_1_1_data_ab6c5d04b89fa699ceaf7146d536e7c39} 
+delegate void {\bfseries Current\+U\+R\+Pose\+Received} (\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} pose)
+\item 
+\hypertarget{class_robo_library_1_1_data_a864c51668e34cfdfc7fdc7f67b3446d3}{}\label{class_robo_library_1_1_data_a864c51668e34cfdfc7fdc7f67b3446d3} 
+delegate void {\bfseries Current\+Configuration\+Received} (Configuration\+Data config)
+\item 
+\hypertarget{class_robo_library_1_1_data_a9678104c6f672405779f1791ae381d56}{}\label{class_robo_library_1_1_data_a9678104c6f672405779f1791ae381d56} 
+void {\bfseries Fetch\+Current\+Configuration} ()
+\item 
+\hypertarget{class_robo_library_1_1_data_a01d102e84148fa4042d057f9fbcb5910}{}\label{class_robo_library_1_1_data_a01d102e84148fa4042d057f9fbcb5910} 
+void {\bfseries Send\+Configuration} (Configuration\+Data config)
+\item 
+\hypertarget{class_robo_library_1_1_data_a37aa50807e1db0eff6ee48777fd384f8}{}\label{class_robo_library_1_1_data_a37aa50807e1db0eff6ee48777fd384f8} 
+void {\bfseries Receive\+Configuration} (Configuration\+Data config)
+\item 
+\hypertarget{class_robo_library_1_1_data_af54d9c0ce4672dad475f25c49c4acae2}{}\label{class_robo_library_1_1_data_af54d9c0ce4672dad475f25c49c4acae2} 
+void {\bfseries Receive\+Pose} (\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} pose)
+\item 
+void \hyperlink{class_robo_library_1_1_data_a1e41bd63de43e5b386030d65825a4025}{Send\+Added\+Pose} (\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} pose)
+\begin{DoxyCompactList}\small\item\em Add pose to the current pose, mainly used for moving it just slightly \end{DoxyCompactList}\item 
+void \hyperlink{class_robo_library_1_1_data_a232af8e278fa53d435a14a10fed14bd6}{Send\+New\+Pose} (\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} pose)
+\begin{DoxyCompactList}\small\item\em Force it to pose an entirely new way \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_robo_library_1_1_data_adb42d9d11d9c0b0b9db51f7e7fee4734}{}\label{class_robo_library_1_1_data_adb42d9d11d9c0b0b9db51f7e7fee4734} 
+\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} {\bfseries Last\+Known\+Pose}
+\item 
+\hypertarget{class_robo_library_1_1_data_aac94b89832c7eb9510f7dc70f4f3e078}{}\label{class_robo_library_1_1_data_aac94b89832c7eb9510f7dc70f4f3e078} 
+Configuration\+Data {\bfseries Current\+Configuration}
+\item 
+\hypertarget{class_robo_library_1_1_data_ae420bf28c2cb531de157e5e6d93310d3}{}\label{class_robo_library_1_1_data_ae420bf28c2cb531de157e5e6d93310d3} 
+\hyperlink{interface_robo_library_1_1_interfaces_1_1_i_writer}{I\+Writer} {\bfseries \+\_\+writer}
+\item 
+\hypertarget{class_robo_library_1_1_data_ac28ff26332ce8e9a7e2ec0c3696563e3}{}\label{class_robo_library_1_1_data_ac28ff26332ce8e9a7e2ec0c3696563e3} 
+\hyperlink{interface_robo_library_1_1_interfaces_1_1_i_reader}{I\+Reader} {\bfseries \+\_\+reader}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_robo_library_1_1_data_a23db00823e874b31b9272572809e0207}{}\label{class_robo_library_1_1_data_a23db00823e874b31b9272572809e0207} 
+static \hyperlink{class_robo_library_1_1_data}{Data} {\bfseries Instance}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_robo_library_1_1_data_a2a1edb02f13422b63c75359951ad59f7}{}\label{class_robo_library_1_1_data_a2a1edb02f13422b63c75359951ad59f7} 
+static Current\+U\+R\+Pose\+Received {\bfseries On\+Current\+U\+R\+Pose\+Received}
+\item 
+\hypertarget{class_robo_library_1_1_data_a958e19e988fef2c17edf0806674910a3}{}\label{class_robo_library_1_1_data_a958e19e988fef2c17edf0806674910a3} 
+static Current\+Configuration\+Received {\bfseries On\+Current\+Configuration\+Received}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_robo_library_1_1_data_a1e41bd63de43e5b386030d65825a4025}{}\label{class_robo_library_1_1_data_a1e41bd63de43e5b386030d65825a4025} 
+\index{Robo\+Library\+::\+Data@{Robo\+Library\+::\+Data}!Send\+Added\+Pose@{Send\+Added\+Pose}}
+\index{Send\+Added\+Pose@{Send\+Added\+Pose}!Robo\+Library\+::\+Data@{Robo\+Library\+::\+Data}}
+\subsubsection{\texorpdfstring{Send\+Added\+Pose()}{SendAddedPose()}}
+{\footnotesize\ttfamily void Robo\+Library.\+Data.\+Send\+Added\+Pose (\begin{DoxyParamCaption}\item[{\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose}}]{pose }\end{DoxyParamCaption})}
+
+
+
+Add pose to the current pose, mainly used for moving it just slightly 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & Pose to be added to the current U\+R10 pose\\
+\hline
+\end{DoxyParams}
+\hypertarget{class_robo_library_1_1_data_a232af8e278fa53d435a14a10fed14bd6}{}\label{class_robo_library_1_1_data_a232af8e278fa53d435a14a10fed14bd6} 
+\index{Robo\+Library\+::\+Data@{Robo\+Library\+::\+Data}!Send\+New\+Pose@{Send\+New\+Pose}}
+\index{Send\+New\+Pose@{Send\+New\+Pose}!Robo\+Library\+::\+Data@{Robo\+Library\+::\+Data}}
+\subsubsection{\texorpdfstring{Send\+New\+Pose()}{SendNewPose()}}
+{\footnotesize\ttfamily void Robo\+Library.\+Data.\+Send\+New\+Pose (\begin{DoxyParamCaption}\item[{\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose}}]{pose }\end{DoxyParamCaption})}
+
+
+
+Force it to pose an entirely new way 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Robo\+Library/Data.\+cs\end{DoxyCompactItemize}

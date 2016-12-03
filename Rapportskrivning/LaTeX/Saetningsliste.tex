@@ -1,0 +1,131 @@
+\include{preamble_jacob}
+\usepackage[explicit]{titlesec}
+\usepackage{longtable,tabu}
+\usepackage{longtable}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\raggedbottom
+
+\begin{document}
+\include{formalia/Saetningsliste_Forside}
+
+\tableofcontents
+
+\chapter{Forkortelser}
+Dette dokument indeholder liste over forkortelser og forklaringer til projektets dokumenter. 
+
+\section{Forkortelser til dokumentation}
+Nedenfor er en tabel, med alle de forkortelser der er blevet brugt i projektets dokumenter. 
+
+\begin{table}[htb]
+\begin{tabular}{ | m{6em} | m{30em} | } \hline
+
+\textbf{Forkortelse} & \textbf{Forklaring} \\ \hline
+BDD & Block Definition Diagram \\\hline
+CSK & Charlotte Søgaard Kristensen \\ \hline 
+DTO & Data Transfer Objekter \\\hline
+FURPS+ & Funkctionality, Usability, Reliability, Performance, Supportability and Ekstra \\\hline
+GUI & Graphical User Interface, Grafisk brugergrænseflade \\ \hline 
+IBD & Internal Block Diagram \\\hline
+IKT & Informtions- og kommunkationsteknologi\\\hline
+MDD & Medical Device Direktive \\\hline
+MK &  Marie Kirkegaard \\ \hline
+MoSCoW & Must, Should, Could and Would \\\hline
+MSN & Mathias Siig Nørregaard \\ \hline 
+ST & Sundhedsteknologi \\\hline
+sysML &  System Modeling Language \\\hline
+TCP & Tool Center Point \\\hline
+TCP/IP & Transmission Control Protocol/IP-protokollen \\\hline
+UC & Use Case \\\hline
+UML & Unified Modeling Language\\\hline
+\end{tabular}
+\caption{Forkortelser}
+\end{table}
+\newpage
+
+\section{Forkortelser til Medicinsk Godkendelse}
+\begin{table}[htb]
+\begin{tabular}{ | m{6em} | m{30em} | } \hline
+
+\textbf{Forkortelse} & \textbf{Forklaring} \\ \hline
+EMC & Elektromagnetisk kompatibilitet \\ \hline
+ESD & Elektrostatiske sensitive enheder  \\ \hline
+FMECA & Failure Mode, Effects og Criticality Analysis \\ \hline
+GUI & Grafiskbrugergrænseflade \\ \hline 
+MDD & Medical Device Directive 93/42/EØF \\ \hline 
+PMS & Post market surveillance \\ \hline 
+QMS & Kvalitetsstyringssystem \\ \hline 
+63204:2006 & DS/EN 63204:2006 - Software for medicinsk udstyr - Livscyklusprocesser for software \\ \hline 
+ISO 13485:2012 & DS/EN ISO 13485:2012 - Medicinsk udstyr – Kvalitetsledelsessystemer – Krav til lovmæssige formål \\ \hline 
+ISO 14971:2012 & DS/EN ISO 14971 – medicinsk udstyr – Anvendelse af risikoledelse i forbindelse med medicinsk udstyr. \\ \hline
+\end{tabular}
+\caption{Forkortelser til medicinsk godkendelse}
+\end{table}
+
+\chapter{Forklaringer} 
+Nedenfor findes der forklaringen på de tegn, opstillinger og standardindstillinger, som der er blevet anvendt i projektet.
+
+\section{Forklaringer på tegn}
+\begin{table}[htb]
+\begin{tabular}{ | m{6em} | m{30em} | } \hline
+
+\textbf{Tegn} & \textbf{Forklaring} \\ \hline
+[  ] & Tekst markeret med [  ] betyder at det er en knap \\ \hline 
+\end{tabular}
+\caption{Forklaringer}
+\end{table}
+
+\section{Forklaring på forsøgsopstilling}
+Detaljeret forsøgsopstilling til accepttesten. 
+
+\begin{itemize}
+\item \textbf{Robotarm er tilsluttet:} Sæt Universal Robots' UR10 strømkabel til en stikkontakt og tryk på dens 'On/Off' knap i højre øverste hjørne af skærmrammen. Tilslut et ethernetkabel af typen RJ45 fra Robotarm til access point. Sæt access points strømkabel til en stikkontakt. På computeren forbindes der på WiFi til 'opentele'.
+\item \textbf{3D kamera er tilsluttet:} Sæt Microsoft Kinect 2.0s strømkabel til en stikkontakt. Sæt Microsoft Kinect 2.0s USB-kabel i computerens USB 3.0 port.
+\item \textbf{System er startet:} Gennemførsel af samtlige tests i tabel \ref{uc1_test_h_label}
+\item \textbf{Ultralydsscanner er tændt:} Gøres ved... \todo{Hvordan gøres det?}
+\item \textbf{Robotarm står i Ikke-standard positur:} Sæt Universal Robots' UR10 strømkabel til en stikkontakt og tryk på dens 'On/Off' knap i højre øverste hjørne af skærmrammen. Når den har bootet færdig tryk på 'Go to initialization scan' på UR10s touchskærm. Tryk på 'On'. Tryk på 'START'. Tryk på 'OK' i højre nederste hjørne. Tryk på fanen 'Move' øverst på skærmen. Tryk på 'Feature'-dropdownen, og vælg 'Base'. Tryk på en af tekstboksene i 'TCP'-rammen. Indtast de koordinater der findes i posituren 'Ikke-standard Positur'. Tryk på OK. Hold 'Auto' nede indtil 'Auto' bliver greyed out. Tryk OK. Tryk på 'On/Off'-knappen i højre øverste hjørne af skærmrammen. Tryk på 'Shutdown Robot' på touchskærmen.
+\end{itemize}
+
+
+\section{Robotarms positurer}
+En positur er en definition for den position og rotation som Robotarm kan have. 
+
+\begin{itemize}
+\item \textbf{Standard Positur:} Er angivet ved disse koordinater:
+\begin{itemize}
+\item Position X: $\pm$ 0.00 mm
+\item Position Y: $-$ 950.00 mm
+\item Position Z: $+$ 800.00 mm
+\item Rotation X: $\pm$ 0.0000 radianer
+\item Rotation Y: $+$ 3.1416 radianer
+\item Rotation Z: $\pm$ 0.0000 radianer
+\end{itemize}
+
+\item \textbf{Ikke-standard Positur:} Er angivet ved disse koordinater:
+\begin{itemize}
+\item Position X: $-$ 100.00 mm
+\item Position Y: $-$ 650.00 mm
+\item Position Z: $+$ 600.00 mm
+\item Rotation X: $+$ 3.1416 radianer
+\item Rotation Y: $\pm$ 0 radianer
+\item Rotation Z: $+$ 3.1416 radianer
+\end{itemize}
+
+\item \textbf{3D Scan Positur:} Er angivet ved disse koordinater:
+\begin{itemize}
+\item Position X: $-$ 100.00 mm
+\item Position Y: $-$ 650.00 mm
+\item Position Z: $+$ 600.00 mm
+\item Rotation X: $+$ 3.1416 radianer
+\item Rotation Y: $\pm$ 0 radianer
+\item Rotation Z: $+$ 3.1416 radianer
+\end{itemize}
+\end{itemize}
+
+\end{document}

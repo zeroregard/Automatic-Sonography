@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Rapport.aux
+The style file: plain.bst
+A level-1 auxiliary file: formalia/RForside.aux
+A level-1 auxiliary file: formalia/Underskrifter.aux
+A level-1 auxiliary file: rfiler/Resume.aux
+A level-1 auxiliary file: rfiler/Abstract.aux
+A level-1 auxiliary file: rfiler/Forkortelser.aux
+A level-1 auxiliary file: rfiler/Forord.aux
+A level-1 auxiliary file: rfiler/Indledning.aux
+A level-1 auxiliary file: rfiler/Projektformulering.aux
+A level-1 auxiliary file: rfiler/Baggrund.aux
+A level-1 auxiliary file: rfiler/Arbejdsmetoder.aux
+A level-1 auxiliary file: rfiler/Projektgennemforelse.aux
+A level-1 auxiliary file: rfiler/Resultater.aux
+A level-1 auxiliary file: rfiler/Fremtidsudvikling.aux
+A level-1 auxiliary file: rfiler/Diskussion.aux
+A level-1 auxiliary file: rfiler/Konklusion.aux
+A level-1 auxiliary file: rfiler/Bilag.aux
+Database file #1: ../bibliografi/PRJ3.bib
+Warning--can't use both author and editor fields in Sobotta:2006ab
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            537 strings with 4791 characters,
+and the built_in function-call counts, 846 in all, are:
+= -- 73
+> -- 33
+< -- 4
++ -- 13
+- -- 10
+* -- 55
+:= -- 145
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 14
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 42
+empty$ -- 79
+format.name$ -- 10
+if$ -- 179
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 6
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 11
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 15
+swap$ -- 8
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 1
+while$ -- 6
+width$ -- 4
+write$ -- 39
+(There was 1 warning)

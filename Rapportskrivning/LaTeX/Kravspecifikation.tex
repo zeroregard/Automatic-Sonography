@@ -1,0 +1,37 @@
+\include{preamble_jacob}
+\usepackage[explicit]{titlesec}
+\usepackage{longtable,tabu}
+\usepackage{longtable}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\usepackage{caption}
+\usepackage{subcaption}
+\externaldocument{Bilagsliste}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\raggedbottom
+\begin{document}
+
+\include{formalia/Kravspecifikation_Forside}
+
+\tableofcontents
+
+% Her findes de nummererede kapitler modsat \frontmatter og \backmatter.
+%\include{afiler/Forkortelser}
+\include{kfiler/Versionshistorik}
+\include{kfiler/Formal}
+\include{kfiler/Systembeskrivelse}
+\include{kfiler/Aktorer}
+\include{kfiler/Funktionellekrav}
+\include{kfiler/Ikkefunktionellekrav}
+\include{kfiler/Brugergranseflade}
+
+\backmatter
+\include{kfiler/Bilag}
+
+\bibliographystyle{plain}
+\bibliography{bibliografi/PRJ3}    % Sætter bibliografien bagerst i dokumentet. Bruger bib-filen PRJ3.
+
+\end{document}

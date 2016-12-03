@@ -1,0 +1,61 @@
+\chapter{Test}\label{Test}
+I dette afsnit beskrives, hvordan systemet er testet for at sikre, at design og implementeringen lever op til systemkrav, defineret i kravspecifikation bilag \ref{Kravspecifikation}. Der er både udført en accepttest (bilag \ref{Accepttest})  for hele systemet Automatisk Ultralydsscanner og unittest (bilag \ref{Udviklingsdokument} af softwaren i PC Applikation. 
+
+\section{Accepttest}
+Accepttesten er lavet for at teste funktionelle og ikke-funktionelle krav, som er beskrevet i kravspecifikation. Testen udføres typisk overfor en kunde, men i bachelorprojektet er accepttesten udførst med vejleder, Michael Alrøe. En godkendt test betyder fejlfri gennemførsel, mens ikke godkendt betyder, at teststeppet ikke kan gennemføres og godkendes. Fejl og årsager er nærmere beskrevet i et andet bilag (HUSK REFERENCE, HVIS DER LAVES ET DOKUMENT!). 
+
+Til accepttesten er der benyttet et testobjekt, udformet som et bryst, som erstatning for patient. For at teste Automatisk Ultralydsscanner bevægelsesmønster, er det valgt at påmontere en ”marker!!!!”, som markerer probens bane over testobjektet. 
+
+\subsection{Funktionelle krav} 
+Test af funktionelle krav inkluderer syv forskellige test, da både hovedforløb, udtagelser, og udvidelser i de fire use cases skal testes. Nedenstående tabel viser de forskellige tests, der er udført. 
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | l | p{0.80\textwidth} | }
+\hline
+\textbf{Testens navn} \\\hline
+UC1: Hovedscenarie\\\hline 
+UC2: Hovedscenarie \\\hline 
+UC2: Undtagelse: Juster 3D billedets skæring \\\hline 
+UC3: Hovedscenarie \\\hline 
+UC3: Udvidelse: Operatør pauser scanning \\\hline 
+UC3: Undtagelse: Operatør stopper scanning \\\hline 
+UC4: Hovedscenarie \\\hline 
+\end{tabular}
+\caption{Test af funktionelle krav} 
+\end{table}
+
+Se bilag \ref{Accepttest} Accepttest for det fulde testsetup og resultater af hver test. 
+
+\subsection{Ikke-funktionelle krav} 
+De ikke-funktionelle krav er MoSCoW-metoden benyttet til at prioritere kravenes vigtighed. Det er valgt kun at teste ’must’-kravene, som kan ses i nedenstående tabel. 
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | c | p{0.80\textwidth} | }
+\hline
+\textbf{Type} & \textbf{Navn} \\\hline
+Usability & U1. PC Applikation skal have en GUI \\\hline 
+Performance & P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10
+minutter til sammen \\\hline 
+Performance & P2. Startoptid på PC Applikation skal være max 30 sekunder \\\hline
+Performance & P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet \\\hline 
+Performance & P4. PC Applikation skal max bruge 1 minut på at færdiggøre brystområdets
+positurer til Robotarm \\\hline 
+Performance & P5. Ultralydsproben skal bevæges over brystet fra højre mod venstre i en
+sinus-lignende kurve \\\hline 
+\end{tabular}
+\caption{Test af funktionelle krav}
+\end{table}
+
+Se bilag Accepttest for det fulde testsetup og resultater for hver test. 
+
+\subsection{Unittest af PC Applikation}
+Der er undervejs i udviklingen af PC Applikationen udført unittest af softwarens forskellige dele. 
+Testene er lavet i et separat projekt, hvad er code coverage procenten på mm. 
+
+Mere skal skrives herunder. 
+
+Se bilag \ref{Udviklingsdokument} Udviklingsdokument, afsnit 'Test' for en uddybning af de forskellige unittests. 
+
+\subsection{Integrationstest}

@@ -1,0 +1,144 @@
+\chapter{Ikke-funktionelle krav}\label{Ikkefunktionellekrav}
+Accepttest af ikke-funktionelle krav, hvor der kun testes på must-krav. 
+
+\section{Usability}
+\subsubsection{U1. PC Applikation skal have en GUI}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item PC Applikation er startet 
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson
+\end{enumerate} 
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline    
+Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 'Startup Menu' vises på GUI &\\\hline
+\end{tabularx}
+\caption{Usability 1}
+\label{U1}
+\end{table}
+
+\newpage
+
+\section{Performance}
+\subsubsection{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item PC Applikation er startet
+\item 3D kamera er tilsluttet
+\item Ultralydsdummy er fastmonteret Robotarm
+\item Robotarm er tilsluttet
+\item Stopur
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson
+\item Testobjekt
+\item 3D kamera 
+\item Ultralydsdummy
+\item Robotarm
+\end{enumerate}
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline  
+Testperson starter stopur & Stopur er startet & \\\hline
+Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
+Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & UC2: 3D scan gennemføres, og menuen '3D Scan Menu' viser noget andet end et sort billede & \\\hline
+Testperson trykker på knappen [OK] på GUI's '3D Scan Menu' & Menuen 'Startup Menu' vises på GUI og knappen [Ultralydsscan] er tilgængelig & \\\hline
+Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & UC3: Ultralydsscan gennemføres, og Robotarm fører Ultralydsscanner rundt på Testobjekt & \\\hline
+Testperson slukker for stopur, når Robotarm stopper & Stopur viser 10 minutter eller derunder & \\\hline
+\end{tabularx} 
+\caption{Performance 1}
+\label{P1}
+\end{table}
+\newpage
+
+\subsubsection{P2. Startoptid på PC Applikation skal være max 30 sekunder}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item Computer skal være tændt
+\item Stopur
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson
+\end{enumerate}
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline  
+Testpersonen starter stopur & Stopur er startet & \\ \hline
+Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 'Startup Menu' vises på GUI &\\\hline
+Testpersonen venter på, at Robotarm starter og derefter stopper med at flytte sig & Robotarm er stoppet  & \\\hline
+Testpersonen slukker for stopur, når Robotarm stopper & Stopur viser 30 sekunder eller derunder & \\ \hline
+\end{tabularx} 
+\caption{Performance 2}
+\label{P2}
+\end{table}
+\newpage
+
+\subsubsection{P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item PC Applikation er startet
+\item 3D kamera er tilsluttet
+\item Testobjekt ligger indenfor afgrænsning
+\item Stopur
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson
+\item 3D kamera 
+\item Testobjekt
+\end{enumerate}
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline  
+Testpersonen starter stopur & Stopur er startet & \\ \hline
+Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
+Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & UC2: 3D scan gennemføres, og menuen '3D Scan Menu' viser noget andet end et sort billede & \\\hline
+Testpersonen slukker for stopur & Stopur viser 1 minut eller derunder & \\\hline
+\end{tabularx}
+\caption{Performance 3}
+\label{P3}
+\end{table}
+\newpage
+
+\subsubsection{P4. PC Applikation skal max bruge 1 minut på at færdiggøre brystområdets positurer til Robotarm}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item PC Applikation er startet
+\item 3D kamera er tilsluttet
+\item Testobjekt ligger indenfor afgrænsning
+\item Stopur
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson 
+\item 3D kamera 
+\item Testobjekt
+\end{enumerate}
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline
+Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
+Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & UC2: 3D scan gennemføres, og menuen '3D Scan Menu' viser noget andet end et sort billede & \\\hline
+Testpersonen starter en timer & Timer starter. & \\\hline
+Testperson trykker på knappen [OK] på '3D Scan Menu' & Menuen [Startup Menu] vises på GUI & \\\hline
+Testperson slukker for stopur, når knappen [Ultralydsscan Knap] vises på GUI's 'Startup Menu'. & Stopur viser 1 minut eller derunder & \\\hline
+\end{tabularx} 
+\caption{Performance 4}
+\label{P4}
+\end{table}
+\newpage

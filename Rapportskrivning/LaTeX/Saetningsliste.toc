@@ -1,0 +1,10 @@
+\changetocdepth {2}
+\select@language {danish}
+\contentsline {chapter}{Indholdsfortegnelse}{1}{section*.1}
+\contentsline {chapter}{\chapternumberline {1}Forkortelser}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Forkortelser til dokumentation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Forkortelser til Medicinsk Godkendelse}{3}{section.1.2}
+\contentsline {chapter}{\chapternumberline {2}Forklaringer}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Forklaringer p\IeC {\r a} tegn}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Forklaring p\IeC {\r a} fors\IeC {\o }gsopstilling}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Robotarms positurer}{5}{section.2.3}

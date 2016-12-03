@@ -1,0 +1,65 @@
+﻿<Window x:Class="InputPoseGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="569.559" Width="1134.915">
+    <Window.Resources>
+
+    </Window.Resources>
+    <Grid>
+        <WrapPanel Margin="19,24,0,0" Height="225" VerticalAlignment="Top" HorizontalAlignment="Left" Width="29">
+            <Label Content="X: " Margin="0,6"/>
+            <Label Content="Y: " Margin="0,6"/>
+            <Label Content="Z: " Margin="0,6"/>
+            <Label Content="Rx: " Margin="0,6"/>
+            <Label Content="Ry: " Margin="0,6"/>
+            <Label Content="Rz: " Margin="0,6"/>
+        </WrapPanel>
+        <WrapPanel Margin="48,24,0,0" Width="61" Height="225" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBox Name="tbx" Width="50" Margin="5,10">0.0</TextBox>
+            <TextBox Name="tby" Width="50" Margin="5,10">-0.4</TextBox>
+            <TextBox Name="tbz" Width="50" Margin="5,10">0.4</TextBox>
+            <TextBox Name="tbRx" Width="50" Margin="5,10">0</TextBox>
+            <TextBox Name="tbRy" Width="50" Margin="5,10">3.14</TextBox>
+            <TextBox Name="tbRz" Width="50" Margin="5,10">0</TextBox>
+        </WrapPanel>
+        <Button Content="Send Pose" Name="btnSendPose" HorizontalAlignment="Left" Margin="48,260,0,0" VerticalAlignment="Top" Width="75" Click="btnSendPose_Click"/>
+        <Label Content="0.0" Name="lbx" HorizontalAlignment="Left" Margin="132,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lby" HorizontalAlignment="Left" Margin="132,68,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbz" HorizontalAlignment="Left" Margin="132,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRx" HorizontalAlignment="Left" Margin="132,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRy" HorizontalAlignment="Left" Margin="132,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRz" HorizontalAlignment="Left" Margin="132,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="Aktuel position:" HorizontalAlignment="Left" Margin="108,4,0,0" VerticalAlignment="Top" Width="91" Height="26"/>
+        <Label Content="Aktuel force:" HorizontalAlignment="Left" Margin="228,4,0,0" VerticalAlignment="Top" Width="91" Height="26"/>
+        <Label Content="0.0" Name="lbxForce" HorizontalAlignment="Left" Margin="248,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbyForce" HorizontalAlignment="Left" Margin="248,68,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbzForce" HorizontalAlignment="Left" Margin="248,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRxForce" HorizontalAlignment="Left" Margin="248,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRyForce" HorizontalAlignment="Left" Margin="248,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRzForce" HorizontalAlignment="Left" Margin="248,220,0,0" VerticalAlignment="Top"/>
+        <Button Content="Shut Down UR" HorizontalAlignment="Left" Margin="171,259,0,0" VerticalAlignment="Top" Width="103" Click="Button_Click"/>
+        <TextBox Name="tbMessage" HorizontalAlignment="Left" Height="23" Margin="48,319,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230"/>
+        <Button Content="Send Message" HorizontalAlignment="Left" Margin="48,347,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click_1"/>
+        <Label Content="GeoMagic Pose:" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="91" Height="26"/>
+        <Label Content="0.0" Name="lbxGMPose" HorizontalAlignment="Left" Margin="345,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbyGMPose" HorizontalAlignment="Left" Margin="345,68,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbzGMPose" HorizontalAlignment="Left" Margin="345,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRxGMPose" HorizontalAlignment="Left" Margin="345,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRyGMPose" HorizontalAlignment="Left" Margin="345,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="0.0" Name="lbRzGMPose" HorizontalAlignment="Left" Margin="345,220,0,0" VerticalAlignment="Top"/>
+        <DockPanel Margin="492,30,0,0" Height="460" Width="594" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Menu DockPanel.Dock="Top" VerticalAlignment="Top" Height="30">
+                <Label Content="Hold down the M-key"/>
+            </Menu>
+
+            <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Height="30">
+                <Label Content="Mouse pos:"/>
+                <Label Content="X:"/>
+                <TextBox Name="xPosTB" Width="30" Height="20"/>
+                <Label Content="Y:"/>
+                <TextBox Name="yPosTB" Width="30" Height="20"/>
+            </StatusBar>
+            <Canvas Name="canvas"/>
+        </DockPanel>
+    </Grid>
+</Window>

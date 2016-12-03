@@ -1,0 +1,46 @@
+\input{preamble_jacob}
+\raggedbottom
+
+\externaldocument[D-]{Dokumentation}
+\externaldocument{Bilagsliste}
+
+\begin{document}
+	
+\frontmatter		
+\include{formalia/RForside}
+\include{formalia/Underskrifter}
+\include{rfiler/Resume}
+\include{rfiler/Abstract}
+\include{rfiler/Forkortelser}
+%\include{rfiler/Versionshistorik}                    
+\cleardoublepage		
+
+\tableofcontents* % Indsætter en indholdsfortegnelse før Indledning.
+
+\mainmatter
+  
+\include{rfiler/Forordx}                     % Her findes de nummererede kapitler modsat \frontmatter og \backmatter.
+\include{rfiler/Indledning}
+\include{rfiler/Teori}
+\include{rfiler/Afgransning}
+\include{rfiler/Systemkrav}
+\include{rfiler/Metoder}
+\include{rfiler/Analyser}
+\include{rfiler/MedicinskGodkendelse}
+\include{rfiler/Systemarkitektur}
+\include{rfiler/Systemdesign}
+\include{rfiler/Udviklingsvarktojer}
+\include{rfiler/Implementering}
+\include{rfiler/Test}
+\include{rfiler/Resultater}
+\include{rfiler/Diskussion}
+\include{rfiler/Fremtidsudvikling}
+\include{rfiler/Konklusion}
+
+\backmatter
+\include{rfiler/Bilag}
+
+\bibliographystyle{plain}
+\bibliography{bibliografi/PRJ3}    % Sætter bibliografien bagerst i dokumentet. Bruger bib-filen PRJ3.
+
+\end{document}

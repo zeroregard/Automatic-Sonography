@@ -1,0 +1,20 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Kravspecifikation.aux
+The style file: plain.bst
+A level-1 auxiliary file: formalia/Kravspecifikation_Forside.aux
+A level-1 auxiliary file: kfiler/Versionshistorik.aux
+A level-1 auxiliary file: kfiler/Formal.aux
+A level-1 auxiliary file: kfiler/Systembeskrivelse.aux
+A level-1 auxiliary file: kfiler/Aktorer.aux
+A level-1 auxiliary file: kfiler/Funktionellekrav.aux
+A level-1 auxiliary file: kfiler/Ikkefunktionellekrav.aux
+A level-1 auxiliary file: kfiler/Brugergranseflade.aux
+A level-1 auxiliary file: kfiler/Bilag.aux
+Illegal, another \bibstyle command---line 36 of file Kravspecifikation.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: bibliografi/PRJ3.bib
+Warning--empty journal in MDD
+Warning--empty journal in software
+Warning--empty year in software
+(There was 1 error message)

@@ -1,0 +1,38 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Projektrapport.aux
+The style file: plain.bst
+A level-1 auxiliary file: formalia/RForside.aux
+A level-1 auxiliary file: formalia/Underskrifter.aux
+A level-1 auxiliary file: rfiler/Resume.aux
+A level-1 auxiliary file: rfiler/Abstract.aux
+A level-1 auxiliary file: rfiler/Forkortelser.aux
+A level-1 auxiliary file: rfiler/Forordx.aux
+A level-1 auxiliary file: rfiler/Indledning.aux
+A level-1 auxiliary file: rfiler/Teori.aux
+A level-1 auxiliary file: rfiler/Afgransning.aux
+A level-1 auxiliary file: rfiler/Systemkrav.aux
+A level-1 auxiliary file: rfiler/Metoder.aux
+A level-1 auxiliary file: rfiler/Analyser.aux
+A level-1 auxiliary file: rfiler/MedicinskGodkendelse.aux
+A level-1 auxiliary file: rfiler/Systemarkitektur.aux
+A level-1 auxiliary file: rfiler/Systemdesign.aux
+A level-1 auxiliary file: rfiler/Udviklingsvarktojer.aux
+A level-1 auxiliary file: rfiler/Implementering.aux
+A level-1 auxiliary file: rfiler/Test.aux
+A level-1 auxiliary file: rfiler/Resultater.aux
+A level-1 auxiliary file: rfiler/Diskussion.aux
+A level-1 auxiliary file: rfiler/Fremtidsudvikling.aux
+A level-1 auxiliary file: rfiler/Konklusion.aux
+A level-1 auxiliary file: rfiler/Bilag.aux
+Illegal, another \bibstyle command---line 50 of file Projektrapport.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: bibliografi/PRJ3.bib
+Warning--empty journal in MDD
+Warning--empty journal in 13485
+Warning--empty year in 13485
+Warning--empty journal in 14971
+Warning--empty year in 14971
+Warning--empty journal in software
+Warning--empty year in software
+(There was 1 error message)

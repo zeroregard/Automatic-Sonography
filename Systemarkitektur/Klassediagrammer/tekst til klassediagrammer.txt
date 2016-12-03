@@ -1,0 +1,21 @@
+ComputerVisionLibrary
+Formålet med dette bibliotek er at få en afgrænset 3D scanning fra et 3D kamera.
+KinectFusionizeren har til ansvar at åbne Kinect-sensoren, tage det nuværende dybdebillede fra sensoren og konvertere det til en mesh.
+ComputerVisionMaster virker som den logiske grænseflade til KinectFusionizeren, hvor instansen af den nuværende mesh lagres her.
+Andre klasser kan subscribe til ComputerVisionMasteren for at høre hvornår der er en ny mesh tilgængelig.
+
+CalculationLibrary (ConversionLibrary)
+Dette bibliotek agerer som bindeledet mellem ComputerVisionLibrary og RoboLibrary.
+CameraToRobotCalibrator sørger for at konvertere 3D scanningen givet fra ComputerVisionLibrary fra 3D Kameras rum til Robot Arms rum.
+Det gør at hvert eneste punkt i modellen kan gives videre til Robot Arm som en positur.
+Det er nødvendigt at finde ud af hvilken rute Robot Arm skal tage for at ultralydsscanne et objekt - det står PathCreator for.
+Efter transformation til Robot Arms rum afgør PathCreator listen af positurer som Robot Arm skal løbe igennem.
+
+RoboLibrary
+Biblioteket giver mulighed for kommunikation med Robot Arm.
+I det øverste modul, RoboMaster, af biblioteket vil der være mulighed for at instruere Robot Arm i at gennemløbe en mængde af positurer.
+PathFeeder står for at gennemløbe hver positur i listen, og kommunikere med Data for at finde ud af hvornår den næste positur skal sendes til Robot Arm.
+Data-klassen er der som en grænseflade mellem den 'logiske' del af biblioteket og dens underliggende reader/writer klasser.
+Reader står for kontinuerligt at læse data fra Robot Arm. Analyzer konverterer det indlæste data til en objekt-orienteret model, altså transformation
+af bytes til Robot Arms nuværende positur.
+Writer står for at omskrive værdier til binær data. Modbus skriver binær data ud på Robot Arms IP gennem modbus-protokollen.

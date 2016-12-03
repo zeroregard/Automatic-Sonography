@@ -1,0 +1,15 @@
+﻿<Window x:Class="AutoSonographyWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoSonographyWPF"
+        mc:Ignorable="d"
+        Title="Automatic Sonography" Height="350" Width="512">
+    <Grid>
+        <Button x:Name="btn3DScan" Click="btn3DScan_Click" Content="3D Scan" HorizontalAlignment="Left" Margin="64,64,0,64" Width="128" Height="128"/>
+        <Button x:Name="btnUltraSoundScan" Content="Ultrasound Scan" HorizontalAlignment="Right" Margin="0,64,64,64" Width="128" Height="128" Click="btnUltraSoundScan_Click" IsEnabled="False"/>
+        <Button x:Name="btnConvertAndSave" Content="Convert and Save" HorizontalAlignment="Left" Margin="64,258,0,0" VerticalAlignment="Top" Width="128" Click="btnConvertAndSave_Click" IsEnabled="False"/>
+
+    </Grid>
+</Window>

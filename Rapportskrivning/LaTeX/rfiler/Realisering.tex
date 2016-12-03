@@ -1,0 +1,83 @@
+\chapter{Realisering}\label{kapitel_Realisering}
+
+\section{Metode}
+\subsection{Udviklingsværktøjer} 
+Til udviklingen af dokumentation for systemet er der brugt arbejdsværktøjerne Unified Modeling Language (UML) og Systems Modeling Language (SysML). UML er en standard for diagrammer og beskriver objektorienteret programmering, mens SysML er en udvidelse af UML og er et grafisk værktøj til at modellere systemer, hvori der også kan indgå hardware. 
+
+Projektarbejdet har bestået af udvikling af software, hvor  UML er benyttet til at opstille bl.a. use cases, aktør-kontekst diagrammer samt sekvens- og klassediagrammer mm. Systemet anvender allerede udviklet hardware, som PC applikationen skal have forbindelse til. SysML er benyttet til at lave block difinition diagram (bdd) og internal block diagram (ibd) til at illustrere forbindelsen mellem de forskellige komponenter som f.eks. robotarmern.
+
+\subsection{Kvalitative og kvantitative undersøgelser}
+Der er brugt både kvalitative og kvantitative undersøgelser til belysning af projektets problemstillinger. Den kvantitative metode undersøger i bredden er benyttet i forbindelse med spørgeskemaundersøgelsen af potentielle patienter. Den kvalitative metode undersøger i dybden og er anvendt i form af interviews, hvor der kan stilles yderligere fordybende spørgsmål. Både overlæge Lars Boldvig og afdelingsradiograf Tine Bisgaard er blevet interviewet. 
+
+\subsection{Medicinsk godkendelse}
+Til udarbejdelsen af medicinsk godkendelse er der benyttet standarder og direktiver til at beskrive lovgivningen og nå frem til, hvordan man kan få en CE-mærkning til den Automatiske Ultralydsscanner. 
+
+\subsection{Omkostningsmetoder}
+Der er udarbejdet en økonomisk analyse, da det er væsentligt grundlag for indførsel af ny teknologi i sundhedssektoren. Analysen indeholder omkostningerne forbundet med implementering af den Automatiske Ultralydsscanner, og ud fra de omkostninger er der lavet en breakeven analyse over antal screeninger, før udgifterne fra den Automatiske Ultralydsscanner er betalt af. 
+
+\section{Analyse}
+\subsection{Opsætning }
+evt. opstilling i lokale med 3D kamera i loftet - eller på robot. 
+
+
+\subsection{Brugerundersøgelse}
+Der er foretaget to slags brugerundersøgelse, en kvantitativ med potentielle patienter og to kvalitative interviews med en overlæge og en afdelingsradiograf. Dette er medtaget for at belyse, hvordan vil en automatiseret screening af brystet modtages af patienter og personale. 
+
+\subsubsection{Spørgeskemaundersøgelse}
+Undersøgelsen bestod af et kvalitativt spørgeskema med tre omhandlende scanning med en automatiseret robotarm fremfor en læge, samt hvilke problemstillinger og fordele respondenterne ser ved en automatiseret robotarm.  Undersøgelsen blev foretaget før projektet blev afgrænset til kun at omhandle screeninger – og ikke scanninger af brystet, men det er vurderet, at svarerne er sammenlignelige. 
+
+Der var i alt 72 respondenter på spørgeskemaet, hvor størstedelen, 87,5 \%, af respondenterne var positive for at blive scannet af robotarmen, hvis kvaliteten og sikkerhed er på højde med, hvad den er i dag. De sidste 12,5\% som er negative for automatisk scanning med robotarmen frygter, at robotarmen vil lave fejl, det bliver upersonligt, eller have fornemmelsen af, at lægen har berøreringsangst for en. 
+
+De problemstillinger respondenterne så ift. en automatiserede ultralydsscanninger, var at robottens følsomhed ift. en læge, og der kan gøre undersøgelsen ubehageligt og utryg for patienter. Mange nævner problemstillingen om robottens evne til at scanne forskellige kropstyper. Samtidig giver respondenterne udtryk for, at det måske vil være mere tidskrævende. 
+
+Fordelene, respondenterne så ift. en automatiserede ultralydsscanninger, var, at robotten måske kan give økonomisk mening ved kortere ventetider og spare tid og dermed frigøre ressourcer i form af personale til andre opgaver. Flere af respondenter mente, at en robotarm kan reproducere scanningerne og er ikke afhængig af, hvor god lægen er. Den yngre del af respondenterne nævner ergonomiske fordele for læge, mindre blufærdighed og langdistance undersøgelser, som andre fordele. 
+
+\subsubsection{Interview}
+
+
+\subsection{Økonomisk analyse}
+Den økonomiske analyse er et overslag, hvor der er taget udgangspunkt i en breakeven analyse. Analysen undersøger, hvor mange screeninger, der skal til, før udgifterne af den Automatiske Ultralydsscanner går op. Analysen tager udgangspunkt i de faste omkostninger, der er relateret til implementeringen, og hvor mange resourcer der kan flyttes fra en radiolog til en radiograf. Den gennemsnitlige løn for en radiolog er vurderet til omkring 369 kr./timen, mens en radiografs ligger på 173 kr./timen. (INDSÆTTELSE AF REFERENCE)
+
+De samlede faste omkostninger inkluderer engangsudgifter for, opsætning af og oplæring af radiografer i den Automatiske Ultralydsscanner, og den samlede pris ligger på omkring 219.305,64 kroner, hvilket kan ses i tabel \ref{FasteOmkostninger}.  
+
+\begin{table}[htb]
+\begin{tabular}{ | l | l | p{1\textwidth} | }
+\hline
+\textbf{Beskrivelse af udgift} & \textbf{DKK} \\\hline
+Engangsudgifter til afskrivning & 201.668,00 \\\hline
+Opsætning & 10.759,00 \\\hline
+Oplæring af radiografer & 6.768,00 \\\hline
+I alt & 219.305,64 \\\hline
+\end{tabular}
+\caption{Samlede udgifter for Automatisk Ultralydsscanner}
+\label{FasteOmkostninger}
+\end{table}
+
+Derudover er prisen for én ultralydsscreening beregnet for begge scenarier. Prisen pr. ultralydsscreening for den Automatiske Ultralydsscanner er udregnet ved at antage, at det er en radiograf, der foretager forberedelse, 3D billede og konvertering samt selve ultralydsscreeningen. En radiolog vil derefter bruge omkring 10 minutter på at tjekke billedet igennem for at se om patienten skal til en yderligere scanning.  Prisen for dette er beregnet til 110,64 kroner. 
+
+Prisen pr. ultralydsscreening for det nuværende scenario er udregnet ud fra, at det er en radiolog der foretager både forberedelse, ultralydsscreening og transporttid for at komme frem og tilbage.  Hvis transport er under 4 minutters transport, er det nuværende scenario billigst, hvorimod det over 4 minutter har en breakeven. Figur \ref{Breakeven} beskriver transportminutter, pris for én ultralydsscreening med nuværende setup, og antal screeninger med samme transporttid, før den Automatiske Ultralydsscanner er betalt. 
+
+\begin{table}[htb]
+\begin{tabular}{ | l | l | l | p{0.49\textwidth} | }
+\hline
+\textbf{Transporttid (min)} & \textbf{Pris for én screening (DKK)} & \textbf{Antal screeninger} \\\hline
+4 & 110,74 & 2.121.241,94 \\\hline
+5 & 116,89 & 35.052,51 \\\hline
+8 & 135,34 & 8.873,09\\\hline
+10 & 147,64 & 5.923,66\\\hline
+15 & 178,39 & 3.235,19 \\\hline
+20 & 209,14 & 2.225,25\\\hline
+30 & 270,64 & 1.369,94\\\hline
+45 & 362,89 & 868,95 \\\hline
+60 & 455,14 & 636,26 \\\hline
+\end{tabular}
+\caption{Breakeven analyse for antal transportminutter}
+\label{Breakeven}
+\end{table}
+
+Årligt bliver der foretaget omkring 23.000 ultralydsundersøgelse af brystet i Region Midtjylland, og omkring 127.000 i hele landet . Det har ikke været muligt at finde præcise tal på, hvor mange af disse undersøgelser er scanninger eller screeninger, men hvis bare 10 \% af undersøgelserne er screeninger vil det svare til 2300 årlige screeninger i Region Midtjylland. Hvis det sammenlignes med breakeven analysen ses det, at det svarer til at en læge har brugt 20 minutter på transport (10 minutter hver vej), og at Den Automatiske Ultralydsscanner vil derfor kunne være tjent hjem efter bare ét år. Til den fylde analyse references der til bilaget om Økonomi.  
+
+\section{Systemarkitektur}
+\section{Systemdesign}
+\section{Implementering}
+\section{Test}

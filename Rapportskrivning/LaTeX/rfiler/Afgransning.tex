@@ -1,0 +1,14 @@
+\chapter{Afgrænsning}
+\label{Afgransning}
+Dette afsnit indeholder afgrænsning af projektet. Afgrænsningen af bachelorprojektet er sket løbende, da projektet er et udviklingsprojekt.
+
+Selve proceduren og performance kravene i de ikke-funktionelle krav, er afgrænset efter telefoninterview med radiolog Lars Bolvig, samt besøg på Røntgen- og Skanningsafdelingen på Tage Hansens Gade og efterfølgende interview med Specialeansvarlig radiograf, Tine Bisgaard. Efter interview med Lars Bolvig, blev det besluttet, at systemets primære funktion skulle være ultralydsscanninger af brystet, da det er et specifikt bevægelsesmønter, der skal udføres på patientens bryst. Samtidig vil det tidsmæssigt ikke kunne betale sig at lave kliniske mammografiscanninger, da en radiolog vil kunne gøre dette hurtigere og alligevel se ultralydsscanningen igennem efterfølgende. Det er bl.a. derfor valgt, at systemet Automatisk Ultralydsscanner skal kunne udføre en ultralydsscanning på under 10 minutter. Dette er valgt ud fra et estimat fra Lars Bolvig og efter tiden Tine Bisgaard estimerede, det tager en uerfaren radiolog at lave en ultralydsscanning. 
+
+Projektet har ikke haft en ultralydsscanner til rådighed under udviklingen. Dette har heller ikke har været essentiel for at få et succesfuld projektforløb, da Systemet Automatisk Ultralydsscanner holder blot ultralydsscanneren, og der er derfor brugt en ”dummy” til at markere probens bane over brystet. Samtidig blev det i udviklingen af systemet besluttet ikke at inkludere strain gauges til at måle trykket på patienten. Det er i stedet valgt at prioritere 3D kameras genkendelse af dybde i brystområdet, og derefter bruge billedet til at få robotarmen til at bevæge sig rundt på det detekterede område. 
+
+Der er i projektet blevet benyttet et 3D kamera af typen Kinect 2.0, der er forholdsvis et stort kamera. Kameraet er for stort og tungt til at montere på robotarm, der allerede har en ultralydsholder på sig, og de ville sidde i vejen for hinanden. Det er derfor valgt at montere 3D kameraet i loftet, som samtidig forhindrer, at ledningen til 3D kamera vil komme til at sidde i vejen for robotarms bevægelser. Denne opsætning gør dog fiksering nødvendig, da systemet ellers skal kalibreres ofte.
+
+En anden problemstilling er, at 3D kameraet ikke kan detektere området under brystet med sit infrarøde lys. Ved en konventionel ultralydsscanning scannes armhulen også, men dette er ikke med i dette projekt. Derfor er scanningsområdet afgrænset af, hvor 3D kamera kan detektere.
+
+Når man trykker på stopknappen i PC Applikation, vil Automatisk Ultralydsscanner først stoppe i næste punkt. Det er valgt, at dette er acceptabelt, da der i en nødsituation vil være mulighed for at stoppe Robotarm med det samme på Robotarms indbyggede nødstop-knap. 
+

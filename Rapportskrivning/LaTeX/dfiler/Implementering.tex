@@ -1,0 +1,207 @@
+\chapter{Implementering}\label{kapImp}
+
+\begin{longtabu} to \linewidth{@{}*{3}{>{\sffamily}l} >{\sffamily}X[j]@{}}
+    Version &    Dato &    Ansvarlig &    Beskrivelse\\[-1ex]
+    \midrule
+    Tekst &    Tekst &    Tekst &    Tekst.\\
+    Tekst &    Tekst &    Tekst &    Tekst.\\
+    Tekst &    Tekst &    Tekst &    Tekst.\\
+    Tekst &    Tekst &    Tekst &    Tekst.\\
+\label{version_Produktet}
+\end{longtabu}
+
+\textbf{Formål}\\
+Formålet med implementeringen er at omsætte design af systemet til et færdigt system. 
+
+
+%%%%%
+\section{Hardware}
+Idette afsnit er der beskrevet hvilke overvejelser og beregninger, der er blevet foretaget i sammenhæng med udarbejdelseb af det overordnede hardwaredesign. 
+Det samlede desing af forstærker og filter enheden endte med at se ud som vist herunder:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figurer/d/HWDesign}
+    \caption{Design af forstærker og filter}
+    \label{figtest_HW1}
+\end{figure}
+
+%%%
+\subsection{Transducer}
+Modstanden i en ledning stiger med længden, og det er netop dette princip strain gauges udnytter. 
+Transducerens membran bevæger en lille plade, der er forbundet med fire strain gauges. 
+Hver gang en bevægelse finder sted bliver to af dem presset sammen og to af dem bliver strækket ud.  
+På den måde vil enhver temperaturpåvirkning på det materiale strain gaugene er lavet af blive neutraliseret. 
+De fire strain gauges udgør desuden en del af en Wheatstones bro, hvorved sensitiviteten af systemet bliver firedoblet.
+Det materiale som en strain gauge bliver lavet af er vigtigt, da det har betydning for strain gauges sensitivitet over for belastning og temperaturændringer.
+Transduceren bruge Wheatstone broen med indbyggede strain gauges til at vurder ændringer i den gennemløbende strømspænding, der dannes af signalet fra blodtryksmåleren og en tilkoblet exciterende spænding. 
+Ud fra ændringerne dannes der en output spænding, som sendes videre i systemet til forstærkeren og filteret.
+Ud fra transducerens datablad kunne gruppen læse sig frem til at der skulle kobles en exciterende spænding på 6 V DC til enheden.
+
+%%%
+\subsection{Forstærker}
+
+Man kan bestemme størrelsen af modstanden vha. formlen
+
+\begin{align}
+G = 1+\frac{50 kOhm}{R}			
+\end{align}
+
+hvor G er gain fra transduceren. 
+Det beregner vi på følgende vis
+
+\begin{align}
+G = \frac{V_{out}}{V_{in}} 			
+\end{align}
+
+Vin bestemmes ud fra hvor mange mmHg, der måles på blodtryksmåleren, og hvor mange volt det bliver omdannet til i transduceren. Blodtryksmåleren kan højest få en værdi på 300 mmHg, så det er denne værdi, der regnes videre med. 
+Transduceren angiver 30 uV/mmHg. 
+Det betyder at transduceren giver et output signal på
+
+\begin{align}
+300*30*10^{-6} = 0,009 V
+\end{align}
+
+Det beregnede volt kan herefter bruges i ligning (3.2) til at bestemme, hvor stor gain forstærkeren bør have for at opnå den ønskede forstærkning til 10 V.
+
+\begin{align}
+G = \frac{V_{out}}{V_{in}} = \frac{10 V}{9*10^{-3} V} = 1111,11
+\end{align}
+
+Herefter sættes G = 1111,11 i ligning (3.1), og der solves vha. et CAS-værktøj for størrelsen af gain modstanden R. 
+Den modstand der skal bruges bliver så
+
+\begin{align}
+1111,11 = 1+\frac{50 kOhm}{R} 
+\end{align}
+
+\begin{align}
+R = 45,04 Ohm
+\end{align}
+
+Det er ikke muligt at finde en modstand svarende præcis til den beregnede værdi, så der anvendes blot en modstand på 45 Ohm. Det var ikke muligt at finde en enkelt modstand på 45 Ohm, så der blev i stedet anvendt to modstande på 15 Ohm og 30 Ohm.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/amplitude_karakteristik}
+    \caption{Amplitude karakteristik for 1. ordens LP filter}
+    \label{figtest_LP}
+\end{figure}
+
+Kredsløbdesign for forstærkeren endte med at se ud således:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figurer/d/ForstaerkerDesign}
+    \caption{Design af forstærker}
+    \label{figtest_HW2}
+\end{figure}
+
+%%
+\subsection{Filter}
+Overføringsfuntionen for et lavpasfilter er givet ved
+
+\begin{align}
+Tv(s)=\frac{{1}/C1}{R+{1}/C1}
+\end{align}
+
+Denne funktion kan omskrives til standartledet, så den er nemmere at regne med:
+
+\begin{align}
+Tv(s)=\frac{K}{s + a}
+\end{align}
+
+Denne formel kan så omskrives til
+
+\begin{align}
+Tv(s)=\frac{{1}/Cs}{R+{1}/Cs} = \frac{{1s}/Cs}{Rs+{1s}/Cs} = \frac{{1}/C}{Rs+{1}/C} = \frac{{1}/(R*C)}{s+{1}/(R*C)}
+\end{align}
+
+Hvor RC er tidskonstanten t.
+Når man laver et lavpasfilter er det vigtigt at bestemme hvilken dæmpning det skal have. 
+Ved at betragte amlitudekarakteristiken for et 1. ordens lavpasfilter kan der ses at det dæmper med -20 dB pr. dekade.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/amplitude_karakteristik}
+    \caption{Amplitude karakteristik for 1. ordens LP filter}
+    \label{figtest_LP}
+\end{figure}
+
+Nu skal der vurderes om det er nok til at klare det signal bodtryksmåleren arbejder med.
+Effekten af vores signal er 50 Hz og har en grundtone på ca. 1 Hz. 
+Filteret sidder i forlængelse af forstærkeren, der har Vout=10 V. Dvs. at Vin=10 V for filteret. 
+Når signal amplituden for grundtonen er 10 V, så svarer det til en amplitude på 3 mV ved 50 Hz. 
+Amplituden ved 50 Hz ligger altså nede omkring støjgulvet, og der kan derfor antages at amplituden ved fs/2 har ca. den samme værdi.
+Biologiske signaler er samplegt ved tid, så der kan opstå aliasering af signalet. 
+For at undgå overlapning i den situation, og deraf komne fejl, så er fs/2 nød til at være lavere end 3 mV.
+For at finde ud af præcis hvor lav amplituden skal der bruges information fra et andet led i blodtryksmåler systemet -DAQ'en. 
+Den sidder efter forstærkeren og filteret, og kan klare et digital output på 14 bit. 
+Der er altså 14 digitale værdier i DAQ'en. Ud fra den kan dæmpningsfaktoren beregnes.
+
+\begin{align}
+\frac{V_{fs}}{2^{N+1}} =  \frac{10 V}{2^{14+1}} = 0,3 mV
+\end{align}
+
+Dvs. at ved fs/2 skal signalet dæmpes yderligere med en faktor 10 svarende netop til 20 dB pr. dekande. 
+Derved kan der konkluderes at et 1. orden lavpasfilter er tilstrækkeligt til at dæmpe det biologiske signal i blodtryksmåleren.
+Nu ved gruppen at et 1. ordens lavpasfilter er nok, men der skal stadig bestemmes størrelsen af komponenterne i kredsløbet. 
+Det kan gøres ud fra knækfrekvensen fc, der er givet ved
+
+\begin{align}
+f_c = \frac{1}{2*pi*t} Hz =\frac{1}{2*pi*R*C} Hz
+\end{align}
+
+Da vores effekt er ved 50 Hz, så vil knækfrekvensen for signalet også ligge der.
+Dvs. at der kun ønsker spændinger med frekvenser < 50 Hz og derfor skal systemet dæmpe alle spændinger med signaler > 50 Hz. 
+Der fås derved
+
+\begin{align}
+50 = \frac{1}{2*pi*t} Hz
+\end{align}
+
+Det giver en tidskonstant på t = 0,0031 = R*C. 
+Det er nu muligt at prøve, at finde en passende værdi af modstanden og kondensatoren i det passive filter ud fra den fundne tidskonstant. 
+Gruppen besluttede at bruge en kondensator på 100 nF og der kan så regnes på hvilken værdi modstanden bør have.
+
+\begin{align}
+0,0031 = R*100*10^{-9}
+R = 31 k Ohm
+\end{align}
+
+Kredsløbsdesign for filteret ender med at se ud således:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{figurer/d/FilterDesign}
+    \caption{Design af 1. ordens passivt lavpas filter}
+    \label{figtest_HW3}
+\end{figure}
+
+%%
+\subsection{Tænd/sluk knap}
+I hht. til UC1 og UC8 i kravspecifikationen, så skal hardwaren have implementeret en fysisk tænd/sluk knap. 
+Operatøren skal kunne bruge knappen til at tænde og slukke for input signalet fra forstærker/filter enheden til computeren og derved blodtryksmålerens software del. 
+Til dette formål blev der anvendt en flip-knap.
+Gruppen valgte at placere knappen ved forbindelsen mellem forstærkeren og filteret ud for forstærkerens ben 6, der svarer til Vout.
+Ved at placere knappen netop der ville det være muligt at sørge for, at alle input signaler fra enheden bliver fuldstændig afbrudt, når operatøren sætter knappen på "sluk"-positionen.
+
+%%%%%
+\section{Software}
+Beskrivelse af overordnede softwaredesign.
+implementering af systemet. 
+
+Tag en use case af gangen
+mislykket, hvorfor?
+
+Forklaring og beskrivelse af de programdele der har særligt kompleks karakter.
+
+En beskrivelse af de løsninger, der kræver en særlig argumentation.
+
+En startvejledning 
+
+
+%%%%%
+\section{Systemet}
+Overordnede design.
+Måske ikke relevant.

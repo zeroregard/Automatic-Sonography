@@ -1,0 +1,97 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{tabulary}
+
+\begin{document}
+placeholder text
+\newline
+\begin{tabular}{ | l | p{0.8\textwidth} | }
+  \hline
+  \multicolumn{2}{|c|}{\textbf{UC1: Start System}} \\ \hline
+  \textbf{Goal} & To initiate the system and prepare to scan  \\ \hline
+  \textbf{Initiation} & Operator opens the software on the computer.  \\ \hline
+  \textbf{Precondition} & The computer has been booted  \\ \hline
+  \textbf{Postcondition} & The software has activated Robot arm, 3D camera and Ultrasound scanner.  \\ \hline
+  \textbf{Main Scenario} & 
+  	{\begin{enumerate} 
+  	\item Operator starts System
+  	\end{enumerate}} \\ \hline
+  \textbf{Exceptions} & \hspace{1cm} \\ \hline
+\end{tabular}
+\newline
+\vspace*{1 cm}
+\newline
+\begin{tabular}{ | l | p{0.8\textwidth} | }
+  \hline
+  \multicolumn{2}{|c|}{\textbf{UC2: Detect chest area}} \\ \hline
+  \textbf{Goal} & To construct a depth image of Patient’s chest area, so that UC3 can be initiated  \\ \hline
+  \textbf{Initiation} & Operator selects ’3D Scan’  \\ \hline
+  \textbf{Precondition} & UC1 has been completed  \\ \hline
+  \textbf{Postcondition} & Patient’s chest area has been scanned \\ \hline
+  \textbf{Main Scenario} & 
+  	{\begin{enumerate} 
+  	\item 3D camera scans chest area
+  	\item 3D camera feeds boundary points to System
+  	\item Operator verifies depth image
+  		\begin{itemize}
+  		\item \textit{[Depth image is distorted]}
+  		\end{itemize}
+  	\end{enumerate}} \\ \hline
+  \textbf{Exceptions} & 
+  	{\begin{itemize} 
+  	\item \textit{[Depth image is distorted]}
+  		\begin{enumerate}
+  		\item Enter UC2, item 1.
+  		\end{enumerate}
+  	\end{itemize}} \\ \hline
+\end{tabular}
+\newline
+\vspace*{1 cm}
+\newline
+\begin{tabular}{ | l | p{0.8\textwidth} | }
+  \hline
+  \multicolumn{2}{|c|}{\textbf{UC3: Detect chest area}} \\ \hline
+  \textbf{Goal} & To perform a medical sonography of the chest area \\ \hline
+  \textbf{Initiation} & Operator selects ‘Ultrasound Scan’ \\ \hline
+  \textbf{Precondition} & UC2 has been completed \\ \hline
+  \textbf{Postcondition} & System has instructed Robot arm to move Ultrasound scanner in order to construct a medical sonographic image of Patient’s chest area  \\ \hline
+  \textbf{Main Scenario} & 
+  	{\begin{enumerate} 
+  	\item Operator starts Ultrasound scanner
+  	\item Operator chooses 'Ultrasound Scan' in System
+  	\item System utilizes depth image from UC2 to feed Robot arm positions and rotations in order to move Ultrasound scanner
+  	\item System stops Robot arm
+  		\begin{itemize}
+  		\item \textit{[Operator stops Robot arm]}
+  		\end{itemize}
+  	\item Operator stops Ultrasound scanner
+  	\end{enumerate}} \\ \hline
+  \textbf{Exceptions} & 
+  	{\begin{itemize} 
+  	\item \textit{[Operator stops Robot arm]}
+  		\begin{enumerate}
+  		\item Operator chooses 'Stop Ultrasound Scan' in System.
+  		\item System stops moving Robot arm prematurely.
+  		\end{enumerate}
+  	\end{itemize}} \\ \hline
+\end{tabular}
+\newline
+\vspace*{1 cm}
+\newline
+\begin{tabular}{ | l | p{0.8\textwidth} | }
+  \hline
+  \multicolumn{2}{|c|}{\textbf{UC4: Stop system}} \\ \hline
+  \textbf{Goal} & To stop System \\ \hline
+  \textbf{Initiation} & Operator \\ \hline
+  \textbf{Precondition} & UC1 has been completed \\ \hline
+  \textbf{Postcondition} & System has shut down  \\ \hline
+  \textbf{Main Scenario} & 
+  	{\begin{enumerate} 
+  	\item Operator closes System software by hitting the Close button in the top right corner
+  	\item Upon exit, Robot arm is set to default position
+  	\item System shuts down
+  	\end{enumerate}} \\ \hline
+  \textbf{Exceptions} & \hspace{1cm} \\ \hline
+\end{tabular}
+
+\end{document}

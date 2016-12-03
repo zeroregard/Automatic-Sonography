@@ -1,0 +1,181 @@
+\hypertarget{class_robo_library_1_1_analyzer}{}\section{Robo\+Library.\+Analyzer Class Reference}
+\label{class_robo_library_1_1_analyzer}\index{Robo\+Library.\+Analyzer@{Robo\+Library.\+Analyzer}}
+Inheritance diagram for Robo\+Library.\+Analyzer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_robo_library_1_1_analyzer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \hyperlink{class_robo_library_1_1_analyzer_a232f56c61a30de1de9e27021bf5dc77b}{Actual\+U\+R\+Pose\+Event\+Handler} (\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose} a\+Pose)
+\begin{DoxyCompactList}\small\item\em Actual UR pose event. This event is called when a new pose is received from the socket stream.\end{DoxyCompactList}\item 
+delegate void \hyperlink{class_robo_library_1_1_analyzer_a985396dd045b907a73d7b627b9bd07dc}{Robot\+Message\+Event\+Handler} (Robot\+Message rob\+Msg)
+\begin{DoxyCompactList}\small\item\em Robot Message event. This event is called when a new robot message is received from the UR socket stream.\end{DoxyCompactList}\item 
+delegate void \hyperlink{class_robo_library_1_1_analyzer_aa1d0cf635115d275b8488aab662610fa}{Robot\+Mode\+Event\+Handler} (string robot\+Mode, string control\+Mode)
+\begin{DoxyCompactList}\small\item\em Robot mode event. This event is called when a new robot mode is received from the socket stream.\end{DoxyCompactList}\item 
+delegate void \hyperlink{class_robo_library_1_1_analyzer_a6d2960ef27111be171f8c9d6a7d2a058}{Tool\+Mode\+Event\+Handler} (string tool\+Mode)
+\begin{DoxyCompactList}\small\item\em Tool mode event. This event is called when a new tool mode is received from the socket stream.\end{DoxyCompactList}\item 
+delegate void \hyperlink{class_robo_library_1_1_analyzer_ae03a29ceaec0141398e05cba9cbfba4d}{Safety\+Mode\+Event\+Handler} (string safety\+Mode)
+\begin{DoxyCompactList}\small\item\em Safety mode event. This event is called when a new safety mode is received from the socket stream.\end{DoxyCompactList}\item 
+\hyperlink{class_robo_library_1_1_analyzer_a2a0c69716b9a8467c56dc8fafcb2fa16}{Analyzer} ()
+\begin{DoxyCompactList}\small\item\em Constructor to create instance of Analyse\+U\+R\+Data and instantiate the different modes.\end{DoxyCompactList}\item 
+void \hyperlink{class_robo_library_1_1_analyzer_a61fcaef4370cb9a47b12d7cdaf926768}{Read\+U\+R\+Data} (byte\mbox{[}$\,$\mbox{]} data)
+\begin{DoxyCompactList}\small\item\em Analyses the data received from the UR socket stream on port 30002.\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_robo_library_1_1_analyzer_a232f56c61a30de1de9e27021bf5dc77b}{Actual\+U\+R\+Pose\+Event\+Handler} \hyperlink{class_robo_library_1_1_analyzer_a5295d61bea6f0f95d4d7cf6a121efaec}{On\+Actual\+U\+R\+Pose}
+\begin{DoxyCompactList}\small\item\em Actual UR pose event. This event is called when a new pose is received from the socket stream.\end{DoxyCompactList}\item 
+static \hyperlink{class_robo_library_1_1_analyzer_a985396dd045b907a73d7b627b9bd07dc}{Robot\+Message\+Event\+Handler} \hyperlink{class_robo_library_1_1_analyzer_ad2f4496aa598c9e9a8380c484aacdb5d}{On\+Robot\+Message}
+\begin{DoxyCompactList}\small\item\em Robot Message event. This event is called when a new robot message is received from the UR socket stream.\end{DoxyCompactList}\item 
+static \hyperlink{class_robo_library_1_1_analyzer_aa1d0cf635115d275b8488aab662610fa}{Robot\+Mode\+Event\+Handler} \hyperlink{class_robo_library_1_1_analyzer_a18356690d4cc11656007057cca93f278}{On\+Robot\+Mode}
+\begin{DoxyCompactList}\small\item\em Robot mode event. This event is called when a new robot mode is received from the socket stream.\end{DoxyCompactList}\item 
+static \hyperlink{class_robo_library_1_1_analyzer_a6d2960ef27111be171f8c9d6a7d2a058}{Tool\+Mode\+Event\+Handler} \hyperlink{class_robo_library_1_1_analyzer_aed192ad0336a1115cf10504bcf5abfc5}{On\+Tool\+Mode}
+\begin{DoxyCompactList}\small\item\em Tool mode event. This event is called when a new tool mode is received from the socket stream.\end{DoxyCompactList}\item 
+static \hyperlink{class_robo_library_1_1_analyzer_ae03a29ceaec0141398e05cba9cbfba4d}{Safety\+Mode\+Event\+Handler} \hyperlink{class_robo_library_1_1_analyzer_a77e89608a449d5ae30eadf9b2d1ed8e3}{On\+Safety\+Mode}
+\begin{DoxyCompactList}\small\item\em Safety mode event. This event is called when a new safety mode is received from the socket stream.\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_robo_library_1_1_analyzer_a2a0c69716b9a8467c56dc8fafcb2fa16}{}\label{class_robo_library_1_1_analyzer_a2a0c69716b9a8467c56dc8fafcb2fa16} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Analyzer@{Analyzer}}
+\index{Analyzer@{Analyzer}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Analyzer()}{Analyzer()}}
+{\footnotesize\ttfamily Robo\+Library.\+Analyzer.\+Analyzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor to create instance of Analyse\+U\+R\+Data and instantiate the different modes.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_robo_library_1_1_analyzer_a232f56c61a30de1de9e27021bf5dc77b}{}\label{class_robo_library_1_1_analyzer_a232f56c61a30de1de9e27021bf5dc77b} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Actual\+U\+R\+Pose\+Event\+Handler@{Actual\+U\+R\+Pose\+Event\+Handler}}
+\index{Actual\+U\+R\+Pose\+Event\+Handler@{Actual\+U\+R\+Pose\+Event\+Handler}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Actual\+U\+R\+Pose\+Event\+Handler()}{ActualURPoseEventHandler()}}
+{\footnotesize\ttfamily delegate void Robo\+Library.\+Analyzer.\+Actual\+U\+R\+Pose\+Event\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{class_robo_library_1_1_u_r_pose}{U\+R\+Pose}}]{a\+Pose }\end{DoxyParamCaption})}
+
+
+
+Actual UR pose event. This event is called when a new pose is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_a61fcaef4370cb9a47b12d7cdaf926768}{}\label{class_robo_library_1_1_analyzer_a61fcaef4370cb9a47b12d7cdaf926768} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Read\+U\+R\+Data@{Read\+U\+R\+Data}}
+\index{Read\+U\+R\+Data@{Read\+U\+R\+Data}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Read\+U\+R\+Data()}{ReadURData()}}
+{\footnotesize\ttfamily void Robo\+Library.\+Analyzer.\+Read\+U\+R\+Data (\begin{DoxyParamCaption}\item[{byte \mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})}
+
+
+
+Analyses the data received from the UR socket stream on port 30002.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Byte array received on the socket stream.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_robo_library_1_1_interfaces_1_1_i_analyzer}{Robo\+Library.\+Interfaces.\+I\+Analyzer}.
+
+\hypertarget{class_robo_library_1_1_analyzer_a985396dd045b907a73d7b627b9bd07dc}{}\label{class_robo_library_1_1_analyzer_a985396dd045b907a73d7b627b9bd07dc} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Robot\+Message\+Event\+Handler@{Robot\+Message\+Event\+Handler}}
+\index{Robot\+Message\+Event\+Handler@{Robot\+Message\+Event\+Handler}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Robot\+Message\+Event\+Handler()}{RobotMessageEventHandler()}}
+{\footnotesize\ttfamily delegate void Robo\+Library.\+Analyzer.\+Robot\+Message\+Event\+Handler (\begin{DoxyParamCaption}\item[{Robot\+Message}]{rob\+Msg }\end{DoxyParamCaption})}
+
+
+
+Robot Message event. This event is called when a new robot message is received from the UR socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_aa1d0cf635115d275b8488aab662610fa}{}\label{class_robo_library_1_1_analyzer_aa1d0cf635115d275b8488aab662610fa} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Robot\+Mode\+Event\+Handler@{Robot\+Mode\+Event\+Handler}}
+\index{Robot\+Mode\+Event\+Handler@{Robot\+Mode\+Event\+Handler}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Robot\+Mode\+Event\+Handler()}{RobotModeEventHandler()}}
+{\footnotesize\ttfamily delegate void Robo\+Library.\+Analyzer.\+Robot\+Mode\+Event\+Handler (\begin{DoxyParamCaption}\item[{string}]{robot\+Mode,  }\item[{string}]{control\+Mode }\end{DoxyParamCaption})}
+
+
+
+Robot mode event. This event is called when a new robot mode is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_ae03a29ceaec0141398e05cba9cbfba4d}{}\label{class_robo_library_1_1_analyzer_ae03a29ceaec0141398e05cba9cbfba4d} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Safety\+Mode\+Event\+Handler@{Safety\+Mode\+Event\+Handler}}
+\index{Safety\+Mode\+Event\+Handler@{Safety\+Mode\+Event\+Handler}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Safety\+Mode\+Event\+Handler()}{SafetyModeEventHandler()}}
+{\footnotesize\ttfamily delegate void Robo\+Library.\+Analyzer.\+Safety\+Mode\+Event\+Handler (\begin{DoxyParamCaption}\item[{string}]{safety\+Mode }\end{DoxyParamCaption})}
+
+
+
+Safety mode event. This event is called when a new safety mode is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_a6d2960ef27111be171f8c9d6a7d2a058}{}\label{class_robo_library_1_1_analyzer_a6d2960ef27111be171f8c9d6a7d2a058} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!Tool\+Mode\+Event\+Handler@{Tool\+Mode\+Event\+Handler}}
+\index{Tool\+Mode\+Event\+Handler@{Tool\+Mode\+Event\+Handler}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{Tool\+Mode\+Event\+Handler()}{ToolModeEventHandler()}}
+{\footnotesize\ttfamily delegate void Robo\+Library.\+Analyzer.\+Tool\+Mode\+Event\+Handler (\begin{DoxyParamCaption}\item[{string}]{tool\+Mode }\end{DoxyParamCaption})}
+
+
+
+Tool mode event. This event is called when a new tool mode is received from the socket stream.
+
+
+
+\subsection{Event Documentation}
+\hypertarget{class_robo_library_1_1_analyzer_a5295d61bea6f0f95d4d7cf6a121efaec}{}\label{class_robo_library_1_1_analyzer_a5295d61bea6f0f95d4d7cf6a121efaec} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!On\+Actual\+U\+R\+Pose@{On\+Actual\+U\+R\+Pose}}
+\index{On\+Actual\+U\+R\+Pose@{On\+Actual\+U\+R\+Pose}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{On\+Actual\+U\+R\+Pose}{OnActualURPose}}
+{\footnotesize\ttfamily \hyperlink{class_robo_library_1_1_analyzer_a232f56c61a30de1de9e27021bf5dc77b}{Actual\+U\+R\+Pose\+Event\+Handler} Robo\+Library.\+Analyzer.\+On\+Actual\+U\+R\+Pose\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Actual UR pose event. This event is called when a new pose is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_ad2f4496aa598c9e9a8380c484aacdb5d}{}\label{class_robo_library_1_1_analyzer_ad2f4496aa598c9e9a8380c484aacdb5d} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!On\+Robot\+Message@{On\+Robot\+Message}}
+\index{On\+Robot\+Message@{On\+Robot\+Message}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{On\+Robot\+Message}{OnRobotMessage}}
+{\footnotesize\ttfamily \hyperlink{class_robo_library_1_1_analyzer_a985396dd045b907a73d7b627b9bd07dc}{Robot\+Message\+Event\+Handler} Robo\+Library.\+Analyzer.\+On\+Robot\+Message\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Robot Message event. This event is called when a new robot message is received from the UR socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_a18356690d4cc11656007057cca93f278}{}\label{class_robo_library_1_1_analyzer_a18356690d4cc11656007057cca93f278} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!On\+Robot\+Mode@{On\+Robot\+Mode}}
+\index{On\+Robot\+Mode@{On\+Robot\+Mode}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{On\+Robot\+Mode}{OnRobotMode}}
+{\footnotesize\ttfamily \hyperlink{class_robo_library_1_1_analyzer_aa1d0cf635115d275b8488aab662610fa}{Robot\+Mode\+Event\+Handler} Robo\+Library.\+Analyzer.\+On\+Robot\+Mode\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Robot mode event. This event is called when a new robot mode is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_a77e89608a449d5ae30eadf9b2d1ed8e3}{}\label{class_robo_library_1_1_analyzer_a77e89608a449d5ae30eadf9b2d1ed8e3} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!On\+Safety\+Mode@{On\+Safety\+Mode}}
+\index{On\+Safety\+Mode@{On\+Safety\+Mode}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{On\+Safety\+Mode}{OnSafetyMode}}
+{\footnotesize\ttfamily \hyperlink{class_robo_library_1_1_analyzer_ae03a29ceaec0141398e05cba9cbfba4d}{Safety\+Mode\+Event\+Handler} Robo\+Library.\+Analyzer.\+On\+Safety\+Mode\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Safety mode event. This event is called when a new safety mode is received from the socket stream.
+
+\hypertarget{class_robo_library_1_1_analyzer_aed192ad0336a1115cf10504bcf5abfc5}{}\label{class_robo_library_1_1_analyzer_aed192ad0336a1115cf10504bcf5abfc5} 
+\index{Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}!On\+Tool\+Mode@{On\+Tool\+Mode}}
+\index{On\+Tool\+Mode@{On\+Tool\+Mode}!Robo\+Library\+::\+Analyzer@{Robo\+Library\+::\+Analyzer}}
+\subsubsection{\texorpdfstring{On\+Tool\+Mode}{OnToolMode}}
+{\footnotesize\ttfamily \hyperlink{class_robo_library_1_1_analyzer_a6d2960ef27111be171f8c9d6a7d2a058}{Tool\+Mode\+Event\+Handler} Robo\+Library.\+Analyzer.\+On\+Tool\+Mode\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tool mode event. This event is called when a new tool mode is received from the socket stream.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Robo\+Library/Analyzer.\+cs\end{DoxyCompactItemize}

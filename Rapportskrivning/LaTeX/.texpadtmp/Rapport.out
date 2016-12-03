@@ -1,0 +1,57 @@
+\BOOKMARK [0][-]{chapter*.1}{Resum\351}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Abstract}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{Forkortelser}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Forord}{}% 4
+\BOOKMARK [0][-]{chapter.2}{Indledning}{}% 5
+\BOOKMARK [0][-]{chapter.3}{Projektformulering}{}% 6
+\BOOKMARK [1][-]{section.3.1}{Officielle krav}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.2}{Gruppens krav}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{Projektafgr\346nsning}{chapter.3}% 9
+\BOOKMARK [0][-]{chapter.4}{Baggrund}{}% 10
+\BOOKMARK [1][-]{section.4.1}{Sundhedsfaglig}{chapter.4}% 11
+\BOOKMARK [2][-]{subsection.4.1.1}{Fysiologi}{section.4.1}% 12
+\BOOKMARK [2][-]{subsection.4.1.2}{Patologi}{section.4.1}% 13
+\BOOKMARK [2][-]{subsection.4.1.3}{M\345ling af blodtryk}{section.4.1}% 14
+\BOOKMARK [1][-]{section.4.2}{Teknologisk}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.2.1}{Software}{section.4.2}% 16
+\BOOKMARK [2][-]{subsection.4.2.2}{Hardware}{section.4.2}% 17
+\BOOKMARK [0][-]{chapter.5}{Arbejdsmetoder}{}% 18
+\BOOKMARK [1][-]{section.5.1}{Redskaber}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.2}{Projektstyring}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.3}{Udviklingsproces}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Projektgennemf\370relse}{}% 22
+\BOOKMARK [1][-]{section.6.1}{Kravspecifikation}{chapter.6}% 23
+\BOOKMARK [2][-]{subsection.6.1.1}{Ikke-funktionelle krav}{section.6.1}% 24
+\BOOKMARK [2][-]{subsection.6.1.2}{Funktionelle krav}{section.6.1}% 25
+\BOOKMARK [2][-]{subsection.6.1.3}{Use Case 2}{section.6.1}% 26
+\BOOKMARK [1][-]{section.6.2}{Design}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.3}{Implementering og test}{chapter.6}% 28
+\BOOKMARK [2][-]{subsection.6.3.1}{Hardware}{section.6.3}% 29
+\BOOKMARK [2][-]{subsection.6.3.2}{Software}{section.6.3}% 30
+\BOOKMARK [1][-]{section.6.4}{Accepttest}{chapter.6}% 31
+\BOOKMARK [0][-]{chapter.7}{Resultater}{}% 32
+\BOOKMARK [1][-]{section.7.1}{Opfyldelse af kravspecifikation}{chapter.7}% 33
+\BOOKMARK [0][-]{chapter.8}{Fremtidig udvikling}{}% 34
+\BOOKMARK [1][-]{subsection.8.0.1}{Usability}{chapter.8}% 35
+\BOOKMARK [2][-]{subsection.8.0.2}{Reliability}{subsection.8.0.1}% 36
+\BOOKMARK [2][-]{subsection.8.0.3}{Performance}{subsection.8.0.1}% 37
+\BOOKMARK [2][-]{subsection.8.0.4}{Supportability}{subsection.8.0.1}% 38
+\BOOKMARK [2][-]{subsection.8.0.5}{Andre \(+\)}{subsection.8.0.1}% 39
+\BOOKMARK [2][-]{subsection.8.0.6}{Kravspecifikation}{subsection.8.0.1}% 40
+\BOOKMARK [2][-]{subsection.8.0.7}{Hardware}{subsection.8.0.1}% 41
+\BOOKMARK [2][-]{subsection.8.0.8}{Alarmeringsgr\346nser}{subsection.8.0.1}% 42
+\BOOKMARK [0][-]{chapter.9}{Diskussion}{}% 43
+\BOOKMARK [1][-]{section.9.1}{Opn\345ede erfaringer}{chapter.9}% 44
+\BOOKMARK [2][-]{subsection.9.1.1}{Programmering}{section.9.1}% 45
+\BOOKMARK [2][-]{subsection.9.1.2}{Projektarbejde}{section.9.1}% 46
+\BOOKMARK [0][-]{chapter.10}{Konklusion}{}% 47
+\BOOKMARK [0][-]{chapter*.40}{Bilag}{}% 48
+\BOOKMARK [1][-]{section*.41}{Bilagshenvisninger}{chapter*.40}% 49
+\BOOKMARK [2][-]{section*.42}{Bilag 1: Samarbejdsaftale}{section*.41}% 50
+\BOOKMARK [2][-]{section*.43}{Bilag 2: Tidsplan}{section*.41}% 51
+\BOOKMARK [2][-]{section*.44}{Bilag 5: Logbog}{section*.41}% 52
+\BOOKMARK [2][-]{section*.45}{Bilag 6: M\370dereferater}{section*.41}% 53
+\BOOKMARK [1][-]{section*.46}{Interview 1}{chapter*.40}% 54
+\BOOKMARK [1][-]{section*.47}{Interview 2}{chapter*.40}% 55
+\BOOKMARK [1][-]{section*.48}{Interview 3}{chapter*.40}% 56
+\BOOKMARK [0][-]{section*.51}{Litteratur}{}% 57

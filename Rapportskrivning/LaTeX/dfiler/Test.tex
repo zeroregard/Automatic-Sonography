@@ -1,0 +1,207 @@
+\chapter{Test}\label{kapEnhedstest}
+
+\textbf{Formål}\\
+Hvad er formålet med at lave enhedtest, systemtest og integrationstest af systemet.  
+
+%%%%
+\section{Hardware}
+%%
+\subsection{Forstærker}
+
+Kunden ønskede at gruppen skulle anvende en forstærker af typen INA-114 til at foretage forstærkningen af de målte fysiologiske signaler. Under implementeringen af dette hardware komponent blev der beregnet en ønsket forstærkning på 1111 af input signal på baggrund af output signalet fra transduceren. 
+Ved enhedstesten skal der undersøges om den reelle forstærkning stemmer over ens med den ønskede. 
+Til test af forstærkeren benyttede gruppen en opstilling bestående af en funktionsgenerator, en strømforsyning og oscilloskop. 
+Vi sluttede strømforsyningen til systemet og sørgede for at det leverede en fast strøm på plusminus 15 V.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{figurer/d/Enhedstest/INA-114}
+   \caption{Oversigt over ben på INA-114 fra datablad}
+   \label{figtest_INA-114}
+\end{figure}
+ 
+Fra strømforsyningen blev der koblet - 15 V til ben 4 og + 15 V til ben 7, samt 0 V til ben 5, da det er forstærkerens referencepunkt for forstærkningen.
+Så blev funktionsgeneratoren koblet til ben 2 og 3, og generede et indgangssignal, hvor signalets amplitude blev varieret for at se om der er en forstærkning tilstede. 
+De ændringer som forstærkeren foretager på signalet kunne vi se vha. oscilloskoppet. 
+Oscilloskoppet blev koblet både til ben 2 og 3, og til ben 6 og 5. Ved ben 2 og 3 kunne der aflæses indgangsspændingen og den kunne ses på kanal 1, der gav en gul kurve på skærmen. 
+Ved ben 6 og 5 kunne der aflæses udgangsspændingen og den kunne ses på kanal 2, der gav en grøn kurve. 
+På den måde kunne kurverne input og output signalet sammenlignes, og vurderes hvorvid der er en forstærkning tilstede.
+Gruppen gennemførte testen ved en amplitude på 9 mV, svarende til output spændingen fra transduceren, der sidder inden forstærkeren i systemet. 
+Funktionsgeneratoren i opstillingen kunne ikke angive amplituden for output'et, så vi indstillede signalet indtil osciloskoppet angav på CH1, at det modtog en input spænding på netop 9 mV. 
+Input'et ved enhedstesten blev 10 mV i stedet for 9 mV, men det er acceptabelt, da forstærkeren bør have den samme forstærkning uanset spænding, og det er svært at ramme præcist på 9,00 mV.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/enhedbob}
+    \caption{Kurver for input og output signal fra osciloskop}
+    \label{figtest_forstaerker}
+\end{figure}
+
+På osciloskoppet kan der aflæses en Vpp for indgangssignalet på 18,4 mV, der svarer til det dobbelte af indgangs spændingen. 
+Tilsvarende kan der aflæses en Vpp for udgangssignalet på 18 V, der svarer til det dobbelte af udgangs spændingen. 
+Ved at sammenholde de to værdier er det muligt at bestemme forstærkningen.
+Forstærkningen kan findes vha. formlen
+
+\begin{align}
+Forstærkning = \frac{V_{out}}{V_{in}}
+\end{align}
+
+Den reelle forstærkning for INA-114 bliver derved
+
+\begin{align}
+Forstærkning = \frac{V_{out}}{V_{in}} = \frac{18 V}{18,4 mV} = 978 
+\end{align}
+
+Dvs. at der er tale om en forstærkning på næsten 1000. Det er tæt på den ønskede forstærkning på 1111, da der tages højde for at det kan være svært for osciloskoppet at aflæse en helt præcis værdi. På baggrund af dette mener gruppen at forstærkeren fungere efter hensigt.
+
+\begin{longtabu} to \linewidth{@{}>{\sffamily}l >{\sffamily}X[j]@{}}
+    {\large Test af forstærker} &\\[-1ex]
+    \midrule
+    Blok &    Forstærker\\
+    Beskrivelse &    Der blev sendt en indgangssignal med amplitude på ca. 9 mV ind i forstærkeren, og der måltes på udgangssignalet.\\
+    Input &    Signal med amplitude på 10 mV.\\
+    Output &    Signal med amplitude på 9,1 V\\
+    Resultat &    Forstærkningen finder sted som forventet\\
+\caption{Unittest af forstærker.}\\
+\label{uTestH_forstaerker}
+\end{longtabu}
+
+%%
+\subsection{Filter}
+
+Fysiologiske signaler overskrider ikke en amplitude på 50 Hz, og knækfrekvensen for filteret er derfor valgt til at være 50 Hz. 
+Gruppen valgte at designe et passivt lavpasfilter, der filtrer alle indgangssignaler med en spænding på over 50 Hz fra.
+Til test af filteret blev der anvendt en funktionsgenerator, en strømforsyning og oscilloskop, samt den forstærker som filteret sidder i forlængelse af. Funktionsgeneratoren og strømforsyningen blev koblet til forstærkeren, og orcilloskoppet blev koblet til selve filteret. Det er nødvendigt at have et input og et output signal for at afprøve filteret, og det er derfor en forudsætning for enhedstesten af det er koblet op til instrumentations forstærkeren i systemet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/50Hz}
+    \caption{Oscilloskop billede ved knækfrekvensen 50 Hz.}
+    \label{figtest_50Hz}
+\end{figure}
+
+De to kurver følger pænt hinanden, hvilket er forventet ved en måling netop ved knækfrekvensen.
+For at undersøge om filteret foretager den ønskede filtrering af signaler ved frekvenser over 50 Hz blev målingen gentaget ved 0,5 Hz, 5 Hz, 500 Hz og 5000 Hz svarende til et par dekader under og over knækfrekvensen.
+Ved en indgangsfrekvens på 50 Hz kan der desuden ses på figuren, at udgangssignalet har en maks. amplitude på 7 V.
+Der forekom følgende kurver ved målingerne:
+
+For 0,5 Hz
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/05Hz}
+    \caption{Oscilloskop billede ved knækfrekvensen 0,5 Hz.}
+    \label{figtest_50Hz}
+\end{figure}
+
+Ved en indgangsfrekvens på 0,5 Hz kan der ses, at udgangssignalet får en maks. amplitude på 9 V.
+
+For 5 Hz
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/5Hz}
+    \caption{Oscilloskop billede ved knækfrekvensen 5 Hz.}
+    \label{figtest_50Hz}
+\end{figure}
+
+Ved en indgangsfrekvens på 5 Hz kan der ses, at udgangssignalet får en maks. amplitude på 9 V.
+
+For 500 Hz
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/500Hz}
+    \caption{Oscilloskop billede ved knækfrekvensen 500 Hz.}
+    \label{figtest_50Hz}
+\end{figure}
+
+Ved en indgangsfrekvens på 500 Hz kan der ses, at udgangssignalet får en maks. amplitude på 1 V.
+
+For 5000 Hz
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{figurer/d/Enhedstest/021214/5000Hz}
+    \caption{Oscilloskop billede ved knækfrekvensen 5000 Hz.}
+    \label{figtest_50Hz}
+\end{figure}
+
+Ved en indgangsfrekvens på 5000 Hz kan der ses, at udgangssignalet får en maks. amplitude på 50 mV.
+
+Ud fra kurverne kan der observeres en filtering af indgangssignalet. 
+Dæmpningensgraden af indgangssignalet amplitude vokser i takt med at frekvensen af indgangssignalet øges. 
+Dette er ikke uforventet, da et signal med en højere frekvens kræver en større dæmpning end et signal med en frekvens, der ligger tættere på knækfrekvensen. 
+Det 1. ordens passive lavpasfilter som gruppen har designet fungere derved som forventet. 
+For at sikre, at det er den korrekte filtering, der menes observeret ud fra kurverne på osciloskoppet, så er der blevet fremstillet en række bodeplot på baggrund af målingen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figurer/d/Enhedstest/021214/bodeplot}
+    \caption{Bodeplot med amplitude karakteristik for 1. ordens passivt lavpasfilter}
+    \label{figtest_bodeplot}
+\end{figure}
+
+Den overstående amplitude karakteristik sammenholdes med figur 3.2.
+Det ses, at gain i dB som funktion af frekvensen i praksis falder efter knækfrekvensen, ligesom det forventes, at gøre på baggrund af den teoretiske model - jf. figur 3.2.
+
+\begin{longtabu} to \linewidth{@{}>{\sffamily}l >{\sffamily}X[j]@{}}
+    {\large Test af filter} &\\[-1ex]
+    \midrule
+    Blok &    Filter\\
+    Beskrivelse &    Der blev sendt et indgangssignal ind i filteret med en varieret frekvens. Frekvensen blev skiftevis sat til 0.5 Hz, 5 Hz, 50 Hz, 500 Hz og 5000 Hz.\\
+    Test ved 0,5 Hz \\
+    Input &    Signal med en frekvens på 0,5 Hz\\
+    Output &    Signal med amplitude på 7 V\\
+    Resultat &    Filtreringen finder sted som forventet\\
+    Test ved 5 Hz \\
+    Input &    Signal med en frekvens på 5 Hz\\
+    Output &    Signal med amplitude på 9 V\\
+    Resultat &    Filtreringen finder sted som forventet\\
+    Test ved 50 Hz \\
+    Input &    Signal med en frekvens på 50 Hz\\
+    Output &    Signal med amplitude på 7 V\\
+    Resultat &    Filtreringen finder sted som forventet\\
+    Test ved 500 Hz \\
+    Input &    Signal med en frekvens på 500 Hz\\
+    Output &    Signal med amplitude på 1 V\\
+    Resultat &    Filtreringen finder sted som forventet\\
+    Test ved 5000 Hz \\
+    Input &    Signal med en frekvens på 5000 Hz\\
+    Output &    Signal med amplitude på 50 mV\\
+    Resultat &    Filtreringen finder sted som forventet\\
+\caption{Unittest af filter.}\\
+\label{uTestH_filter}
+\end{longtabu}
+
+%%
+\subsection{Tænd/sluk knap}
+I hht. til UC1 og UC8 i kravspecifikationen blev der implemeteret en tænd/sluk knap i form af en flip-knap. 
+Knappen er en del af forstærker/filter enheden, og den skal være i stand til at abryde alle input signaler kommende fra forstærkeren til filteret, og derved input fra den samlede enhed til softwaren på computeren. 
+Funktionaliteten i knappen blev testet ved en opstilling bestående af en strømforsyning og et multimeter.
+Strømforsyningen blev koblet til ben 4 og ben 7, samt ben 5, der er forstærkerens referencepunkt for forstærkningen. 
+Der var en konstant tilført spændning til forstærkeren på mellem -5 V og +5 V.
+Først blev knappen placeret i "tænd"-position og multimeteret blev sat til ground og Vout for filteret, hvorved der kunne aflæses et output på ca. 4 V.
+Derefter blev knappen placeret i "sluk"-positionen og multimeteret blev igen sat til ground og Vout for filteret.
+Denne gang blev der målt et output på 0 V.
+Dvs. at der ikke kom noget signal igennem fra forstærkeren til filteret, og knappen virker efter hensigt.
+
+
+%%
+\section{Software}
+
+%%%
+\subsection{Blok Xxxx}
+Beskrivelse af softwareblokkens funktion mm.
+
+\begin{longtabu} to \linewidth{@{}>{\sffamily}l >{\sffamily}X[j]@{}}
+    {\large Test af Xxxx (navn på blok)} &\\[-1ex]
+    \midrule
+    Blok &    Navn\\
+    Beskrivelse &    Beskrivelse af testen.\\
+    Input &    Tekst.\\
+    Output &    Tekst.\\
+    Resultat &    Tekst\\
+\caption{Unittest af Xxxx.}\\
+\label{uTestS_Xxxx}
+\end{longtabu}

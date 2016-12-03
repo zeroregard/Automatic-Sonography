@@ -1,0 +1,9 @@
+﻿<Window x:Class="GUI.ProgressDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResizeMode="NoResize" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen"
+        Title="" Height="100" Width="300">
+    <Grid Margin="10">
+        <TextBlock Name="lb_text" Text="Forbinder/Tester..." />
+        <ProgressBar Name="ProgressBar" Margin="0,33,74,0" IsIndeterminate="True" />
+    </Grid>
+</Window>

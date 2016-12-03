@@ -1,0 +1,41 @@
+﻿<Window x:Class="GUI.ConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tilføj ny scanningsenhed" Height="379" Width="413" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="233*"/>
+            <ColumnDefinition Width="278*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Id: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Lokation: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Ip-addresse til robot: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Ip-addresse til fjernskrivebord: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Ip-addresse til kamera: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Projekt navn: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Major version: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Minor version: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="SVN Revision: " HorizontalAlignment="Right" Margin="0,1"/>
+            <Label Content="Build Date: " HorizontalAlignment="Right" Margin="0,1"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBox Text="" Name="tb_Id" Margin="5"/>
+            <TextBox Text="" Name="tb_location" Margin="5"/>
+            <TextBox Text="" Name="tb_urIpAddress" Margin="5"/>
+            <TextBox Text="" Name="tb_rdIpAddress" Margin="5"/>
+            <TextBox Text="" Name="tb_vfIpAddress" Margin="5"/>
+            <TextBox Text="" Name="tb_projectName" Margin="5"/>
+            <TextBox Text="" Name="tb_majorVersion" Margin="5"/>
+            <TextBox Text="" Name="tb_minorVersion" Margin="5"/>
+            <TextBox Text="" Name="tb_svnRevision" Margin="5"/>
+            <TextBox Text="" Name="tb_buildDate" Margin="5"/>
+            <Label Content="TestResult" Visibility="Visible" Name="lb_testResult" Height="auto" Grid.Column="1"/>
+        </StackPanel>
+
+        <Button Content="Test forbindelse" Name="btn_testConnection" HorizontalAlignment="Left" Margin="33,0,0,10" Width="107" Click="btn_testConnection_Click" Height="20" VerticalAlignment="Bottom"/>
+        <Button Content="Gem forbindelse" Name="btn_saveConnection" IsEnabled="False" HorizontalAlignment="Left" Margin="154,0,0,10" Width="123" Click="btn_saveConnection_Click" Height="20" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Button Content="Annuller" Name="btn_cancel" IsCancel="True" HorizontalAlignment="Left" Margin="107,0,0,10" Width="75" Grid.Column="1" Height="20" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

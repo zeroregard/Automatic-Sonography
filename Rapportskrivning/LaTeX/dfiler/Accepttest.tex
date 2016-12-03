@@ -1,0 +1,103 @@
+\chapter{Accepttest}\label{kapAT}
+
+\begin{longtabu} to \linewidth{@{}*{3}{>{\sffamily}l} >{\sffamily}X[j]@{}}
+    Version &    Dato &    Ansvarlig &    Beskrivelse\\[-1ex]
+    \midrule
+    1.0 &    dato &    navn &   Beskrivelse\\
+    2.0 &    dato &    navn &    Beskrivelse\\
+    2.1 &   Dato &    navn &    Beskrivelse.\\
+\label{version_Systemark}
+\end{longtabu}
+
+\textbf{Formål}\\
+
+%%%%%
+\section{Forsøgsopstilling}
+Indsæt billede og beskriv hvordan testopstillingen skal være, for at testen kan udføres på samme hver gang. 
+Hvad for noget udstyr kræves der, for at kunne gennemføre testen?
+%%%%%
+\section{Ikke-funktionelle krav}
+Accepttest af ikke-funktionelle krav. 
+%%%
+\subsection{Usability}
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+ &    Testbeskrivelse &    Forventet resultat &   Godkendt\\[-1ex]
+    \midrule
+    a. &   En testperson, med kendskab til systemet, skal kunne starte systemet og lave en 3D scanning og efterfølgende en ultralydsscanning.   & Det forventes at testpersonen har startet systemet og foretaget en 3D scanning og en ultralydsscanning. & Godkendt af...\\
+    
+    b. & Testpersonen skal kunne identificere et interface på systemet & Det forventes at testpersonen identificere et interface på systemet & Godkendt af..\\
+    
+    c. & Testpersonen trykker på knappen (skan brystområde) på interfacet. Systemet starter derefter skanningen af brystområdet.  & Det forventes af testpersonen trykker på knappen (skan brystområde) og at systemet derefter skanner brystområdet. & Godkendt af..\\
+    
+    d. & Testpersonen trykker på knappen (ultralyd) på interfacet. Systemet starter derefter ultralydsskanningen af brystområdet. & Det forventes af testpersonen trykker på knappen (ultralyd) og at systemet derefter ultralydsskanner brystområdet.  & Godkendt af..\\
+\caption{Usability-krav.}
+\label{AT_u1}
+\end{longtabu}
+
+%%%
+\subsection{Reliability}
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+    &    Testbeskrivelse &    Forventet resultat &    Godkendt\\[-1ex]
+    \midrule
+    a. &    kan ikke testes & kan ikke testes   &    Godkendt af...\\
+\caption{Reliability-krav.}
+\label{AT_r1}
+\end{longtabu}
+
+%%%
+\subsection{Performance}
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+    &    Testbeskrivelse &    Forventet resultat &    Godkendt\\[-1ex]
+    \midrule
+    a. &    Testpersonen starter systemet og trykker på knappen (skan brystområde). Når 3D scanningen er afsluttet, skal testpersonen trykke på knappen (ultralyd) og systemet skal derefter udføre ultralydsscanningen. Begge scanninger skal til sammen kunne udføres indenfor 10 minutter. &   Det forventes 3D skanningen og ultralydsskanningen er udført indenfor 10 minutter, fra det tidspunkt, hvor testpersonen starter 3D skanningen. &    Godkendt af\\
+    
+    b. & Testpersonen starter systemet og systemet er klar til brug indenfor 30 sekeunder. &    Det forventes at systemet starter op og er klar til brug indenfor 30 sekeunder. &    Godkendt af\\
+    
+    c. &  Systemet er tændt og testpersonen trykker på en tilfældig knap &   Det forventes af systemet reagere på knappens kommando indenfor 1 sekund  &    Godkendt af\\
+    d. &  Testpersonen trykker på knappen (skan brystområde), systemet starter 3D scanningen af brystområdet. Dette må max tage 1 min  &   Det forventes at der max går 1 minut fra at testpersonen har trykket på knappen (skan brystområde) til at 3D skanningen er udført.  &    Godkendt af...\\
+    
+\caption{Performance-krav.}
+\label{AT_p1}
+\end{longtabu}
+
+%%%
+\subsection{Supportability}
+
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+    &    Testbeskrivelse &    Forventet resultat &    Godkendt\\[-1ex]
+    \midrule
+    a. &    Testpersonen tørrer systemet overflade med en fugtig klud &  Det forventes af systemet stadig fungere efter hensigten, efter aftørringen. &   Godkent af..\\
+    
+    b. &  Testpersonen kommer hospitalssprit på en klud og tørre proben over med kluden.  &   Det forventes at proben fungere efter aftørringen.   &    Godkendt af\\
+    
+    c. & Testpersonen foretager et pludseligt træk i en ledning til hardwaren.  &   Det forventes ledningerne ikke falder ud af hardwaren.  &    Godkendt af\\
+    
+\caption{Supportability-krav.}
+\label{AT_s1}
+\end{longtabu}
+
+
+%%%%%
+\section{Funktionelle krav}
+Accepttest af funktionelle krav.
+
+%%%
+\subsection{UC1: Tekst}
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+    &    Test &    Visuelt resultat &    Godkendt\\[-1ex]
+    \midrule
+    a. &    Tekst &   Tekst &    Tekst\\
+\caption{}
+\label{AT_UC1}
+\end{longtabu}
+
+%%%
+\subsection{UC2: Tekst}
+\begin{longtabu} to \linewidth{@{}>{\sffamily}r *{2}{>{\sffamily}X[j]} >{\sffamily}l@{}}
+    &    Test &    Visuelt resultat &    Godkendt\\[-1ex]
+    \midrule
+    a. &   Tekst &   Tekst &    Tekst\\
+    b. &    Tekst &    Tekst &   Tekst\\
+\caption{}
+\label{AT_UC2}
+\end{longtabu}

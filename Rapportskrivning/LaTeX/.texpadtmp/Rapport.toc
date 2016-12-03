@@ -1,0 +1,77 @@
+\changetocdepth {2}
+\select@language {danish}
+\contentsline {chapter}{Resum\IeC {\'e}}{iii}{chapter*.1}
+\contentsline {chapter}{Abstract}{v}{chapter*.2}
+\contentsline {chapter}{Forkortelser}{vii}{chapter*.3}
+\contentsline {chapter}{\chapternumberline {1}Forord}{1}{chapter.1}
+\contentsline {chapter}{\chapternumberline {2}Indledning}{3}{chapter.2}
+\contentsline {chapter}{\chapternumberline {3}Projektformulering}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Officielle krav}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gruppens krav}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Projektafgr\IeC {\ae }nsning}{5}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}Baggrund}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sundhedsfaglig}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Fysiologi}{8}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Patologi}{10}{subsection.4.1.2}
+\contentsline {subsubsection}{Shock}{10}{section*.6}
+\contentsline {subsubsection}{Hypertension}{10}{section*.7}
+\contentsline {subsubsection}{H\IeC {\ae }moragi}{11}{section*.8}
+\contentsline {subsection}{\numberline {4.1.3}M\IeC {\r a}ling af blodtryk}{11}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Teknologisk}{14}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Software}{14}{subsection.4.2.1}
+\contentsline {subsubsection}{Trelagsmodellen}{14}{section*.12}
+\contentsline {subsubsection}{M\IeC {\o }nstre}{14}{section*.13}
+\contentsline {subsubsection}{SOLID principper}{14}{section*.14}
+\contentsline {subsubsection}{Tr\IeC {\r a}de}{15}{section*.15}
+\contentsline {subsubsection}{Interface design}{15}{section*.16}
+\contentsline {subsection}{\numberline {4.2.2}Hardware}{16}{subsection.4.2.2}
+\contentsline {subsubsection}{Invasiv blodtryksm\IeC {\r a}ler}{16}{section*.17}
+\contentsline {subsubsection}{Transducer - Strain gauges}{17}{section*.18}
+\contentsline {subsubsection}{Wheatstones bro}{17}{section*.19}
+\contentsline {subsubsection}{Lavpasfilter}{17}{section*.21}
+\contentsline {subsubsection}{1. ordens filtre}{19}{section*.25}
+\contentsline {chapter}{\chapternumberline {5}Arbejdsmetoder}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Redskaber}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Projektstyring}{21}{section.5.2}
+\contentsline {section}{\numberline {5.3}Udviklingsproces}{22}{section.5.3}
+\contentsline {chapter}{\chapternumberline {6}Projektgennemf\IeC {\o }relse}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Kravspecifikation}{25}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Ikke-funktionelle krav}{25}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Funktionelle krav}{25}{subsection.6.1.2}
+\contentsline {subsubsection}{Use cases}{27}{section*.31}
+\contentsline {subsubsection}{Use Case 2}{28}{section*.32}
+\contentsline {subsection}{\numberline {6.1.3}Use Case 2}{28}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Design}{28}{section.6.2}
+\contentsline {section}{\numberline {6.3}Implementering og test}{31}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Hardware}{31}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Software}{31}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Accepttest}{31}{section.6.4}
+\contentsline {chapter}{\chapternumberline {7}Resultater}{33}{chapter.7}
+\contentsline {section}{\numberline {7.1}Opfyldelse af kravspecifikation}{33}{section.7.1}
+\contentsline {chapter}{\chapternumberline {8}Fremtidig udvikling}{35}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.1}Usability}{35}{subsection.8.0.1}
+\contentsline {subsection}{\numberline {8.0.2}Reliability}{36}{subsection.8.0.2}
+\contentsline {subsection}{\numberline {8.0.3}Performance}{36}{subsection.8.0.3}
+\contentsline {subsection}{\numberline {8.0.4}Supportability}{36}{subsection.8.0.4}
+\contentsline {subsection}{\numberline {8.0.5}Andre (+)}{37}{subsection.8.0.5}
+\contentsline {subsubsection}{Brugssituationer}{37}{section*.37}
+\contentsline {subsection}{\numberline {8.0.6}Kravspecifikation}{37}{subsection.8.0.6}
+\contentsline {subsubsection}{Tilf\IeC {\o }j patient}{37}{section*.38}
+\contentsline {subsubsection}{Udvide markedet til udlandet}{37}{section*.39}
+\contentsline {subsection}{\numberline {8.0.7}Hardware}{38}{subsection.8.0.7}
+\contentsline {subsection}{\numberline {8.0.8}Alarmeringsgr\IeC {\ae }nser}{38}{subsection.8.0.8}
+\contentsline {chapter}{\chapternumberline {9}Diskussion}{39}{chapter.9}
+\contentsline {section}{\numberline {9.1}Opn\IeC {\r a}ede erfaringer}{40}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Programmering}{40}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Projektarbejde}{40}{subsection.9.1.2}
+\contentsline {chapter}{\chapternumberline {10}Konklusion}{43}{chapter.10}
+\contentsline {chapter}{Bilag}{45}{chapter*.40}
+\contentsline {section}{Bilagshenvisninger}{45}{section*.41}
+\contentsline {subsection}{Bilag 1: Samarbejdsaftale}{45}{section*.42}
+\contentsline {subsection}{Bilag 2: Tidsplan}{45}{section*.43}
+\contentsline {subsection}{Bilag 5: Logbog}{45}{section*.44}
+\contentsline {subsection}{Bilag 6: M\IeC {\o }dereferater}{45}{section*.45}
+\contentsline {section}{Interview 1}{46}{section*.46}
+\contentsline {section}{Interview 2}{47}{section*.47}
+\contentsline {section}{Interview 3}{49}{section*.48}
+\contentsline {chapter}{Litteratur}{51}{section*.51}
