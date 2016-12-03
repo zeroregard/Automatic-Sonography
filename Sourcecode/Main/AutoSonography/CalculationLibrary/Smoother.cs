@@ -48,9 +48,12 @@ namespace CalculationLibrary
 
             return wv;
         }
-        // Finds a set of adjacent vertices for a given vertex
-        // Note the success of this routine expects only the set of neighboring faces to eacn contain one vertex corresponding
-        // to the vertex in question
+        /// <summary>
+        ///Finds a set of adjacent vertices for a given vertex. Note the success of this routine expects only the set of neighboring faces to eacn contain one vertex corresponding to the vertex in question
+        /// </summary>
+        /// <param name="v">All vertices</param>
+        /// <param name="t">All triangle indices</param>
+        /// <param name="vertex">Vertex in question</param>
         public static List<Vector3> findAdjacentNeighbors(Vector3[] v, int[] t, Vector3 vertex)
         {
             List<Vector3> adjacentV = new List<Vector3>();
@@ -114,7 +117,9 @@ namespace CalculationLibrary
         }
 
 
-        // Does the vertex v exist in the list of vertices
+        /// <summary>
+        /// Does the vertex v exist in the list of vertices
+        /// </summary>
         private static bool doesVertexExist(List<Vector3> adjacentV, Vector3 v)
         {
             bool marker = false;
