@@ -39,6 +39,13 @@ namespace CalculationLibrary
             return poses;
         }
 
+        /// <summary>
+        /// Creates a 'squarewave' above the mesh and presses that squarewave down to the surface of the mesh, figuring out which points are interesting for scanning, and in which order. Optional X values are for handling out of bound vertices which sometimes are generated from the Kinect API.
+        /// </summary>
+        /// <param name="vertices">The vertices of a mesh</param>
+        /// <param name="x_absolute_min"></param>
+        /// <param name="x_absolute_max"></param>
+        /// <returns></returns>
         public List<VertexIndex> CreatePath(List<Vector3> vertices, float x_absolute_min = float.MaxValue, float x_absolute_max = float.MinValue)
         {
             BoundingBox b = Extensions.FindBoundingBox(vertices, x_absolute_min, x_absolute_max);
@@ -47,6 +54,12 @@ namespace CalculationLibrary
             return IdentifyPath(wave, vertices);
         }
 
+        /// <summary>
+        /// Given a list of points above (larger Z values) a list of vertices (a surface), draw a straight line down for every wave point and find the closest vertice.
+        /// </summary>
+        /// <param name="wave">A list of points representing a wave in XY space. Can be a squarewave or a sine or anything.</param>
+        /// <param name="vertices">Vertices in a mesh.</param>
+        /// <returns>The vertices, and their original indices in the list of vertices, that fit the wave best</returns>
         private List<VertexIndex> IdentifyPath(List<Vector3> wave, List<Vector3> vertices)
         {
             List<VertexIndex> path = new List<VertexIndex>();
@@ -78,6 +91,14 @@ namespace CalculationLibrary
 
         public float distance_length = -0.02f;
         public float distance_width = -0.02f;
+        /// <summary>
+        /// Generates a squarewave-esque wave, given a bounding box. 
+        /// Utilizes the X and Y values of the bounding box to figure when it should start and stop the wave.
+        /// A normal squarewave could be written as f(t) = sign(sin(t)).
+        /// But for any t, there would always only be two different y values, so we utilize distance_length and distance_width as a means of a sample rate.
+        /// </summary>
+        /// <param name="b">The bounding box of a mesh</param>
+        /// <returns>A squarewave that's above(+Z) a bounding box b</returns>
         private List<Vector3> GenerateSquareWave(BoundingBox b)
         {
             List<Vector3> wave = new List<Vector3>();
@@ -101,7 +122,9 @@ namespace CalculationLibrary
             }
             return wave;
         }
-
+        /// <summary>
+        /// Checks if X is within boudns of xMin and xMax
+        /// </summary>
         private bool OutOfBounds(float xMin, float xMax, float X)
         {
             return (X < xMin || X > xMax);
@@ -158,6 +181,12 @@ namespace CalculationLibrary
         }
 
         //http://stackoverflow.com/questions/19878441/point-line-distance-calculation
+        /// <summary>
+        /// For a point, determine the distance to a line.
+        /// </summary>
+        /// <param name="lineStart">Vector3 indicating the start position of a line</param>
+        /// <param name="lineFinish">Vector3 indicating the end position of a line</param>
+        /// <returns>Euclidean distance to line from point</returns>
         public float DistanceToLine(Vector3 lineStart, Vector3 lineFinish, Vector3 point)
         {
             //(|(x_2-x_1)x(x_1-x_0)|)/(|x_2-x_1|)
