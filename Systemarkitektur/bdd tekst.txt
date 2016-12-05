@@ -1,0 +1,3 @@
+BDD
+Dette diagram giver et overblik over det samlede systemts (Automatisk Ultralydsscanner) komponenter.
+Her ses at det er nødvendigt at have en computer med mus og skærm for at anvende PC Applikation.
