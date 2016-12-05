@@ -1,0 +1,3 @@
+Ultrasound Scan State Machine
+Her ses forløbet for ultralydsscanningsprocessen.
+Ønsker operatøren at pause scanningsforløbet, er det muligt at fortsætte fra hvor Robotarm slap.
