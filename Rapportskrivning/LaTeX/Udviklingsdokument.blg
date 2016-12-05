@@ -1,0 +1,16 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Udviklingsdokument.aux
+The style file: plain.bst
+A level-1 auxiliary file: formalia/Udviklings_Forside.aux
+A level-1 auxiliary file: ufiler/Versionshistorik.aux
+A level-1 auxiliary file: ufiler/Indledning.aux
+A level-1 auxiliary file: ufiler/Systemarkitektur.aux
+A level-1 auxiliary file: ufiler/Systemdesign.aux
+A level-1 auxiliary file: ufiler/Udvikling.aux
+A level-1 auxiliary file: ufiler/Test.aux
+A level-1 auxiliary file: ufiler/Bilag.aux
+Illegal, another \bibstyle command---line 36 of file Udviklingsdokument.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: bibliografi/PRJ3.bib
+(There was 1 error message)
