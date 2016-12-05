@@ -4,6 +4,7 @@
 \usepackage{longtable}
 \usepackage{todonotes}
 \presetkeys{todonotes}{inline}{}
+\externaldocument{Accepttest}
 
 
 
@@ -87,34 +88,34 @@ Detaljeret forsøgsopstilling til accepttesten.
 \begin{itemize}
 \item \textbf{Robotarm er tilsluttet:} Sæt Universal Robots' UR10 strømkabel til en stikkontakt og tryk på dens 'On/Off' knap i højre øverste hjørne af skærmrammen. Tilslut et ethernetkabel af typen RJ45 fra Robotarm til access point. Sæt access points strømkabel til en stikkontakt. På computeren forbindes der på WiFi til 'opentele'.
 \item \textbf{3D kamera er tilsluttet:} Sæt Microsoft Kinect 2.0s strømkabel til en stikkontakt. Sæt Microsoft Kinect 2.0s USB-kabel i computerens USB 3.0 port.
-\item \textbf{System er startet:} Gennemførsel af samtlige tests i tabel \ref{uc1_test_h_label}
-\item \textbf{Ultralydsscanner er tændt:} Gøres ved... \todo{Hvordan gøres det?}
-\item \textbf{Robotarm står i Ikke-standard positur:} Sæt Universal Robots' UR10 strømkabel til en stikkontakt og tryk på dens 'On/Off' knap i højre øverste hjørne af skærmrammen. Når den har bootet færdig tryk på 'Go to initialization scan' på UR10s touchskærm. Tryk på 'On'. Tryk på 'START'. Tryk på 'OK' i højre nederste hjørne. Tryk på fanen 'Move' øverst på skærmen. Tryk på 'Feature'-dropdownen, og vælg 'Base'. Tryk på en af tekstboksene i 'TCP'-rammen. Indtast de koordinater der findes i posituren 'Ikke-standard Positur'. Tryk på OK. Hold 'Auto' nede indtil 'Auto' bliver greyed out. Tryk OK. Tryk på 'On/Off'-knappen i højre øverste hjørne af skærmrammen. Tryk på 'Shutdown Robot' på touchskærmen.
+\item \textbf{System er startet:} Gennemførsel af samtlige tests i tabel \ref{uc_test_h_label} i dokumentet Accepttest
+\item \textbf{Ultralydsscanner er tændt:} Gøres ved at trykker på start-knappen på ultralydsscanneren
+\item \textbf{Robotarm står i Ikke-standard positur:} Sæt Universal Robots' UR10 strømkabel til en stikkontakt og tryk på dens [On/Off] knap i højre øverste hjørne af skærmrammen. Når den har bootet færdig tryk på 'Go to initialization screen' på UR10s touchskærm. Tryk på [On]. Tryk på [START]. Tryk på [OK] i højre nederste hjørne. Tryk på [Play]-knappen nederst på skærmen. Tryk på fanen [Move] øverst på skærmen. Tryk på [Feature]-dropdownen, og vælg [Base]. Tryk på en af tekstboksene i [TCP]-rammen. Indtast de koordinater der findes i posituren 'Ikke-standard Positur'. Tryk på [OK]. Hold [Auto] nede indtil 'Auto' bliver greyed out. Tryk [OK]. Tryk på [On/Off]-knappen i højre øverste hjørne af skærmrammen. Tryk på [Shutdown Robot] på touchskærmen.
 \end{itemize}
 
 
-\section{Robotarms positurer}
-En positur er en definition for den position og rotation som Robotarm kan have. 
+\section{Robotarm positurer}
+En positur er en definition for den position og rotation som Robotarm kan have. Til accepttesten er der defineret nogle positurer til at tjekke at softwaren virker som den skal. 
 
 \begin{itemize}
 \item \textbf{Standard Positur:} Er angivet ved disse koordinater:
 \begin{itemize}
-\item Position X: $\pm$ 0.00 mm
-\item Position Y: $-$ 950.00 mm
-\item Position Z: $+$ 800.00 mm
-\item Rotation X: $\pm$ 0.0000 radianer
-\item Rotation Y: $+$ 3.1416 radianer
-\item Rotation Z: $\pm$ 0.0000 radianer
+\item Position X: $-$ 160 mm
+\item Position Y: $-$ 268 mm
+\item Position Z: $+$ 500 mm
+\item Rotation X: $+$ 1.09 radianer
+\item Rotation Y: $+$ 1.7 radianer
+\item Rotation Z: $-$ 1.9 radianer
 \end{itemize}
 
 \item \textbf{Ikke-standard Positur:} Er angivet ved disse koordinater:
 \begin{itemize}
-\item Position X: $-$ 100.00 mm
-\item Position Y: $-$ 650.00 mm
-\item Position Z: $+$ 600.00 mm
-\item Rotation X: $+$ 3.1416 radianer
-\item Rotation Y: $\pm$ 0 radianer
-\item Rotation Z: $+$ 3.1416 radianer
+\item Position X: $-$ 130.00 mm
+\item Position Y: $-$ 250.00 mm
+\item Position Z: $+$ 900.00 mm
+\item Rotation X: $+$ 0.8 radianer
+\item Rotation Y: $+$ 1.5 radianer
+\item Rotation Z: $-$ 1.7 radianer
 \end{itemize}
 
 \item \textbf{3D Scan Positur:} Er angivet ved disse koordinater:
