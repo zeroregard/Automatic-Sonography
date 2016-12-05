@@ -56,7 +56,7 @@ namespace AutoSonographyWPF
             this.Show();
             currentMesh = mesh;
             btnUltraSoundScan.IsEnabled = true;
-            btnConvertAndSave.IsEnabled = true;
+            //btnConvertAndSave.IsEnabled = true;
         }
 
         private void btnUltraSoundScan_Click(object sender, RoutedEventArgs e)
@@ -70,21 +70,21 @@ namespace AutoSonographyWPF
             this.Hide();
         }
 
-        private void btnConvertAndSave_Click(object sender, RoutedEventArgs e)
+        /*private void btnConvertAndSave_Click(object sender, RoutedEventArgs e)
         {
             string location = Environment.CurrentDirectory;
             //PLYHandler.Output(calcmaster.calibrator.ConvertToRobospace(currentMesh).Vertices, location);
-            PLYHandler.Output(/*calcmaster.calibrator.ConvertToRobospace(*/currentMesh/*)*/, ref location, false);
-        }
+            PLYHandler.Output(currentMesh), ref location, false);
+        }*/
 
         public void NoRobotConnection(object sender, EventArgs e)
         {
             MessageBox.Show(ModBus.NoConnectionError, "UR10 isn't connected", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
-        public void NoKinectConnection()
+        /*public void NoKinectConnection()
         {
             
-        }
+        }*/
     }
 }

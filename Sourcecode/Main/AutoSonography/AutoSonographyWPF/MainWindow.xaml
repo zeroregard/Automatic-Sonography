@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="btn3DScan" Click="btn3DScan_Click" Content="3D Scan" HorizontalAlignment="Left" Margin="64,64,0,64" Width="128" Height="128"/>
         <Button x:Name="btnUltraSoundScan" Content="Ultrasound Scan" HorizontalAlignment="Right" Margin="0,64,64,64" Width="128" Height="128" Click="btnUltraSoundScan_Click" IsEnabled="False"/>
-        <Button x:Name="btnConvertAndSave" Content="Convert and Save" HorizontalAlignment="Left" Margin="64,258,0,0" VerticalAlignment="Top" Width="128" Click="btnConvertAndSave_Click" IsEnabled="False"/>
+        <!--<Button x:Name="btnConvertAndSave" Content="Convert and Save" HorizontalAlignment="Left" Margin="64,258,0,0" VerticalAlignment="Top" Width="128" Click="btnConvertAndSave_Click" IsEnabled="False"/>-->
 
     </Grid>
 </Window>
