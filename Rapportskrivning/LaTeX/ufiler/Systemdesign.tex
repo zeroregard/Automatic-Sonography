@@ -76,38 +76,11 @@ Writer står for at omskrive værdier til binær data. Modbus skriver binær dat
     \label{class_RoboLib}
 \end{figure}
 
-
-
-
-
 \newpage
 \section{Sekvensdiagrammer}
 Der er på baggrund af klassediagrammerne lavet sekvensdiagrammer, som beskriver systemets funktionalitet, og hvor de vigtigse metoder og attributter imellem klasserne er identificeret.
 
 Nedenstående sektioner vil beskrive de vigtigste sekvensdiagrammer i system og fremvise, hvordan klasserne indbyrdes kommunikerer. 
-
-\subsection{3D scan}
-Ved scan vil KinectFusionizeren stå for at tage et dybdebillede og et farvebillede fra Kinect-sensoren.
-Den vil dernæst konvertere dybdebilledet til en point cloud og give hvert punkt i skyen en farve fra farvebilledet.
-Dette trianguleres, så der fås en mesh der efterfølgende kan bearbejdes. 
-ComputerVisionMaster får meshen tilbage, får lavet et 2D billede af meshen fra en bestemt vinkel og giver begge tilbage GUI.
-GUI viser billedet og holder på meshen indtil den skal sendes videre til ultralydsscanning
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_3Dscan}
-    \caption{Sekvensdiagram for 3D scan}
-    \label{sd_3Dscan}
-\end{figure}
-
-\subsection{Feed Path}
-Efter konvertering af robot space og konstateringen af stien er blevet oprettet i PathCreator skal Robot Arm instrueres i at flytte sig gennem punkterne.
-PathFeeder får en liste af de positurer som den skal gennemløbe. Derefter sendes den næste i listen til Data, som videregiver posituren til Writer.
-Writer konverterer posituren til binær data, og ModBus skriver dataen ud på Robot Arms register.
-Hernæst ser PathFeeder på om Robot Arms nuværende positur har nærmet sig den ønskede positur. 
-Når den er tæt nok på, hoppes der ud af 'while'-løkken, og den næste positur kan sendes.
-Den Alt der er her skal forstås som at PathFeeder kører i sin egen baggrundstråd der kan pauses ved at sætte et flag. 
-Ved terminering af denne baggrundstråd vil PathFeeder stoppe med at videregive nye positurer til Robot Arm.
 
 \subsection{Indlæsning af Robotarms positur} 
 Reader initieres med en IP hvor den skal lytte på. 
@@ -121,18 +94,49 @@ Readeren giver de rå data videre til Analyzer som konverterer dem til Robot Arm
     \label{sd_reading}
 \end{figure}
 
-\subsection{Ultralydsscan}
-Ved tryk på Ultralydsscan-knappen sendes den scannede mesh videre til Robomasteren (ÆNDRE PLS).
-Først skal meshen konverteres fra 3D Kameras rum til Robot Arms rum, dette sker i CameraToRobotCalibrator.
-Dernæst sendes den konverterede mesh til PathCreator så der oprettes en sti. 
+\subsection{3D scan}
+Ved scan vil KinectFusionizeren stå for at tage et dybdebillede fra Kinect-sensoren.
+Den vil dernæst konvertere dybdebilledet til en point cloud.Dette trianguleres, så der fås en mesh der efterfølgende kan bearbejdes. 3DScanMenu modtager meshen gennem event-kommunikation.
+Gennem de beskræringsparametre der er valgt i menuen vil meshen dernæst beskæres i Slicer, så kun det ønskede område fremkommer. Efter beskæringen vises meshen som en rotérbar 3D model i menuen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_3Dscan}
+    \caption{Sekvensdiagram for 3D scan}
+    \label{sd_3Dscan}
+\end{figure}
+
+\subsection{Feed Path}
+Efter konvertering af mesh output til robot positur sti, vil listen af positurer sendes fra RoboMaster til PathFeeder. 
+Se sekvensdiagrammet 'Path Creation' for en gennemgang af hvordan disse positurer findes.
+PathFeeder gennemløber hver positur og sender den næste i listen til Data, som videregiver posituren til Writer.
+RoboMaster informeres løbende om hvor langt PathFeeder er med at gennemløbe punkter.
+Writer konverterer posituren til binær data, og ModBus skriver dataen ud på Robot Arms register.
+Hernæst ser PathFeeder på om Robot Arms nuværende positur har nærmet sig den ønskede positur. 
+Når den er tæt nok på, hoppes der ud af 'while'-løkken, og den næste positur kan sendes.
+Den Alt der er her skal forstås som at PathFeeder kører i sin egen baggrundstråd der kan pauses. 
+Ved terminering af denne baggrundstråd vil PathFeeder stoppe med at videregive nye positurer til Robot Arm.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_feedpath}
+    \caption{Sekvensdiagram for Feed Path}
+    \label{sd_feedpath}
+\end{figure}
+
+\subsection{Pathcreation}
+Ved tryk på Ultralydsscan-knappen sendes den scannede mesh videre til CalculationMaster. Se sekvensdiagrammet '3D scan' for at se hvordan den scannede mesh opnås.
+Først skal meshen konverteres fra 3D Kameras rum til Robot Arms rum, dette sker i CameraToRobotCalibrator, hvor meshen roteres og translateres ift. hvor 3D Kamera befinder sig i virkeligheden.
+Efter transformationen skal meshen udjævnes, så de rå og ekstreme normaler i meshen udglattes. Loopet afgør hvor mange gangen meshen skal gennemkøres filteret.
+Dernæst sendes den konverterede mesh til PathCreator så der oprettes en liste af de punkter i meshen vi ønsker at Robot Arm skal gennemgå.
+Til sidst skal stien der findes i PathCreator konverteres til Robot Arm positurer, da stien i PathCreator kun fortæller position direkte på meshen.
 Med denne sti får Robot Arm afdækket overfladen på Patient, hvis den har en Ultralydsscanner monteret.
-Stien gives videre til PathFeeder hvor den gennemløbes. Se sekvensdiagrammet REFERENCE for forløbet her.
-Når scanningen er færdig, vil GUI opdateres så Operatør ved hvornår scanningen er færdig.
+Stien kan nu videresendes til RoboMaster - se sekvensdiagrammet 'Feed Path'.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.2\textwidth, angle =90]{figurer/d/Design/Sequence/sd_ultrascan}
-    \caption{Sekvensdiagram for Ultralydsscan}
+    \caption{Sekvensdiagram for Pathcreation}
     \label{sd_ultrascan}
 \end{figure}
 
