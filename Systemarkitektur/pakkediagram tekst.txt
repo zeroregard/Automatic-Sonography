@@ -1,0 +1,5 @@
+Pakkediagram
+Dette diagram giver en oversigt over afhængighederne i PC Applikation.
+For at slippe for cykliske forbindelser blev mange datastrukturer flyttet fra CalculationLibrary, ComputerVisionLibrary og RoboLibrary til DataStructures-biblioteket.
+DataStructures indeholder altså kun nogle datastrukturer og nogle extension-metoder til disse. 
+For forklaringen af indholdet af de øvrige pakker, se klassediagrammerne for hvert bibliotek.
