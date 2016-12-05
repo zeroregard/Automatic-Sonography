@@ -1,0 +1,15 @@
+ComputerVisionLibrary
+Formålet med dette bibliotek er at få en afgrænset 3D scanning fra et 3D kamera.
+
+- KinectFusionizeren 
+Har til ansvar at åbne Kinect-sensoren, tage det nuværende dybdebillede fra sensoren og konvertere det til en mesh.
+
+- ComputerVisionMaster 
+Denne klasse virker som den logiske grænseflade til KinectFusionizeren, hvor instansen af den nuværende mesh lagres her.
+Andre klasser kan subscribe til ComputerVisionMasteren for at høre hvornår der er en ny mesh tilgængelig.
+
+- Slicer
+Denne klasse sørger for at fjerne de punkter i en mesh der er uinteressante:
+1) Faces der peger nedaf, dvs fejlpunkter. Da 3D kameraet er monteret i loftet, vil den ikke kunne se undersiden af det den skanner.
+2) Duplikerede punkter. KinectFusionizer outputter punkter der er ens. Disse fjernes af optimeringsårsager.
+3) Punkter og faces der er uden for det område der ønskes skannet. Dette inkluderer nærtliggende objekter som fx en væg, eller områder på patienten der ikke ønskes skannet.

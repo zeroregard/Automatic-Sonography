@@ -1,0 +1,23 @@
+RoboLibrary
+Biblioteket giver mulighed for kommunikation med Robot Arm.
+
+- RoboMaster
+Klassen agerer som bindeled mellem de øvrige klasser i biblioteket og GUI.
+
+- PathFeeder 
+Står for at gennemløbe hver positur i listen, og kommunikere med Data for at finde ud af hvornår den næste positur skal sendes til Robot Arm.
+
+- Data-klassen 
+Klassen virker som en grænseflade mellem den 'logiske' del af biblioteket og dens underliggende reader/writer klasser.
+
+- Reader 
+Denne klasse står for kontinuerligt at læse data fra Robot Arm, for at afgøre dens nuværende positur. 
+
+- Analyzer 
+Klassen konverterer det indlæste data til en objekt-orienteret model, altså transformation af bytes til Robot Arms nuværende positur.
+
+- Writer 
+Klassen har til ansvar at omskrive værdier til binær data. Den omskriver både positurer samt konfigurationer.
+
+- Modbus 
+Denne klasse skriver binær data ud på Robot Arms IP gennem modbus-protokollen.
