@@ -52,6 +52,7 @@ namespace RoboLibrary
                         Event.WaitOne();
                         actualPose = data.GetLastKnownPose();
                     }
+                    Event.WaitOne();
                     Thread.Sleep(50); //To not skip any steps instantly
                 }
                 if (stopRun)

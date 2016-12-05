@@ -22,6 +22,7 @@ namespace AutoSonographyWPF
     {
         RoboMaster master;
         MainWindow mainWindowInstance;
+        private bool isClosed;
 
         bool paused = false;
         public UltrasoundScanMenu()
@@ -32,14 +33,19 @@ namespace AutoSonographyWPF
 
         public void UpdateCompletion(object sender, EventArgs e)
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            if (!isClosed)
             {
-                textBoxCompletionValue.Text = master.CompletionPercentage.ToString();
-            });
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (textBoxCompletionValue != null && master != null)
+                        textBoxCompletionValue.Text = master.CompletionPercentage.ToString();
+                });
+            }
         }
 
         public void Initialize(RoboMaster robomaster, List<URPose> path, MainWindow mainWindow)
         {
+            isClosed = false;
             master = robomaster;
             master.ProcessPath(path);
             mainWindowInstance = mainWindow;
@@ -50,7 +56,7 @@ namespace AutoSonographyWPF
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             master.PauseScanning();
-            if(paused)
+            if (paused)
             {
                 paused = false;
                 btnPause.Content = "Pause";
@@ -67,12 +73,13 @@ namespace AutoSonographyWPF
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            master.StopScanning();
             Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            master.StopScanning();
+            isClosed = true;
             mainWindowInstance.Show();
         }
     }
