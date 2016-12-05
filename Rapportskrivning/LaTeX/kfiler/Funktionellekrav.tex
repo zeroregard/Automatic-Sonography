@@ -28,7 +28,7 @@ Efter afsluttelse af UC1: Start system, vil det til en hver tid være muligt at 
   	{\begin{enumerate}
   	\item Operatør starter PC Applikation ved at klikke på 'AutoSonography.exe' på computerens skrivebord
   	\item PC Applikation instruerer Robotarm tilbage til standardposition
-  	\end{enumerate}} \\ \hline
+  	\end{enumerate}} \\\hline
 \end{longtabu}
 \newpage
 
@@ -51,22 +51,24 @@ Efter afsluttelse af UC1: Start system, vil det til en hver tid være muligt at 
   	\item PC Applikation instruerer 3D kamera til at scanne brystområde på Patient
   	\item Operatør godkender dybdebilledet på knappen [OK] på GUI's 3D Scan Menu efter efter endt scanning 
 	\begin{itemize}
-	\item \textit{'Dybdebillede er forvrænget '}  	
+	\item \textit{'Scanning er ikke godkendt'}  	
   	\end{itemize} 
   	\end{enumerate}} \\\hline
-   \textbf{Undtagelser} &   
+\textbf{Udvidelser} & 
   	{\begin{itemize} 
   	\item \textit{'Juster 3D billedets skæring'}
-  	\begin{enumerate}[label=A\arabic*]
+  		\begin{enumerate}[label=A\arabic*]
 		\item Operatør vælger et andet skæringsinterval på GUI for Patients brystområde
-		\item Operatør forsætter UC2: 3D scan brystområde
-	\end{enumerate}
-  	\item \textit{'Dybdebilledet er forvrænget'}
-  	\begin{enumerate}[label=B\arabic*]
-		\item Operatør godkender ikke billedet og trykker på knappen [Scan] 
-		\item Systemet genstarter UC2: 3D scan brystområde
-	\end{enumerate}
-	\end{itemize}} \\\hline
+		\item Operatør forsætter UC2: 3D scan brystområde i punkt 2   		
+  		\end{enumerate}
+  	\end{itemize}} \\ \hline
+  \textbf{Undtagelser} & 
+  	{\begin{itemize} 
+  	\item \textit{'Scanning er ikke godkendt'}
+  		\begin{enumerate}[label=B\arabic*]
+  		\item Operatør godkender ikke dybdebilledet og går i udvidelsen 'Juster 3D billedets skæring'
+  		\end{enumerate}
+  	\end{itemize}} \\\hline
 	\end{longtabu}
 \newpage
 
