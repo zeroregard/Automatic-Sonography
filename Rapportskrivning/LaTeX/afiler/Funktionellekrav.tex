@@ -21,10 +21,10 @@
 \\
 \hline
 1.1 &  Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 'Startup Menu' vises på GUI &\\\hline
-2.1 &  Testpersonen venter på, at Robotarm flytte sig og stoppet i en ny position & Robotarm er stoppet & \\\hline
+2.1 &  Testpersonen venter på, at Robotarm flytter sig og stopper i en ny position & Robotarm er stoppet & \\\hline
 2.2 &  På Robotarms touchskærm trykker Testperson på 'Move'-fanen øverst på GUI'en & En ny skærm vises, hvor der er mulighed for at aflæse koordinater i højre side & \\ \hline
 2.3 &  I højre hjørne af Robotarms skærm trykker Testperson på 'Feature'-dropdownen, og der vælges 'Base' & Z-koordinatet i rammen 'TCP' under 'Feature'-rammen er shiftet cirka $+$400 mm og farverne på knapperne i venstre side er skiftet. & \\ \hline
-2.4 & Testperson aflæser hver tekstboks i rammen 'TCP' og noterer, at de matcher hvert koordinat angivet i 'Standard Positur' i bilaget 'Sætningsliste' & Med en margin på $ \pm 1$ mm er Robotarms nuværende koordinater tilsvarende Positurn 'Standard Positur's koordinater & \\ \hline
+2.4 & Testperson aflæser hver tekstboks i rammen 'TCP' og noterer, at de matcher hvert koordinat angivet i 'Standard Positur' i bilaget 'Sætningsliste' & Med en margin på $ \pm 1$ mm er Robotarms nuværende koordinater tilsvarende Posituren 'Standard Positur's koordinater & \\ \hline
 \end{tabularx}
     \caption{Test: UC1: Hovedscenarie}
     \label{uc1_test_h_label}  
@@ -54,7 +54,7 @@
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
 1.1 & Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
 2.1 & Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & På GUI bliver knappen [OK] tilgængelig &  \\\hline
-3.1 & Testperson tjekker, om der er et dybdebillede på menuen '3D Scan Menu' & Menuen '3D Scan Menu' viser noget andet end et sort billede & \\\hline
+3.1 & Testperson tjekker, om der er et dybdebillede på menuen '3D Scan Menu' & Menuen '3D Scan Menu' viser noget andet end et hvidt billede & \\\hline
 4.1 & Testperson trykker på knappen [OK] i menuen '3D Scan Menu' & Menuen 'Startup Menu' vises på GUI. Knappen [Ultralydsscan] er tilgængelig & \\\hline
 \end{tabularx}
     \caption{Test: UC2: Hovedscenarie}
@@ -64,7 +64,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Test: UC2: Undtagelse: Juster 3D billedets skæring}
+\section{Test: UC2: Udvidelse: Juster 3D billedets skæring}
 \textbf{Use Case Navn:} 3D scan brystområde \newline
 \textbf{Forsøgsopstilling:}
 \begin{itemize}
@@ -84,47 +84,19 @@
 \hline
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
 1.1 & Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
-A1.1 & Testperson vælger nye Y Min og X Min interval på GUI's track bars & GUI viser de nye værdier & \\\hline
-A2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområde i Tabel \ref{uc2_test_h_label} fra punkt 2.1 til punkt 4.1  & Visuelle resultater fra punkt 2.1 til punkt 4.1 i Tabel  \ref{uc2_test_h_label} & \\\hline
+A1.1 & Testperson ændrer Y min til -0,14 på GUI's track bars & GUI viser Y Min til at være 0,14 og Y max til 0,3  & \\\hline
+A2.1 & Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & På GUI bliver knappen [OK] tilgængelig &  \\\hline
+A2.2 & Testperson tjekker, at der der er et afskåret brystområde på menuen '3D Scan Menu' & Menuen '3D Scan Menu' viser et afskåret brystområde på Testobjekt & \\\hline
+A2.3 & Testperson trykker på knappen [OK] i menuen '3D Scan Menu' & Menuen 'Startup Menu' vises på GUI. Knappen [Ultralydsscan] er tilgængelig & \\\hline
 \end{tabularx}
-    \caption{Test: UC2: Undtagelse: Juster 3D billedets skærring}
+    \caption{Test: UC2: Undtagelse: Juster 3D billedets skæring}
     \label{uc2_test_e_1_label}  
 \end{table}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Test: UC2: Undtagelse: Juster 3D billedets skæring}
-\textbf{Use Case Navn:} 3D scan brystområde \newline
-\textbf{Forsøgsopstilling:}
-\begin{itemize}
-\item PC Applikation er startet
-\item 3D kamera er tilsluttet
-\item Testobjekt er placeret indenfor afgrænsning 
-\end{itemize}  
-\textbf{Aktører:}
-\begin{itemize}
-\item Testperson
-\item Testobjekt
-\item 3D kamera
-\end{itemize}  
-
-\begin{table}[htb]
-\begin{tabularx}{\textwidth}{|p{0.7cm}|X|X|p{2cm}|}
-\hline
-\textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
-1.1 & Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
-A1.1 & Testperson vælger nye Y Min og X Min interval på GUI's track bars & GUI viser de nye værdier & \\\hline
-A2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområde i Tabel \ref{uc2_test_h_label} fra punkt 2.1 til punkt 4.1  & Visuelle resultater fra punkt 2.1 til punkt 4.1 i Tabel  \ref{uc2_test_h_label} & \\\hline
-\end{tabularx}
-    \caption{Test: UC2: Undtagelse: Juster 3D billedets skærring}
-    \label{uc2_test_e_1_label}  
-\end{table}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Test: UC2: Undtagelse: Dybdebillede er forvrænget}
+\section{Test: UC2: Undtagelse: Scanning er ikke godkendt}
 \textbf{Use Case Navn:} 3D scan brystområde \newline
 \textbf{Forsøgsopstilling:}
 \begin{itemize}
@@ -145,11 +117,12 @@ A2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområd
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
 1.1 & Testperson trykker på knappen [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \\\hline
 2.1 & Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & På GUI bliver knappen [OK] tilgængelig &  \\\hline
-3.1 & Testperson tjekker, om der er et dybdebillede på menuen '3D Scan Menu' & Menuen '3D Scan Menu' viser noget andet end et sort billede & \\\hline
-B1.1 & Testperson trykker på knappen [Scan]  \\\hline
-B2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområde i Tabel \ref{uc2_test_h_label} fra punkt 1.1 til punkt 4.1  & Visuelle resultater fra punkt 1.1 til punkt 4.1 i Tabel  \ref{uc2_test_h_label} & \\\hline
+3.1 & Testperson tjekker, om der er et dybdebillede på menuen '3D Scan Menu' & Menuen '3D Scan Menu' viser noget andet end et hvidt billede & \\\hline
+B1.1 & Testperson godkender ikke billedet, men ændrer Y Min til -0,14 på GUI's track bars & GUI viser Y Min til at være 0,14 og Y max til 0,3  & \\\hline
+B1.2 &  Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' indtil der kommer et afskåret brystområde & På GUI bliver knappen [OK] tilgængelig, og menuen '3D Scan Menu' viser et afskåret brystområde på Testobjekt & \\\hline 
+B1.3 & Testperson trykker på knappen [OK] i menuen '3D Scan Menu' & Menuen 'Startup Menu' vises på GUI. Knappen [Ultralydsscan] er tilgængelig & \\\hline
 \end{tabularx}
-    \caption{Test: UC2: Undtagelse: Dybdebillede er forvrænget}
+    \caption{Test: UC2: Undtagelse: Scaning er ikke godkendt}
     \label{uc2_test_e_2_label}  
 \end{table}
 \newpage
@@ -165,7 +138,7 @@ B2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområd
 \item Robotarm er tilsluttet
 \item Ultralydsdummy er fastmonteret Robotarm
 \item Testobjekt har ikke skiftet position siden udførslen af UC2: 3D scan brystområde
-\item Målebånd til opmåling af Ultralydsdummysbane 
+\item Målebånd 
 \end{itemize}  
 \textbf{Aktører:}
 \begin{itemize}
@@ -190,6 +163,8 @@ B2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområd
 \newpage
 
 
+Move --> set writs 3 til 0 grader - tilbage til run fanen --> trykke på play 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Test: UC3: Udvidelse: Operatør pauser scanning}
@@ -200,7 +175,7 @@ B2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområd
 \item Robotarm er tilsluttet
 \item Ultralydsdummy er fastmonteret Robotarm
 \item Testobjekt har ikke skiftet position siden UC2: 3D scan brystområde
-\item Målebånd til opmåling af Ultralydsdummysbane 
+\item Stopur
 \end{itemize}  
 \textbf{Aktører:}
 \begin{itemize}
@@ -215,8 +190,12 @@ B2.1 & Testperson gennemgår tests fra Hovedscenariet i UC2: 3D scan brystområd
 \hline
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\ \hline
 1.1 & Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen 'Ultralydsscan Menu' & \\ \hline
-A1.1 & Testperson trykker på knappen [Pause], mens Robotarm med Ultralydsdummy scanner Testobjekt & Robotarm med Ultralydsdummy stopper med at flytte sig på Testobjekt & \\\hline
-A2.1 & Testperson trykker på knappen [Pause] & Robotarm genoptager scanning af Testobjekt & \\\hline 
+A1.1 & Testperson starter stopur & Stopur er startet & \\\hline
+A1.2 & Testperson trykker på knappen [Pause], mens Robotarm med Ultralydsdummy scanner Testobjekt & Robotarm med Ultralydsdummy stopper med at flytte sig på Testobjekt & \\\hline
+A1.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 5 sekunder eller derunder & \\\hline
+A2.1 & Testperson starter stopur & Stopur er startet & \\\hline
+A2.2 & Testperson trykker på knappen [Pause] & Robotarm genoptager scanning af Testobjekt & \\\hline 
+A2.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 2 sekunder eller derunder & \\\hline
 2.1 & Testperson gennemgår tests fra hovedforløbet i UC2: Ultralydsscan brystområde i Tabel \ref{uc3_test_h_label} fra punkt 2.1 til punkt 3.1  & Visuelle resultater fra punkt 2.1 til punkt 3.1 i Tabel \ref{uc1_test_h_label} & \\ \hline
 \end{tabularx}
     \caption{Test: UC3: Udvidelse: Operatør pauser scanning} 
@@ -226,7 +205,7 @@ A2.1 & Testperson trykker på knappen [Pause] & Robotarm genoptager scanning af 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Test: UC3: Undtagelse: Operatør stopper Robotarm}
+\section{Test: UC3: Undtagelse: Operatør stopper scanning}
 \textbf{Use Case Navn:} Ultralydsscan brystområde \newline
 \textbf{Forsøgsopstilling:}
 \begin{itemize}
@@ -251,7 +230,7 @@ A2.1 & Testperson trykker på knappen [Pause] & Robotarm genoptager scanning af 
 B1.1 & Testperson trykker på knappen [Stop], mens Robotarm med Ultralydsscanner scanner Testobjekt & Robotarm med Ultralydsdumy stopper med at flytte sig på Testobjekt &\\\hline
 B2.1 &  Testperson gennemgår tests fra UC1: Start system i Tabel \ref{uc1_test_h_label} fra punkt 2.1 til punkt 2.4  & Visuelle resultater fra punkt 2.1 til punkt 2.4 i Tabel \ref{uc1_test_h_label} & \\ \hline
 \end{tabularx}
-    \caption{Test: UC3: Undtagelse: Operatør stopper Robotarm} 
+    \caption{Test: UC3: Undtagelse: Operatør stopper scanning} 
     \label{uc3_test_e_2_label}  
 \end{table}
 \newpage

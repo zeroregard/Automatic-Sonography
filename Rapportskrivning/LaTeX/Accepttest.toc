@@ -11,19 +11,18 @@
 \contentsline {chapter}{\chapternumberline {5}Tests af funktionelle krav}{6}{chapter.5}
 \contentsline {section}{\numberline {5.1}Test: UC1: Hovedscenarie}{6}{section.5.1}
 \contentsline {section}{\numberline {5.2}Test: UC2: Hovedscenarie}{7}{section.5.2}
-\contentsline {section}{\numberline {5.3}Test: UC2: Undtagelse: Juster 3D billedets sk\IeC {\ae }ring}{8}{section.5.3}
-\contentsline {section}{\numberline {5.4}Test: UC2: Undtagelse: Juster 3D billedets sk\IeC {\ae }ring}{9}{section.5.4}
-\contentsline {section}{\numberline {5.5}Test: UC2: Undtagelse: Dybdebillede er forvr\IeC {\ae }nget}{10}{section.5.5}
-\contentsline {section}{\numberline {5.6}Test: UC3: Hovedscenarie}{11}{section.5.6}
-\contentsline {section}{\numberline {5.7}Test: UC3: Udvidelse: Operat\IeC {\o }r pauser scanning}{12}{section.5.7}
-\contentsline {section}{\numberline {5.8}Test: UC3: Undtagelse: Operat\IeC {\o }r stopper Robotarm}{13}{section.5.8}
-\contentsline {section}{\numberline {5.9}Test: UC4: Hovedscenarie}{14}{section.5.9}
-\contentsline {chapter}{\chapternumberline {6}Ikke-funktionelle krav}{15}{chapter.6}
-\contentsline {section}{\numberline {6.1}Usability}{15}{section.6.1}
-\contentsline {subsubsection}{U1. PC Applikation skal have en GUI}{15}{section*.12}
-\contentsline {section}{\numberline {6.2}Performance}{16}{section.6.2}
-\contentsline {subsubsection}{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}{16}{section*.14}
-\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 30 sekunder}{17}{section*.16}
-\contentsline {subsubsection}{P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet}{18}{section*.18}
-\contentsline {subsubsection}{P4. PC Applikation skal max bruge 1 minut p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{19}{section*.20}
-\contentsline {chapter}{Bilag}{20}{chapter*.22}
+\contentsline {section}{\numberline {5.3}Test: UC2: Udvidelse: Juster 3D billedets sk\IeC {\ae }ring}{8}{section.5.3}
+\contentsline {section}{\numberline {5.4}Test: UC2: Undtagelse: Scanning er ikke godkendt}{9}{section.5.4}
+\contentsline {section}{\numberline {5.5}Test: UC3: Hovedscenarie}{10}{section.5.5}
+\contentsline {section}{\numberline {5.6}Test: UC3: Udvidelse: Operat\IeC {\o }r pauser scanning}{11}{section.5.6}
+\contentsline {section}{\numberline {5.7}Test: UC3: Undtagelse: Operat\IeC {\o }r stopper scanning}{12}{section.5.7}
+\contentsline {section}{\numberline {5.8}Test: UC4: Hovedscenarie}{13}{section.5.8}
+\contentsline {chapter}{\chapternumberline {6}Ikke-funktionelle krav}{14}{chapter.6}
+\contentsline {section}{\numberline {6.1}Usability}{14}{section.6.1}
+\contentsline {subsubsection}{U1. PC Applikation skal have en GUI}{14}{section*.11}
+\contentsline {section}{\numberline {6.2}Performance}{15}{section.6.2}
+\contentsline {subsubsection}{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}{15}{section*.13}
+\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 30 sekunder}{16}{section*.15}
+\contentsline {subsubsection}{P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet}{17}{section*.17}
+\contentsline {subsubsection}{P4. PC Applikation skal max bruge 1 minut p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{18}{section*.19}
+\contentsline {chapter}{Bilag}{19}{chapter*.21}
