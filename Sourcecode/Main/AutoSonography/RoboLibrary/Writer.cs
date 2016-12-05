@@ -55,18 +55,6 @@ namespace RoboLibrary
                 _modbus.WriteMultipleRegister(ID, unit, StartAddress, data, ref result);
         }
 
-        public void AddURPose(DataStructures.URPose pose)
-        {
-            DataStructures.URPose lastPose = dataInstance.GetLastKnownPose();
-            pose.Xpose += lastPose.Xpose;
-            pose.Ypose += lastPose.Ypose;
-            pose.Zpose += lastPose.Zpose;
-            pose.RXpose += lastPose.RXpose;
-            pose.RYpose += lastPose.RYpose;
-            pose.RZpose += lastPose.RZpose;
-            SendURPose(pose);
-        }
-
         public ConfigurationData GetConfigurations()
         {
             ConfigurationData conf = new ConfigurationData();

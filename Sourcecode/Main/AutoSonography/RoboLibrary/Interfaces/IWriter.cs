@@ -9,7 +9,6 @@ namespace RoboLibrary.Interfaces
 {
     public interface IWriter
     {
-        void AddURPose(DataStructures.URPose pose);
         void SendURPose(DataStructures.URPose pose);
         ConfigurationData GetConfigurations();
         void SendConfigurations(ConfigurationData data);
