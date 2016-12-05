@@ -135,9 +135,8 @@ B1.2 & Testperson trykker på knappen [OK] i menuen '3D Scan Menu' & Menuen 'Sta
 \begin{itemize}
 \item PC Applikation er startet
 \item Robotarm er tilsluttet
-\item Ultralydsdummy er fastmonteret Robotarm
 \item Testobjekt har ikke skiftet position siden udførslen af UC2: 3D scan brystområde
-\item Målebånd 
+\item 3D scanning af Testobjekt er godkendt
 \end{itemize}  
 \textbf{Aktører:}
 \begin{itemize}
@@ -153,16 +152,13 @@ B1.2 & Testperson trykker på knappen [OK] i menuen '3D Scan Menu' & Menuen 'Sta
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
 1.1 & Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen 'Ultralydsscan Menu' & \\\hline
 2.1 & Testperson venter på Robotarm stopper & Robotarm er stoppet & \\\hline
-2.2 &  Testperson benytter et målebånd til at tjekke den markerede bane på Testobjekt & Ultralydsdummys bane på Testobjekt har et maximum mellemrum på 5 cm & \\\hline
+2.2 & Testperson observerer, om Robotarm med Ultralydsscanner roterer og ultralydsscanner Testobjekt & Robotarm roterer rundt om Testobjekt & \\\hline
 3.1 & Testperson gennemgår tests fra UC1: Start system i Tabel \ref{uc1_test_h_label} fra punkt 2.1 til punkt 2.4  & Visuelle resultater fra punkt 2.1 til punkt 2.4 i Tabel \ref{uc1_test_h_label} & \\ \hline
 \end{tabularx}
     \caption{Test: UC3: Hovedscenarie} 
     \label{uc3_test_h_label}  
 \end{table}
 \newpage
-
-
-Move --> set writs 3 til 0 grader - tilbage til run fanen --> trykke på play 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -172,15 +168,14 @@ Move --> set writs 3 til 0 grader - tilbage til run fanen --> trykke på play
 \begin{itemize}
 \item PC Applikation er startet
 \item Robotarm er tilsluttet
-\item Ultralydsdummy er fastmonteret Robotarm
 \item Testobjekt har ikke skiftet position siden UC2: 3D scan brystområde
+\item 3D scanning af Testobjekt er godkendt
 \item Stopur
 \end{itemize}  
 \textbf{Aktører:}
 \begin{itemize}
 \item Testperson
 \item Testobjekt
-\item Ultralydsdummy
 \item Robotarm
 \end{itemize}  
 
@@ -190,11 +185,10 @@ Move --> set writs 3 til 0 grader - tilbage til run fanen --> trykke på play
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\ \hline
 1.1 & Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen 'Ultralydsscan Menu' & \\ \hline
 A1.1 & Testperson starter stopur & Stopur er startet & \\\hline
-A1.2 & Testperson trykker på knappen [Pause], mens Robotarm med Ultralydsdummy scanner Testobjekt & Robotarm med Ultralydsdummy stopper med at flytte sig på Testobjekt & \\\hline
+A1.2 & Testperson trykker på knappen [Pause], mens Robotarm roterer rundt på Testobjekt & Robotarm stopper med at flytte sig på Testobjekt & \\\hline
 A1.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 5 sekunder eller derunder & \\\hline
 A2.1 & Testperson starter stopur & Stopur er startet & \\\hline
-A2.2 & Testperson trykker på knappen [Pause] & Robotarm genoptager scanning af Testobjekt & \\\hline 
-A2.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 2 sekunder eller derunder & \\\hline
+A2.2 & Testperson trykker på knappen [Resume] og stopper stopur & Robotarm genoptager scanning af Testobjekt, og stopur viser 2 sekunder eller derunder & \\\hline 
 2.1 & Testperson gennemgår tests fra hovedforløbet i UC2: Ultralydsscan brystområde i Tabel \ref{uc3_test_h_label} fra punkt 2.1 til punkt 3.1  & Visuelle resultater fra punkt 2.1 til punkt 3.1 i Tabel \ref{uc1_test_h_label} & \\ \hline
 \end{tabularx}
     \caption{Test: UC3: Udvidelse: Operatør pauser scanning} 
@@ -210,14 +204,13 @@ A2.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 2 sek
 \begin{itemize}
 \item PC Applikation er startet
 \item Robotarm er tilsluttet
-\item Ultralydsdummy er fastmonteret Robotarm
 \item Testobjekt har ikke skiftet position siden UC2: 3D scan brystområde
+\item 3D scanning af Testobjekt er godkendt
 \end{itemize}  
 \textbf{Aktører:}
 \begin{itemize}
 \item Testperson
 \item Testobjekt
-\item Ultralydsdummy
 \item Robotarm
 \end{itemize}  
 
@@ -226,8 +219,8 @@ A2.3 & Testperson slukker for stopur, når Robotarm stopper & Stopur viser 2 sek
 \hline
 \textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\ \hline
 1.1 & Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen 'Ultralydsscan Menu' & \\ \hline
-B1.1 & Testperson trykker på knappen [Stop], mens Robotarm med Ultralydsscanner scanner Testobjekt & Robotarm med Ultralydsdumy stopper med at flytte sig på Testobjekt &\\\hline
-B2.1 &  Testperson gennemgår tests fra UC1: Start system i Tabel \ref{uc1_test_h_label} fra punkt 2.1 til punkt 2.4  & Visuelle resultater fra punkt 2.1 til punkt 2.4 i Tabel \ref{uc1_test_h_label} & \\ \hline
+B1.1 & Testperson trykker på knappen [Stop], mens Robotarm roterer rundt om Testobjekt & Robotarm stopper med at flytte sig på Testobjekt &\\\hline
+B2.1 &  Testperson gennemgår tests fra UC1: Start system i Tabel \ref{uc1_test_h_label} fra punkt 2.1 til punkt 2.4  & Visuelle resultater fra punkt 2.1 til punkt 2.4 i Tabel \ref{uc1_test_h_label} & \\\hline
 \end{tabularx}
     \caption{Test: UC3: Undtagelse: Operatør stopper scanning} 
     \label{uc3_test_e_2_label}  
