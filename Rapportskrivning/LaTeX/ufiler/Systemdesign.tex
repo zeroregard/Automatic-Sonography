@@ -2,7 +2,10 @@
 Der er udarbejdet forskellige diagrammer på baggrund af de specificerede systemkrav.  Diagrammerne har til formål at dele systemet op i realiserbare dele for at vise designet af systemet. 
 
 \section{Pakkediagram}
-Der er på baggrund af softwarearkitekturen lavet et pakkediagram, som kan ses på nedenstående Figur \ref{Pakkediagram}. Pakkediagrammet er en opdeling af systemets klasser i forskellige packages. I dette projekt er der valgt tre pakker. 
+Pakkediagrammet figur \ref{Pakkediagram} giver en oversigt over afhængighederne i PC Applikation.
+For at slippe for cykliske forbindelser blev mange datastrukturer flyttet fra CalculationLibrary, ComputerVisionLibrary og RoboLibrary til DataStructures-biblioteket.
+DataStructures indeholder altså kun nogle datastrukturer og nogle extension-metoder til disse. 
+For forklaringen af indholdet af de øvrige pakker, se klassediagrammerne for hvert bibliotek.
 
 AutoSocograophyWPF inderholder alt, der hører til Grafisk brugergrænseflade (GUI), herunder de tre menuer, 3DscanMenu, StartMenu og UltrasoundMenu. 
 
@@ -10,9 +13,13 @@ ComputerVisionLibrary indeholder klasser, der har at gøre med 3D billedet og ko
 
 RoboLibray pakken indeholder klasser som robotarmen skal benytte for at kunne flytte sig, herunder Analyzer, Data, Logic, Modbus, PathCreator, PathFeeder, Reader, RoboMaster, URPose og Writer. 
 
+DataStructures
+
+CalculationLibrary
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{figurer/d/Design/Pakkediagram}
+    \includegraphics[width=1\textwidth]{figurer/d/Design/Pakkediagram}
     \caption{Pakkediagram for Automatisk Ultralydsscanner}
     \label{Pakkediagram}
 \end{figure}
@@ -24,23 +31,24 @@ Dette afsnit beskriver klasserne fra pakkediagrammet. Klassediagrammerne viser s
 \subsection{GUI}
 Dette projekt indeholder brugergrænsefladen af PC Applikation.
 
+\let\labelitemi\labelitemii
 \begin{itemize}
-\item{MainWindow}
+\item{MainWindow}\newline
 Giver anledning til at foretage et 3D scan. Såfremt en 3D scanning er gennemført giver det også anledning til at starte en ultralydsscanning.
 Når menuen startes, oprettes en instans af RoboMaster, for at sætte Robotarm i standard positur. Dette er nødvendigt, hvis Robotarm skulle være i vejen for en 3D scanning.
 Hvis der ikke er nogen forbindelse til Robotarm vil der 
 
-\item{3DScanMenu}
+\item{3DScanMenu}\newline
 I denne menu er der mulighed for at se det nuværende dybdebillede, afgrænse området der skal 3D scannes og foretage en 3D scanning.
 
-\item{UltrasoundScanMenu}
+\item{UltrasoundScanMenu}\newline
 I denne menu kan den procentvise færdiggørelse af ultralydsscanningen følges. Der er også mulighed for at pause samt afbryde ultralydsscanningsprocessen.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{figurer/d/Design/Class/uml_class_gui}
-    \caption{KLassediagram for GUI}
+    \caption{Klassediagram for GUI}
     \label{class_gui}
 \end{figure}
 \newpage
@@ -49,14 +57,14 @@ I denne menu kan den procentvise færdiggørelse af ultralydsscanningen følges.
 Formålet med dette bibliotek er at få en afgrænset 3D scanning fra et 3D kamera.
 
 \begin{itemize}
-\item{KinectFusionizeren}
+\item{KinectFusionizeren}\newline
 Har til ansvar at åbne Kinect-sensoren, tage det nuværende dybdebillede fra sensoren og konvertere det til en mesh.
 
-\item{ComputerVisionMaster}
+\item{ComputerVisionMaster}\newline
 Denne klasse virker som den logiske grænseflade til KinectFusionizeren, hvor instansen af den nuværende mesh lagres her.
 Andre klasser kan subscribe til ComputerVisionMasteren for at høre hvornår der er en ny mesh tilgængelig.
 
-\item{Slicer}
+\item{Slicer}\newline
 Denne klasse sørger for at fjerne de punkter i en mesh der er uinteressante:
 \begin{enumerate}
 \item{Faces der peger nedaf, dvs fejlpunkter. Da 3D kameraet er monteret i loftet, vil den ikke kunne se undersiden af det den skanner.}
@@ -77,23 +85,23 @@ Denne klasse sørger for at fjerne de punkter i en mesh der er uinteressante:
 Dette bibliotek agerer som bindeledet mellem ComputerVisionLibrary og RoboLibrary.
 
 \begin{itemize}
-\item{CameraToRobotCalibrator} 
+\item{CameraToRobotCalibrator} \newline
 Sørger for at konvertere 3D scanningen givet fra ComputerVisionLibrary fra 3D Kameras rum til Robot Arms rum.
 Dette sker ved en kæde af matrix-transformationer i en speciel rækkefølge. 
 Normaltvis har man en translation, rotation og skalering, men da Robot Arms og 3D Kameras koordinatsystemer begge er angivet i millimeter, er skaleringen unødvendig.
 I tilfældet for dette projekt sker der først en rotering og derefter en translation, for at bestemme transformationsmatricen. 
 Hvert punkt i en mesh konverteres så til det nye space.
 
-\item{Smoother}
+\item{Smoother}\newline
 Denne klasse har til ansvar at udjævne en mesh. Med udjævning forstås at 'ensforme' normalerne, altså retningsvektorer i en mesh's faces.
 Dette er nødvendigt da 3D Kameras output kan være uperfekt og dermed vil normalerne være ekstreme/deforme. Udjævningen sker gennem laplacian smoothing, se \cite{Smooth} for forklaring af algoritme.
 
-\item{PathCreator}
+\item{PathCreator}\newline
 Klassen afgør listen af punkter i en mesh som der skal findes positurer til Robot Arm ud fra.
 For at afgøre stien genereres der en 'bølge' - i implementeringen en squarewave - af punkter der draves over meshen.
 De vertices i meshen der tilnærmer sig punkterne i bølgen bedst vil blive udvalgt til stien.
 
-\item{RobotPoseCreator}
+\item{RobotPoseCreator}\newline
 I denne klasse vil konverteringen af en mesh-sti til en liste af positurer ske.
 For hvert punkt i mesh-stien, vil en vertex' normal findes. 
 Ved hjælp af normalen, sti-punktets koordinater samt længden på Robotarms probe kan den forskudte Robot Arm position findes.
@@ -115,25 +123,25 @@ Positionsvektoren og rotationsvektoren udgør til sammen en positur, som tilføj
 Biblioteket giver mulighed for kommunikation med Robot Arm.
 
 \begin{itemize}
-\item{RoboMaster}
+\item{RoboMaster}\newline
 Klassen agerer som bindeled mellem de øvrige klasser i biblioteket og GUI.
 
-\item{PathFeeder} 
+\item{PathFeeder} \newline
 Står for at gennemløbe hver positur i listen, og kommunikere med Data for at finde ud af hvornår den næste positur skal sendes til Robot Arm.
 
-\item{klassen}
+\item{Data}\newline
 Klassen virker som en grænseflade mellem den 'logiske' del af biblioteket og dens underliggende reader/writer klasser.
 
-\item{Reader}
+\item{Reader}\newline
 Denne klasse står for kontinuerligt at læse data fra Robot Arm, for at afgøre dens nuværende positur. 
 
-\item{Analyzer} 
+\item{Analyzer} \newline
 Klassen konverterer det indlæste data til en objekt-orienteret model, altså transformation af bytes til Robot Arms nuværende positur.
 
-\item{Writer}
+\item{Writer}\newline
 Klassen har til ansvar at omskrive værdier til binær data. Den omskriver både positurer samt konfigurationer.
 
-\item{Modbus}
+\item{Modbus}\newline
 Denne klasse skriver binær data ud på Robot Arms IP gennem modbus-protokollen.
 \end{itemize}
 
@@ -150,7 +158,7 @@ Der er på baggrund af klassediagrammerne lavet sekvensdiagrammer, som beskriver
 
 Nedenstående sektioner vil beskrive de vigtigste sekvensdiagrammer i system og fremvise, hvordan klasserne indbyrdes kommunikerer. 
 
-\subsection{Reading} 
+\subsection{Read Robot Data} 
 Reader initieres med en IP hvor den skal lytte på. 
 Der åbnes en socket på denne IP, og derefter lytter den kontinuert i en baggrundstråd. 
 Readeren giver de rå data videre til Analyzer som konverterer dem til Robot Arms nuværende positur.
@@ -200,11 +208,11 @@ Efter transformationen skal meshen udjævnes, så de rå og ekstreme normaler i 
 Dernæst sendes den konverterede mesh til PathCreator så der oprettes en liste af de punkter i meshen vi ønsker at Robot Arm skal gennemgå.
 Til sidst skal stien der findes i PathCreator konverteres til Robot Arm positurer, da stien i PathCreator kun fortæller position direkte på meshen.
 Med denne sti får Robot Arm afdækket overfladen på Patient, hvis den har en Ultralydsscanner monteret.
-Stien kan nu videresendes til RoboMaster - se sekvensdiagrammet 'Feed Path'.
+Stien kan nu videresendes til RoboMaster - se sekvensdiagrammet 'Feed Path' Figur \ref{sd_feedpath}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.2\textwidth, angle =90]{figurer/d/Design/Sequence/sd_ultrascan}
+    \includegraphics[width=1.4\textwidth, angle =90]{figurer/d/Design/Sequence/sd_ultrascan}
     \caption{Sekvensdiagram for Pathcreation}
     \label{sd_ultrascan}
 \end{figure}

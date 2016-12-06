@@ -1,14 +1,14 @@
 \chapter{Systemarkitektur}\label{Systemarkitektur}
 Der er udarbejdet forskellige diagrammer på baggrund af de specificerede systemkrav.  Diagrammerne har til formål at dele systemet op i realiserbare dele for at vise arkitekturen for systemet. 
 
-Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Systemet er opbygget generisk, så man vil kunne udskifte komponenter som f.eks. robotarmen eller 3D kameraet med en anden type eller model. Udskiftning af komponenter vil dog resultere i en anderledes implementering. Der er i diagrammerne designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarmen er en UR10 robot. 
+Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Systemet er opbygget generisk, så man vil kunne udskifte komponenter som f.eks. Robotarm eller 3D kamera med en anden type eller model. Udskiftning af komponenter vil dog resultere i en anderledes implementering. Der er i diagrammerne designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarm er en UR10 robot. 
 
 \section{Systemoversigt}
-Systemet Automatisk Ultralydsscanner består af en PC applikation, en Ultralydsscanner, en Robotarm af typen Universal Robots UR10, et 3D kamera af typen Microsoft Kinect 2.0, samt et Access Point, af typten D-Link DAP-1160, til forbindelse mellem Robotarm og PC applikation. Der er fem aktører, Robotarm, Ultralydsscanner, 3D kamera, Operatør og Patient, som interagerer med PC applikation.
+Systemet Automatisk Ultralydsscanner består af en PC applikation, en Ultralydsscanner, en Robotarm af typen Universal Robots UR10, et 3D kamera af typen Microsoft Kinect 2.0, samt et Access Point, af typten D-Link DAP-1160, til forbindelse mellem Robotarm og PC applikation. Der er fem aktører, Robotarm, Ultralydsscanner, 3D kamera, Operatør og Patient, som interagerer med PC Applikation.
 
-Robotarm har en fastmonteret touch skærm, hvorpå Operatør manuelt kan flytte Robotarm, se Robotarms koordinator mm. Robotarm er forbundet via et ethernet kabel til et Access Point, så at PC Applikation kan kommunikere trådløst til den. 3D kamera er forbundet til en computer via USB 3.0. Ultralydsscanner er en seperat enhed, som er fastgjort på Robotarm, men indgår i det fulde system Automatisk Ultralydsscanner. Ultralydsscanner skal manuelt tændes og slukkes af Operatør.
+Robotarm har en fastmonteret touch skærm, hvorpå Operatør manuelt kan flytte Robotarm, se Robotarms koordinator mm. Robotarm er forbundet via et ethernet kabel til et Access Point, så PC Applikation kan kommunikere trådløst til den. 3D kamera er forbundet til en computer via USB 3.0. Ultralydsscanner er en seperat enhed, som er fastgjort på Robotarm, men indgår i det fulde system Automatisk Ultralydsscanner. Ultralydsscanner skal manuelt tændes og slukkes af Operatør.
 
-For Automatisk Ultralydsscanner er der udarbejdet forskellige diagrammer, som har til formål at dele systemet op i blokke og vise integration mellem blokkene, samt forbindelser mellem aktøre. 
+For Automatisk Ultralydsscanner er der udarbejdet forskellige diagrammer, som har til formål at dele systemet op i blokke og vise integration mellem blokkene, samt forbindelser mellem aktøre. Diagrammerne vil blive gennemgået nedenfor. 
 \newpage
 
 \subsection{Domænemodel}
@@ -22,7 +22,8 @@ Domænemodellen på Figur \ref{domain} viser forbindelserne mellem de forskellig
 \end{figure}
 
 \subsection{Block definition diagram}
-Block Definition Diagram Figur \ref{BDD} viser systemet blokke. 
+Block Definition Diagram Figur \ref{BDD}giver et overblik over Automatisk Ultralydsscanners komponenter, som et samlet system.
+Her ses at det er nødvendigt at have en computer med mus og skærm for at anvende PC Applikation.
 
 \begin{figure}[H]
     \centering
@@ -33,7 +34,10 @@ Block Definition Diagram Figur \ref{BDD} viser systemet blokke.
 \newpage
 
 \subsection{Internal block diagram}
-Internal Block Diagram Figur \ref{IBD}  viser systemets interne forbindelser og flow mellem blokkene. Bemærk at Ultralydsscanner ikke er inkluderet, da den ikke har forbindelse til de andre blokke udover at være fysisk monteret på Robotarm. 
+Internal Block Diagram Figur \ref{IBD} viser flow af information mellem de forskellige blokke i Automatisk Ultralydsscanner.
+Bemærk at Ultralydsscanner ikke er med, da den ikke interagerer med resten af Automatisk Ultralydsscanner, men blot er forbundet mekanisk til Robotarm.
+Når 3D Scan menuen åbnes i PC Applikation, vil der være et konstant flow af dybdedata fra 3D kamera til PC Applikation.
+Når PC Applikation startes, vil der være et flow af data frem og tilbage mellem Robotarm og PC Applikation, hvor Access Point agerer som mellemled. 
 
 \begin{figure}[H]
     \centering
@@ -59,6 +63,7 @@ URScriptet aflæser disse værdier og instruerer UR10 i at flytte sit TCP til de
 Efter noget tid vil den have nået denne positur. Der vil løbende kunne aflæses om UR10 har nået posituren på port 30002.
 
 \textbf{Port 502}
+Skriv tekst
 
 \textbf{URScript}
 Scriptet der kører på UR10 aflæser i alt 3 værdier:
@@ -69,6 +74,8 @@ Accelerationsværdien, hastighedsværdien samt pose-objektet gives som parameter
 UR10s TCP flyttes lineært i funktionen \textit{move1}. Tiden på acceleration og deceleration styres omvendt proportionalt af accelerationsværdien, mens den maksimale hastighed styres af hastighedsværdien.
 
 \textbf{Port 30002}
+Skriv tekst 
+
 \subsubsection{URScript}
 
 \subsection{Kinect}
@@ -76,12 +83,12 @@ Skriv tekst her om Kinect API'et udviklet af Microsoft
 \newpage
 
 \section{Softwarearkitektur}
-PC Applikationen er opdelt af forskellige moduller for at øge samhørigheden og nedsætte koblingen, hvilket er med til at sikre overskuelighed og gøre PC applikation lettere at vedligeholde. Modulerne er inddelt efter ansvarsområder angående præsentation til bruger, Robotarm, 3Dkamera, udregning af robottens sti og datastrukturerne. Figur \ref{Layers} viser referencen mellem modullerne. 
+PC Applikationen er opdelt af forskellige moduller for at øge samhørigheden og nedsætte koblingen, hvilket er med til at sikre overskuelighed og gøre PC Applikation lettere at vedligeholde. Modulerne er inddelt efter ansvarsområder angående præsentation til bruger, Robotarm, 3D kamera, udregning af robottens sti og datastrukturerne. Figur \ref{Layers} viser referencen mellem modullerne. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figurer/d/Design/Layers}
-    \caption{PC Applikationens opdeling af moduler }
+    \includegraphics[width=0.75\textwidth]{figurer/d/Design/Layers}
+    \caption{PC Applikationens opdeling af moduler}
     \label{Layers}
 \end{figure}
 
