@@ -13,17 +13,14 @@ A level-1 auxiliary file: rfiler/Systemkrav.aux
 A level-1 auxiliary file: rfiler/Metoder.aux
 A level-1 auxiliary file: rfiler/Analyser.aux
 A level-1 auxiliary file: rfiler/MedicinskGodkendelse.aux
-A level-1 auxiliary file: rfiler/Systemarkitektur.aux
-A level-1 auxiliary file: rfiler/Systemdesign.aux
-A level-1 auxiliary file: rfiler/Udviklingsvarktojer.aux
-A level-1 auxiliary file: rfiler/Implementering.aux
+A level-1 auxiliary file: rfiler/Produktudvikling.aux
 A level-1 auxiliary file: rfiler/Test.aux
 A level-1 auxiliary file: rfiler/Resultater.aux
 A level-1 auxiliary file: rfiler/Diskussion.aux
 A level-1 auxiliary file: rfiler/Fremtidsudvikling.aux
 A level-1 auxiliary file: rfiler/Konklusion.aux
 A level-1 auxiliary file: rfiler/Bilag.aux
-Illegal, another \bibstyle command---line 50 of file Projektrapport.aux
+Illegal, another \bibstyle command---line 47 of file Projektrapport.aux
  : \bibstyle
  :          {plain}
 I'm skipping whatever remains of this command
