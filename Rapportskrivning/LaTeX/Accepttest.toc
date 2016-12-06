@@ -22,7 +22,7 @@
 \contentsline {subsubsection}{U1. PC Applikation skal have en GUI}{14}{section*.11}
 \contentsline {section}{\numberline {6.2}Performance}{15}{section.6.2}
 \contentsline {subsubsection}{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}{15}{section*.13}
-\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 30 sekunder}{16}{section*.15}
-\contentsline {subsubsection}{P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet}{17}{section*.17}
-\contentsline {subsubsection}{P4. PC Applikation skal max bruge 1 minut p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{18}{section*.19}
+\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 10 sekunder}{16}{section*.15}
+\contentsline {subsubsection}{P3. 3D kamera skal max bruge 10 sekunder om at tage 3D billedet}{17}{section*.17}
+\contentsline {subsubsection}{P4. PC Applikation skal max bruge 10 sekunder p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{18}{section*.19}
 \contentsline {chapter}{Bilag}{19}{chapter*.21}
