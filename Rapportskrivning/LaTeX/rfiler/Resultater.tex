@@ -1,17 +1,13 @@
 \chapter{Resultater}\label{kapitel_Resultater}
 
-Her formidles projektets resultater fra accepttesten i kort, nøgtern form, f. eks. ved anvendelse af tabeller, grafer eller billeder. De opnåede resultater er do-kumenteret i accepttesten i projektets bilag, så der kan henvises til dette dokument. Det er vigtigt, at præsentationen af resultaterne er utvetydig, nøgtern og objektiv. Beskrivelsen af resultater fylder typisk 1 side.
-
-Resultat af projektet. Hvad kan Autoamtisk Ultralydsscanning og hvad den ikke. 
-
-I accepttest blev de funktionelle og ikke-funktionelle krav testet. 
-Automatiseret Ultralydsscanner er i stand til at detektere et brystområde med 3D 
+\section{Automatisk Ultralydsscanner}
+I accepttesten blev de funktionelle og ikke-funktionelle krav for Automatisk Ultralydsscanner testet. Resultatet af accepttesten var at alle test blev godkendte, på nær UC3: Hovedscenarie. Se Tabel \ref{funk} og \ref{ikke}. 
 
 \subsection{Funktionelle krav}
 \begin{table}[htb]
 \centering
 \begin{tabular}{ | l | p{0.20\textwidth} | }
-\hline
+\\\hline
 \textbf{Testens navn} & \textbf{Godkendt} \\\hline
 UC1: Hovedscenarie & \checkmark \\\hline 
 UC2: Hovedscenarie & \checkmark \\\hline 
@@ -21,6 +17,7 @@ UC3: Udvidelse: Operatør pauser scanning & \checkmark \\\hline
 UC3: Undtagelse: Operatør stopper scanning & \checkmark \\\hline 
 UC4: Hovedscenarie & \checkmark \\\hline 
 \end{tabular}
+\label{funk}
 \caption{Funktionelle krav} 
 \end{table}
 
@@ -38,18 +35,12 @@ Performance & P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet & \che
 Performance & P4. PC Applikation skal max bruge 1 minut på at færdiggøre brystområdets
 positurer til Robotarm & \checkmark \\\hline 
 \end{tabular}
+\label{ikke}
 \caption{Ikke-funktionelle krav}
 \end{table}
 
-For at detaljerede resultater af accepttest se \ref{Accepttest} Accepttest. 
+Det UC3: Hovedsenarie fejlede på, var punkt 2.1 hvor Testperson observerer, om Robotarm roterer omkring Testobjekt. Grunden til, at accepttesten fejlede var at det ikke var muligt at udføre en ultralydsscanning.  
 
+Det vil sige at Automatisk Ultralydsscanner blev udviklet så det er muligt for Operatør at få forbindelse til PC Applikation, udføre en 3D scanning og dannelse af dybdebillede af brystet.  3D billedet kan justeres og ultralydsscanningen kan stoppes og pauses. 
 
-PC Applikation 
-
-En automatiseret ultralydsscanning kan gavne økonomisk, 
-
-Inden Automatisk Ultralydsscanner kan CE-mærkes,
-
-På Aarhus Universitetshospital, Tage-Hansens Gade 
-
-
+For at detaljerede resultater af accepttest se bilag \ref{Accepttest} Accepttest. 
