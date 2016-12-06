@@ -49,8 +49,7 @@ Forbindelsen mellem PC Applikation og 3D kamera er oprettet med 3D kameras USB 3
 \end{figure}
 
 \section{Systemets grænseflader}
-Systemet består af to grænseflader, mellem PC Applikation og Kinect og mellem PC Aplikation og UR10. Kommunikationen mellem PC Applikation og UR10 sker over modbus-protokollen, hvorimod kommunikationen mellem PC Applikation og Kinect er gennem Kinect's API.
-Se afsnittene nedenunder for en detaljeret beskrivelse af disse interfaces.
+Systemet består af to grænseflader: Mellem PC Applikation og Kinect og mellem PC Aplikation og UR10. Kommunikationen mellem PC Applikation og UR10 sker over modbus-protokollen, hvor kommunikationen mellem PC Applikation og Kinect er gennem Kinect's API.
 
 \subsection{UR10}
 Overførsel af data til UR10 sker gennem Transmission Control Protocol/IP-protokollen (TCP/IP). Til afsendelse af positur-værdier fra PC Applikation anvendes modbus-protokollen. Modbus-protokollen sørger for at skrive binære værdier på registre på UR10-controlleren. UR10 kører på URScripts, hvis den skal styres automatisk. UR10 har et script der i en uendelig løkke læser værdierne på registrene og instruerer UR10s Tool Center Point (TCP) til at flytte sig til en positur med en given acceleration og hastighed.
@@ -76,7 +75,7 @@ Accelerationsværdien, hastighedsværdien samt pose-objektet gives som parameter
 UR10s TCP flyttes lineært i funktionen \textit{move1}. Tiden på acceleration og deceleration styres omvendt proportionalt af accelerationsværdien, mens den maksimale hastighed styres af hastighedsværdien.
 
 \textbf{Port 30002}
-Skriv tekst 
+Der er mulighed for at hive informationer om stort set alle robottens nuværende tilstande som fx software version, ledrotationshastighed, tryk feedback m.m. I implementeringen anvendes der kun TCPs rotation og position.
 
 \subsubsection{URScript}
 
