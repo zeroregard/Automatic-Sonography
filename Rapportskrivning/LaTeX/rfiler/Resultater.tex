@@ -1,10 +1,48 @@
 \chapter{Resultater}\label{kapitel_Resultater}
 
-Her formidles projektets resultater fra accepttesten i kort, nøgtern form, f. eks. ved anvendelse af tabeller, grafer eller billeder. De opnåede resultater er do-kumenteret i accepttesten i projektets bilag, så der kan henvises til dette doku-ment. Det er vigtigt, at præsentationen af resultaterne er utvetydig, nøgtern og objektiv. Beskrivelsen af resultater fylder typisk 1 side.
+Her formidles projektets resultater fra accepttesten i kort, nøgtern form, f. eks. ved anvendelse af tabeller, grafer eller billeder. De opnåede resultater er do-kumenteret i accepttesten i projektets bilag, så der kan henvises til dette dokument. Det er vigtigt, at præsentationen af resultaterne er utvetydig, nøgtern og objektiv. Beskrivelsen af resultater fylder typisk 1 side.
 
 Resultat af projektet. Hvad kan Autoamtisk Ultralydsscanning og hvad den ikke. 
 
+I accepttest blev de funktionelle og ikke-funktionelle krav testet. 
 Automatiseret Ultralydsscanner er i stand til at detektere et brystområde med 3D 
+
+\subsection{Funktionelle krav}
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | l | p{0.20\textwidth} | }
+\hline
+\textbf{Testens navn} & \textbf{Godkendt} \\\hline
+UC1: Hovedscenarie & \checkmark \\\hline 
+UC2: Hovedscenarie & \checkmark \\\hline 
+UC2: Undtagelse: Juster 3D billedets skæring & \checkmark \\\hline 
+UC3: Hovedscenarie & - \\\hline 
+UC3: Udvidelse: Operatør pauser scanning & \checkmark \\\hline 
+UC3: Undtagelse: Operatør stopper scanning & \checkmark \\\hline 
+UC4: Hovedscenarie & \checkmark \\\hline 
+\end{tabular}
+\caption{Funktionelle krav} 
+\end{table}
+
+\subsection{Ikke-funktionelle krav}
+\begin{table}[htb]
+\centering
+\begin{tabular}{| l | p{0.65\textwidth}| l |}
+\hline
+\textbf{Type} & \textbf{Navn} & \textbf{Godkendt}\\\hline
+Usability & U1. PC Applikation skal have en GUI & \checkmark \\\hline 
+Performance & P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10
+minutter til sammen & \checkmark \\\hline 
+Performance & P2. Startoptid på PC Applikation skal være max 30 sekunder & \checkmark \\\hline
+Performance & P3. 3D kamera skal max bruge 1 minut om at tage 3D billedet & \checkmark \\\hline 
+Performance & P4. PC Applikation skal max bruge 1 minut på at færdiggøre brystområdets
+positurer til Robotarm & \checkmark \\\hline 
+\end{tabular}
+\caption{Ikke-funktionelle krav}
+\end{table}
+
+For at detaljerede resultater af accepttest se \ref{Accepttest} Accepttest. 
+
 
 PC Applikation 
 
