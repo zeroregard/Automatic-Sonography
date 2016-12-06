@@ -1,0 +1,51 @@
+\include{preamble_jacob}
+\usepackage[explicit]{titlesec}
+\usepackage{longtable,tabu}
+\usepackage{longtable}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\externaldocument{Accepttest}
+\externaldocument{Bilagsliste}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\raggedbottom 
+
+\begin{document}
+\include{formalia/BilagAccepttest_Forside}
+
+\tableofcontents
+
+\chapter{Indledning}
+Dette dokument indeholder forklaring over fejl ifm. udførslen af Accepttesten. 
+Accepttesten er udført sammen med vejleder Michael Alrøe d. 6. september. 
+
+\vskip 0.2in
+
+{\let\clearpage\relax \chapter{Fejl i Accepttest}}
+Efter at have gennemgået Accepttesten, blev UC3: Hovedscenariet ikke godkendt i punkt 2.1. Testen kan ses i nedenstående tabel \ref{uc3_test_h_label}
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|p{0.5cm}|X|X|p{2cm}|}
+\hline
+\textbf{} & \textbf{Test} & \textbf{Visuelle resultat} &\textbf{Godkendt} \\\hline
+1.1 & Testperson trykker på knappen [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen 'Ultralydsscan Menu' & \checkmark  \\\hline
+2.1 & Testperson observerer, om Robotarm roterer omkring Testobjekt & Robotarm roterer rundt om Testobjekt & -   \\\hline
+3.1 & Testperson gennemgår tests fra UC1: Start system i Tabel \ref{uc1_test_h_label} fra punkt 2.1 til punkt 2.4  & Visuelle resultater fra punkt 2.1 til punkt 2.4 i Tabel \ref{uc1_test_h_label} & \checkmark  \\ \hline
+\end{tabularx}
+    \caption{Test: UC3: Hovedscenarie} 
+    \label{uc3_test_h_label}  
+\end{table}
+\newpage
+
+\chapter{Fejlbeskrivelser} 
+UC3: Hovedscenarier godkendes ikke, da det yderste led på robotarmen har en tendens til at rotere ud over dens grænser. Desuden følger Robotarms sti over brystet ikke den angivne sti fra interviewet med Lars Bolvig, og der er for meget rotation i Robotarms bevægelser. 
+
+\backmatter 
+\chapter{Bilag} 
+
+\ref{Accepttest} Accepttest \\
+\ref{Satningsliste} Sætningsliste
+
+\end{document}
