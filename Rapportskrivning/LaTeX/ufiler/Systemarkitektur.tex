@@ -80,7 +80,7 @@ Der er mulighed for at hive informationer om stort set alle robottens nuværende
 \subsubsection{URScript}
 
 \subsection{Kinect}
-Computeren er forbundet til 3D kamera via USB. 3D kamera har også et supplerende strømforsyningskabel.
+Computeren er forbundet til 3D kamera via USB af typen Transcend PDU3 USB-adapter PCIe 2.0 USB 3.0 eller anden USB3.0 type, der er kompatible med Microsoft Kinect 2.0. 3D kamera har også et supplerende strømforsyningskabel.
 For kommunikation med 3D kamera er der brugt Microsoft's Kinect API \ref{KinectAPI} .
 Der er taget udgangspunkt i Fusion-delen \ref{KinectFusion} af API'et. Fordelen med dette API er at det kan gøre en masse arbejde - ulempen er at det ikke er generisk. Altså ville man ikke kunne bruge en anden sensor en Microsoft Kinect for Windows 2.0. API'et har en C\#-wrapper, og Microsoft har leveret kildekode til et projekt der gjorde nogenlunde det vi var interesserede i (se \ref{KinectFusionExplorer} for at få den nyeste version af dette.
 Efter oprettelsen af forbindelse til Kinect sensoren er det muligt at 'lytte' på den og få de depth frames den kontinuerligt leverer. Se beskrivelsen af klassen KinectFusionizer. !!HUSK REFERENCE TIL KLASSEDIAGRAM
