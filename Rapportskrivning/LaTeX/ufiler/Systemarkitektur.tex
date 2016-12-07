@@ -80,16 +80,20 @@ Der er mulighed for at hive informationer om stort set alle robottens nuværende
 \subsubsection{URScript}
 
 \subsection{Kinect}
-Skriv tekst her om Kinect API'et udviklet af Microsoft
+Computeren er forbundet til 3D kamera via USB. 3D kamera har også et supplerende strømforsyningskabel.
+For kommunikation med 3D kamera er der brugt Microsoft's Kinect API \ref{KinectAPI} .
+Der er taget udgangspunkt i Fusion-delen \ref{KinectFusion} af API'et. Fordelen med dette API er at det kan gøre en masse arbejde - ulempen er at det ikke er generisk. Altså ville man ikke kunne bruge en anden sensor en Microsoft Kinect for Windows 2.0. API'et har en C\#-wrapper, og Microsoft har leveret kildekode til et projekt der gjorde nogenlunde det vi var interesserede i (se \ref{KinectFusionExplorer} for at få den nyeste version af dette.
+Efter oprettelsen af forbindelse til Kinect sensoren er det muligt at 'lytte' på den og få de depth frames den kontinuerligt leverer. Se beskrivelsen af klassen KinectFusionizer. !!HUSK REFERENCE TIL KLASSEDIAGRAM
+ 
 \newpage
 
 \section{Softwarearkitektur}
-PC Applikationen er opdelt af forskellige moduller for at øge samhørigheden og nedsætte koblingen, hvilket er med til at sikre overskuelighed og gøre PC Applikation lettere at vedligeholde. Modulerne er inddelt efter ansvarsområder angående præsentation til bruger, Robotarm, 3D kamera, udregning af robottens sti og datastrukturerne. Figur \ref{Layers} viser referencen mellem modullerne. 
+PC Applikation er opdelt af forskellige moduler for at øge samhørigheden og nedsætte koblingen, hvilket er med til at sikre overskuelighed og gøre PC Applikation lettere at vedligeholde og genbruge. Modulerne er inddelt efter ansvarsområder angående præsentation til bruger, kommunikation til Robotarm, indhentning af 3D scan fra 3D kamera samt udregning af Robotarms sti til ultralydsscanning. Disse 4 moduler har fælles datastrukturer. For at undgå cykliske forbindelser, er disse datastrukturer tilføjet til deres eget modul. Figur \ref{Layers} viser referencen mellem modulerne. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figurer/d/Design/Layers}
-    \caption{PC Applikationens opdeling af moduler}
+    \caption{PC Applikations opdeling af moduler}
     \label{Layers}
 \end{figure}
 
@@ -98,11 +102,11 @@ PC Applikationen er opdelt af forskellige moduller for at øge samhørigheden og
 \begin{tabular}{ | l | p{0.7\textwidth} | }
 \hline
 \textbf{Lag} & \textbf{Beskrivelse af ansvar} \\\hline
-AutoSonographyWPF & Håndterer Operatørs interaktion med PC Applikation, hvor Operatør kan vælge 3D scan- eller ultralydsscan.\\\hline
-ComputerVisionLibrary & Afgrænser 3D scanning fra  3D kamera. \\\hline
-CalculationLibrary & Sørger for at konvertere 3D scanningen givet fra 3D Kameras rum til Robot Arms rum. \\\hline
-RoboLibrary & Muliggør at kommunikere med Robotarm.\\\hline
-DataStructures & Indeholder diverse data transfer objekter (DTO), der bruges gemmen hele applikationen til at sende objekter mellem de forsellige moduler.\\\hline
+AutoSonographyWPF & Håndterer Operatørs interaktion med PC Applikation, hvor Operatør kan vælge 3D scan- eller ultralydsscan. Dette projekt virker som en grænseflade til resten af PC Applikation.\\\hline
+ComputerVisionLibrary & Indhenter og afgrænser 3D scanning fra 3D kamera. \\\hline
+CalculationLibrary & Sørger for at konvertere en 3D scanning til en sti af positurer som Robotarm kan gennemløbe. \\\hline
+RoboLibrary & Muliggør at kommunikere med og instruere Robotarm.\\\hline
+DataStructures & Indeholder forskellige data transfer objekter (DTO), der bruges gennem PC Applikation til at sende objekter mellem de forsellige moduler, samt udvidelsesmetoder til eksisterende .NET eller KinectAPI datastrukturer.\\\hline
 \end{tabular}
 \caption{Modulopdeling og ansvar}
 \end{table}
