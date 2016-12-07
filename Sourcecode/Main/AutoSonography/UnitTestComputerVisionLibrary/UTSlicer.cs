@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
 using ComputerVisionLibrary;
 using System.Threading;
 using DataStructures;
@@ -12,10 +13,18 @@ namespace UnitTestRobotLibrary
     public class UTSlicer
     {
         private Slicer uut;
+        private string testModelLocation;
         [TestInitialize]
         public void Setup()
         {
             uut = new Slicer();
+            testModelLocation = Directory.GetParent(
+                Directory.GetParent(
+                Directory.GetParent(
+                Environment.CurrentDirectory).
+                ToString()).
+                ToString()) +
+                "\\TestModels";
         }
 
         [TestMethod]
@@ -23,7 +32,7 @@ namespace UnitTestRobotLibrary
         {
             //Mesh has 10 vertices, of which 8 are unique. It has 4 faces.
             //We're slicing halfway through the third face, so we should end up with 2 faces and 5 vertices.
-            string location = Environment.CurrentDirectory + @"\fourTriangles.ply";
+            string location = testModelLocation + @"\fourTriangles.ply";
             CVMesh mesh = PLYHandler.ReadMesh(location);
             float lowerLimit = 58.5f;
             float upperLimit = 1000f;
@@ -42,7 +51,7 @@ namespace UnitTestRobotLibrary
         [TestMethod]
         public void RemoveNonSurfaceFaces_InsertBox_BoxTopRemoved()
         {
-            CVMesh mesh = PLYHandler.ReadMesh(Environment.CurrentDirectory + @"\box.ply");
+            CVMesh mesh = PLYHandler.ReadMesh(testModelLocation + @"\box.ply");
             Slicer.xMin = double.MinValue;
             Slicer.xMax = double.MaxValue;
             CVMesh meshOut = uut.Slice(mesh, double.MinValue, double.MaxValue, false);
