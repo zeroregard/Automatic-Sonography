@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\ComputerVisionLibrary\DummyKinect.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataStructures;
+
+namespace ComputerVisionLibrary
+{
+    public class DummyKinect : IKinect, IDisposable
+    {
+        private ComputerVisionMaster master;
+        public DummyKinect(ComputerVisionMaster master)
+        {
+            this.master = master;
+        }
+
+        public void CaptureMeshNow()
+        {
+            CVMesh m = new CVMesh();
+            master.RetrieveMesh(m);
+        }
+
+        public void Dispose()
+        {
+            
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[13,9,13,56,1],[14,9,14,10,1],[15,13,15,34,1],[16,9,16,10,1],[19,9,19,10,1],[20,13,20,37,1],[21,13,21,36,1],[22,9,22,10,1],[25,9,25,10,1],[27,9,27,10,1]]);
+    </script>
+  </body>
+</html>

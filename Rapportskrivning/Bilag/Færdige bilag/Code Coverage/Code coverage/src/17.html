@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\CalculationLibrary\Smoother.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Kinect.Fusion;
+
+namespace CalculationLibrary
+{
+    //Code ripped from here:
+    //http://wiki.unity3d.com/index.php?title=MeshSmoother
+    public class Smoother
+    {
+        public Vector3[] LaplacianFilter(Vector3[] sv, int[] t)
+        {
+            Vector3[] wv = new Vector3[sv.Length];
+            List&lt;Vector3&gt; adjacentVertices = new List&lt;Vector3&gt;();
+
+            float dx = 0.0f;
+            float dy = 0.0f;
+            float dz = 0.0f;
+
+            for (int vi = 0; vi &lt; sv.Length; vi++)
+            {
+                // Find the sv neighboring vertices
+                adjacentVertices = findAdjacentNeighbors(sv, t, sv[vi]);
+
+                if (adjacentVertices.Count != 0)
+                {
+                    dx = 0.0f;
+                    dy = 0.0f;
+                    dz = 0.0f;
+
+                    //Debug.Log(&quot;Vertex Index Length = &quot;+vertexIndexes.Length);
+                    // Add the vertices and divide by the number of vertices
+                    for (int j = 0; j &lt; adjacentVertices.Count; j++)
+                    {
+                        dx += adjacentVertices[j].X;
+                        dy += adjacentVertices[j].Y;
+                        dz += adjacentVertices[j].Z;
+                    }
+
+                    wv[vi].X = dx / adjacentVertices.Count;
+                    wv[vi].Y = dy / adjacentVertices.Count;
+                    wv[vi].Z = dz / adjacentVertices.Count;
+                }
+            }
+
+            return wv;
+        }
+        /// &lt;summary&gt;
+        ///Finds a set of adjacent vertices for a given vertex. Note the success of this routine expects only the set of neighboring faces to eacn contain one vertex corresponding to the vertex in question
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;v&quot;&gt;All vertices&lt;/param&gt;
+        /// &lt;param name=&quot;t&quot;&gt;All triangle indices&lt;/param&gt;
+        /// &lt;param name=&quot;vertex&quot;&gt;Vertex in question&lt;/param&gt;
+        public static List&lt;Vector3&gt; findAdjacentNeighbors(Vector3[] v, int[] t, Vector3 vertex)
+        {
+            List&lt;Vector3&gt; adjacentV = new List&lt;Vector3&gt;();
+            List&lt;int&gt; facemarker = new List&lt;int&gt;();
+            int facecount = 0;
+
+            // Find matching vertices
+            for (int i = 0; i &lt; v.Length; i++)
+                if (Approximately(vertex.X, v[i].X) &amp;&amp;
+                    Approximately(vertex.Y, v[i].Y) &amp;&amp;
+                    Approximately(vertex.Z, v[i].Z))
+                {
+                    // Find vertex indices from the triangle array
+                    for (int k = 0; k &lt; t.Length; k = k + 3)
+                        if (facemarker.Contains(k) == false)
+                        {
+                            var v1 = 0;
+                            var v2 = 0;
+                            var marker = false;
+
+                            if (i == t[k])
+                            {
+                                v1 = t[k + 1];
+                                v2 = t[k + 2];
+                                marker = true;
+                            }
+
+                            if (i == t[k + 1])
+                            {
+                                v1 = t[k];
+                                v2 = t[k + 2];
+                                marker = true;
+                            }
+
+                            if (i == t[k + 2])
+                            {
+                                v1 = t[k];
+                                v2 = t[k + 1];
+                                marker = true;
+                            }
+
+                            facecount++;
+                            if (marker)
+                            {
+                                // Once face has been used mark it so it does not get used again
+                                facemarker.Add(k);
+
+                                // Add non duplicate vertices to the list
+                                if (doesVertexExist(adjacentV, v[v1]) == false)
+                                    adjacentV.Add(v[v1]);
+
+                                if (doesVertexExist(adjacentV, v[v2]) == false)
+                                    adjacentV.Add(v[v2]);
+                            }
+                        }
+                }
+
+            //Debug.Log(&quot;Faces Found = &quot; + facecount);
+
+            return adjacentV;
+        }
+
+
+        /// &lt;summary&gt;
+        /// Does the vertex v exist in the list of vertices
+        /// &lt;/summary&gt;
+        private static bool doesVertexExist(List&lt;Vector3&gt; adjacentV, Vector3 v)
+        {
+            bool marker = false;
+            foreach (Vector3 vec in adjacentV)
+                if (Approximately(vec.X, v.X) &amp;&amp; Approximately(vec.Y, v.Y) &amp;&amp; Approximately(vec.Z, v.Z))
+                {
+                    marker = true;
+                    break;
+                }
+
+            return marker;
+        }
+
+        public static float ApproximateMinDiff = 0.00001f;
+        private static bool Approximately(float a, float b)
+        {
+            return Math.Abs(a - b) &lt;= ApproximateMinDiff;
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[15,9,15,10,1],[16,13,16,51,1],[17,13,17,66,1],[19,13,19,29,1],[20,13,20,29,1],[21,13,21,29,1],[23,18,23,28,1],[24,13,24,14,1],[26,17,26,73,1],[28,17,28,49,1],[29,17,29,18,1],[30,21,30,31,1],[31,21,31,31,1],[32,21,32,31,1],[36,26,36,35,1],[37,21,37,22,1],[38,25,38,53,1],[39,25,39,53,1],[40,25,40,53,1],[41,21,41,22,1],[36,65,36,68,1],[36,37,36,63,1],[43,21,43,60,1],[44,21,44,60,1],[45,21,45,60,1],[46,17,46,18,1],[47,13,47,14,1],[23,46,23,50,1],[23,30,23,44,1],[49,13,49,23,1],[50,9,50,10,1],[58,9,58,10,1],[59,13,59,59,1],[60,13,60,52,1],[61,13,61,31,1],[64,18,64,27,1],[65,17,67,53,1],[68,17,68,18,1],[70,26,70,35,1],[71,25,71,61,1],[72,25,72,26,1],[73,29,73,40,1],[74,29,74,40,1],[75,29,75,48,1],[77,29,77,43,1],[78,29,78,30,1],[79,33,79,47,1],[80,33,80,47,1],[81,33,81,47,1],[82,29,82,30,1],[84,29,84,47,1],[85,29,85,30,1],[86,33,86,43,1],[87,33,87,47,1],[88,33,88,47,1],[89,29,89,30,1],[91,29,91,47,1],[92,29,92,30,1],[93,33,93,43,1],[94,33,94,47,1],[95,33,95,47,1],[96,29,96,30,1],[98,29,98,41,1],[99,29,99,40,1],[100,29,100,30,1],[102,33,102,51,1],[105,33,105,80,1],[106,37,106,58,1],[108,33,108,80,1],[109,37,109,58,1],[110,29,110,30,1],[111,25,111,26,1],[70,51,70,60,1],[70,37,70,49,1],[112,17,112,18,1],[64,43,64,46,1],[64,29,64,41,1],[116,13,116,30,1],[117,9,117,10,1],[124,9,124,10,1],[125,13,125,33,1],[126,13,126,20,1],[126,37,126,46,1],[126,22,126,33,1],[127,17,127,105,1],[128,17,128,18,1],[129,21,129,35,1],[130,21,130,27,1],[126,34,126,36,1],[133,13,133,27,1],[134,9,134,10,1],[138,9,138,10,1],[139,13,139,58,1],[140,9,140,10,1],[136,9,136,59,1]]);
+    </script>
+  </body>
+</html>

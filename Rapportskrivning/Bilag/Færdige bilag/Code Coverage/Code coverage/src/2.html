@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\RoboLibrary\RoboMaster.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using RoboLibrary.Interfaces;
+using RoboLibrary.Dummies;
+using DataStructures;
+using System.Diagnostics.CodeAnalysis;
+namespace RoboLibrary
+{
+    public class RoboMaster : ILogic
+    {
+        private IData data;
+        public IPathFeeder pathFeeder;
+
+
+        public const double standard_pose_x = -0.160;
+        public const double standard_pose_y = -0.268;
+        public const double standard_pose_z = 0.500;
+        public const double standard_pose_rx = 1.09;
+        public const double standard_pose_ry = 1.7;
+        public const double standard_pose_rz = -1.9;
+        public static EventHandler PathCompletionEvent;
+        public float CompletionPercentage;
+
+
+        [ExcludeFromCodeCoverage] //excluded, this would be an integration NoUR10ConnectionEvent
+        public RoboMaster()
+        {
+            data = new Data();
+            data.Init(new Reader(data), new Writer(data, Data.IP_ADDRESS));
+            pathFeeder = new PathFeeder(data, this);
+        }
+
+        public RoboMaster(IPathFeeder feeder, IData data)
+        {
+            pathFeeder = feeder;
+            this.data = data;
+        }
+
+        public void ProcessPath(List&lt;URPose&gt; path)
+        {
+            SendEntirePose(path[0]);
+            pathFeeder.RunPath(path);
+        }
+
+        public void PoseReached(int pose, int amountOfPoses)
+        {
+            CompletionPercentage = ((float)pose/amountOfPoses)*100;
+            PathCompletionEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void SetStandardPose()
+        {
+            URPose pose = new URPose(standard_pose_x, standard_pose_y, standard_pose_z, standard_pose_rx, standard_pose_ry, standard_pose_rz);
+            SendEntirePose(pose);
+        }
+
+        /// &lt;summary&gt;
+        /// Pauses the current scanning, freezing UR10 in its current position - or resumes it from where it was paused
+        /// &lt;/summary&gt;
+        public void PauseScanning()
+        {
+            pathFeeder.PauseRunning();
+        }
+
+
+        /// &lt;summary&gt;
+        /// Cancels the current scanning and returns UR10 to its standard position
+        /// &lt;/summary&gt;
+        public void StopScanning()
+        {
+            pathFeeder.StopRunning();
+        }
+
+        private void SendEntirePose(URPose pose)
+        {
+            data.SendNewPose(pose);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[50,9,50,10,0],[51,13,51,68,0],[52,13,52,64,0],[53,9,53,10,0],[74,9,74,10,0],[75,13,75,38,0],[76,9,76,10,0],[37,9,37,58,1],[38,9,38,10,1],[39,13,39,33,1],[40,13,40,30,1],[41,9,41,10,1],[44,9,44,10,1],[45,13,45,37,1],[46,13,46,38,1],[47,9,47,10,1],[56,9,56,10,1],[57,13,57,143,1],[58,13,58,34,1],[59,9,59,10,1],[65,9,65,10,1],[66,13,66,39,1],[67,9,67,10,1],[79,9,79,10,1],[80,13,80,36,1],[81,9,81,10,1]]);
+    </script>
+  </body>
+</html>
