@@ -1,7 +1,9 @@
 \chapter{Diskussion}\label{kapitel_Diskussion}
 Det er vigtigt at udpege og diskutere relevante dele af de opnåede resultater og deres betydning. Der skal også gives en samlet vurdering af de opnåede resultater med relation til problemstillingen og formålet med – eller hypotesen for – projektet. Der kan ligeledes være en opsummerende beskrivelse af resultater I er særligt stolte af. Diskussion af resultater fylder typisk 2 sider.
 
-Er problemstillingen løst? 
+Der er opnået løsning for alle funktionelle krav, specificeret i kravsspecifikationen, bortset fra UC3 : Hovedscenarie. Det var ikke muligt for Robotarm at udføre bevægelser i det specifikke bevægelsesmønster, beskrevet i Bilag \ref{Kravspecifikation} Kravspecifikation, og derfor fejlede UC3 : Hovedscenarie. Det betyder ikke at Robotarm ikke kan bevæge sig over det område som 3D kamera har detekteret. Robotarms bevægelsesmønster er begrænset til bevægelse rundt om testobjektet i en bane som ændres alt efter dybdebilledet. Derudover roterer Robotarms yderste led , hvilket ikke vil give mening ved en ultralydsscaning. For at Robotarm vil kunne udføre en ultralydsscanning af brystet, vil det være nødvendigt at den kan bevæge sig i det specifikke bevægelsesmønster. 
+
+Det kan diskuteres om det anvendte hardware var optimalt for udviklingen. Til projektets formål var hardwaren optimal, men hvis det ønskes at videreudvikle på Automatisk Ultralydscanner vil det være nødvendigt at anvende andet hardware eller anvende hardwaren på en anden måde. F.eks kinect som 3D kamera, var stor at påmontere som Robotarm og derfor blev kinecten monteret i loftet, hvilket afgrænsede scanningsområdet for Robotarm. Det optimale havde været at påmontere kinect på Robotarm, da det vil kunne have givet flere vinkler af testobjektet. Dette blev fravalgt da kinecten fra for stor og ville sidde i vejen under ultralydsscanningen. Derudover vil en tryksensor kunne have forbedre Automatisk Ultralydsscanner, da den nuværende version ikke vil stoppe Robotarm hvis den trykker for hårdt, altså hvis trykket kommer over den tærskelværdi der er givet. Samtidig vil Robotarm heller ikke tage højde for hvis den slet ikke leverer noget tryk. Dette vil en tryksensor og yderligere software kunne korrigere for. 
 
 Metoder
 Økonomi
@@ -10,31 +12,9 @@ Den økonomiske analyse er unøjagtig, da alle de anvendte tal er et skøn og de
 Brugerundersøgelse
 Da spørgeskemaundersøgelsen blev lagt ud på de sociale medier, kan man formode at de adspurgte er venner af bachelorgruppens medlemmer, hvilket kan gøre, at de adspurgte kan være påvirket til at svare positivt på spørgeskemaet, samtidig kan de adspurgte have hørt en af gruppemedlemmerne, tale godt for en automatiseret robotarm til ultralyd. De adspurgte kan også være klassekammerater til gruppemedlemmerne og derved studerende på ingeniørhøjskolen, hvilket kan gøre at de svare positivt i forhold til teknologi. Spørgeskemaundersøgelsen er derfor ikke repræsentativ. Spørgeskemaundersøgelsen er dog alligevel medtaget i projektet, da især ulemper og de adspurgtes bekymringer kan imødekommes med oplysning og information om hvordan Automatisk Ultralydsscanner fungerer. 
 
-Medicinsk godkendelse
-Den medicinske godkendelse burde have været implementeret i kravspecifikationen til Automatisk Ultralydsscanner, men den medicinske godkendelse blev først udarbejde sent i udviklingsprocessen og er derfor ikke anvendt til udviklingen af Automatiks Ultralydsscanner. Hvis der havde været kendskab til krav fra MDD før udviklingen af Automatisk Ultralydsscanner startede, kunne disse krav have været tænkt med i udviklingen og implementeret i systemet. Generelt for alle standarder, der er fulgt, vil det have været lettere at følge dem i udviklingen af Automatisk Ultralydsscanner, hvis man kendte til dem inden udviklingsprocessen startede. Dog overholder Automatisk Ultralydsscanner alligevel lovgivningen inden for nogle områder, for eksempel er softwaren testet, dokumenteret, gjort mulig at opdatere, men indeholder endnu ikke en procedure for hvad brugeren skal gøre, hvis der sker fejl. 
-
-Løsning
-Der er fokuseret på de funktionelle krav.
-Use cases?
-Robottens bevægelser. 
-Der er ikke foretaget brugertest. 
-
-En tryksensor kunne have forbedre Automatisk Ultralydsscanner, da den nuværende version ikke vil stoppe Robotarm hvis den trykker for hårdt, altså hvis trykket kommer over den tærskelværdi der er givet. Samtidig vil Robotarm heller ikke tage højde for hvis den slet ikke leverer noget tryk. Dette vil en tryksensor og yderligere software kunne korrigere for. 
-
 Som ultralydsscanninger foretages i dag, kan patienten få besked af radiografen med det samme, om der er behov for videre undersøgelser. Dette kan man ikke ved brug af Automatisk Ultralydsscanner, da radiografen først skal tilse billederne. Da proceduren ikke er forskellig fra proceduren ved mammografi ses der umiddelbart ingen problemer ved dette. 
 
-Værktøjer/udstyr/proces
-kinect optimalt?
-- scanningerne kan ikke reproduceres fuldstændigt, da kinect vil tage et nyt billede ved hver scanning. 
-- Først var planen at kinect skulle sidde på robotarmen, så der kunne tages billeder fra flere vinkler. Dette blev dog droppet, da kinect var for stor og derfor ville sidde i vejen for ultralydsproben. 
+Medicinsk godkendelse
+Den medicinske godkendelse burde have været implementeret i kravspecifikationen til Automatisk Ultralydsscanner, men den medicinske godkendelse blev først udarbejde sent i udviklingsprocessen og er derfor ikke anvendt til udviklingen af Automatiks Ultralydsscanner. Hvis der havde været kendskab til krav fra MDD før udviklingen af Automatisk Ultralydsscanner startede, kunne disse krav have været tænkt med i udviklingen og implementeret i systemet. Generelt for alle standarder, der er fulgt, vil det have været lettere at følge dem i udviklingen af Automatisk Ultralydsscanner, hvis man kendte til dem inden udviklingsprocessen startede. 
 
-Test
-blev den gennemført som forvente.
-Testen blev udført på et 3D printet bryst, hvilket ikke er specielt virkelighedsnært.  
- 
-
-
-
-
-Accepttest vil være bedre, hvis der var radiolog og ultralydsscanner tilrådighed. Radiolog til at tjekke og sikre, at robottens bevægelser er korrekte. 
-
+Automatisk Ultralydsscanner, som et færdigt system, der kan udføre fuldautomatiske Ultralydsscanninger, vil frem kunne implementeres som en udbygning af det screeningsprogram som der i dag anvendes på landets hospitaler. Det vil være en dyre løsningen, men vil samtidigt kunne bidrage til at få opdaget flere kræfttilfælde. 
