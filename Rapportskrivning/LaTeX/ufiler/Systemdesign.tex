@@ -104,7 +104,7 @@ De vertices i meshen der tilnærmer sig punkterne i bølgen bedst vil blive udva
 \item{RobotPoseCreator}\newline
 I denne klasse vil konverteringen af en mesh-sti til en liste af positurer ske.
 For hvert punkt i mesh-stien, vil en vertex' normal findes. 
-Ved hjælp af normalen, sti-punktets koordinater samt længden på Robotarms probe kan den forskudte Robot Arm position findes.
+Ved hjælp af normalen, sti-punktets koordinater samt længden på Robotarms probe kan den forskudte Robotarm position findes.
 Inverteres denne normal, kan det ses som en retningsvektor for en Robotarm.
 Retningsvektoren konverteres først til en roll, pitch og yaw - altså roteringer omkring de tre retningsakser; X, Y og Z.
 Da man ikke kan afgøre alle tre værdier ud fra en retningsvektor alene, sættes pitch til 0, da det er muligt at 'pege' et vilkårligt sted med en roll-rotering og en yaw-rotering. Disse værdier konverteres herefter til en rotationsvektor.
