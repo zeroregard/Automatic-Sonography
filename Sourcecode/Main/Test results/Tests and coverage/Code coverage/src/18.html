@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\UnitTestDataStructures\UTExtensions.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataStructures;
+using Microsoft.Kinect.Fusion;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace UnitTestDataStructures
+{
+    [TestClass]
+    public class UTExtensions
+    {
+        [TestInitialize]
+        public void Setup()
+        {
+
+        }
+
+        [TestMethod]
+        public void FindBoundingBox_InsertTwoDefiningPoints_BoundingBoxFound()
+        {
+            Vector3 v1 = new Vector3 { X = 1, Y = 1, Z = 2 };
+            Vector3 v2 = new Vector3 { X = -1, Y = -1, Z = 0 };
+            List&lt;Vector3&gt; vertices = new List&lt;Vector3&gt; { v1, v2 };
+            BoundingBox b = Extensions.FindBoundingBox(vertices);
+            Assert.AreEqual(-1, b.x_min);
+            Assert.AreEqual(1, b.x_max);
+            Assert.AreEqual(-1, b.y_min);
+            Assert.AreEqual(1, b.y_max);
+            Assert.AreEqual(0, b.z_min);
+            Assert.AreEqual(2, b.z_max);
+        }
+
+        [TestMethod]
+        public void MidPoint_InsertedOrigoBox_OrigoReturned()
+        {
+            BoundingBox b = new BoundingBox();
+            b.x_min = -1;
+            b.x_max = 1;
+            b.y_min = -1;
+            b.y_max = 1;
+            b.z_min = -1;
+            b.z_max = 1;
+            Vector3 mid = Extensions.MidPoint(b);
+            Assert.AreEqual(0, mid.X);
+            Assert.AreEqual(0, mid.Y);
+            Assert.AreEqual(0, mid.Z);
+        }
+
+        [TestMethod]
+        public void MidPoint_InsertedOffsetBox_BoxOffsetReturned()
+        {
+            BoundingBox b = new BoundingBox();
+            b.x_min = 0;
+            b.x_max = 2;
+            b.y_min = 0;
+            b.y_max = 2;
+            b.z_min = 0;
+            b.z_max = 2;
+            Vector3 mid = Extensions.MidPoint(b);
+            Assert.AreEqual(1, mid.X);
+            Assert.AreEqual(1, mid.Y);
+            Assert.AreEqual(1, mid.Z);
+        }
+
+        [TestMethod]
+        public void PruneVertices_InsertedPathWithDupes_NoDupesInPath()
+        {
+            List&lt;VertexIndex&gt; vertexIndices = new List&lt;VertexIndex&gt;();
+            for (int i = 0; i &lt; 10; i++)
+            {
+                vertexIndices.Add(new VertexIndex(new Vector3 { X = i, Y = i, Z = i }, i));
+                vertexIndices.Add(new VertexIndex(new Vector3 { X = i, Y = i, Z = i }, i));
+            }
+            Assert.AreEqual(20, vertexIndices.Count);
+            vertexIndices = Extensions.PruneVertices(vertexIndices);
+            Assert.AreEqual(10, vertexIndices.Count);
+        }
+
+        [TestMethod]
+        public void PrunePoints_InsertedPointsWithDupes_NoDupesReturned()
+        {
+            List&lt;Vector3&gt; vertices = new List&lt;Vector3&gt;();
+            for (int i = 0; i &lt; 10; i++)
+            {
+                vertices.Add(new Vector3 { X = i, Y = i, Z = i });
+                vertices.Add(new Vector3 { X = i, Y = i, Z = i });
+            }
+            Assert.AreEqual(20, vertices.Count);
+            vertices = Extensions.PrunePoints(vertices);
+            Assert.AreEqual(10, vertices.Count);
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[17,9,17,10,1],[19,9,19,10,1],[23,9,23,10,1],[24,13,24,62,1],[25,13,25,64,1],[26,13,26,67,1],[27,13,27,66,1],[28,13,28,42,1],[29,13,29,41,1],[30,13,30,42,1],[31,13,31,41,1],[32,13,32,41,1],[33,13,33,41,1],[34,9,34,10,1],[38,9,38,10,1],[39,13,39,47,1],[40,13,40,26,1],[41,13,41,25,1],[42,13,42,26,1],[43,13,43,25,1],[44,13,44,26,1],[45,13,45,25,1],[46,13,46,50,1],[47,13,47,39,1],[48,13,48,39,1],[49,13,49,39,1],[50,9,50,10,1],[54,9,54,10,1],[55,13,55,47,1],[56,13,56,25,1],[57,13,57,25,1],[58,13,58,25,1],[59,13,59,25,1],[60,13,60,25,1],[61,13,61,25,1],[62,13,62,50,1],[63,13,63,39,1],[64,13,64,39,1],[65,13,65,39,1],[66,9,66,10,1],[70,9,70,10,1],[71,13,71,71,1],[72,18,72,27,1],[73,13,73,14,1],[74,17,74,92,1],[75,17,75,92,1],[76,13,76,14,1],[72,37,72,40,1],[72,29,72,35,1],[77,13,77,54,1],[78,13,78,69,1],[79,13,79,54,1],[80,9,80,10,1],[84,9,84,10,1],[85,13,85,58,1],[86,18,86,27,1],[87,13,87,14,1],[88,17,88,67,1],[89,17,89,67,1],[90,13,90,14,1],[86,37,86,40,1],[86,29,86,35,1],[91,13,91,49,1],[92,13,92,57,1],[93,13,93,49,1],[94,9,94,10,1]]);
+    </script>
+  </body>
+</html>

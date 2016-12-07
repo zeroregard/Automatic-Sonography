@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\CalculationLibrary\CalculationMaster.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataStructures;
+using Microsoft.Kinect.Fusion;
+
+namespace CalculationLibrary
+{
+    public class CalculationMaster
+    {
+        public CameraToRobotCalibrator calibrator;
+        private Smoother smoother;
+        private PathCreator creator;
+        private RobotPoseCreator poser;
+
+        public CalculationMaster()
+        {
+            smoother = new Smoother();
+            creator = new PathCreator();
+            calibrator = new CameraToRobotCalibrator();
+            creator.calibrator = calibrator;
+            poser = new RobotPoseCreator();
+        }
+
+        /// &lt;summary&gt;
+        /// Figures the list of poses the Robot arm should run through to cover a surface-type mesh.
+        /// The smoothing is applied to correct extreme normals on the mesh.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;cameraMesh&quot;&gt;A mesh output from a 3D camera, not transformed into robot space yet&lt;/param&gt;
+        /// &lt;param name=&quot;smoothing&quot;&gt;The amount of laplacian smoothing that should be applied to the mesh.&lt;/param&gt;
+        /// &lt;returns&gt;A list of poses necesarry to perform an automatic ultrasound scan&lt;/returns&gt;
+        public List&lt;URPose&gt; FindPath(CVMesh cameraMesh, int smoothing = 4)
+        {
+            CVMesh roboMesh = calibrator.ConvertToRobospace(cameraMesh);
+            Vector3[] vertices = roboMesh.Vertices.ToArray();
+            for (int i = 0; i &lt; smoothing; i++)
+            {
+                vertices = smoother.LaplacianFilter(vertices, roboMesh.TriangleIndeces.ToArray());
+            }
+            roboMesh.Vertices = vertices.ToList();
+            float min = calibrator.TransformVertex(new Vector3 { X = -0.25f, Y = 0, Z = 0 }, calibrator.TransformMatrix).Y;
+            float max = calibrator.TransformVertex(new Vector3 { X = 0.25f, Y = 0, Z = 0 }, calibrator.TransformMatrix).Y;
+            List&lt;VertexIndex&gt; path = creator.CreatePath(roboMesh.Vertices, min, max);
+            List&lt;URPose&gt; poses = new List&lt;URPose&gt;();
+            path = Extensions.PruneVertices(path);
+            List&lt;VertexIndex&gt; prunedAgain = new List&lt;VertexIndex&gt;();
+            foreach (var v in path)
+            {
+                if (v.Vector.X != 0 &amp;&amp; v.Vector.Y != 0 &amp;&amp; v.Vector.Z != 0)
+                    prunedAgain.Add(v);
+            }
+            poses = poser.ToURPath(path, roboMesh);
+            return poses;
+        }
+
+
+        [ExcludeFromCodeCoverage]
+        public List&lt;URPose&gt; DEBUG_FINDBOXPATH(CVMesh cameraMesh)
+        {
+            CVMesh roboMesh = calibrator.ConvertToRobospace(cameraMesh);
+            List&lt;URPose&gt; path = creator.GenerateBoxPath(roboMesh);
+            return path;
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[19,9,19,35,1],[20,9,20,10,1],[21,13,21,39,1],[22,13,22,41,1],[23,13,23,56,1],[24,13,24,45,1],[25,13,25,44,1],[26,9,26,10,1],[36,9,36,10,1],[37,13,37,73,1],[38,13,38,62,1],[39,18,39,27,1],[40,13,40,14,1],[41,17,41,99,1],[42,13,42,14,1],[39,44,39,47,1],[39,29,39,42,1],[43,13,43,51,1],[44,13,44,124,1],[45,13,45,123,1],[46,13,46,86,1],[47,13,47,53,1],[48,13,48,51,1],[49,13,49,69,1],[50,13,50,20,1],[50,31,50,35,1],[50,22,50,27,1],[51,13,51,14,1],[52,17,52,75,1],[53,21,53,40,1],[54,13,54,14,1],[50,28,50,30,1],[55,13,55,52,1],[56,13,56,26,1],[57,9,57,10,1]]);
+    </script>
+  </body>
+</html>

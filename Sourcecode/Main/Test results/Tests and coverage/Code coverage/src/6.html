@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\DataStructures\CVMesh.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.Kinect.Fusion;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataStructures
+{
+
+    public class Face
+    {
+        public int index1;
+        public int index2;
+        public int index3;
+        public Vector3 normal;
+        public bool Visited; //Used for flood filling algorithm
+        public List&lt;Face&gt; Neighbors;
+
+        public Face(int v1, int v2, int v3)
+        {
+            index1 = v1;
+            index2 = v2;
+            index3 = v3;
+        }
+    }
+    public class CVMesh
+    {
+        public List&lt;int&gt; Colors = new List&lt;int&gt;();
+        public List&lt;Vector3&gt; Normals = new List&lt;Vector3&gt;();
+        public List&lt;int&gt; TriangleIndeces = new List&lt;int&gt;();
+        public List&lt;Vector3&gt; Vertices = new List&lt;Vector3&gt;();
+        public List&lt;Face&gt; Faces = new List&lt;Face&gt;(); //TriangleIndices as faces instead
+        [ExcludeFromCodeCoverage] //Cannot test this as it requires a Kinect ColorMesh which is dependent on the Kinect API: 
+        //you can&#39;t construct this yourself
+        public static CVMesh ConvertToMesh(ColorMesh mesh)
+        {
+            CVMesh m = new CVMesh();
+            m.Colors.AddRange(mesh.GetColors());
+            m.Normals.AddRange(mesh.GetNormals());
+            m.TriangleIndeces.AddRange(mesh.GetTriangleIndexes());
+            m.Vertices.AddRange(mesh.GetVertices());
+            return m;
+        }
+
+        public static CVMesh Clone(CVMesh original)
+        {
+            CVMesh cloned = new CVMesh();
+            cloned.Vertices = CloneVectors(original.Vertices);
+            cloned.Normals = CloneVectors(original.Normals);
+            cloned.Colors.AddRange(original.Colors); //TODO: Clone? Or does the list get closed over automatically in AddRange
+            cloned.TriangleIndeces.AddRange(original.TriangleIndeces);
+            return cloned;
+        }
+
+        public static List&lt;Vector3&gt; CloneVectors(List&lt;Vector3&gt; original)
+        {
+            List&lt;Vector3&gt; cloned = new List&lt;Vector3&gt;();
+            foreach (var v in original)
+            {
+                Vector3 clonedVector = new Vector3();
+                clonedVector.X = v.X;
+                clonedVector.Y = v.Y;
+                clonedVector.Z = v.Z;
+                cloned.Add(clonedVector);
+            }
+            return cloned;
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[48,9,48,10,1],[49,13,49,42,1],[50,13,50,63,1],[51,13,51,61,1],[52,13,52,53,1],[53,13,53,71,1],[54,13,54,27,1],[55,9,55,10,1],[58,9,58,10,1],[59,13,59,56,1],[60,13,60,20,1],[60,31,60,39,1],[60,22,60,27,1],[61,13,61,14,1],[62,17,62,54,1],[63,17,63,38,1],[64,17,64,38,1],[65,17,65,38,1],[66,17,66,42,1],[67,13,67,14,1],[60,28,60,30,1],[68,13,68,27,1],[69,9,69,10,1],[30,9,30,51,1],[31,9,31,60,1],[32,9,32,60,1],[33,9,33,61,1],[34,9,34,52,1]]);
+    </script>
+  </body>
+</html>
