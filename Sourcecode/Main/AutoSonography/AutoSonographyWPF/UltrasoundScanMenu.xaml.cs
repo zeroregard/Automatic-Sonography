@@ -38,7 +38,7 @@ namespace AutoSonographyWPF
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     if (textBoxCompletionValue != null && master != null)
-                        textBoxCompletionValue.Text = master.CompletionPercentage.ToString();
+                        textBoxCompletionValue.Text = master.CompletionPercentage.ToString("n0");
                 });
             }
         }
