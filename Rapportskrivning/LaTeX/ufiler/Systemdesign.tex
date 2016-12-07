@@ -90,7 +90,7 @@ Sørger for at konvertere 3D scanningen givet fra ComputerVisionLibrary fra 3D K
 Dette sker ved en kæde af matrix-transformationer i en speciel rækkefølge. 
 Normaltvis har man en translation, rotation og skalering, men da Robot Arms og 3D Kameras koordinatsystemer begge er angivet i millimeter, er skaleringen unødvendig.
 I tilfældet for dette projekt sker der først en rotering og derefter en translation, for at bestemme transformationsmatricen. 
-Hvert punkt i en mesh konverteres så til det nye space.
+Hvert punkt i en mesh konverteres så til det nye space. Se bilag \ref{RumTransformation} for inspirationen til denne klasse.
 
 \item{Smoother}\newline
 Denne klasse har til ansvar at udjævne en mesh. Med udjævning forstås at 'ensforme' normalerne, altså retningsvektorer i en mesh's faces.
