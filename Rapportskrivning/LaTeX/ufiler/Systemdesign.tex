@@ -76,7 +76,7 @@ Denne klasse sørger for at fjerne de punkter i en mesh der er uinteressante:
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{figurer/d/Design/Class/uml_class_computervisionlibrary}
-    \caption{KLassediagram for ComputerVisionLibrary}
+    \caption{Klassediagram for ComputerVisionLibrary}
     \label{class_ComputerVisionLib}
 \end{figure}
 \newpage
@@ -107,14 +107,66 @@ For hvert punkt i mesh-stien, vil en vertex' normal findes.
 Ved hjælp af normalen, sti-punktets koordinater samt længden på Robotarms probe kan den forskudte Robot Arm position findes.
 Inverteres denne normal, kan det ses som en retningsvektor for en Robotarm.
 Retningsvektoren konverteres først til en roll, pitch og yaw - altså roteringer omkring de tre retningsakser; X, Y og Z.
-Da man ikke kan afgøre alle tre værdier ud fra en retningsvektor alene, sættes pitch til 0. Disse værdier konverteres herefter til en rotationsvektor.
-Positionsvektoren og rotationsvektoren udgør til sammen en positur, som tilføjes til listen af positurer.
+Da man ikke kan afgøre alle tre værdier ud fra en retningsvektor alene, sættes pitch til 0, da det er muligt at 'pege' et vilkårligt sted med en roll-rotering og en yaw-rotering. Disse værdier konverteres herefter til en rotationsvektor.
+Positionsvektoren og rotationsvektoren udgør til sammen en positur, som tilføjes til listen af positurer. Matematikken for udregningen af rotationen kan ses på næste side.
+\newpage
+
+Givet en tredimensionel retningsvektor med en længde på 1
+$$
+v_{direction} = (X, Y, Z)
+$$
+Find de tre rotationer om de tre forskellige akser. Med en retningsvektor alene kan én af disse rotationer ikke findes. Da man vil kunne pege i en vilkårlig retning med en roll-rotering og en yaw-rotering, er pitch sat til 0.
+$$ 
+roll = acos(Z) \qquad 
+pitch = 0 \qquad 
+yaw = \begin{cases} 
+	-acos(-Y) & X \leq 0\\
+	acos(-Y)  & X > 0 \\
+\end{cases}
+$$
+
+Opstil matricerne der skal bruges for at konvertere roll, pitch og yaw til en rotationsvektor.
+%%%%%%%%%%%%%%%%%%%%
+% Matricerne 
+$$ 
+Roll_M = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & cos(roll) & -sin(roll) \\
+    0 & sin(roll) & cos(roll)
+\end{bmatrix}
+\quad
+Pitch_M = \begin{bmatrix}
+    cos(pitch) & 0 & sin(pitch) \\
+    0 & 1 & 0 \\
+    -sin(pitch) & 0 & cos(pitch)
+\end{bmatrix} 
+$$
+$$
+Yaw_M = \begin{bmatrix}
+    cos(yaw) & -sin(yaw) & 0 \\
+    sin(yaw) & cos(yaw) & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+$$ 
+
+Ordnen af rotationerne er vigtig, derfor vil der først foregå en roll rotering, en pitch rotering og til sidst en yaw rotering. Prikken mellem matricerne her er dot-produktet.
+$$\mathbb{R} = Yaw_M \cdot Pitch_M \cdot Roll_M $$
+
+Dernæst kan $\theta$ og $\mu$ findes, der bruges til beregningen af $r_x$, $r_y$ samt $r_z$, der samlet udgør den endelige rotationsvektor $v_{rotation}$.
+
+$$\theta = acos\bigg(\frac{\mathbb{R}_{0,0}+\mathbb{R}_{1,1}+\mathbb{R}_{2,2}-1}{2}\bigg) \qquad \mu = \frac{1}{2 \times sin(\theta)}$$
+
+$$r_x =\mu \times(\mathbb{R}_{2,1}-\mathbb{R}_{1,2}) \times\theta $$
+$$r_y =\mu \times(\mathbb{R}_{0,2}-\mathbb{R}_{2,0}) \times\theta $$
+$$r_z =\mu \times(\mathbb{R}_{1,0}-\mathbb{R}_{0,1}) \times\theta $$
+$$v_{rotation} = (r_x, r_y, r_z)$$
+
 \end{itemize}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{figurer/d/Design/Class/uml_class_calculationlibrary}
-    \caption{KLassediagram for CalculationLibrary}
+    \caption{Klassediagram for CalculationLibrary}
     \label{class_ConversionLib}
 \end{figure}
 \newpage
@@ -148,7 +200,7 @@ Denne klasse skriver binær data ud på Robot Arms IP gennem modbus-protokollen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{figurer/d/Design/Class/uml_class_robolibrary}
-    \caption{KLassediagram for RoboLibrary}
+    \caption{Klassediagram for RoboLibrary}
     \label{class_RoboLib}
 \end{figure}
 
@@ -230,79 +282,6 @@ Dette afsnit beskriver adfærden i systemet ved brug af et tilstandsdiagram. Til
     \caption{Tilstandsdiagram for ultralydsscanning}
     \label{stm_Ultra}
 \end{figure}
-
-\section{Beregninger} 
-Bare for at have det et sted og forsøge 
-
-%% Laver piecewise funktionen 
-\[ roll = \begin{cases} 
-      \frac{\pi}{2}-sin^{-1}(z) & y\leq 0 \\
-      \pi +cos^{-1}(-z) & y > 0 \\
-   \end{cases}
-\]
-
-
-
-$$ pitch = -(\pi -atan2(y,x)) $$ Er vel det samme som   $$ pitch = atan2(y,x) - \pi $$
-
-
-\[yaw = 0\] 
-
-%%%%%%%%%%%%%%%%%%%%
-% Matricerne 
-\[R_M = \begin{bmatrix}
-    1 & 0 & 0 \\
-    0 & cos(roll) & -sin(roll) \\
-    0 & sin(roll) & cos(roll)
-\end{bmatrix}\] 
-
-
-\[P_M = \begin{bmatrix}
-    cos(pitch) & 0 & sin(pitch) \\
-    0 & 1 & 0 \\
-    -sin(pitch) & 0 & cos(pitch)
-\end{bmatrix}\] 
-
-
-\[Y_M = \begin{bmatrix}
-    cos(yaw) & -sin(yaw) & 0 \\
-    sin(yaw) & cos(yaw) & 0 \\
-    0 & 0 & 1
-\end{bmatrix}\] 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\[roll \geq (-\pi,\pi) \]
-\[pitch \geq (-\pi,\pi) \]
-
-
-\[\mathbb{R} = Y_M \cdot P_M \cdot R_M \]
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-% Definerer alpha 
-\[\alpha = cos^-1\bigg(\frac{\mathbb{R}_{0,0}+\mathbb{R}_{1,1}+\mathbb{R}_{2,2}-1}{2}\bigg)\] 
-
-
-%%%%%%%%%%%%%%%%%%%%%% 
-%Theta er lig med beregnes her 
-
-\[ \theta = \begin{cases} 
-      \alpha &  roll\geq 0 \land pitch \geq 0  \\
-      2\pi-\alpha  &  roll < 0 \lor pitch < 0 \\
-   \end{cases}
-\]
-
-%%%%%%%%%%%%%%%%%%%%%%% 
-
-% mu beregnes her 
-\[\mu = \frac{1}{2*sin(\theta}\]
-
-
-%%%%%%%%%%%%%%%%%%%%%% 
-% r_x, r_y, r_z beregnes her 
-
-\[r_x =\mu \times(\mathbb{R}_{2,1}-\mathbb{R}_{1,2}) \times\theta \]
-\[r_y =\mu \times(\mathbb{R}_{0,2}-\mathbb{R}_{2,0}) \times\theta \]
-\[r_z =\mu \times(\mathbb{R}_{1,0}-\mathbb{R}_{0,1}) \times\theta \]
 
 
 
