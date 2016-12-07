@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\RoboLibrary\PathFeeder.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using RoboLibrary.Interfaces;
+using DataStructures;
+using System.Diagnostics.CodeAnalysis;
+namespace RoboLibrary
+{
+    public class PathFeeder : IPathFeeder
+    {
+        private static int _max_wait_iterations = 1000; //Iterations to try between checking if target pose is close to actual pose and sending pose again
+        private ManualResetEvent Event = new ManualResetEvent(true);
+        private RoboMaster master;
+        private Thread pathThread;
+        private bool isPaused = false;
+        private bool stopRun = false;
+        private IData data;
+        private ILogic logic;
+
+        public PathFeeder(IData data, ILogic logic)
+        {
+            this.data = data;
+            this.logic = logic;
+        }
+
+        public void RunPath(List&lt;URPose&gt; path)
+        {
+            pathThread = new Thread(x =&gt; DoRunPath(path));
+            pathThread.Start();
+        }
+
+        [ExcludeFromCodeCoverage] //Put this in class diagram still!
+        private void DoRunPath(List&lt;URPose&gt; path)
+        {
+            data.SlowDown();
+            stopRun = false;
+            URPose actualPose = data.GetLastKnownPose();
+            for (int index = 0; index &lt; path.Count; index++)
+            {
+                URPose targetPose = path[index];
+                if (IsValid(targetPose))
+                {
+                    logic.PoseReached(index, path.Count);
+                    data.SendNewPose(targetPose);
+                    while (!IsCloseEnough(targetPose, actualPose) &amp;&amp; !stopRun)
+                    //if the target position and actual position aren&#39;t close enough, check again soon
+                    {
+                        Event.WaitOne();
+                        actualPose = data.GetLastKnownPose();
+                    }
+                    Event.WaitOne();
+                    Thread.Sleep(50); //To not skip any steps instantly
+                }
+                if (stopRun)
+                    Escape();
+            }
+            Escape();
+        }
+
+        private bool IsValid(URPose p)
+        {
+            return (!double.IsNaN(p.Xpose) &amp;&amp; !double.IsNaN(p.Ypose) &amp;&amp; !double.IsNaN(p.Zpose) &amp;&amp; !double.IsNaN(p.RXpose) &amp;&amp;
+                    !double.IsNaN(p.RYpose) &amp;&amp; !double.IsNaN(p.RZpose));
+        }
+
+        public void Escape()
+        {
+            URPose pose = data.GetLastKnownPose();
+            if (pose == null)
+                return;
+            pose.Zpose += 0.15f;
+            data.SendNewPose(pose);
+            Thread.Sleep(25);
+            logic.SetStandardPose();
+            data.SpeedUp();
+        }
+
+        [ExcludeFromCodeCoverage] //Tested in dummy class, exact same code
+        public void PauseRunning()
+        {
+            if (!isPaused)
+            {
+                isPaused = true;
+                Event.Reset();
+            }
+            else
+            {
+                isPaused = false;
+                Event.Set();
+            }
+        }
+
+        public static double MinimumProximityPosition = 0.06;
+        public static double MinimumProximityRotation = 0.2;
+        public bool IsCloseEnough(URPose target, URPose actual)
+        {
+            if (actual == null) //You&#39;re not connected to UR10
+                return false;
+            decimal xDistance = Math.Abs((decimal)target.Xpose - (decimal)actual.Xpose);
+            decimal yDistance = Math.Abs((decimal)target.Ypose - (decimal)actual.Ypose);
+            decimal zDistance = Math.Abs((decimal)target.Zpose - (decimal)actual.Zpose);
+            bool PositionClose =
+                (xDistance &lt;= (decimal)MinimumProximityPosition) &amp;&amp;
+                (yDistance &lt;= (decimal)MinimumProximityPosition) &amp;&amp;
+                (zDistance &lt;= (decimal)MinimumProximityPosition);
+            decimal xRotDis = Math.Abs((decimal)target.RXpose - (decimal)actual.RXpose);
+            decimal yRotDis = Math.Abs((decimal)target.RYpose - (decimal)actual.RYpose);
+            decimal zRotDis = Math.Abs((decimal)target.RZpose - (decimal)actual.RZpose);
+            bool RotationClose =
+                (xRotDis &lt;= (decimal)MinimumProximityPosition) &amp;&amp;
+                (yRotDis &lt;= (decimal)MinimumProximityPosition) &amp;&amp;
+                (zRotDis &lt;= (decimal)MinimumProximityPosition);
+
+            return PositionClose || RotationClose;
+        }
+
+        public void StopRunning()
+        {
+            if (pathThread != null)
+            {
+                Event.Set(); //Resume the thread so it can terminate
+                stopRun = true;
+            }
+            logic.SetStandardPose();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[71,9,71,10,0],[72,13,72,51,0],[73,13,73,30,0],[74,17,74,24,0],[75,13,75,33,0],[76,13,76,36,0],[77,13,77,30,0],[78,13,78,37,0],[79,13,79,28,0],[80,9,80,10,0],[122,9,122,10,0],[123,13,123,36,0],[124,13,124,14,0],[125,17,125,29,0],[126,17,126,32,0],[127,13,127,14,0],[128,13,128,37,0],[129,9,129,10,0],[16,9,16,69,1],[19,9,19,39,1],[20,9,20,38,1],[24,9,24,52,1],[25,9,25,10,1],[26,13,26,30,1],[27,13,27,32,1],[28,9,28,10,1],[31,9,31,10,1],[32,13,32,42,1],[32,57,32,59,1],[33,13,33,32,1],[34,9,34,10,1],[65,9,65,10,1],[66,13,67,73,1],[68,9,68,10,1],[100,9,100,10,1],[101,13,101,32,1],[102,17,102,30,1],[103,13,103,89,1],[104,13,104,89,1],[105,13,105,89,1],[106,13,109,66,1],[110,13,110,89,1],[111,13,111,89,1],[112,13,112,89,1],[113,13,116,64,1],[118,13,118,51,1],[119,9,119,10,1],[15,9,15,56,1],[97,9,97,62,1],[98,9,98,61,1],[32,42,32,57,1]]);
+    </script>
+  </body>
+</html>

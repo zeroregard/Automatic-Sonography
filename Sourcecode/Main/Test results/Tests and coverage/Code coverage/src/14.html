@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\CalculationLibrary\CameraToRobotCalibrator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using DataStructures;
+using Microsoft.Kinect.Fusion;
+namespace CalculationLibrary
+{
+    public class CameraToRobotCalibrator
+    {
+        //offset in meters compared to robot origo
+        public float x_offset = 0.175f;
+        public float y_offset = -0.880f;
+        public float z_offset = 1.800f;
+
+        //scale
+        public float x_scale = -1f;
+        public float y_scale = 1f;
+        public float z_scale = -1f;
+
+        //camera rotated around its own origo
+        public float x_rotation = 0f;
+        public float y_rotation = 0f;
+        public float z_rotation = -90f;
+
+        public CameraToRobotCalibrator()
+        {
+            SetUpMatrices();
+            TransformMatrix = CalculateTransformMatrix();
+        }
+
+        public CameraToRobotCalibrator(float xO, float yO, float zO, float xS, float yS, float zS, float xR, float yR, float zR)
+        {
+
+            x_offset = xO;
+            y_offset = yO;
+            z_offset = zO;
+            x_scale = xS;
+            y_scale = yS;
+            z_scale = zS;
+            x_rotation = xR;
+            y_rotation = yR;
+            z_rotation = zR;
+            SetUpMatrices();
+            TransformMatrix = CalculateTransformMatrix();
+        }
+
+        public Matrix4 TransformMatrix;
+        /// &lt;summary&gt;
+        /// Translates, rotates and scales a mesh from the 3D camera&#39;s view to the Robot Arm&#39;s view
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;mesh&quot;&gt;The mesh we wish to transform&lt;/param&gt;
+        /// &lt;returns&gt;A mesh in another space&lt;/returns&gt;
+        public CVMesh ConvertToRobospace(CVMesh mesh)
+        {
+            CVMesh converted = CVMesh.Clone(mesh);
+            List&lt;Vector3&gt; vertices = converted.Vertices;
+            List&lt;Vector3&gt; transformedVertices = new List&lt;Vector3&gt;();
+            foreach (var v in vertices)
+            {
+                Vector3 transformed = TransformVertex(v, TransformMatrix);
+                transformedVertices.Add(transformed);
+            }
+            converted.Vertices = transformedVertices;
+
+            return converted;
+        }
+
+        Matrix4 t; //translation
+        Matrix4 x; //rotation x
+        Matrix4 y; //rotation y
+        Matrix4 z; //rotation z
+        Matrix4 s; //scale
+
+        /// &lt;summary&gt;
+        /// Sets up the individual matrices used for moving, rotating and rescaling a mesh
+        /// &lt;/summary&gt;
+        public void SetUpMatrices()
+        {
+            x_rotation = Extensions.ToRadians(x_rotation);
+            y_rotation = Extensions.ToRadians(y_rotation);
+            z_rotation = Extensions.ToRadians(z_rotation);
+            t = new Matrix4();
+            t.M11 = 1; t.M12 = 0; t.M13 = 0; t.M14 = x_offset;
+            t.M21 = 0; t.M22 = 1; t.M23 = 0; t.M24 = y_offset;
+            t.M31 = 0; t.M32 = 0; t.M33 = 1; t.M34 = z_offset;
+            t.M41 = 0; t.M42 = 0; t.M43 = 0; t.M44 = 1;
+
+            x = new Matrix4();
+            x.M11 = 1; x.M12 = 0; x.M13 = 0; x.M14 = 0;
+            x.M21 = 0; x.M22 = (float)Math.Cos(x_rotation); x.M23 = -(float)Math.Sin(x_rotation); x.M24 = 0;
+            x.M31 = 0; x.M32 = (float)Math.Sin(x_rotation); x.M33 = (float)Math.Cos(x_rotation); x.M34 = 0;
+            x.M41 = 0; x.M42 = 0; x.M43 = 0; x.M44 = 1;
+            x = Prune(x);
+            y = new Matrix4();
+            y.M11 = (float)Math.Cos(y_rotation); y.M12 = 0; y.M13 = (float)Math.Sin(y_rotation); y.M14 = 0;
+            y.M21 = 0; y.M22 = 1; y.M23 = 0; y.M24 = 0;
+            y.M31 = -(float)Math.Sin(y_rotation); y.M32 = 0; y.M33 = (float)Math.Cos(y_rotation); y.M34 = 0;
+            y.M41 = 0; y.M42 = 0; y.M43 = 0; y.M44 = 1;
+            y = Prune(y);
+            z = new Matrix4();
+            z.M11 = (float)Math.Cos(z_rotation); z.M12 = -(float)Math.Sin(z_rotation); z.M13 = 0; z.M14 = 0;
+            z.M21 = (float)Math.Sin(z_rotation); z.M22 = (float)Math.Cos(z_rotation); z.M23 = 0; z.M24 = 0;
+            z.M31 = 0; z.M32 = 0; z.M33 = 1; z.M34 = 0;
+            z.M41 = 0; z.M42 = 0; z.M43 = 0; z.M44 = 1;
+            z = Prune(z);
+            s = new Matrix4();
+            s.M11 = x_scale; s.M12 = 0; s.M13 = 0; s.M14 = 0;
+            s.M21 = 0; s.M22 = y_scale; s.M23 = 0; s.M24 = 0;
+            s.M31 = 0; s.M32 = 0; s.M33 = z_scale; s.M34 = 0;
+            s.M41 = 0; s.M42 = 0; s.M43 = 0; s.M44 = 1;
+
+        }
+
+        /// &lt;summary&gt;
+        /// Sets very small values to zero in a Matrix4
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;m&quot;&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        private Matrix4 Prune(Matrix4 m)
+        {
+            //Apparently Matrix4s are copied over entirely when put as a parameter
+            float min = 0.001f;
+            m.M11 = Math.Abs(m.M11) &lt; min ? 0 : m.M11;
+            m.M12 = Math.Abs(m.M12) &lt; min ? 0 : m.M12;
+            m.M13 = Math.Abs(m.M13) &lt; min ? 0 : m.M13;
+            m.M14 = Math.Abs(m.M14) &lt; min ? 0 : m.M14;
+
+            m.M21 = Math.Abs(m.M21) &lt; min ? 0 : m.M21;
+            m.M22 = Math.Abs(m.M22) &lt; min ? 0 : m.M22;
+            m.M23 = Math.Abs(m.M23) &lt; min ? 0 : m.M23;
+            m.M24 = Math.Abs(m.M24) &lt; min ? 0 : m.M24;
+
+            m.M31 = Math.Abs(m.M31) &lt; min ? 0 : m.M31;
+            m.M32 = Math.Abs(m.M32) &lt; min ? 0 : m.M32;
+            m.M33 = Math.Abs(m.M33) &lt; min ? 0 : m.M33;
+            m.M34 = Math.Abs(m.M34) &lt; min ? 0 : m.M34;
+
+            m.M41 = Math.Abs(m.M41) &lt; min ? 0 : m.M41;
+            m.M42 = Math.Abs(m.M42) &lt; min ? 0 : m.M42;
+            m.M43 = Math.Abs(m.M43) &lt; min ? 0 : m.M43;
+            m.M44 = Math.Abs(m.M44) &lt; min ? 0 : m.M44;
+            return m;
+        }
+
+        /// &lt;summary&gt;
+        /// Sets up the entire transform matrix, multiplying matrices in the correct order
+        /// &lt;/summary&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public Matrix4 CalculateTransformMatrix()
+        {
+            //rotate the Kinect 90 degrees around the z-axis
+            //mirror x
+            //mirror z
+            Matrix4 rotatedError = Extensions.Dot(x, z);
+            Matrix4 mirrored = Extensions.Dot(s, rotatedError);
+            Matrix4 translated = Extensions.Dot(t, mirrored);
+            return translated;
+        }
+
+        [ExcludeFromCodeCoverage]
+        public Matrix4 CalculateTestMatrix()
+        {
+            Matrix4 baseMatrix = y;
+            Matrix4 rotated = Extensions.Dot(x, y);
+            Matrix4 translated = Extensions.Dot(t, rotated);
+            return translated;
+        }
+
+        /// &lt;summary&gt;
+        /// Moves a vertex according to rotation, scale and translation to a new coordinate
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;vertex&quot;&gt;X, Y, and Z position&lt;/param&gt;
+        /// &lt;param name=&quot;transformM&quot;&gt;Transform matrix to convert vertex with&lt;/param&gt;
+        /// &lt;returns&gt;The new X, Y and Z position of a Vertex&lt;/returns&gt;
+        public Vector3 TransformVertex(Vector3 vertex, Matrix4 transformM)
+        {
+            float x, y, z;
+            x = transformM.M11 * vertex.X + transformM.M12 * vertex.Y + transformM.M13 * vertex.Z + transformM.M14 * 1;
+            y = transformM.M21 * vertex.X + transformM.M22 * vertex.Y + transformM.M23 * vertex.Z + transformM.M24 * 1;
+            z = transformM.M31 * vertex.X + transformM.M32 * vertex.Y + transformM.M33 * vertex.Z + transformM.M34 * 1;
+            return new Vector3 { X = x, Y = y, Z = z };
+        }
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,40,1],[12,9,12,41,1],[13,9,13,40,1],[16,9,16,36,1],[17,9,17,35,1],[18,9,18,36,1],[21,9,21,38,1],[22,9,22,38,1],[23,9,23,40,1],[25,9,25,41,1],[26,9,26,10,1],[27,13,27,29,1],[28,13,28,58,1],[29,9,29,10,1],[31,9,31,129,1],[32,9,32,10,1],[34,13,34,27,1],[35,13,35,27,1],[36,13,36,27,1],[37,13,37,26,1],[38,13,38,26,1],[39,13,39,26,1],[40,13,40,29,1],[41,13,41,29,1],[42,13,42,29,1],[43,13,43,29,1],[44,13,44,58,1],[45,9,45,10,1],[54,9,54,10,1],[55,13,55,51,1],[56,13,56,57,1],[57,13,57,69,1],[58,13,58,20,1],[58,31,58,39,1],[58,22,58,27,1],[59,13,59,14,1],[60,17,60,75,1],[61,17,61,54,1],[62,13,62,14,1],[58,28,58,30,1],[63,13,63,54,1],[65,13,65,30,1],[66,9,66,10,1],[78,9,78,10,1],[79,13,79,59,1],[80,13,80,59,1],[81,13,81,59,1],[82,13,82,31,1],[83,13,83,23,1],[83,24,83,34,1],[83,35,83,45,1],[83,46,83,63,1],[84,13,84,23,1],[84,24,84,34,1],[84,35,84,45,1],[84,46,84,63,1],[85,13,85,23,1],[85,24,85,34,1],[85,35,85,45,1],[85,46,85,63,1],[86,13,86,23,1],[86,24,86,34,1],[86,35,86,45,1],[86,46,86,56,1],[88,13,88,31,1],[89,13,89,23,1],[89,24,89,34,1],[89,35,89,45,1],[89,46,89,56,1],[90,13,90,23,1],[90,24,90,60,1],[90,61,90,98,1],[90,99,90,109,1],[91,13,91,23,1],[91,24,91,60,1],[91,61,91,97,1],[91,98,91,108,1],[92,13,92,23,1],[92,24,92,34,1],[92,35,92,45,1],[92,46,92,56,1],[93,13,93,26,1],[94,13,94,31,1],[95,13,95,49,1],[95,50,95,60,1],[95,61,95,97,1],[95,98,95,108,1],[96,13,96,23,1],[96,24,96,34,1],[96,35,96,45,1],[96,46,96,56,1],[97,13,97,50,1],[97,51,97,61,1],[97,62,97,98,1],[97,99,97,109,1],[98,13,98,23,1],[98,24,98,34,1],[98,35,98,45,1],[98,46,98,56,1],[99,13,99,26,1],[100,13,100,31,1],[101,13,101,49,1],[101,50,101,87,1],[101,88,101,98,1],[101,99,101,109,1],[102,13,102,49,1],[102,50,102,86,1],[102,87,102,97,1],[102,98,102,108,1],[103,13,103,23,1],[103,24,103,34,1],[103,35,103,45,1],[103,46,103,56,1],[104,13,104,23,1],[104,24,104,34,1],[104,35,104,45,1],[104,46,104,56,1],[105,13,105,26,1],[106,13,106,31,1],[107,13,107,29,1],[107,30,107,40,1],[107,41,107,51,1],[107,52,107,62,1],[108,13,108,23,1],[108,24,108,40,1],[108,41,108,51,1],[108,52,108,62,1],[109,13,109,23,1],[109,24,109,34,1],[109,35,109,51,1],[109,52,109,62,1],[110,13,110,23,1],[110,24,110,34,1],[110,35,110,45,1],[110,46,110,56,1],[112,9,112,10,1],[120,9,120,10,1],[122,13,122,32,1],[123,13,123,55,1],[124,13,124,55,1],[125,13,125,55,1],[126,13,126,55,1],[128,13,128,55,1],[129,13,129,55,1],[130,13,130,55,1],[131,13,131,55,1],[133,13,133,55,1],[134,13,134,55,1],[135,13,135,55,1],[136,13,136,55,1],[138,13,138,55,1],[139,13,139,55,1],[140,13,140,55,1],[141,13,141,55,1],[142,13,142,22,1],[143,9,143,10,1],[150,9,150,10,1],[154,13,154,57,1],[155,13,155,64,1],[156,13,156,62,1],[157,13,157,31,1],[158,9,158,10,1],[176,9,176,10,1],[178,13,178,120,1],[179,13,179,120,1],[180,13,180,120,1],[181,13,181,56,1],[182,9,182,10,1]]);
+    </script>
+  </body>
+</html>

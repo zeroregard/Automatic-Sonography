@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\CalculationLibrary\RobotPoseCreator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataStructures;
+using Microsoft.Kinect.Fusion;
+
+namespace CalculationLibrary
+{
+    /// &lt;summary&gt;
+    /// Given a list of vertices in a mesh, this class determines how the robot tool center point position offset and rotation should look like
+    /// &lt;/summary&gt;
+    public class RobotPoseCreator
+    {
+        public static float UR_PROBE_OFFSET = 0.10f; //The length of whatever is attached to the tool center point in meters.
+        /// &lt;summary&gt;
+        /// Finds robot arm tool center point poses for a list of vertices
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;vectorPath&quot;&gt;A list of vertices in a mesh. Vertices must exist in mesh and be part of at least one face each&lt;/param&gt;
+        /// &lt;param name=&quot;mesh&quot;&gt;The mesh that the vectorPath belongs to&lt;/param&gt;
+        /// &lt;returns&gt;A list of URPoses used to feed the robot arm later&lt;/returns&gt;
+        public List&lt;URPose&gt; ToURPath(List&lt;VertexIndex&gt; vectorPath, CVMesh mesh)
+        {
+            List&lt;URPose&gt; poses = new List&lt;URPose&gt;();
+            foreach (var v in vectorPath)
+            {
+                Vector3 vertexNormal = FindVertexNormal(v, mesh);
+                //vertexNormal.X = 0.00001f;
+                vertexNormal = Extensions.Normalize(vertexNormal);
+                Vector3 urPos = FindURPosition(v.Vector, vertexNormal);
+                //Vector3 smoothedNormal = Extensions.Normalize(Extensions.AvgVector(new List&lt;Vector3&gt; {vertexNormal, new Vector3 {X=0, Y=0, Z=1}}));
+                Vector3 rotationNormal = Extensions.Multiply(vertexNormal, -1);
+                //Vector3 urRot = ToRotationVector(rotationNormal);
+
+                URPose pose = new URPose(urPos.X, urPos.Y, urPos.Z, rotationNormal.X, rotationNormal.Y, rotationNormal.Z);
+                poses.Add(pose);
+            }
+            int percent = (int)Math.Floor(poses.Count * 0.12);
+            var snippet = poses.GetRange(percent, poses.Count - percent * 2);
+            PLYHandler.Output(snippet, Environment.CurrentDirectory);
+            ConvertDirectionVectors(snippet);
+            return snippet;
+        }
+
+        /// &lt;summary&gt;
+        /// Converts all direction vectors in a list of poses to rotation vectors
+        /// &lt;/summary&gt;
+        private void ConvertDirectionVectors(List&lt;URPose&gt; poses)
+        {
+            foreach (var urPose in poses)
+            {
+                Vector3 dir = new Vector3
+                {
+                    X = (float)urPose.RXpose,
+                    Y = (float)urPose.RYpose,
+                    Z = (float)urPose.RZpose
+                };
+                Vector3 rpy = ToRollPitchYaw(dir);
+                Vector3 rot = ToRotVector(rpy);
+                urPose.RXpose = rot.X;
+                urPose.RYpose = rot.Y;
+                urPose.RZpose = rot.Z;
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Gets the roll pitch and yaw from a direction vector. 0,0,0 is up.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;d&quot;&gt;Direction vector. Must have a length of 1&lt;/param&gt;
+        public Vector3 ToRollPitchYaw(Vector3 d)
+        {
+            d = Extensions.Normalize(d);
+            double roll, pitch = 0, yaw = 0;
+            double pi = Math.PI;
+            roll = Math.Acos(d.Z);
+            if (d.X == 0 &amp;&amp; d.Y == 0)
+                yaw = 0;
+            else
+            {
+                Vector3 noZ = new Vector3 { X = d.X, Y = d.Y, Z = 0 };
+                noZ = Extensions.Normalize(noZ);
+                if (d.X &lt;= 0)
+                    yaw = -Math.Acos(-noZ.Y);
+                else
+                    yaw = Math.Acos(-noZ.Y);
+            }
+            Vector3 rpy = new Vector3 { X = (float)roll, Y = (float)pitch, Z = (float)yaw };
+            return rpy;
+        }
+
+        /// &lt;summary&gt;
+        /// Converts a roll pitch yaw vector to a rotation vector.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;d&quot;&gt;A vector where X=Roll, Y=Pitch, Z=Yaw&lt;/param&gt;
+        /// &lt;returns&gt;A rotation vector with rx, ry and rz used to rotate the TCP of UR10&lt;/returns&gt;
+        public Vector3 ToRotVector(Vector3 rpy)
+        {
+            float roll = rpy.X;
+            float pitch = rpy.Y;
+            float yaw = rpy.Z;
+            if (roll == 0 &amp;&amp; pitch == 0 &amp;&amp; yaw == 0)
+                return new Vector3 { X = 0, Y = 0, Z = 0 };
+            Matrix3 RollM = new Matrix3();
+            RollM.M00 = 1; RollM.M01 = 0; RollM.M02 = 0;
+            RollM.M10 = 0; RollM.M11 = Math.Cos(roll); RollM.M12 = -Math.Sin(roll);
+            RollM.M20 = 0; RollM.M21 = Math.Sin(roll); RollM.M22 = Math.Cos(roll);
+
+            Matrix3 PitchM = new Matrix3();
+            PitchM.M00 = Math.Cos(pitch); PitchM.M01 = 0; PitchM.M02 = Math.Sin(pitch);
+            PitchM.M10 = 0; PitchM.M11 = 1; PitchM.M12 = 0;
+            PitchM.M20 = -Math.Sin(pitch); PitchM.M21 = 0; PitchM.M22 = Math.Cos(pitch);
+
+            Matrix3 YawM = new Matrix3();
+            YawM.M00 = Math.Cos(yaw); YawM.M01 = -Math.Sin(yaw); YawM.M02 = 0;
+            YawM.M10 = Math.Sin(yaw); YawM.M11 = Math.Cos(yaw); YawM.M12 = 0;
+            YawM.M20 = 0; YawM.M21 = 0; YawM.M22 = 1;
+
+            Matrix3 Rot = new Matrix3();
+
+            //rot = yaw * pitch * roll
+            Rot = Matrix3.Dot(YawM, Matrix3.Dot(PitchM, RollM));
+
+            double rotSum = Rot.M00 + Rot.M11 + Rot.M22 - 1;
+            double alpha = Math.Acos(rotSum / 2);
+            double theta = 0;
+            //if (roll &gt;= 0)
+            theta = alpha;
+            //else
+            //theta = 2 * Math.PI - alpha;
+            double my = 1d / (2 * Math.Sin(theta));
+
+            double rx = my * (Rot.M21 - Rot.M12) * theta;
+            double ry = my * (Rot.M02 - Rot.M20) * theta;
+            double rz = my * (Rot.M10 - Rot.M01) * theta;
+
+            Vector3 rotationVector = new Vector3();
+            rotationVector.X = (float)rx;
+            rotationVector.Y = (float)ry;
+            rotationVector.Z = (float)rz;
+            return rotationVector;
+        }
+
+        /// &lt;summary&gt;
+        /// Find the offset position for the TCP given a position, a direction vector and the offset value
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;vertexPosition&quot;&gt;A position of a vertex in a mesh&lt;/param&gt;
+        /// &lt;param name=&quot;vertexNormal&quot;&gt;A direction vector for a vertex indicating its normal&lt;/param&gt;
+        public Vector3 FindURPosition(Vector3 vertexPosition, Vector3 vertexNormal)
+        {
+            Vector3 pos = vertexPosition;
+            Vector3 offset = Extensions.Multiply(vertexNormal, UR_PROBE_OFFSET);
+            Vector3 offsetPos = Extensions.Add(pos, offset);
+            return offsetPos;
+        }
+
+        /// &lt;summary&gt;
+        /// Find the direction vector for a vertex by taking the average direction vector of the faces the vertex belongs to
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;vertex&quot;&gt;Vertex in a mesh&lt;/param&gt;
+        /// &lt;param name=&quot;mesh&quot;&gt;Mesh which vertex is a part of.&lt;/param&gt;
+        /// &lt;returns&gt;Normal/Direction vector for vertex&lt;/returns&gt;
+        public Vector3 FindVertexNormal(VertexIndex vertex, CVMesh mesh)
+        {
+            mesh.Faces = Extensions.ToFaces(mesh.TriangleIndeces);
+            int index = vertex.Index;
+            List&lt;Vector3&gt; faceNormals = new List&lt;Vector3&gt;();
+            for (int i = 0; i &lt; mesh.Faces.Count; i++)
+            {
+                Face f = mesh.Faces[i];
+                if (f.index1 == index || f.index2 == index || f.index3 == index)
+                {
+                    faceNormals.Add(GetFaceNormal(i, mesh));
+                }
+            }
+            if (faceNormals.Count == 0)
+                return new Vector3 { X = 0, Y = 0, Z = 1 };
+            return Extensions.Normalize(Extensions.AvgVector(faceNormals));
+        }
+
+        /// &lt;summary&gt;
+        /// Find the normal of a face
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;i&quot;&gt;Index of face in mesh.Faces&lt;/param&gt;
+        /// &lt;param name=&quot;m&quot;&gt;Mesh&lt;/param&gt;
+        /// &lt;returns&gt;A direction vector indicating the normal of a face&lt;/returns&gt;
+        public Vector3 GetFaceNormal(int i, CVMesh m)
+        {
+            Vector3 v1 = m.Vertices[m.Faces[i].index1];
+            Vector3 v2 = m.Vertices[m.Faces[i].index2];
+            Vector3 v3 = m.Vertices[m.Faces[i].index3];
+            Vector3 normal = Extensions.FaceNormal(v1, v2, v3);
+            normal.Z = normal.Z &gt;= 0 ? normal.Z : 0;
+            normal = Extensions.Normalize(normal);
+            return normal;
+        }
+
+
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[177,17,177,60,0],[24,9,24,10,1],[25,13,25,53,1],[26,13,26,20,1],[26,31,26,41,1],[26,22,26,27,1],[27,13,27,14,1],[28,17,28,66,1],[30,17,30,67,1],[31,17,31,72,1],[33,17,33,80,1],[36,17,36,123,1],[37,17,37,33,1],[38,13,38,14,1],[26,28,26,30,1],[39,13,39,63,1],[40,13,40,78,1],[41,13,41,70,1],[42,13,42,46,1],[43,13,43,28,1],[44,9,44,10,1],[50,9,50,10,1],[51,13,51,20,1],[51,36,51,41,1],[51,22,51,32,1],[52,13,52,14,1],[53,17,58,19,1],[59,17,59,51,1],[60,17,60,48,1],[61,17,61,39,1],[62,17,62,39,1],[63,17,63,39,1],[64,13,64,14,1],[51,33,51,35,1],[65,9,65,10,1],[72,9,72,10,1],[73,13,73,41,1],[74,26,74,35,1],[74,37,74,44,1],[75,13,75,33,1],[76,13,76,35,1],[77,13,77,38,1],[78,17,78,25,1],[80,13,80,14,1],[81,17,81,71,1],[82,17,82,49,1],[83,17,83,30,1],[84,21,84,46,1],[86,21,86,45,1],[87,13,87,14,1],[88,13,88,93,1],[89,13,89,24,1],[90,9,90,10,1],[98,9,98,10,1],[99,13,99,32,1],[100,13,100,33,1],[101,13,101,31,1],[102,13,102,53,1],[103,17,103,60,1],[104,13,104,43,1],[105,13,105,27,1],[105,28,105,42,1],[105,43,105,57,1],[106,13,106,27,1],[106,28,106,55,1],[106,56,106,84,1],[107,13,107,27,1],[107,28,107,55,1],[107,56,107,83,1],[109,13,109,44,1],[110,13,110,42,1],[110,43,110,58,1],[110,59,110,88,1],[111,13,111,28,1],[111,29,111,44,1],[111,45,111,60,1],[112,13,112,43,1],[112,44,112,59,1],[112,60,112,89,1],[114,13,114,42,1],[115,13,115,38,1],[115,39,115,65,1],[115,66,115,79,1],[116,13,116,38,1],[116,39,116,64,1],[116,65,116,78,1],[117,13,117,26,1],[117,27,117,40,1],[117,41,117,54,1],[119,13,119,41,1],[122,13,122,65,1],[124,13,124,61,1],[125,13,125,50,1],[126,13,126,30,1],[128,13,128,27,1],[131,13,131,52,1],[133,13,133,58,1],[134,13,134,58,1],[135,13,135,58,1],[137,13,137,52,1],[138,13,138,42,1],[139,13,139,42,1],[140,13,140,42,1],[141,13,141,35,1],[142,9,142,10,1],[150,9,150,10,1],[151,13,151,42,1],[152,13,152,81,1],[153,13,153,61,1],[154,13,154,30,1],[155,9,155,10,1],[164,9,164,10,1],[165,13,165,67,1],[166,13,166,38,1],[167,13,167,61,1],[168,18,168,27,1],[169,13,169,14,1],[170,17,170,40,1],[171,17,171,81,1],[172,17,172,18,1],[173,21,173,61,1],[174,17,174,18,1],[175,13,175,14,1],[168,51,168,54,1],[168,29,168,49,1],[176,13,176,40,1],[178,13,178,76,1],[179,9,179,10,1],[188,9,188,10,1],[189,13,189,56,1],[190,13,190,56,1],[191,13,191,56,1],[192,13,192,64,1],[193,13,193,53,1],[194,13,194,51,1],[195,13,195,27,1],[196,9,196,10,1],[16,9,16,53,1]]);
+    </script>
+  </body>
+</html>

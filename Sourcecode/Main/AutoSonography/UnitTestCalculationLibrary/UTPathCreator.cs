@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
 using CalculationLibrary;
 using Microsoft.Kinect.Fusion;
 using DataStructures;
@@ -11,10 +12,18 @@ namespace UnitTestCalculationLibrary
     public class UTPathCreator
     {
         PathCreator uut;
+        private string testModelLocation;
         [TestInitialize]
         public void Setup()
         {
             uut = new PathCreator();
+            testModelLocation = Directory.GetParent(
+                Directory.GetParent(
+                Directory.GetParent(
+                Environment.CurrentDirectory).
+                ToString()).
+                ToString()) +
+                "\\TestModels";
         }
 
         [TestMethod]
@@ -31,7 +40,7 @@ namespace UnitTestCalculationLibrary
         [TestMethod]
         public void IdentifyPath_InsertPlane_CorrectPathOutPut()
         {
-            string location = Environment.CurrentDirectory + "\\plane.ply";
+            string location = testModelLocation + "\\plane.ply";
             CVMesh mesh = PLYHandler.ReadMesh(location);
             BoundingBox b = Extensions.FindBoundingBox(mesh.Vertices);
             uut.distance_length = -(b.x_max - b.x_min) / 9f;

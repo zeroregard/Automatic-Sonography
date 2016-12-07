@@ -53,7 +53,7 @@ namespace UnitTestRobotLibrary
         [TestMethod]
         public void IsCloseEnough_WithTwoPosesWithinPositionBoundsNotWithinRotationBounds_ReturnsFalse()
         {
-            p2.Xpose += posBounds;
+            p2.Xpose += 4*posBounds;
             p2.Ypose += posBounds;
             p2.Zpose += posBounds;
             p2.RXpose += 2*rotBounds;
@@ -107,7 +107,6 @@ namespace UnitTestRobotLibrary
                 poses.Add(new URPose(1,1,1,1,1,1));
             }
             uut.RunPath(poses);
-            Thread.Sleep(1000);
             var current = data.GetLastKnownPose();
             Assert.AreEqual(0, current.Xpose);
             Assert.AreEqual(0, current.Ypose);

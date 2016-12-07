@@ -176,7 +176,7 @@ namespace UnitTestCalculationLibrary
         {
             Vector3 right = new Vector3 { X = -(float)Math.PI / 2, Y = 0, Z = 0 };
             Vector3 rotVec = uut.ToRotVector(right);
-            Assert.AreEqual(Math.PI*1.5, rotVec.X, 0.1);
+            Assert.AreEqual(-Math.PI/2, rotVec.X, 0.1);
             Assert.AreEqual(0, rotVec.Y, 0.1);
             Assert.AreEqual(0, rotVec.Z, 0.1);
         }

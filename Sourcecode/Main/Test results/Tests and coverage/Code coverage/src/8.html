@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\DataStructures\URPose.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataStructures
+{
+    public class URPose
+    {
+        public URPose()
+        {
+            Xpose = 0;
+            Ypose = 0;
+            Zpose = 0;
+            RXpose = 0;
+            RYpose = 0;
+            RZpose = 0;
+        }
+
+        public URPose(double x, double y, double z, double Rx, double Ry, double Rz)
+        {
+            Xpose = x;
+            Ypose = y;
+            Zpose = z;
+            RXpose = Rx;
+            RYpose = Ry;
+            RZpose = Rz;
+        }
+
+        public static URPose Copy(URPose from)
+        {
+            URPose to = new URPose();
+            to.Xpose = from.Xpose;
+            to.Ypose = from.Ypose;
+            to.Zpose = from.Zpose;
+
+            to.RXpose = from.RXpose;
+            to.RYpose = from.RYpose;
+            to.RZpose = from.RZpose;
+            return to;
+        }
+
+        public double Xpose;
+        public double Ypose;
+        public double Zpose;
+        public double RXpose;
+        public double RYpose;
+        public double RZpose;
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[11,9,11,24,1],[12,9,12,10,1],[13,13,13,23,1],[14,13,14,23,1],[15,13,15,23,1],[16,13,16,24,1],[17,13,17,24,1],[18,13,18,24,1],[19,9,19,10,1],[21,9,21,85,1],[22,9,22,10,1],[23,13,23,23,1],[24,13,24,23,1],[25,13,25,23,1],[26,13,26,25,1],[27,13,27,25,1],[28,13,28,25,1],[29,9,29,10,1],[32,9,32,10,1],[33,13,33,38,1],[34,13,34,35,1],[35,13,35,35,1],[36,13,36,35,1],[38,13,38,37,1],[39,13,39,37,1],[40,13,40,37,1],[41,13,41,23,1],[42,9,42,10,1]]);
+    </script>
+  </body>
+</html>

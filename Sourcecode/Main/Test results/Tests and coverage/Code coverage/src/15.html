@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\CalculationLibrary\PathCreator.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DataStructures;
+using Microsoft.Kinect.Fusion;
+namespace CalculationLibrary
+{
+    /// &lt;summary&gt;
+    /// This class determines which vertices in a mesh should be used for figuring which positions and rotations should be made in RobotPoseCreator
+    /// &lt;/summary&gt;
+    public class PathCreator
+    {
+        public CameraToRobotCalibrator calibrator;
+        [ExcludeFromCodeCoverage] //only used for calibration
+        public List&lt;URPose&gt; GenerateBoxPath(CVMesh m)
+        {
+            var verticePoints = m.Vertices;
+            var box = Extensions.FindBoundingBox(verticePoints);
+            List&lt;Vector3&gt; upperBox = new List&lt;Vector3&gt;();
+            upperBox.Add(new Vector3() { X = box.x_max, Y = box.y_max, Z = box.z_max });
+            upperBox.Add(new Vector3() { X = box.x_min, Y = box.y_max, Z = box.z_max });
+            upperBox.Add(new Vector3() { X = box.x_min, Y = box.y_min, Z = box.z_max });
+            upperBox.Add(new Vector3() { X = box.x_max, Y = box.y_min, Z = box.z_max });
+            List&lt;URPose&gt; poses = new List&lt;URPose&gt;();
+            foreach (var p in upperBox)
+            {
+                float X = p.X;
+                float Y = p.Y;
+                float Z = p.Z;
+                Z += 0.20f;
+                double RXpose = Math.PI;
+                double RYpose = 0;
+                double RZpose = 0;
+
+                poses.Add(new URPose(X, Y, Z, RXpose, RYpose, RZpose));
+            }
+            return poses;
+        }
+
+        /// &lt;summary&gt;
+        /// Creates a &#39;squarewave&#39; above the mesh and presses that squarewave down to the surface of the mesh, figuring out which points are interesting for scanning, and in which order. Optional X values are for handling out of bound vertices which sometimes are generated from the Kinect API.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;vertices&quot;&gt;The vertices of a mesh&lt;/param&gt;
+        /// &lt;param name=&quot;x_absolute_min&quot;&gt;&lt;/param&gt;
+        /// &lt;param name=&quot;x_absolute_max&quot;&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public List&lt;VertexIndex&gt; CreatePath(List&lt;Vector3&gt; vertices, float x_absolute_min = float.MaxValue, float x_absolute_max = float.MinValue)
+        {
+            BoundingBox b = Extensions.FindBoundingBox(vertices, x_absolute_min, x_absolute_max);
+            List&lt;Vector3&gt; wave = GenerateSquareWave(b);
+            PLYHandler.Output(wave, Environment.CurrentDirectory, &quot;WAVE&quot;);
+            return IdentifyPath(wave, vertices);
+        }
+
+        /// &lt;summary&gt;
+        /// Given a list of points above (larger Z values) a list of vertices (a surface), draw a straight line down for every wave point and find the closest vertice.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;wave&quot;&gt;A list of points representing a wave in XY space. Can be a squarewave or a sine or anything.&lt;/param&gt;
+        /// &lt;param name=&quot;vertices&quot;&gt;Vertices in a mesh.&lt;/param&gt;
+        /// &lt;returns&gt;The vertices, and their original indices in the list of vertices, that fit the wave best&lt;/returns&gt;
+        private List&lt;VertexIndex&gt; IdentifyPath(List&lt;Vector3&gt; wave, List&lt;Vector3&gt; vertices)
+        {
+            List&lt;VertexIndex&gt; path = new List&lt;VertexIndex&gt;();
+            foreach (var w in wave)
+            {
+
+                float minDis = float.MaxValue;
+                Vector3 bestCandidate = new Vector3 { X = float.NaN };
+                Vector3 endPoint = w;
+                endPoint.Z += -1;
+                int i = 0;
+                for (int index = 0; index &lt; vertices.Count; index++)
+                {
+                    var v = vertices[index];
+                    var distanceToLine = DistanceToLine(w, endPoint, v);
+                    if (distanceToLine &lt; minDis)
+                    {
+                        minDis = distanceToLine;
+                        bestCandidate = v;
+                        i = index;
+                    }
+                }
+                if (float.IsNaN(bestCandidate.X))
+                    throw new WarningException(&quot;No candidate was found&quot;);
+                path.Add(new VertexIndex(bestCandidate, i));
+            }
+            return path;
+        }
+
+        public float distance_length = -0.02f;
+        public float distance_width = -0.02f;
+        /// &lt;summary&gt;
+        /// Generates a squarewave-esque wave, given a bounding box. 
+        /// Utilizes the X and Y values of the bounding box to figure when it should start and stop the wave.
+        /// A normal squarewave could be written as f(t) = sign(sin(t)).
+        /// But for any t, there would always only be two different y values, so we utilize distance_length and distance_width as a means of a sample rate.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;b&quot;&gt;The bounding box of a mesh&lt;/param&gt;
+        /// &lt;returns&gt;A squarewave that&#39;s above(+Z) a bounding box b&lt;/returns&gt;
+        private List&lt;Vector3&gt; GenerateSquareWave(BoundingBox b)
+        {
+            List&lt;Vector3&gt; wave = new List&lt;Vector3&gt;();
+            Vector3 lastPoint = new Vector3 { X = b.x_max, Y = b.y_max, Z = 0.5f };
+            wave.Add(lastPoint);
+            while (true)
+            {
+                if (OutOfBounds(b.x_min, b.x_max, lastPoint.X))
+                {
+                    distance_length *= -1;
+                    lastPoint.Y += distance_width;
+                }
+                if (lastPoint.Y &lt; b.y_min)
+                    break;
+                lastPoint.X += distance_length;
+                if (!OutOfBounds(b.x_min, b.x_max, lastPoint.X))
+                {
+                    Vector3 copyPoint = lastPoint;
+                    wave.Add(copyPoint);
+                }
+            }
+            return wave;
+        }
+        /// &lt;summary&gt;
+        /// Checks if X is within boudns of xMin and xMax
+        /// &lt;/summary&gt;
+        private bool OutOfBounds(float xMin, float xMax, float X)
+        {
+            return (X &lt; xMin || X &gt; xMax);
+        }
+
+        [ExcludeFromCodeCoverage] //For future code
+        private List&lt;VertexIndex&gt; IdentifyScanPath(List&lt;Vector3&gt; vertices, BoundingBox b, float waveLength = 0.5f, float step = 0.01f)
+        {
+            var wave = GenerateScanWave(b, waveLength, step);
+            List&lt;VertexIndex&gt; path = new List&lt;VertexIndex&gt;();
+            foreach (var w in wave)
+            {
+
+                float minDis = float.MaxValue;
+                Vector3 bestCandidate = new Vector3 { X = float.NaN }; //cannot set Vector3 to null, so
+                Vector3 endPoint = w;
+                endPoint.Z += -1;
+                int i = 0;
+                for (int index = 0; index &lt; vertices.Count; index++)
+                {
+                    var v = vertices[index];
+                    var distanceToLine = DistanceToLine(w, endPoint, v);
+                    if (distanceToLine &lt; minDis)
+                    {
+                        minDis = distanceToLine;
+                        bestCandidate = v;
+                        i = index;
+                    }
+                }
+                if (float.IsNaN(bestCandidate.X))
+                    throw new WarningException(&quot;No candidate was found&quot;);
+                path.Add(new VertexIndex(bestCandidate, i));
+            }
+            return path;
+        }
+
+        [ExcludeFromCodeCoverage] //For future code
+        private List&lt;Vector3&gt; GenerateScanWave(BoundingBox b, float waveLength = 0.5f, float step = 0.01f)
+        {
+            List&lt;Vector3&gt; samples = new List&lt;Vector3&gt;();
+            float frequency = (float)(2 * Math.PI / waveLength);
+            int points = (int)((b.x_max - b.x_min) / step);
+            float amplitude = (b.y_max - b.y_min) / 2f;
+            float offset = (b.y_max + b.y_min) / 2f;
+            float x = b.x_min;
+            float z = 1f;
+            for (int i = 0; i &lt; points; i++)
+            {
+                x += step;
+                float y = (float)(amplitude * Math.Sin(frequency * x) + offset);
+                samples.Add(new Vector3 { X = x, Y = y, Z = z });
+            }
+            return samples;
+        }
+
+        //http://stackoverflow.com/questions/19878441/point-line-distance-calculation
+        /// &lt;summary&gt;
+        /// For a point, determine the distance to a line.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;lineStart&quot;&gt;Vector3 indicating the start position of a line&lt;/param&gt;
+        /// &lt;param name=&quot;lineFinish&quot;&gt;Vector3 indicating the end position of a line&lt;/param&gt;
+        /// &lt;returns&gt;Euclidean distance to line from point&lt;/returns&gt;
+        public float DistanceToLine(Vector3 lineStart, Vector3 lineFinish, Vector3 point)
+        {
+            //(|(x_2-x_1)x(x_1-x_0)|)/(|x_2-x_1|)
+            var sub1 = Extensions.Subtract(lineFinish, lineStart);
+            var sub2 = Extensions.Subtract(lineStart, point);
+            var product = Extensions.CrossProduct(sub1, sub2);
+            var productLength = Extensions.Magnitude(product);
+
+            var lineDistance = Extensions.Magnitude(sub1);
+            return productLength / lineDistance;
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[89,21,89,74,0],[53,9,53,10,1],[54,13,54,98,1],[55,13,55,56,1],[56,13,56,75,1],[57,13,57,49,1],[58,9,58,10,1],[67,9,67,10,1],[68,13,68,62,1],[69,13,69,20,1],[69,31,69,35,1],[69,22,69,27,1],[70,13,70,14,1],[72,17,72,47,1],[73,17,73,71,1],[74,17,74,38,1],[75,17,75,34,1],[76,17,76,27,1],[77,22,77,35,1],[78,17,78,18,1],[79,21,79,45,1],[80,21,80,73,1],[81,21,81,49,1],[82,21,82,22,1],[83,25,83,49,1],[84,25,84,43,1],[85,25,85,35,1],[86,21,86,22,1],[87,17,87,18,1],[77,61,77,68,1],[77,37,77,59,1],[88,17,88,50,1],[90,17,90,61,1],[91,13,91,14,1],[69,28,69,30,1],[92,13,92,25,1],[93,9,93,10,1],[106,9,106,10,1],[107,13,107,54,1],[108,13,108,84,1],[109,13,109,33,1],[111,13,111,14,1],[112,17,112,64,1],[113,17,113,18,1],[114,21,114,43,1],[115,21,115,51,1],[116,17,116,18,1],[117,17,117,43,1],[118,21,118,27,1],[119,17,119,48,1],[120,17,120,65,1],[121,17,121,18,1],[122,21,122,51,1],[123,21,123,41,1],[124,17,124,18,1],[125,13,125,14,1],[110,13,110,25,1],[126,13,126,25,1],[127,9,127,10,1],[132,9,132,10,1],[133,13,133,43,1],[134,9,134,10,1],[194,9,194,10,1],[196,13,196,67,1],[197,13,197,62,1],[198,13,198,63,1],[199,13,199,63,1],[201,13,201,59,1],[202,13,202,49,1],[203,9,203,10,1],[95,9,95,47,1],[96,9,96,46,1]]);
+    </script>
+  </body>
+</html>

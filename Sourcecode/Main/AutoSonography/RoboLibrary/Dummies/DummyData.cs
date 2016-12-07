@@ -14,6 +14,11 @@ namespace RoboLibrary.Dummies
     public class DummyData : IData
     {
         private URPose lastKnownPose;
+
+        public DummyData()
+        {
+            lastKnownPose = new URPose(0,0,0,0,0,0);
+        }
         public URPose GetLastKnownPose()
         {
             return lastKnownPose;

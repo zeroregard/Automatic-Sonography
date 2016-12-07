@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>D:\Projects\Bachelor GitHub 2\Sourcecode\Main\AutoSonography\RoboLibrary\Data.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using RoboLibrary.Interfaces;
+using RoboLibrary.Dummies;
+using System.Threading;
+using Util;
+using DataStructures;
+namespace RoboLibrary
+{
+    public class Data : IData
+    {
+        private DataStructures.URPose LastKnownPose;
+        public ConfigurationData CurrentConfiguration;
+        public IWriter writer;
+        public IReader reader;
+        public static string IP_ADDRESS = &quot;192.168.0.103&quot;;
+        private const float INITIAL_SPEED = 0.075f;
+        private const float INITIAL_ACCELERATION = 0.65f;
+        public float Speed { get; private set; }
+        public float Acceleration { get; private set; }
+
+        public delegate void ConfigurationEventHandler(bool result);
+        //public static event ConfigurationEventHandler OnConfigCompleted;
+
+        public delegate void CurrentURPoseReceived(DataStructures.URPose pose);
+        public static event CurrentURPoseReceived OnCurrentURPoseReceived;
+
+        public delegate void CurrentConfigurationReceived(ConfigurationData config);
+        public static event CurrentConfigurationReceived OnCurrentConfigurationReceived;
+
+        public void Init(IReader reader, IWriter writer)
+        {
+            this.reader = reader;
+            Thread readerThread = new Thread(() =&gt; this.reader.StartListen(IP_ADDRESS, new AutoResetEvent(false)));
+            readerThread.IsBackground = true;
+            readerThread.SetApartmentState(ApartmentState.STA);
+            readerThread.Start();
+            this.writer = writer;
+
+            Speed = INITIAL_SPEED;
+            Acceleration = INITIAL_ACCELERATION;
+            SetUpVelocity();
+        }
+
+        public void SlowDown()
+        {
+            ChangeVelocity(INITIAL_SPEED/1f, INITIAL_ACCELERATION/1f);
+        }
+
+        public void SpeedUp()
+        {
+            ChangeVelocity(INITIAL_SPEED, INITIAL_ACCELERATION);
+        }
+
+        public void ChangeVelocity(float speed, float acceleration)
+        {
+            Speed = speed;
+            Acceleration = acceleration;
+            SetUpVelocity();
+        }
+
+        private void SetUpVelocity()
+        {
+            ConfigurationData d = new ConfigurationData();
+            d.Speed = Speed;
+            d.Acceleration = Acceleration;
+            SendConfiguration(d);
+        }
+
+        public void FetchCurrentConfiguration()
+        {
+            writer.GetConfigurations();
+        }
+
+        public void SendConfiguration(ConfigurationData config)
+        {
+            writer.SendConfigurations(config);
+        }
+
+        public void ReceiveConfiguration(ConfigurationData config)
+        {
+            CurrentConfiguration = config;
+            OnCurrentConfigurationReceived?.Invoke(config);
+        }
+
+        public void SetLastKnownPose(DataStructures.URPose pose)
+        {
+            LastKnownPose = pose;
+            OnCurrentURPoseReceived?.Invoke(pose);
+        }
+
+        /*
+        /// &lt;summary&gt;
+        /// Add pose to the current pose, mainly used for moving it just slightly
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;pose&quot;&gt;Pose to be added to the current UR10 pose&lt;/param&gt;
+        public void SendAddedPose(DataStructures.URPose pose)
+        {
+            writer.AddURPose(pose);
+        }*/
+
+        /// &lt;summary&gt;
+        /// Force it to pose an entirely new way
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;pose&quot;&gt;&lt;/param&gt;
+        public void SendNewPose(DataStructures.URPose pose)
+        {
+            writer.SendURPose(pose);
+        }
+
+        public DataStructures.URPose GetLastKnownPose()
+        {
+            return LastKnownPose;
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[49,9,49,10,0],[50,13,50,71,0],[51,9,51,10,0],[54,9,54,10,0],[55,13,55,65,0],[56,9,56,10,0],[22,30,22,34,1],[22,35,22,47,1],[23,37,23,41,1],[23,42,23,54,1],[35,9,35,10,1],[36,13,36,34,1],[37,13,37,52,1],[37,114,37,116,1],[38,13,38,46,1],[39,13,39,64,1],[40,13,40,34,1],[41,13,41,34,1],[43,13,43,35,1],[44,13,44,49,1],[45,13,45,29,1],[46,9,46,10,1],[59,9,59,10,1],[60,13,60,27,1],[61,13,61,41,1],[62,13,62,29,1],[63,9,63,10,1],[66,9,66,10,1],[67,13,67,59,1],[68,13,68,29,1],[69,13,69,43,1],[70,13,70,34,1],[71,9,71,10,1],[74,9,74,10,1],[75,13,75,40,1],[76,9,76,10,1],[79,9,79,10,1],[80,13,80,47,1],[81,9,81,10,1],[84,9,84,10,1],[85,13,85,43,1],[86,13,86,60,1],[87,9,87,10,1],[90,9,90,10,1],[91,13,91,34,1],[92,13,92,51,1],[93,9,93,10,1],[110,9,110,10,1],[111,13,111,37,1],[112,9,112,10,1],[115,9,115,10,1],[116,13,116,34,1],[117,9,117,10,1],[19,9,19,59,1],[37,52,37,114,1]]);
+    </script>
+  </body>
+</html>
