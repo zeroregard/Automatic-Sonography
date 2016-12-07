@@ -2,24 +2,17 @@
 I dette afsnit beskrives, hvordan systemet er testet for at sikre, at design og implementeringen lever op til systemkrav, defineret i kravspecifikation bilag \ref{Kravspecifikation}. Der er både udført en accepttest (bilag \ref{Accepttest})  for hele systemet Automatisk Ultralydsscanner og unittest (bilag \ref{Udviklingsdokument} af softwaren i PC Applikation. 
 
 \section{Accepttest}
-Accepttesten er lavet for at teste funktionelle og ikke-funktionelle krav, som er beskrevet i kravspecifikation. Testen udføres typisk overfor en kunde, men i bachelorprojektet er accepttesten udførst med vejleder, Michael Alrøe. En godkendt test betyder fejlfri gennemførsel, mens ikke godkendt betyder, at teststeppet ikke kan gennemføres og godkendes. Fejl og årsager er nærmere beskrevet i bilag \ref{BilagAccepttest} bilag til Accepttest. 
 
+Accepttesten er designet for at teste funktionelle og ikke-funktionelle krav, som er beskrevet i kravspecifikation bilag \ref{Kravspecifikation}. Testen udføres typisk overfor en kunde, men i bachelorprojektet er accepttesten udført med vejleder, Michael Alrøe. En godkendt test betyder fejlfri gennemførsel, mens ikke godkendt betyder, at teststeppet ikke kan gennemføres og godkendes. Fejl og årsager er nærmere beskrevet i bilag \ref{BilagAccepttest}.  
 
-
-
-Til accepttesten er der benyttet et testobjekt, udformet som et bryst, som erstatning for patient. For at teste Automatisk Ultralydsscanner bevægelsesmønster, er det valgt at påmontere en ”marker!!!!”, som markerer probens bane over testobjektet. 
-
-Skriv om problematikken ved at skrive en accepttest for et produkt, der er afgrænset ift. . Der er ikke en ultralydsscanner, så er det svært at lave succeskritierer for UC3. 
-De andre kan få kvantitative svar ud. 
-Der burde have siddet en læge og vurderet banen af ultralydsproben. 
-
+Det er forsøgt at designe hver test til, at hvert step i kravspecifikationen testes og har et visuelt og reproducerbart resultat. Dette gør sig gældende for UC1: Start system, UC2: 3D scan brystområde, UC4: Stop system og de ikke-funktionelle krav, men hovedscenariet i UC3: Ultralydsscan brystområde har været problematisk at designe. Succeskriterierne for UC3 har været at få en ultralydsscanning af Patients brystområde, men da der ikke har været en ultralydsscanner eller radiolog tilrådighed, har det været svært at validere Automatisk Ultralydsscanners evne til at ultralydsscanne. Af sikkerhedsårsager, er der til accepttesten benyttet et 3D printet testobjekt, udformet som et bryst, som erstatning for patient. Det har været forsøgt at markere banen på testobjektet ved at benytte forskellige metoder. Først blev det tænkt at benytte maling på testobjekt, men tetsobjektet var meget modtagelig overfor malingen. Derefter blev det forsøgt at beklæde testobjektet med tape, og markererer denne med en whiteboard tusch, der var affjedret for kunne følge overfladen på testobjektet. Problemet med dette var dog, at 3D kameras infrarøde kamera ikke fungerede på reflektiv overflade. Et andet forsøg var at beklæde testobjeket med ler og benytte en affjedret prind til at ridse banen op. Det endte med, at der ikke blev anvendt en probe til markeringen af banen, men at testpersonen blot måtte observerer og vurderer banen over testobjektet. 
 
 \subsection{Funktionelle krav} 
 Test af funktionelle krav inkluderer syv forskellige test, da både hovedforløb, udtagelser, og udvidelser i de fire use cases skal testes. Nedenstående tabel viser de forskellige tests, der er udført. 
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{ | l | p{0.80\textwidth} | }
+\begin{tabular}{ | l | p{0.80\textwidth} | } 
 \hline
 \textbf{Testens navn} \\\hline
 UC1: Hovedscenarie\\\hline 
