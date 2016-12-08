@@ -1,8 +1,9 @@
 \chapter{Test}\label{Test}
 I dette afsnit omtales test af PC Applikation. Som udgangspunkt er der lagt fokus på unit-tests. Der er kun lavet én integrationstest, som er en integrationstest af hele CalculationLibrary-projektets indhold. Det vil ikke være muligt at lave en integrationstest, hvor man bruger de lavestliggende moduler i hverken RoboLibrary eller ComputerVisionLibrary, da de hver især er afhængige af hardware. Klasserne der afhænger af hardware er derfor ikke unit-testet og er ekskluderet fra code coverage (CC). 
-Efter unit-testen godkendes, har der for flere af testene blevet udført system-test kort tid efter.
+Efter unit-testen blev godkendt, er der kort tid efter, blevet udført system-test.
 
 Da der ikke blev fundet nogen fornuftig måde at teste AutoSonographyWPF er den ej heller blevet testet, og er også udelukket fra CC.
+
 \section{Test-specificering}
 Hvert bibliotek i solutionen har et tilsvarende test-bibliotek. Hver testbar klasse i et bibliotek har en tilsvarende testklasse. Se figur \ref{SolutionStructure} for et overblik over testbibliotekerne.
 
@@ -15,7 +16,8 @@ Hvert bibliotek i solutionen har et tilsvarende test-bibliotek. Hver testbar kla
 
 \newpage
 \subsection{Testklasse-opbygning}
-Hver testklasse er erklæret med et 'TestClass' tag. Disse testklasser har en 'TestInitialize' metode der køres inden hver 'TestMethod' metode. I test-initialiseringen gennemkøres erklæringer der er fælles for alle test-metoderne. Hver test-metode er navngivet som 'MetodeDerTestes\_HvadDerGøres\_HvadDerForventes'. I test-metoderne bruges der 'Assert' for at verificere at de faktiske resultater der findes frem til stemmer overens med de forventede resultater. Her er et udpluk af unit-testen for Slicer:
+Hver testklasse er erklæret med et 'TestClass' tag. Disse testklasser har en 'TestInitialize' metode der køres inden hver 'TestMethod' metode. I test-initialiseringen gennemkøres erklæringer der er fælles for alle test-metoderne. Hver test-metode er navngivet som 'MetodeDerTestes\_HvadDerGøres\_HvadDerForventes'. I test-metoderne bruges der 'Assert' for at verificere at de faktiske resultater der findes frem til stemmer overens med de forventede resultater. Her er et udpluk af unit-testen for klassen Slicer:
+
 \begin{lstlisting}[language=Java]
 ...
 namespace UnitTestRobotLibrary
