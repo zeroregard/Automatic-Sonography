@@ -199,8 +199,7 @@ Readeren giver de rå data videre til Analyzer som konverterer dem til Robotarms
 \end{figure}
 
 \subsection{3D scan}
-Ved 3D scan vil KinectFusionizeren stå for at tage et dybdebillede fra Kinect-sensoren.
-Den vil dernæst konvertere dybdebilledet til en point cloud. Dette trianguleres, så der fås en mesh der efterfølgende kan bearbejdes. 3DScanMenu modtager meshen gennem event-kommunikation.
+Ved 3D scan vil KinectFusionizeren stå for at få en 3D scanning fra Kinect-sensoren. I denne klasse sørges der for at konvertere et dybdebillede (en depth-frame) fra Kinect's infrarøde kamera til en point cloud. Der afventes det næste dybdebillede, hvis point cloud integreres med det forrige billede. Når der er tilstrækkelige point clouds skal det konverteres til en 3D model.  Disse point clouds trianguleres, så der fås en mesh der efterfølgende kan bearbejdes. 3DScanMenu modtager meshen gennem event-kommunikation.
 Gennem de beskræringsparametre der er valgt i menuen vil meshen dernæst beskæres i Slicer, så kun det ønskede område fremkommer. Efter beskæringen vises meshen som en rotérbar 3D model i menuen.
 
 \begin{figure}[H]
