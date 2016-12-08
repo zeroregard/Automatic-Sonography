@@ -1,5 +1,5 @@
 \chapter{Test}\label{Test}
-I dette afsnit omtales test af PC Applikation. Som udgangspunkt er der lagt fokus på unit-tests. Der er kun lavet én integrationstest, som er en integrationstest af hele CalculationLibrary-projektets indhold. Det vil ikke være muligt at lave en integrationstest hvor man bruger de lavestliggende moduler i hverken RoboLibrary eller ComputerVisionLibrary da de hver især er afhængige af hardware. Klasserne der afhænger af hardware er derfor ikke unit-testet og er ekskluderet fra code coverage (CC). 
+I dette afsnit omtales test af PC Applikation. Som udgangspunkt er der lagt fokus på unit-tests. Der er kun lavet én integrationstest, som er en integrationstest af hele CalculationLibrary-projektets indhold. Det vil ikke være muligt at lave en integrationstest, hvor man bruger de lavestliggende moduler i hverken RoboLibrary eller ComputerVisionLibrary, da de hver især er afhængige af hardware. Klasserne der afhænger af hardware er derfor ikke unit-testet og er ekskluderet fra code coverage (CC). 
 Efter unit-testen godkendes, har der for flere af testene blevet udført system-test kort tid efter.
 
 Da der ikke blev fundet nogen fornuftig måde at teste AutoSonographyWPF er den ej heller blevet testet, og er også udelukket fra CC.
@@ -64,9 +64,9 @@ I metoden 'Setup' erklæres stien for mappen hvor de modeller som unit-testen sk
 \newpage
 \section{Resultater}
 Der blev skrevet 42 tests som alle gik igennem pr d. 7/12/2016.
-Se bilag !!HUSK BILAGSNUMMER HER for en oversigt over disse tests og deres resultater.
+Se bilag \ref{TestResultater} Testresultater for en oversigt over disse tests og deres resultater.
 
-Disse 42 tests resulterede i en code coverage på 96\%. Se figur \ref{CodeCoverage} for overblik, og se bilag !!HUSK BILAGSNUMMER HER for en interaktiv navigering af code coveragen. 
+Disse 42 tests resulterede i en code coverage på 96\%. Se figur \ref{CodeCoverage} for overblik, og se bilag \ref{Code Coverage} Code Coverage for en interaktiv navigering af code coveragen. 
 
 \begin{figure}[H]
     \centering
@@ -75,7 +75,7 @@ Disse 42 tests resulterede i en code coverage på 96\%. Se figur \ref{CodeCovera
     \label{CodeCoverage}
 \end{figure}
 
-Code coveragen siger noget om hvor stor en procentdel af den kode, der er valgt at blive inkluderet, som er blevet gennemløbet af unit-tests. Det vil sige at nogle klasser er blevet eksluderet fra denne coverage. Disse elementer fra kravspecifikationen er ikke blevet coveret eller testet:
+Code coveragen siger noget om hvor stor en procentdel af den kode, der er valgt at blive inkluderet, som er blevet gennemløbet af unit-tests. Det vil sige at nogle klasser er blevet eksluderet fra denne coverage. Disse elementer fra kravspecifikationen er ikke blevet 'coveret' eller testet:
 \begin{itemize}
 \setlength\itemsep{0.25em}
 \item{\textbf{AutosonographyWPF}} - Kræver simulering af musetryk m.m.
