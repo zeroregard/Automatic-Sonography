@@ -6,7 +6,7 @@ I dette afsnit beskrives, hvordan systemet er testet for at sikre, at design og 
 Accepttesten er designet for at teste funktionelle og ikke-funktionelle krav, som er beskrevet i kravspecifikation bilag \ref{Kravspecifikation}. Testen udføres typisk overfor en kunde, men i bachelorprojektet er accepttesten udført med vejleder, Michael Alrøe. En godkendt test betyder fejlfri gennemførsel, mens ikke godkendt betyder, at teststeppet ikke kan gennemføres og godkendes. Fejl og årsager er nærmere beskrevet i bilag \ref{BilagAccepttest}.  
 
 Det er forsøgt at designe hver test til, at hvert step i kravspecifikationen testes og har et visuelt og reproducerbart resultat. Dette gør sig gældende for UC1: Start system, UC2: 3D scan brystområde, UC4: Stop system og de ikke-funktionelle krav, men hovedscenariet i UC3: Ultralydsscan brystområde har været problematisk at designe. Succeskriterierne for UC3 var at få en ultralydsscanning af Patients brystområde, men da der ikke har været en ultralydsscanner eller radiolog tilrådighed, har det været svært at validere Automatisk Ultralydsscanners evne til at ultralydsscanne. Af sikkerhedsårsager, er der til accepttesten benyttet et 3D printet testobjekt, udformet som et bryst, som erstatning for patient. Det har været forsøgt at markere banen på testobjektet ved at benytte forskellige metoder. Først blev det tænkt at benytte maling på testobjekt, malingen fungerede ikke da det ville være nødvendigt at komme mere maling på penslen under scanningsforløbet. Derefter blev det forsøgt at beklæde testobjektet med tape, og markerer denne med en whiteboard tusch, der var affjedret for kunne følge overfladen på testobjektet. Problemet med dette var dog, at 3D kameras infrarøde kamera ikke fungerede på reflektiv overflade. Et andet forsøg var at beklæde testobjektet med ler og benytte en affjedret pind til at ridse banen op. Det endte med, at der ikke blev anvendt en probe til markeringen af banen, men at testpersonen blot måtte observerer og vurderer banen over testobjektet. 
-
+\newpage
 \subsection{Funktionelle krav} 
 Test af funktionelle krav inkluderer syv forskellige test, da både hovedforløb, udtagelser, og udvidelser i de fire use cases skal testes. Nedenstående tabel viser de forskellige tests, der er udført. 
 
@@ -49,12 +49,5 @@ positurer til Robotarm \\\hline
 
 Se bilag Accepttest for det fulde testsetup og resultater for hver test. 
 
-\subsection{Unittest af PC Applikation}
-Der er undervejs i udviklingen af PC Applikationen udført unittest af softwarens forskellige dele. 
-Testene er lavet i et separat projekt, hvad er code coverage procenten på mm. 
-
-Mere skal skrives herunder. 
-
-Se bilag \ref{Udviklingsdokument} Udviklingsdokument, afsnit 'Test' for en uddybning af de forskellige unittests. 
-
-\subsection{Integrationstest}
+\subsection{Automatiserede tests af PC Applikation}
+Der er undervejs i udviklingen af PC Applikation skrevet automatiserede tests af softwarens forskellige moduler. Testene er primært unittests, hvor hvert modul testes som enhed. Nogle moduler, specifikt dem der direkte afhængige af hardware, er ikke blevet testet vha. unittests. Se bilag \ref{Udviklingsdokument} Udviklingsdokument, afsnit 'Test' for en uddybning.
