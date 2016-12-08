@@ -43,9 +43,9 @@ Andre klasser kan subscribe til ComputerVisionMasteren for at høre, hvornår de
 \item{\textbf{Slicer}}\newline
 Denne klasse sørger for at fjerne de punkter i en mesh, der er uinteressante:
 \begin{enumerate}
-\item{Faces der peger nedaf, dvs fejlpunkter. Da 3D kameraet er monteret i loftet, vil den ikke kunne se undersiden af det den skanner.}
+\item{Faces der peger ned af, dvs fejlpunkter. Da 3D kamera er monteret i loftet, vil den ikke kunne se undersiden af det den scanner.}
 \item{Duplikerede punkter. KinectFusionizer outputter punkter der er ens. Disse fjernes af optimeringsårsager.}
-\item{Punkter og faces der er uden for det område der ønskes skannet. Dette inkluderer nærtliggende objekter som fx en væg, eller områder på patienten der ikke ønskes skannet.}
+\item{Punkter og faces der er uden for det område der ønskes scannet. Dette inkluderer nærtliggende objekter som fx en væg, eller områder på patienten der ikke ønskes scannet.}
 \end{enumerate}
 \end{itemize}
 
@@ -70,7 +70,7 @@ Hvert punkt i en mesh konverteres så til det nye space. Se reference \cite{RumT
 
 \item{\textbf{Smoother}}\newline
 Denne klasse har til ansvar at udjævne en mesh. Med udjævning forstås at 'ensforme' normalerne, altså retningsvektorer i en mesh's faces.
-Dette er nødvendigt da 3D Kameras output kan være uperfekt og dermed vil normalerne være ekstreme/deforme. Udjævningen sker gennem laplacian smoothing, se \cite{Smooth} for forklaring af algoritme.
+Dette er nødvendigt da 3D kameras output kan være uperfekt og dermed vil normalerne være ekstreme/deforme. Udjævningen sker gennem laplacian smoothing, se \cite{Smooth} for forklaring af algoritme.
 
 \item{\textbf{PathCreator}}\newline
 Klassen afgør listen af punkter i en mesh som der skal findes positurer til Robotarm ud fra.
@@ -179,12 +179,12 @@ Denne klasse skriver binær data ud på Robotarms IP gennem modbus-protokollen.
     \caption{Klassediagram for RoboLibrary}
     \label{class_RoboLib}
 \end{figure}
-
 \newpage
+
 \section{Sekvensdiagrammer}
 Der er på baggrund af klassediagrammerne lavet sekvensdiagrammer, som beskriver systemets funktionalitet, og hvor de vigtigste metoder og attributter imellem klasserne er identificeret.
 
-Nedenstående sektioner vil beskrive de vigtigste sekvensdiagrammer i system og fremvise, hvordan klasserne indbyrdes kommunikerer. 
+Nedenstående sektioner vil beskrive de vigtigste sekvensdiagrammer i Automatisk Ultralydsscanner og fremvise, hvordan klasserne indbyrdes kommunikerer. 
 
 \subsection{Read Robot Data} 
 Reader initieres med en IP, hvor den skal lytte på. 
@@ -200,7 +200,7 @@ Readeren giver de rå data videre til Analyzer som konverterer dem til Robotarms
 
 \subsection{3D scan}
 Ved 3D scan vil KinectFusionizeren stå for at få en 3D scanning fra Kinect-sensoren. I denne klasse sørges der for at konvertere et dybdebillede (en depth-frame) fra Kinect's infrarøde kamera til en point cloud. Der afventes det næste dybdebillede, hvis point cloud integreres med det forrige billede. Når der er tilstrækkelige point clouds skal det konverteres til en 3D model.  Disse point clouds trianguleres, så der fås en mesh der efterfølgende kan bearbejdes. 3DScanMenu modtager meshen gennem event-kommunikation.
-Gennem de beskræringsparametre der er valgt i menuen vil meshen dernæst beskæres i Slicer, så kun det ønskede område fremkommer. Efter beskæringen vises meshen som en rotérbar 3D model i menuen.
+Gennem de beskræringsparametre der er valgt i menuen vil meshen dernæst beskæres i klassen Slicer, så kun det ønskede område fremkommer. Efter beskæringen vises meshen som en rotérbar 3D model i menuen.
 
 \begin{figure}[H]
     \centering
@@ -231,10 +231,8 @@ Ved terminering af denne baggrundstråd vil PathFeeder stoppe med at videregive 
 \subsection{Pathcreation}
 Ved tryk på Ultralydsscan-knappen sendes den scannede mesh videre til CalculationMaster. Se sekvensdiagrammet '3D scan' for at se hvordan den scannede mesh opnås.
 Først skal meshen konverteres fra 3D Kameras rum til Robotarms rum, dette sker i CameraToRobotCalibrator, hvor meshen roteres og translateres ift. hvor 3D Kamera befinder sig i virkeligheden.
-Efter transformationen skal meshen udjævnes, så de rå og ekstreme normaler i meshen udglattes. Loopet afgør hvor mange gangen meshen skal gennemkøres filteret.
-Dernæst sendes den konverterede mesh til PathCreator så der oprettes en liste af de punkter i meshen vi ønsker at Robotarm skal gennemgå.
-Til sidst skal stien der findes i PathCreator konverteres til Robotarm positurer, da stien i PathCreator kun fortæller position direkte på meshen.
-Med denne sti får Robotarm afdækket overfladen på Patient, hvis den har en Ultralydsscanner monteret.
+Efter transformationen skal meshen udjævnes, så de rå og ekstreme normaler i meshen udglattes. Loopet afgør hvor mange gangen meshen skal gennemkøres filteret. Dernæst sendes den konverterede mesh til PathCreator så der oprettes en liste af de punkter i meshen vi ønsker at Robotarm skal gennemgå.
+Til sidst skal stien der findes i PathCreator konverteres til Robotarm positurer, da stien i PathCreator kun fortæller position direkte på meshen. Med denne sti får Robotarm afdækket overfladen på Patient, hvis den har en Ultralydsscanner monteret.
 Stien kan nu videresendes til RoboMaster - se sekvensdiagrammet 'Feed Path' Figur \ref{sd_feedpath}.
 
 \begin{figure}[H]
