@@ -35,12 +35,12 @@ Detaljerne mellem interaktionen mellem de enkelte blokke er beskrevet i internal
 \end{figure}
 
 \section{Systemdesign} \label{Systemdesign}
-Systemdesignet beskriver hvordan PC Applikation er opbygget og hvordan PC Apllikations klasser integrerer med hinanden.  
+Systemdesignet beskriver hvordan PC Applikations individuelle moduler er opbygget og hvordan disse interagerer med hinanden.  
 
 Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se Bilag  \ref{Udviklingsdokument} Udviklingsdokument.
 
-\subsubsection{Klassediagram}
-Klassediagrammerne viser strukturen i PC Applikations klasser og afhængihederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. 
+\subsection{Overblik}
+Klassediagrammerne viser strukturen i PC Applikations klasser og afhængihederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. Opbygningen er valgt for at skabe høj samhørighed og lav kobling - men også med den tanke at hele eller dele af projektet skal kunne genbruges.
 
 For et overblik over funktionaliteten i PC Applikation kan der tages udgangspunkt i klassediagrammet for den grafiske brugergrænseflade på figur \ref{class_gui}.
 
@@ -65,9 +65,33 @@ I denne menu er der mulighed for at se det nuværende dybdebillede, afgrænse om
 
 \item{UltrasoundScanMenu}\newline
 I denne menu kan den procentvise færdiggørelse af ultralydsscanningen følges. Der er også mulighed for at pause samt afbryde ultralydsscanningsprocessen.
+
+\item{ComputerVisionLibrary}\newline
+Dette bibliotek har til formål at indhente en 3D scanning fra 3D kamera og afgrænse scanningen ift. de parametre der er givet med fra 3DScanMenu.
+
+\item{CalculationLibrary}\newline
+I dette bibliotek anvendes en 3D scanning fra ComputerVisionLibrary. CalculationMaster har til formål at finde de positurer til Robotarm, der er nødvendige for at kunne fuldføre en ultralydsscanning.
+\item{RoboLibrary}\newline
+Biblioteket giver mulighed for at kommunikere med Robotarm. Her sættes dens acceleration, hastighed og positur.
 \end{itemize}
 
+
 For at få en dybere forståelse af logik og data-kommunikationen i ComputerVisionLibrary, CalculationLibrary samt RoboLibrary, se klassediagrammerne for de enkelte biblioteker i !!HUSK REFERENCE HER
+
+\newpage
+
+\subsection{3D behandling}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_pathcreation}
+    \caption{Sekvensdiagram for 3D Path Creation}
+    \label{seq_pathcreation}
+\end{figure}
+
+En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter scanningen er foretaget er det næste skridt at finde ud af hvor Robotarm skal bevæge sig hen. På figur \ref{seq_pathcreation} ses processen for de trin der skal til for at gøre dette. CalculationMaster virker som en grænseflade mellem GUI'en (MainWindow) og de underliggende 3D-behandlingsklasser. CameraToRobotCalibrator sørger for at placere 3D scanningen i Robotarms rum. Da der kan forekomme ujævnheder i scanningen, vil Smoother forsøge at jævne disse ud. PathCreator finder interessante punkter i scanningen, der skal til for at afdække brystet i en ultralydsscanning, j.f. figur \ref{Probensbevagelse} på side \pageref{Probensbevagelse}. Til sidst ekstrapoleres punkterne, så det passer med at Robotarm vil være roteret mod punkterne i 3D scanningen med et offset der svarer til ultralydsprobens længde.
+Disse positurer gives tilbage til MainWindow, for at senere blive sendt videre til Robotarm. 
+Denne opdeling af processen er valgt så enkelte moduler kan udskiftes eller forbedres uden at skulle ændre meget i koden.
 
 \section{Udviklingsmiljø} 
 Som integreret udviklingsmiljø er der blevet brugt Visual Studio. Dette er blevet valgt fordi  et tidligere bachelorprojekt med samme Robotarm har kodet i C\#, og fordi KinectAPI'et der anvendes understøtter C++ samt C\#.
