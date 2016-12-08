@@ -109,25 +109,26 @@ DataStructures & Indeholder forskellige data transfer objekter (DTO), der bruges
 \caption{Modulopdeling og ansvar}
 \end{table}
 
+\newpage
 \subsection{Pakkediagram}
 Pakkediagrammet figur \ref{Pakkediagram} giver en oversigt over afhængighederne i PC Applikation.
-For at slippe for cykliske forbindelser blev mange datastrukturer flyttet fra CalculationLibrary, ComputerVisionLibrary og RoboLibrary til DataStructures-biblioteket.
+For at undgå cykliske forbindelser blev adskillige datastrukturer flyttet fra CalculationLibrary, ComputerVisionLibrary og RoboLibrary til DataStructures-biblioteket.
 DataStructures indeholder altså kun nogle datastrukturer og nogle extension-metoder til disse. 
 For forklaringen af indholdet af de øvrige pakker, se klassediagrammerne for hvert bibliotek.
 
-\textbf{AutoSocograophyWPF} inderholder alt, der hører til Grafisk brugergrænseflade (GUI), herunder de tre menuer, 3DscanMenu, StartMenu og UltrasoundMenu. 
+\textbf{AutoSocograophyWPF} inderholder alt, der hører til PC Applikations grafiske brugergrænseflade (GUI).
 
-\textbf{ComputerVisionLibrary} indeholder klasser, der har at gøre med 3D billedet og konvetering til et mesh, herunder ComputerVisionMaster, KinectsFusionizer og PLYExporter. 
+\textbf{ComputerVisionLibrary} indeholder klasser, der interagerer med 3D kamera og udvinder en 3D scanning i et begrænset område.
 
-\textbf{RoboLibray} pakken indeholder klasser som robotarmen skal benytte for at kunne flytte sig, herunder Analyzer, Data, Logic, Modbus, PathCreator, PathFeeder, Reader, RoboMaster, URPose og Writer. 
+\textbf{RoboLibray} indeholder klasser som der muliggør kommunikation med Robotarm. 
 
-\textbf{DataStructures} indeholder
+\textbf{DataStructures} indeholder datastrukturer der bruges på tværs af PC Applikation og nogle extension-metoder til disse. 
 
-\textbf{CalculationLibrary}
+\textbf{CalculationLibrary} indeholder klasser der finder stien af positurer i en 3D scanning der er nødvendige for at foretage en ultralydsscanning med Robotarm.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figurer/d/Design/Pakkediagram}
+    \includegraphics[width=0.9\textwidth]{figurer/d/Design/Pakkediagram}
     \caption{Pakkediagram for Automatisk Ultralydsscanner}
     \label{Pakkediagram}
 \end{figure}
