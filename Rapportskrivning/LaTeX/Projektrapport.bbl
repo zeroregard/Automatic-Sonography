@@ -42,6 +42,32 @@ Kræftens Bekæmpelse.
   \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/ultralydsscanning-af-brystet/}.
 \newblock Senest besøgt den 8. november 2016.
 
+\bibitem{esundhed}
+esundhed.dk.
+\newblock Radiologiske ydelser.
+\newblock \url{http://www.esundhed.dk/}.
+\newblock Senest besøgt 6. december 2016.
+
+\bibitem{SpanskStudie}
+Misericordia~Carles et~al.
+\newblock Cost-effectiveness of early detection of breast cancer in catalonia
+  (spain)l.
+\newblock {\em BMC Cancer}, 11:192, 2011.
+
+\bibitem{DenseBreast}
+Monika~Nothacker et~al.
+\newblock Early detection of breast cancer: benefits and risks of supplemental
+  breast ultrasound in asymptomatic women with mammographically dense breast
+  tissue. a systematic review.
+\newblock {\em BMC Cancer}, 9:335, 2009.
+
+\bibitem{Japan}
+Noriaki~Ohuchi et~al.
+\newblock Sensitivity and specifi city of mammography and adjunctive
+  ultrasonography to screen for breast cancer in the japan strategic
+  anti-cancer randomized trial (j-start): a randomised controlled trial.
+\newblock {\em The Lancet}, Vol 387, 2016.
+
 \bibitem{Afsloring}
 EVBHealth.
 \newblock Ultralyd for brystkræft afsløring.
@@ -66,6 +92,11 @@ Danish~Standards Foundation.
   to medical devices.
 \newblock 6. udgave edition, 21. December 2012.
 
+\bibitem{Gotzche}
+Jørgensen~KJ Gøtzche~PC.
+\newblock Screening for breast cancer with mammography (review).
+\newblock {\em Cochrane}, Issue 6, 2013.
+
 \bibitem{Lon}
 Løn Info.
 \newblock Lønstatistik.
@@ -78,6 +109,20 @@ Lægemiddelstyrelsen.
 \newblock
   \url{https://laegemiddelstyrelsen.dk/da/udstyr/lovgivning-og-vejledning/sundhedsstyrelsens-vejledninger/vejledning-til-fabrikanter-af-medicinsk-udstyr-i-klasse-i}.
 \newblock Senest besøgt den 8. november 2016.
+
+\bibitem{Panel}
+Michael Marmot.
+\newblock The benefits and harms of breast cancer screening: an independent
+  review.
+\newblock {\em The Lancet}, Vol 380, 2012.
+
+\bibitem{CancerSociety}
+American~Cancer Society.
+\newblock Breast cancer survival rates, by stage.
+\newblock
+  \url{http://www.cancer.org/cancer/breastcancer/detailedguide/breast-cancer-survival-by-stage
+  }.
+\newblock Senest besøgt den 08. december 2016.
 
 \bibitem{software}
 Dansk standard.
@@ -98,6 +143,21 @@ Jakob Sulby.
 \newblock
   \url{http://tekniskit.blogspot.dk/2013/03/eksamensforberedelser.html}.
 \newblock Senest besøgt den 14. november 2016.
+
+\bibitem{QALY}
+Sundhedsstyrelsen.
+\newblock Fotodynamisk behandling af karnydannelse bag øjets nethinde - en
+  medicinsk teknologivurdering.
+\newblock
+  \url{https://www.sst.dk/~/media/9D073C69B6B646E2A9412B9116064B0C.ashx}.
+\newblock Senest besøgt den 08. december 2016.
+
+\bibitem{Argumenter}
+Sundhedsstyrelsen.
+\newblock Mammografi - screening for brystkræft.
+\newblock
+  \url{https://www.sst.dk/da/sygdom-og-behandling/screening/~/media/9F07C6DAC2D0434393D1A573DE6A7E3C.ashx}.
+\newblock Senest besøgt den 08. december 2016.
 
 \bibitem{Sundhedsstyrelsen}
 Sundhedsstyrelsen.
