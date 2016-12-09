@@ -5,7 +5,7 @@ Efter unit-testen blev godkendt, er der kort tid efter, blevet udført system-te
 Da der ikke blev fundet nogen fornuftig måde at teste AutoSonographyWPF er den ej heller blevet testet, og er også udelukket fra CC.
 
 \section{Test-specificering}
-Hvert bibliotek i solutionen har et tilsvarende test-bibliotek. Hver testbar klasse i et bibliotek har en tilsvarende testklasse. Se figur \ref{SolutionStructure} for et overblik over testbibliotekerne.
+Hvert bibliotek i solutionen har et tilsvarende test-bibliotek. Hver testbar klasse i et bibliotek har en tilsvarende testklasse. Se figur \ref{SolutionStructure} for et overblik over testbibliotekerne. I tilfælde af at en klasse er afhængig af andre klasse, indsættes søm i form af interfaces. Dertil vil afhængighederne mockes ud i testene vha. dummy-klasser.
 
 \begin{figure}[H]
     \centering
