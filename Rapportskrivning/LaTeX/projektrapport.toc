@@ -24,7 +24,7 @@
 \contentsline {chapter}{\chapternumberline {6}Metoder}{10}{chapter.6}
 \contentsline {section}{\numberline {6.1}Udviklingsv\IeC {\ae }rkt\IeC {\o }jer}{10}{section.6.1}
 \contentsline {section}{\numberline {6.2}Kvalitative og kvantitative unders\IeC {\o }gelser}{10}{section.6.2}
-\contentsline {section}{\numberline {6.3}\IeC {\O }konomisk analyse}{10}{section.6.3}
+\contentsline {section}{\numberline {6.3}\IeC {\O }konomisk og omkostningseffektiv analyse}{10}{section.6.3}
 \contentsline {section}{\numberline {6.4}Medicinsk godkendelse}{10}{section.6.4}
 \contentsline {chapter}{\chapternumberline {7}Analyser}{11}{chapter.7}
 \contentsline {section}{\numberline {7.1}Brugerunders\IeC {\o }gelse}{11}{section.7.1}
