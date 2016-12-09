@@ -1,10 +1,10 @@
 \chapter{Systemkrav}\label{Systemkrav}
 \section{Systembeskrivelse}
-Automatisk Ultralydsscanner er et system, som gør det muligt at lave en automatiseret ultralydscanning af mamma mhp. screning for brystkræft. Systemet Automatisk Ultralydsscanner består af en robotarm, en PC Applikation med en grafisk brugergrænseflade (GUI), et 3D kamera og en ultralydsscanner. Se figur \ref{Systembeskrivelse} nedenfor. 
+Automatisk Ultralydsscanner er et system, som gør det muligt at lave en automatiseret ultralydscanning af brystet mhp. screening for brystkræft. Systemet Automatisk Ultralydsscanner består af Robotarm, PC Applikation med en grafisk brugergrænseflade (GUI), 3D kamera og Ultralydsscanner. Se figur \ref{Systembeskrivelse} nedenfor. 
 
-Via GUI kan en operatør med kendskab til ultralyd interagere med systemet. Operatøren udfører først en 3D scanning af brystet, hvorefter systemet leverer information om brystområdets form og position fra 3D kameraet til robotarmen. Derefter kan mammografiscranningen foretages, hvor robotarmen med påmonteret ultralydsscanner fører ultralydsproben fra ultralydsscanneren rundt på det detekterede brystområdet. Ultralydsscanningen vises på ultralydsscannerens skærm, hvor operatøren kan følge med under scanningen.
+Via GUI kan en operatør, med kendskab til ultralyd, interagere med en PC applikation. Operatøren vælger først at udføre en afgrænset 3D-scanning af patientets bryst. Derefter kan PC applikationen, ud fra 3D scanningen, udregne de positioner og rotationer der er nødvendige for at udføre en ultralydsscanning. Dernæst kan operatøren vælge at påbegynde ultralydsscanningen, hvor en robotarm med påmonteret ultralydsprobe føres rundt på det detekterede brystområde på patienten. Ultralydsscanningsvideoen kan herefter sendes til undersøgelse.
 
-Figuren nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultralydsscanner integrerer med hinanden.
+Figuren nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultralydsscanner interagerer med hinanden.
  
 \begin{figure}[H]
     \centering
@@ -14,12 +14,12 @@ Figuren nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultral
 \end{figure}
 
 \section{Aktører}
-Der er indentificeret fem aktører, som integerer med systemet. Aktørerne inkluderer en operatør, patient, robotarm, ultralydsscanner og et 3D kamera. Operatør betjener systemet, mens scanningen foregår på patienten. 3D kameraet afgrænser området, der skal scannes, mens robotarm styrer en påmonteret ultralydsscanner i et specifikt overlappende bevægelsesmønster på det detekterede område.
+Der er indentificeret fem aktører, som interagerer med systemet. Aktørerne inkluderer en operatør, en patient, en robotarm, en ultralydsscanner og et 3D kamera. Operatør betjener PC Applikation, mens scanningen foregår på Patient. 3D kamera leverer dybdebilleder til PC Applikation. Robotarm styrer en påmonteret Ultralydsscanner i et specifikt overlappende bevægelsesmønster på det detekterede område.
 
 \section{Funktionelle krav}
 De funktionelle krav for Automatisk Ultralydsscanner er defineret ved brug af use cases (UC). Til systemet er der identificeret fire use cases, som kan ses i use case diagrammet på Figur \ref{UseCaseDiagram} 
 
-Operatøren gør klar til scranning ved at opstarte system (UC1: Start System). Hovedmenuen på GUI vil vises, hvorpå operatøren kan vælge at 3D scanne patientens brystområde (UC2: 3D scan brystområde). Inden der kan ultralydsscannes, skal operatøren påføre en gel for en bedre scanning. Operatøren har mulighed for at vælge at lave en ultralydsscanning på GUI, hvorefter robotarmen vil køre over brystet (UC3: Ultrascan brystområde).  Operatøren kan derefter på GUI vælge at stoppe systemet (UC4: Stop System). 
+Operatør gør klar til scanning ved at opstarte system (UC1: Start System). Hovedmenuen på GUI vil vises, hvorpå Operatør kan vælge at 3D scanne Patients brystområde (UC2: 3D scan brystområde). Inden der kan ultralydsscannes, skal Operatør påføre en gel for at muliggøre ultralydsscanning. Operatøren har mulighed for at vælge at lave en ultralydsscanning ved tryk på en knap på GUI, hvorefter Robotarm vil køre over brystet (UC3: Ultrascan brystområde).  Operatør kan derefter på GUI vælge at stoppe systemet (UC4: Stop System). 
 
 \begin{figure}[H]
     \centering
@@ -46,13 +46,13 @@ De ikke-funktionelle krav for Automatisk Ultralydsscanner er beskrevet ved brug 
 \end{itemize}
 
 \subsection{Ekstra}
-Lovkravene til medicinsk udstyr og software til medicinske udstyr, burde have været en must-krav i de ikke-funktionelle krav til Automatisk Ultralydsscanner, men da den medicinske godkendelse først blev udarbejdet sent i udviklingsprocessen er kravene fra den medicinske godkendelse ikke implementeret i systemet. Dette er for eksempel krav som at Autoamtisk Ultralydsscanner skal: 
+Lovkravene til medicinsk udstyr og software til medicinske udstyr, burde have været et must-krav i de ikke-funktionelle krav til Automatisk Ultralydsscanner, men da den medicinske godkendelse først blev udarbejdet sent i udviklingsprocessen er kravene fra den medicinske godkendelse ikke implementeret i systemet. Dette er for eksempel krav som at Automatisk Ultralydsscanner skal: 
 
 \begin{itemize}
-\item Designes så det ikke er til fare for bruger om patient. 
+\item Designes så det ikke er til fare for Operatør og Patient. 
 \item Fremstilles i et materiale som mindsker spredning af bakterier. 
 \item Have tydelige og letforståelige tegn på knapper og display.
-\item Have et risikohåndteringssystem
+\item Have et risikohåndteringssystem.
 \item Have kvalitetssikringssystem. 
 \item Mærkes så der ikke kan være tvivl om hvordan produktet skal bruges.
 \item Kunne modstå en luftbåren ESD-transient på op til ±8 kiloVolt
