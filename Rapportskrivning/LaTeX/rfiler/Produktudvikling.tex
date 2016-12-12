@@ -36,7 +36,8 @@ Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Bloc
 \end{figure}
 
 \subsection{Pakkediagram}
-For at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation, se figur \ref{pakke} nedenfor. Der blev identificeret behovet for en GUI (AutoSonographyWPF), indhente en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregne positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). De forskellige biblioteker anvender fælles datastrukturer, disse blev samlet i ét bibliotek for at undgå cykliske forbindelser (DataStructures).
+For at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation, se figur \ref{pakke} nedenfor. Der blev identificeret behovet for en GUI (AutoSonographyWPF), indhentning af en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregning af positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). \newline
+De forskellige biblioteker anvender fælles datastrukturer som blev samlet i ét bibliotek for at undgå cykliske forbindelser (DataStructures). Bemærk at AutoSonographyWPF afhænger af alle bibliotekerne, men at de tre hovedbiblioteker ikke afhænger af hinanden.
 
 \begin{figure}[H]
     \centering
@@ -45,6 +46,7 @@ For at se et overblik over afhængighederne mellem store moduler (pakker) i PC A
     \label{pakke}
 \end{figure}
 
+\newpage
 \section{Systemdesign} \label{Systemdesign}
 Systemdesignet beskriver hvordan PC Applikations individuelle moduler er opbygget og hvordan disse interagerer med hinanden.  
 Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se Bilag \ref{Udviklingsdokument} Udviklingsdokument.
