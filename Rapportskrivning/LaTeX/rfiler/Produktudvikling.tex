@@ -3,7 +3,7 @@
 \section{Systemarkitektur}\label{Systemarkitektur}
 Der er udarbejdet forskellige arkitektur-diagrammer på baggrund af de specificerede systemkrav. Diagrammerne har til formål at beskrive Automatisk Ultralydsscanner som et overordnet system.
 
-Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Der er i diagrammerne designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarm er en Universal Robot UR10 robot. For detaljeret gennemgang af systemarkitektur for Automatisk Ultralydsscanner se Bilag  \ref{Udviklingsdokument} Udviklingsdokument
+Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Der er i diagrammerne designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarm er en Universal Robot UR10 robot. For detaljeret gennemgang af systemarkitektur for Automatisk Ultralydsscanner se Bilag  \ref{Udviklingsdokument} Dokumentation.
 
 \subsection{Domænemodel}
 Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler og tydeliggør forbindelserne samt interaktionerne mellem de forskellige aktører i Automatisk Ultralydsscanner. 
@@ -16,7 +16,7 @@ Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler o
 \end{figure}
 
 \subsection{Block Definition Diagram}
-Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3D kamera og Ultralydsscanner. Det er vigtigt at bemærke, at computer skal have PC Applikation installeret og en mus og en skærm for at Operatør kan integrere med PC Applikation. Block Definition Diagrammet på figur \ref{BDD}, viser hvordan systemets blokke er forbundet. 
+Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3D kamera og Ultralydsscanner. Access Point er medtaget for at sikre at Robotarm har samme IP-adresse. Det er vigtigt at bemærke, at computer skal have PC Applikation installeret og en mus og en skærm for at Operatør kan integrere med PC Applikation. Block Definition Diagrammet på figur \ref{BDD}, viser hvordan systemets blokke er forbundet. 
 
 \begin{figure}[H]
     \centering
@@ -26,7 +26,7 @@ Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3
 \end{figure}
 
 \subsection{Internal Block Diagram}
-Detaljerne mellem interaktionen mellem de enkelte blokke er beskrevet i Internal Block Diagram i figur \ref{IBD}, som viser systemets interne forbindelser og flow mellem de forskellige blokke. Bemærk at Ultralydsscanner ikke er inkluderet her, da den ikke har forbindelse til de andre blokke udover at være monteret mekanisk på Robotarm. Forbindelsen mellem PC Applikation og Access Point, samt Acces Point og Robotarm er oprettet med ethernet-kabler. 3D kamera forbindes til PC Applikation gennem USB.
+Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Block Diagram i figur \ref{IBD}, som viser systemets interne forbindelser og flow mellem de forskellige blokke. Bemærk at Ultralydsscanner ikke er inkluderet her, da den ikke har forbindelse til de andre blokke udover at være monteret mekanisk på Robotarm. Forbindelsen mellem PC Applikation og Access Point, samt Acces Point og Robotarm er oprettet med ethernet-kabler. 3D kamera forbindes til PC Applikation gennem USB. For simplificering er PC, Mus og Skærm fra BDD undladt.
 
 \begin{figure}[H]
     \centering
@@ -35,12 +35,21 @@ Detaljerne mellem interaktionen mellem de enkelte blokke er beskrevet i Internal
     \label{IBD}
 \end{figure}
 
+\subsection{Pakkediagram}
+For at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation, se figur \ref{pakke} nedenfor. Der blev identificeret behovet for en GUI (AutoSonographyWPF), indhente en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregne positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). De forskellige biblioteker anvender fælles datastrukturer, disse blev samlet i ét bibliotek for at undgå cykliske forbindelser (DataStructures).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figurer/d/Design/Pakkediagram}
+    \caption{Pakkediagram for PC Applikation}
+    \label{pakke}
+\end{figure}
+
 \section{Systemdesign} \label{Systemdesign}
 Systemdesignet beskriver hvordan PC Applikations individuelle moduler er opbygget og hvordan disse interagerer med hinanden.  
 Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se Bilag \ref{Udviklingsdokument} Udviklingsdokument.
 
-\subsection{Overblik}
-Klassediagrammerne viser strukturen i PC Applikations klasser og afhængihederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. Opbygningen er valgt for at skabe høj samhørighed og lav kobling - men også med den tanke at hele eller dele af projektet skal kunne genbruges.
+Klassediagrammerne viser strukturen i PC Applikations klasser og afhængighederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. Opbygningen er valgt for at skabe høj samhørighed og lav kobling - men også med den tanke at hele eller dele af projektet skal kunne genbruges.
 
 For et overblik over funktionaliteten i PC Applikation kan der tages udgangspunkt i klassediagrammet for den grafiske brugergrænseflade på figur \ref{class_gui}. Beskrivelser følger på næste side. 
 
@@ -55,8 +64,8 @@ For et overblik over funktionaliteten i PC Applikation kan der tages udgangspunk
 \let\labelitemi\labelitemii
 \begin{itemize}
 \item{MainWindow}\newline
-Giver anledning til at foretage et 3D scan. Såfremt en 3D scanning er gennemført giver det også anledning til at starte en ultralydsscanning. Når denne menu startes, oprettes en instans af RoboMaster, for at sætte Robotarm i standard positur. Dette er nødvendigt, hvis Robotarm skulle være i vejen for en 3D scanning.
-Hvis der ikke er nogen forbindelse til Robotarm vil der vises en prompt med en besked om dette.
+Giver anledning til at foretage et 3D scan. Såfremt en 3D scanning er gennemført giver det også anledning til at starte en ultralydsscanning. Når denne menu startes, oprettes en instans af RoboMaster, for at sætte Robotarm i standard positur. Dette er nødvendigt, hvis Robotarm ikke står i standard positur, da den ville kunne hindre en 3D scanning, fordi den eventuelt blokerer for 3D kameras syn.
+Hvis der ikke er nogen forbindelse til Robotarm vil der vises en besked om dette.
 
 \item{3DScanMenu}\newline
 I denne menu er der mulighed for at se det nuværende dybdebillede, afgrænse området der skal 3D scannes og foretage en 3D scanning.
@@ -79,16 +88,12 @@ For at få en dybere forståelse af logik og data-kommunikationen i ComputerVisi
 \newpage
 
 \subsection{3D behandling}
+En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter scanningen er foretaget, er det næste skridt at finde ud af hvor Robotarm skal bevæge sig hen. På figur \ref{seq_pathcreation} ses processen for de trin der skal til for at gøre dette. CalculationMaster virker som en grænseflade mellem GUI'en (MainWindow) og de underliggende 3D-behandlingsklasser. CameraToRobotCalibrator sørger for at placere 3D scanningen i Robotarms rum. Da der kan forekomme ujævnheder i scanningen, vil Smoother forsøge at jævne disse ud. PathCreator finder interessante punkter i scanningen, der skal til for at afdække brystet i en ultralydsscanning, j.f. figur \ref{Probensbevagelse} på side \pageref{Probensbevagelse}. Til sidst ekstrapoleres punkterne, så det passer med at Robotarm vil være roteret mod punkterne i 3D scanningen med et offset der svarer til ultralydsprobens længde.
+Disse positurer gives tilbage til MainWindow, for senere at blive sendt videre til Robotarm. 
+Denne opdeling af processen er valgt så enkelte moduler kan udskiftes eller forbedres uden at skulle ændre meget i koden.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_pathcreation}
     \caption{Sekvensdiagram for 3D Path Creation}
     \label{seq_pathcreation}
 \end{figure}
-
-En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter scanningen er foretaget, er det næste skridt at finde ud af hvor Robotarm skal bevæge sig hen. På figur \ref{seq_pathcreation} ses processen for de trin der skal til for at gøre dette. CalculationMaster virker som en grænseflade mellem GUI'en (MainWindow) og de underliggende 3D-behandlingsklasser. CameraToRobotCalibrator sørger for at placere 3D scanningen i Robotarms rum. Da der kan forekomme ujævnheder i scanningen, vil Smoother forsøge at jævne disse ud. PathCreator finder interessante punkter i scanningen, der skal til for at afdække brystet i en ultralydsscanning, j.f. figur \ref{Probensbevagelse} på side \pageref{Probensbevagelse}. Til sidst ekstrapoleres punkterne, så det passer med at Robotarm vil være roteret mod punkterne i 3D scanningen med et offset der svarer til ultralydsprobens længde.
-Disse positurer gives tilbage til MainWindow, for senere at blive sendt videre til Robotarm. 
-Denne opdeling af processen er valgt så enkelte moduler kan udskiftes eller forbedres uden at skulle ændre meget i koden.
-
-\section{Udviklingsmiljø} 
-Som integreret udviklingsmiljø er der blevet brugt Visual Studio. Dette er blevet valgt fordi et tidligere bachelorprojekt med samme Robotarm har kodet i C\#, og fordi KinectAPI'et der anvendes understøtter C++ samt C\#.
