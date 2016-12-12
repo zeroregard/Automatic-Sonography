@@ -7,20 +7,20 @@
 \contentsline {chapter}{\chapternumberline {2}Projektgennemf\IeC {\o }relse}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}Gruppedannelse}{2}{section.2.1}
 \contentsline {section}{\numberline {2.2}Samarbejdsaftale}{2}{section.2.2}
-\contentsline {section}{\numberline {2.3}Arbejdsfordeling}{2}{section.2.3}
+\contentsline {section}{\numberline {2.3}Arbejdsfordeling}{3}{section.2.3}
 \contentsline {section}{\numberline {2.4}Risikoh\IeC {\r a}ndtering af projektarbejdet}{3}{section.2.4}
 \contentsline {section}{\numberline {2.5}Planl\IeC {\ae }gning}{4}{section.2.5}
 \contentsline {section}{\numberline {2.6}Projektledelse}{4}{section.2.6}
 \contentsline {section}{\numberline {2.7}Projektadministration}{4}{section.2.7}
-\contentsline {section}{\numberline {2.8}Udviklingsforl\IeC {\o }b af koden}{6}{section.2.8}
-\contentsline {section}{\numberline {2.9}Udviklingsforl\IeC {\o }b}{6}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Evaluering af de enkelte sprints}{7}{subsection.2.9.1}
-\contentsline {section}{\numberline {2.10}M\IeC {\o }der}{7}{section.2.10}
-\contentsline {section}{\numberline {2.11}Konflikth\IeC {\r a}ndtering}{8}{section.2.11}
-\contentsline {section}{\numberline {2.12}Opn\IeC {\r a}ede erfaringer}{8}{section.2.12}
-\contentsline {subsection}{\numberline {2.12.1}Charlotte}{9}{subsection.2.12.1}
-\contentsline {subsection}{\numberline {2.12.2}Marie}{9}{subsection.2.12.2}
-\contentsline {subsection}{\numberline {2.12.3}Mathias}{9}{subsection.2.12.3}
-\contentsline {section}{\numberline {2.13}Fremtidig arbejdsproces}{9}{section.2.13}
+\contentsline {section}{\numberline {2.8}Udviklingsforl\IeC {\o }b af koden}{7}{section.2.8}
+\contentsline {section}{\numberline {2.9}Udviklingsforl\IeC {\o }b}{7}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Evaluering af de enkelte sprints}{8}{subsection.2.9.1}
+\contentsline {section}{\numberline {2.10}M\IeC {\o }der}{8}{section.2.10}
+\contentsline {section}{\numberline {2.11}Konflikth\IeC {\r a}ndtering}{9}{section.2.11}
+\contentsline {section}{\numberline {2.12}Opn\IeC {\r a}ede erfaringer}{9}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}Charlotte}{10}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}Marie}{10}{subsection.2.12.2}
+\contentsline {subsection}{\numberline {2.12.3}Mathias}{10}{subsection.2.12.3}
+\contentsline {section}{\numberline {2.13}Fremtidig arbejdsproces}{10}{section.2.13}
 \contentsline {chapter}{\chapternumberline {3}Konklusion}{11}{chapter.3}
 \contentsline {chapter}{Bilag}{12}{chapter*.9}
