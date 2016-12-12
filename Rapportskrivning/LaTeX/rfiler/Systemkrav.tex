@@ -2,9 +2,9 @@
 \section{Systembeskrivelse}
 Automatisk Ultralydsscanner er et system, som gør det muligt at lave en automatiseret ultralydscanning af brystet mhp. screening for brystkræft. Systemet Automatisk Ultralydsscanner består af Robotarm, PC Applikation med en grafisk brugergrænseflade (GUI), 3D kamera og Ultralydsscanner. Se figur \ref{Systembeskrivelse} nedenfor. 
 
-Via GUI kan en operatør, med kendskab til ultralyd, interagere med en PC applikation. Operatøren vælger først at udføre en afgrænset 3D-scanning af patientets bryst. Derefter kan PC applikationen, ud fra 3D scanningen, udregne de positioner og rotationer der er nødvendige for at udføre en ultralydsscanning. Dernæst kan operatøren vælge at påbegynde ultralydsscanningen, hvor en robotarm med påmonteret ultralydsprobe føres rundt på det detekterede brystområde på patienten. Ultralydsscanningsvideoen kan herefter sendes til undersøgelse.
+Via GUI kan en operatør, med kendskab til ultralyd, interagere med en PC applikation. Operatøren vælger først at udføre en 3D-scanning af patientets bryst. Derefter kan PC applikationen, ud fra 3D scanningen, udregne de positioner og rotationer der er nødvendige for at udføre en ultralydsscanning. For at kunne ultralydsscanne er det nødvendigt at påføre ultralydsgel. Dernæst vil operatøren vælge at påbegynde ultralydsscanningen, hvor en robotarm med påmonteret ultralydsprobe føres rundt på det detekterede brystområde på patienten. Ultralydsscanningsvideoen kan herefter sendes til undersøgelse.
 
-Figuren nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultralydsscanner interagerer med hinanden.
+Figur \ref{Systembeskrivelse} nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultralydsscanner interagerer med hinanden.
  
 \begin{figure}[H]
     \centering
@@ -14,10 +14,10 @@ Figuren nedenfor viser en oversigt over, hvordan elementerne i Automatisk Ultral
 \end{figure}
 
 \section{Aktører}
-Der er indentificeret fem aktører, som interagerer med systemet. Aktørerne inkluderer en operatør, en patient, en robotarm, en ultralydsscanner og et 3D kamera. Operatør betjener PC Applikation, mens scanningen foregår på Patient. 3D kamera leverer dybdebilleder til PC Applikation. Robotarm styrer en påmonteret Ultralydsscanner i et specifikt overlappende bevægelsesmønster på det detekterede område.
+Der er identificeret fem aktører, som interagerer med systemet. Aktørerne inkluderer en operatør, en patient, en robotarm, en ultralydsscanner og et 3D kamera. PC Applikation ses som værende én samlet blok af PC og software, hvor softwaren er på PC. Operatør betjener PC Applikation, mens scanningen foregår på Patient. 3D kamera leverer dybdebilleder til PC Applikation. Robotarm styrer en påmonteret Ultralydsscanner i et specifikt overlappende bevægelsesmønster på det detekterede område.
 
 \section{Funktionelle krav}
-De funktionelle krav for Automatisk Ultralydsscanner er defineret ved brug af use cases (UC). Til systemet er der identificeret fire use cases, som kan ses i use case diagrammet på Figur \ref{UseCaseDiagram} 
+De funktionelle krav for Automatisk Ultralydsscanner er defineret ved brug af use cases (UC). Til systemet er der identificeret fire use cases, som kan ses i use case diagrammet på figur \ref{UseCaseDiagram} og i kravspecifikation, bilag \ref{Kravspecifikation}. 
 
 Operatør gør klar til scanning ved at opstarte system (UC1: Start System). Hovedmenuen på GUI vil vises, hvorpå Operatør kan vælge at 3D scanne Patients brystområde (UC2: 3D scan brystområde). Inden der kan ultralydsscannes, skal Operatør påføre en gel for at muliggøre ultralydsscanning. Operatøren har mulighed for at vælge at lave en ultralydsscanning ved tryk på en knap på GUI, hvorefter Robotarm vil køre over brystet (UC3: Ultrascan brystområde).  Operatør kan derefter på GUI vælge at stoppe systemet (UC4: Stop System). 
 
