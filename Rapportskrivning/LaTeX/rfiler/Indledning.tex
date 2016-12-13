@@ -1,27 +1,23 @@
 \chapter{Indledning}
-Denne rapport er udarbejdet i forbindelse med det afsluttende bachelorprojekt på diplomingeniøruddannelsen i henholdsvis sundhedsteknologi og informations- og kommunikationsteknologi ved Aarhus School of Engineering.
-
-Projektet omhandler udviklingen af et system, der kan lave automatiseret ultralydsscanning af mamma mhp. screening for brystkræft. Rapporten gennemgår projektforløbet, analyse af og begrundelse for løsningerne og udviklingsprocesserne samt en opsamling af resultater og en diskussion af disse. Yderligere er der i projektet blevet udarbejdet en medicinsk godkendelse. 
-
 \section{Baggrund}
-Danmark vil i de kommende årtier få en voksende andel af ældre borgere, der vil lægge et større pres på velfærdssamfundet i Danmark. Det vil resultere i færre borgere i den arbejdsduelige alder end tidligere, da det ud fra en befolkningsfremskrivning til 2040 forventes, at andelen af befolkningen på 65 år og derover vil udgøre omkring en fjerdedel af den samlede danske befolkning \cite{Befolk}. En sådan ændring i demografien vil betyde flere patienter med kroniske lidelser, som derved vil medføre et øget pres på og øgede omkostningerne for det offentlige sundhedsvæsen. Det er derfor nødvendigt, at se på alternative løsninger til behandling og diagnosticering af sygdomme. 
+Danmark vil i de kommende årtier få en voksende andel af ældre borgere, der vil lægge et større pres på velfærdssamfundet i Danmark. Det vil resultere i færre borgere i den arbejdsdygtige alder end tidligere, da det ud fra en befolkningsfremskrivning til 2040 forventes, at andelen af befolkningen på 65 år og derover vil udgøre omkring en fjerdedel af den samlede danske befolkning \cite{Befolk}. En sådan ændring i demografien vil betyde flere patienter med kroniske lidelser, som derved vil medføre et øget pres på og øgede omkostningerne for det offentlige sundhedsvæsen \cite{Pres}. Det er derfor nødvendigt, at se på optimerede løsninger til behandling og diagnosticering af sygdomme. 
 
 I Danmark tilbydes alle kvinder i alderen 50 til 69 år en rutinemæssig mammografiscreening. Mammografiscreening foregår ved en røntgenundersøgelse, hvilket er en billig og effektiv metode \cite{Afsloring}. Metoden er dog ikke altid den mest hensigtsmæssige at anvende, da kirtelvæv og ondartede cancersvulster kan være svære at skelne fra hinanden på et røntgenbillede. Røntgenmetoden har derfor en begrænset effekt på kvinder med meget kirtelvæv. Til disse patienter suppleres røntgenbillederne med en ultralydsundersøgelse \cite{Ultralyd}.
 
 Ultralyds- og røntgenundersøgelser har hver sine fordele og kan derfor sjældent stå alene. Ultralyd har den største diagnosesikkerhed i kirtelvæv, hvor røntgen har den største diagnosesikkerhed i fedtvæv. Da brystet ofte er en kombination af de to vævstyper, supplerer disse to metoder hinanden godt \cite{Ultralyd}. 
 
-Mammografi foretages i dag af enten en radiograf eller en røntgensygeplejerske, hvorefter røntgenbillederne bliver sendt videre til en radiolog. Man kunne i fremtiden derfor forestille sig, at automatiserede ultralydsscanninger til screening for brystkræft kunne foretages på samme vis, med videoclips.
+Mammografi foretages i dag af enten en radiograf eller en røntgensygeplejerske, hvorefter røntgenbillederne bliver sendt videre til en radiolog. Det kunne i fremtiden derfor forestille sig, at automatiserede ultralydsscanninger til screening for brystkræft kunne foretages på samme vis, med videoclips.
 
 Dette bachelorprojekt går derfor ud på at undersøge muligheden for automatiserede ultralydsscanninger til screening for brystkræft, som en del at screeningsprogrammet.
 
 \section{Problemformulering}
-Med udgangspunkt i projektets baggrund og projektbeskrivelse fra ASE (Bilag \ref{Projektbeskrivelse} Projektbeskrivelse AU) er der defineret følgende problemstillinger, som forsøges besvaret og belyst i dette bachelorprojekt:
+Med udgangspunkt i projektets baggrund og projektbeskrivelse fra ASE, se bilag \ref{Projektbeskrivelse}, er der defineret følgende problemstillinger, som forsøges besvaret og belyst i dette bachelorprojekt:
 
-Hvordan kan en automatiseret ultralydsscanner til screening for brystkræft udvikles, samt hvilke økonomiske og produktsikkerhedsmæssige tiltag vil kunne realisere det?
+\textbf{Hvordan kan en automatiseret ultralydsscanner til screening for brystkræft udvikles, samt hvilke økonomiske og produktsikkerhedsmæssige tiltag vil kunne realisere det?}
 
 \let\labelitemi\labelitemii
 \begin{itemize}
 \item Hvordan vil en automatiseret ultralydsscanning til screening for brystkræft kunne udvikles ved brug af robotarm og 3D kamera?
 \item Hvilke økonomiske omkostninger og gevinster vil indførslen af en automatiseret ultralydsscanner kunne give? 
-\item Hvad skal der til for at få Automatisk Ultralydsscanner CE-mærket? 
+\item Hvad kræves for at få Automatisk Ultralydsscanner CE-mærket? 
 \end{itemize}
