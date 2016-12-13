@@ -3,10 +3,10 @@
 \section{Systemarkitektur}\label{Systemarkitektur}
 Der er udarbejdet forskellige arkitektur-diagrammer på baggrund af de specificerede systemkrav. Diagrammerne har til formål at beskrive Automatisk Ultralydsscanner som et overordnet system.
 
-Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Der er i diagrammerne designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarm er en Universal Robot UR10 robot. For detaljeret gennemgang af systemarkitektur for Automatisk Ultralydsscanner se Bilag  \ref{Udviklingsdokument} Dokumentation.
+Arkitekturen beskriver den grundlæggende organisering af Automatisk Ultralydsscanner og opbygningen af dens tilhørende PC Applikation. Diagrammer er designet ud fra, at 3D kamera er af typen Microsoft Kinect 2.0 og Robotarm er en Universal Robot UR10 robot. For detaljeret gennemgang af systemarkitektur for Automatisk Ultralydsscanner se Bilag  \ref{Udviklingsdokument} Dokumentation.
 
 \subsection{Domænemodel}
-Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler og tydeliggør forbindelserne samt interaktionerne mellem de forskellige aktører i Automatisk Ultralydsscanner. 
+Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler og tydeliggør interaktionerne mellem de forskellige aktører i Automatisk Ultralydsscanner. 
 
 \begin{figure}[H]
     \centering
@@ -16,7 +16,7 @@ Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler o
 \end{figure}
 
 \subsection{Block Definition Diagram}
-Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3D kamera og Ultralydsscanner. Access Point er medtaget for at sikre at Robotarm har samme IP-adresse. Det er vigtigt at bemærke, at computer skal have PC Applikation installeret og en mus og en skærm for at Operatør kan integrere med PC Applikation. Block Definition Diagrammet på figur \ref{BDD}, viser hvordan systemets blokke er forbundet. 
+Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3D kamera og Ultralydsscanner. Access Point er medtaget for at sikre at Robotarm har samme IP-adresse. Det er vigtigt at bemærke, at computer skal have PC Applikation installeret og en mus og en skærm for at Operatør kan integrere med PC Applikation. Block Definition Diagrammet på figur \ref{BDD}, viser systemets blokke. 
 
 \begin{figure}[H]
     \centering
@@ -26,7 +26,7 @@ Automatisk Ultralydsscanner består af Robotarm, en computer, et Access Point, 3
 \end{figure}
 
 \subsection{Internal Block Diagram}
-Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Block Diagram i figur \ref{IBD}, som viser systemets interne forbindelser og flow mellem de forskellige blokke. Bemærk at Ultralydsscanner ikke er inkluderet her, da den ikke har forbindelse til de andre blokke udover at være monteret mekanisk på Robotarm. Forbindelsen mellem PC Applikation og Access Point, samt Acces Point og Robotarm er oprettet med ethernet-kabler. 3D kamera forbindes til PC Applikation gennem USB. For simplificering er PC, Mus og Skærm fra BDD undladt.
+Iinteraktionen mellem de enkelte blokke er beskrevet i Internal Block Diagram i figur \ref{IBD}, som viser systemets interne forbindelser og flow mellem de forskellige blokke. Bemærk at Ultralydsscanner ikke er inkluderet her, da den ikke har forbindelse til de andre blokke udover at være monteret mekanisk på Robotarm. For simplificering er PC, Mus og Skærm fra BDD undladt.
 
 \begin{figure}[H]
     \centering
@@ -36,7 +36,7 @@ Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Bloc
 \end{figure}
 
 \subsection{Pakkediagram}
- Se figur \ref{pakke} nedenfor for at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation. Der blev identificeret behovet for fire pakker, plus en datastruktur for at undgå cykliske forbindelser, en grænseflade til systemets funktioner (AutoSonographyWPF), indhente af en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregning af positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). De forskellige biblioteker anvender fælles datastrukturer (DataStructures). Bemærk at AutoSonographyWPF afhænger af alle bibliotekerne, men at de tre hovedbiblioteker ikke afhænger af hinanden.
+ Se figur \ref{pakke} nedenfor for at se et overblik over afhængighederne mellem pakker i PC Applikation. Der blev identificeret behovet for fire pakker, plus en datastruktur for at undgå cykliske forbindelser, en grænseflade til systemets funktioner (AutoSonographyWPF), indhente af en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregning af positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). De forskellige biblioteker anvender fælles datastrukturer (DataStructures). Bemærk at AutoSonographyWPF afhænger af alle bibliotekerne, men at de tre hovedbiblioteker ikke afhænger af hinanden.
 
 \begin{figure}[H]
     \centering
@@ -47,8 +47,7 @@ Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Bloc
 
 \newpage
 \section{Systemdesign} \label{Systemdesign}
-Systemdesignet beskriver, hvordan PC Applikations individuelle moduler er opbygget, og hvordan disse interagerer med hinanden.  
-Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se bilag \ref{Udviklingsdokument} Dokumentation.
+Systemdesignet beskriver, hvordan PC Applikations individuelle moduler er opbygget, og hvordan disse interagerer med hinanden. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se bilag \ref{Udviklingsdokument} Dokumentation.
 
 Klassediagrammerne viser strukturen i PC Applikations klasser og afhængighederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. Opbygningen er valgt for at skabe høj samhørighed og lav kobling - men også med den tanke at hele eller dele af projektet skal kunne genbruges.
 
@@ -103,7 +102,7 @@ En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter sca
 \newpage
 
 \section{Implementering}
-I dette afsnit omtales det implementerede hardware samt software, der er nødvendige for at realisere Automatisk Ultralydsscanner.
+I dette afsnit omtales det implementerede hardware samt software, der er nødvendige for at realisere Automatisk Ultralydsscanner. Forbindelsen mellem PC Applikation og Access Point, samt Acces Point og Robotarm er oprettet med ethernet-kabler. 3D kamera forbindes til PC Applikation gennem USB. 
 Prototype-versionen af produktet inkluderer: Robotarm af typen Universal Robots 10, 3D kamera af typen Microsoft Kinect 2.0, Access Point af typen D-Link DAP-1160, og PC Applikation som en WPF applikation programmeret i C\#.
 \subsection{Hardware}
 Opstillingen af Automatisk Ultralydsscanner ses på figur \ref{setup} og som en skitse på figur \ref{3dsetup}, hvor forbindelserne til den PC, der har PC Applikation, er udeladt. 
