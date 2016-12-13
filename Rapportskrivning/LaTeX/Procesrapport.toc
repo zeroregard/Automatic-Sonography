@@ -18,9 +18,9 @@
 \contentsline {section}{\numberline {2.10}M\IeC {\o }der}{8}{section.2.10}
 \contentsline {section}{\numberline {2.11}Konflikth\IeC {\r a}ndtering}{9}{section.2.11}
 \contentsline {section}{\numberline {2.12}Opn\IeC {\r a}ede erfaringer}{9}{section.2.12}
-\contentsline {subsection}{\numberline {2.12.1}Charlotte}{10}{subsection.2.12.1}
-\contentsline {subsection}{\numberline {2.12.2}Marie}{10}{subsection.2.12.2}
-\contentsline {subsection}{\numberline {2.12.3}Mathias}{10}{subsection.2.12.3}
+\contentsline {subsection}{\numberline {2.12.1}Charlotte S\IeC {\o }gaard Kristensen}{10}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}Marie Kirkegaard}{10}{subsection.2.12.2}
+\contentsline {subsection}{\numberline {2.12.3}Mathias Siig N\IeC {\o }rregaard}{10}{subsection.2.12.3}
 \contentsline {section}{\numberline {2.13}Fremtidig arbejdsproces}{10}{section.2.13}
-\contentsline {chapter}{\chapternumberline {3}Konklusion}{11}{chapter.3}
-\contentsline {chapter}{Bilag}{12}{chapter*.9}
+\contentsline {chapter}{\chapternumberline {3}Konklusion}{13}{chapter.3}
+\contentsline {chapter}{Bilag}{14}{chapter*.9}
