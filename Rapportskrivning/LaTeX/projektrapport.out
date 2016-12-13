@@ -1,63 +1,59 @@
 \BOOKMARK [0][-]{chapter*.1}{Resum\351}{}% 1
 \BOOKMARK [0][-]{chapter*.2}{Abstract}{}% 2
 \BOOKMARK [0][-]{chapter*.3}{Forkortelser}{}% 3
-\BOOKMARK [0][-]{chapter.1}{Forord}{}% 4
-\BOOKMARK [1][-]{section.1.1}{L\346sevejledning}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Indledning}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Baggrund}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Problemformulering}{chapter.2}% 8
-\BOOKMARK [0][-]{chapter.3}{Teori}{}% 9
-\BOOKMARK [1][-]{section.3.1}{Brystets opbygning og brystkr\346ft}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Ultralydsscanning}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.3}{R\370ntgenunders\370gelse}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Afgr\346nsning}{}% 13
-\BOOKMARK [0][-]{chapter.5}{Systemkrav}{}% 14
-\BOOKMARK [1][-]{section.5.1}{Systembeskrivelse}{chapter.5}% 15
-\BOOKMARK [1][-]{section.5.2}{Akt\370rer}{chapter.5}% 16
-\BOOKMARK [1][-]{section.5.3}{Funktionelle krav}{chapter.5}% 17
-\BOOKMARK [1][-]{section.5.4}{Ikke-funktionelle krav}{chapter.5}% 18
-\BOOKMARK [2][-]{subsection.5.4.1}{Ekstra}{section.5.4}% 19
-\BOOKMARK [0][-]{chapter.6}{Metoder}{}% 20
-\BOOKMARK [1][-]{section.6.1}{Udviklingsv\346rkt\370jer}{chapter.6}% 21
-\BOOKMARK [1][-]{section.6.2}{Kvalitative og kvantitative unders\370gelser}{chapter.6}% 22
-\BOOKMARK [1][-]{section.6.3}{\330konomisk og omkostningseffektiv analyse}{chapter.6}% 23
-\BOOKMARK [1][-]{section.6.4}{Litteraturs\370gning}{chapter.6}% 24
-\BOOKMARK [1][-]{section.6.5}{Medicinsk godkendelse}{chapter.6}% 25
-\BOOKMARK [0][-]{chapter.7}{Analyser}{}% 26
-\BOOKMARK [1][-]{section.7.1}{Brugerunders\370gelse}{chapter.7}% 27
-\BOOKMARK [2][-]{subsection.7.1.1}{Sp\370rgeskemaunders\370gelse}{section.7.1}% 28
-\BOOKMARK [2][-]{subsection.7.1.2}{Interview med radiograf}{section.7.1}% 29
-\BOOKMARK [2][-]{subsection.7.1.3}{Interview med radiolog}{section.7.1}% 30
-\BOOKMARK [1][-]{section.7.2}{\330konomiske konsekvenser ved udvidelse af screeningsprogrammet}{chapter.7}% 31
-\BOOKMARK [2][-]{subsection.7.2.1}{Litteraturs\370gning om screeninger}{section.7.2}% 32
-\BOOKMARK [0][-]{chapter.8}{Medicinsk godkendelse}{}% 33
-\BOOKMARK [1][-]{section.8.1}{Definition}{chapter.8}% 34
-\BOOKMARK [1][-]{section.8.2}{Klassificering}{chapter.8}% 35
-\BOOKMARK [1][-]{section.8.3}{CE-M\346rkning}{chapter.8}% 36
-\BOOKMARK [2][-]{subsection.8.3.1}{Risikoh\345ndtering}{section.8.3}% 37
-\BOOKMARK [1][-]{section.8.4}{Softwaregodkendelse}{chapter.8}% 38
-\BOOKMARK [0][-]{chapter.9}{Produktudvikling}{}% 39
-\BOOKMARK [1][-]{section.9.1}{Systemarkitektur}{chapter.9}% 40
-\BOOKMARK [2][-]{subsection.9.1.1}{Dom\346nemodel}{section.9.1}% 41
-\BOOKMARK [2][-]{subsection.9.1.2}{Block Definition Diagram}{section.9.1}% 42
-\BOOKMARK [2][-]{subsection.9.1.3}{Internal Block Diagram}{section.9.1}% 43
-\BOOKMARK [2][-]{subsection.9.1.4}{Pakkediagram}{section.9.1}% 44
-\BOOKMARK [1][-]{section.9.2}{Systemdesign}{chapter.9}% 45
-\BOOKMARK [2][-]{subsection.9.2.1}{3D behandling}{section.9.2}% 46
-\BOOKMARK [1][-]{section.9.3}{Implementering}{chapter.9}% 47
-\BOOKMARK [2][-]{subsection.9.3.1}{Hardware}{section.9.3}% 48
-\BOOKMARK [2][-]{subsection.9.3.2}{Software}{section.9.3}% 49
-\BOOKMARK [0][-]{chapter.10}{Test}{}% 50
-\BOOKMARK [1][-]{section.10.1}{Accepttest}{chapter.10}% 51
-\BOOKMARK [2][-]{subsection.10.1.1}{Funktionelle krav}{section.10.1}% 52
-\BOOKMARK [2][-]{subsection.10.1.2}{Ikke-funktionelle krav}{section.10.1}% 53
-\BOOKMARK [2][-]{subsection.10.1.3}{Automatiserede tests af PC Applikation}{section.10.1}% 54
-\BOOKMARK [0][-]{chapter.11}{Resultater}{}% 55
-\BOOKMARK [1][-]{section.11.1}{Automatisk Ultralydsscanner}{chapter.11}% 56
-\BOOKMARK [2][-]{subsection.11.1.1}{Funktionelle krav}{section.11.1}% 57
-\BOOKMARK [2][-]{subsection.11.1.2}{Ikke-funktionelle krav}{section.11.1}% 58
-\BOOKMARK [0][-]{chapter.12}{Diskussion}{}% 59
-\BOOKMARK [0][-]{chapter.13}{Fremtidig udvikling}{}% 60
-\BOOKMARK [0][-]{chapter.14}{Konklusion}{}% 61
-\BOOKMARK [0][-]{chapter*.28}{Bilag}{}% 62
-\BOOKMARK [0][-]{section*.30}{Litteratur}{}% 63
+\BOOKMARK [0][-]{chapter*.5}{Forord}{}% 4
+\BOOKMARK [1][-]{section*.6}{L\346sevejledning}{chapter*.5}% 5
+\BOOKMARK [0][-]{chapter.1}{Indledning}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Baggrund}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Problemformulering}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Teori}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Brystets opbygning og brystkr\346ft}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Ultralydsscanning}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{R\370ntgenunders\370gelse}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Afgr\346nsning}{}% 13
+\BOOKMARK [0][-]{chapter.4}{Systemkrav}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Systembeskrivelse}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Akt\370rer}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Funktionelle krav}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.4}{Ikke-funktionelle krav}{chapter.4}% 18
+\BOOKMARK [2][-]{subsection.4.4.1}{Ekstra}{section.4.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Metoder}{}% 20
+\BOOKMARK [0][-]{chapter.6}{Analyser}{}% 21
+\BOOKMARK [1][-]{section.6.1}{Brugerunders\370gelse}{chapter.6}% 22
+\BOOKMARK [2][-]{subsection.6.1.1}{Sp\370rgeskemaunders\370gelse}{section.6.1}% 23
+\BOOKMARK [2][-]{subsection.6.1.2}{Interview med radiograf}{section.6.1}% 24
+\BOOKMARK [2][-]{subsection.6.1.3}{Interview med radiolog}{section.6.1}% 25
+\BOOKMARK [1][-]{section.6.2}{\330konomiske konsekvenser ved udvidelse af screeningsprogrammet}{chapter.6}% 26
+\BOOKMARK [2][-]{subsection.6.2.1}{Litteraturs\370gning om screeninger}{section.6.2}% 27
+\BOOKMARK [0][-]{chapter.7}{Medicinsk godkendelse}{}% 28
+\BOOKMARK [1][-]{section.7.1}{Definition}{chapter.7}% 29
+\BOOKMARK [1][-]{section.7.2}{Klassificering}{chapter.7}% 30
+\BOOKMARK [1][-]{section.7.3}{CE-M\346rkning}{chapter.7}% 31
+\BOOKMARK [2][-]{subsection.7.3.1}{Risikoh\345ndtering}{section.7.3}% 32
+\BOOKMARK [2][-]{subsection.7.3.2}{kvalitetssikring}{section.7.3}% 33
+\BOOKMARK [1][-]{section.7.4}{Softwaregodkendelse}{chapter.7}% 34
+\BOOKMARK [0][-]{chapter.8}{Produktudvikling}{}% 35
+\BOOKMARK [1][-]{section.8.1}{Systemarkitektur}{chapter.8}% 36
+\BOOKMARK [2][-]{subsection.8.1.1}{Dom\346nemodel}{section.8.1}% 37
+\BOOKMARK [2][-]{subsection.8.1.2}{Block Definition Diagram}{section.8.1}% 38
+\BOOKMARK [2][-]{subsection.8.1.3}{Internal Block Diagram}{section.8.1}% 39
+\BOOKMARK [2][-]{subsection.8.1.4}{Pakkediagram}{section.8.1}% 40
+\BOOKMARK [1][-]{section.8.2}{Systemdesign}{chapter.8}% 41
+\BOOKMARK [2][-]{subsection.8.2.1}{3D behandling}{section.8.2}% 42
+\BOOKMARK [1][-]{section.8.3}{Implementering}{chapter.8}% 43
+\BOOKMARK [2][-]{subsection.8.3.1}{Hardware}{section.8.3}% 44
+\BOOKMARK [2][-]{subsection.8.3.2}{Software}{section.8.3}% 45
+\BOOKMARK [0][-]{chapter.9}{Test}{}% 46
+\BOOKMARK [1][-]{section.9.1}{Accepttest}{chapter.9}% 47
+\BOOKMARK [2][-]{subsection.9.1.1}{Funktionelle krav}{section.9.1}% 48
+\BOOKMARK [2][-]{subsection.9.1.2}{Ikke-funktionelle krav}{section.9.1}% 49
+\BOOKMARK [2][-]{subsection.9.1.3}{Automatiserede tests af PC Applikation}{section.9.1}% 50
+\BOOKMARK [0][-]{chapter.10}{Resultater}{}% 51
+\BOOKMARK [1][-]{section.10.1}{Automatisk Ultralydsscanner}{chapter.10}% 52
+\BOOKMARK [2][-]{subsection.10.1.1}{Funktionelle krav}{section.10.1}% 53
+\BOOKMARK [2][-]{subsection.10.1.2}{Ikke-funktionelle krav}{section.10.1}% 54
+\BOOKMARK [0][-]{chapter.11}{Diskussion}{}% 55
+\BOOKMARK [0][-]{chapter.12}{Fremtidig udvikling}{}% 56
+\BOOKMARK [0][-]{chapter.13}{Konklusion}{}% 57
+\BOOKMARK [0][-]{chapter*.31}{Bilag}{}% 58
+\BOOKMARK [0][-]{section*.33}{Litteratur}{}% 59
