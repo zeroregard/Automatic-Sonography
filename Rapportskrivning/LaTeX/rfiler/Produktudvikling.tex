@@ -135,4 +135,13 @@ Valget for at programmere PC Applikation i C\# er dannet på baggrund af at:
 
 Kinect API'et er inkluderet i solutionen som .dll-filer.
 
-Solutionen indeholder også en række testprojekter med unittests som beskrives nærmere i bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Test'. For at se hvilke udviklingsværktøjer der blev brugt, se bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Udviklingsmiljø'. Kildekoden er vedlagt som bilag \ref{Kildekode}.
+Solutionen indeholder også en række testprojekter med unittests som beskrives nærmere i bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Test'. For at se hvilke udviklingsværktøjer der blev brugt, se bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Udviklingsmiljø'. 
+
+Der er implementeret en række funktioner der senere kan give anledning til diskussion. 
+For at kunne rotere Robotarm er det nødvendigt at sende den en rotationsvektor. Som input fra 3D scanningen er der en retningsvektor på 3D modellen, og denne skal konverteres til rotationsvektor. For at se udregningerne bag dette, se afsnittet om rotationsmatematik på side \pageref{rotationsmatematik} i bilag \ref{Udviklingsdokument}, Dokumentation.
+\newline
+For at flytte Robotarm er der brugt UR10's URScript-funktion \textit{movel}, som flytter Robotarms TCP lineart over tid. Robotarm finder selv ud af hvordan den skal rotere hvert af dens led for at opnå en given positur. Ved hver positur der skal sendes Robotarm gives der en accelerationsværdi, hastighedsværdi samt posituren. Fra startpunkt til slutpunkt gennem en \text{movel}-kommando sker en acceleration, dernæst konstant hastighed efterfulgt af en deceleration - se figur \ref{ur10velocity} og tilhørende tekst på side \pageref{ur10velocity} i bilag \ref{Udviklingsdokument} Dokumentation for mere information.
+\newline
+Da Kinect'en ikke giver et fuldstændigt glat billede, har det været nødvendigt at anvende en udglatnings-algoritme. Dette er gjort for at forhindre ekstreme normaler, så Robotarm ikke roteres forkert mod en anomali i 3D scanningen. Se yderligere forklaring af udglatnings-algoritmen på side \pageref{calculationlibraryafsnit} i bilag \ref{Udviklingsdokument} Dokumentation.
+
+Kildekoden er vedlagt som bilag \ref{Kildekode}.

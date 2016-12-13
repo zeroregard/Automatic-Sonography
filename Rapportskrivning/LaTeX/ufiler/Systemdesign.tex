@@ -57,7 +57,7 @@ Denne klasse sørger for at fjerne de punkter i en mesh, der er uinteressante:
 \end{figure}
 \newpage
 
-\subsection{CalculationLibrary}
+\subsection{CalculationLibrary}{\label {calculationlibraryafsnit}
 Dette bibliotek agerer som bindeledet mellem ComputerVisionLibrary og RoboLibrary.
 
 \begin{itemize}
@@ -69,8 +69,8 @@ I tilfældet for dette projekt sker der først en rotering og derefter en transl
 Hvert punkt i en mesh konverteres så til det nye space. Se reference \cite{RumTransformation} for inspirationen til denne klasse.
 
 \item{\textbf{Smoother}}\newline
-Denne klasse har til ansvar at udjævne en mesh. Med udjævning forstås at 'ensforme' normalerne, altså retningsvektorer i en mesh's faces.
-Dette er nødvendigt da 3D kameras output kan være uperfekt og dermed vil normalerne være ekstreme/deforme. Udjævningen sker gennem laplacian smoothing, se \cite{Smooth} for forklaring af algoritme.
+Denne klasse har til ansvar at udjævne en mesh. Med udjævning forstås, at ensrette retningsvektorerne i en mesh's faces. Dette vil bivirke at ved en scanning af et relativt flat objekt og N antal smoothing-runs, vil meshens faces være stort set ens.
+Dette er nødvendigt da 3D kameras output kan indeholde anomalier og dermed vil nogle normaler på 3D scanningens overflade være ekstreme/deforme. Med ekstreme normaler menes der normaler der ikke ligner dens nærmeste nabo-normaler på meshen. Disse anomalier kan bivirke at Robotarm roteres tilsyneladende forkert imod meshen. Udjævningen sker gennem laplacian smoothing hvor alle retningsvektorer i overfladen ensrettes. Se \cite{Smooth} for forklaring af anvendt algoritme.
 
 \item{\textbf{PathCreator}}\newline
 Klassen afgør listen af punkter i en mesh som der skal findes positurer til Robotarm ud fra.
@@ -87,6 +87,7 @@ Da man ikke kan afgøre alle tre værdier ud fra en retningsvektor alene, sætte
 Positionsvektoren og rotationsvektoren udgør til sammen en positur, som tilføjes til listen af positurer. Matematikken for udregningen af rotationen kan ses på næste side.
 \newpage
 
+\subsubsection{RobotPoseCreator rotationsmatematik}{\label {rotationsmatematik}}
 Givet en tredimensionel retningsvektor med en længde på 1
 $$
 v_{direction} = (X, Y, Z)
