@@ -4,14 +4,22 @@
 
 
 %%%% PACKAGES %%%%
-
 %% Oversættelse og tegnsætning %%
 \usepackage[utf8]{inputenc}					% Input-indkodning af tegnsæt (UTF8)
 \usepackage[danish]{babel}					% Dokumentets sprog
 \usepackage[T1]{fontenc}					    % Output-indkodning af tegnsæt (T1)
 \usepackage{ragged2e,anyfontsize}			% Justering af elementer
 \usepackage{fixltx2e}						% Retter forskellige fejl i LaTeX-kernen
-																			
+\usepackage{eso-pic}		
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{figurer/forside.png}%
+\vfill
+}}}											
 %% Figurer og tabeller (floats) %%
 \usepackage{graphicx} 						% Håndtering af eksterne billeder (JPG, PNG, EPS, PDF)
 \usepackage{multicol}         	            	% Muliggør output i spalter
@@ -43,9 +51,7 @@
 \pdfoptionpdfminorversion=6					% Muliggør inkludering af pdf-dokumenter, af version 1.6 og højere
 \pretolerance=2500 							% Justering af afstand mellem ord (højt tal, mindre orddeling og mere luft mellem ord)	
 
-
 %%%% CUSTOM SETTINGS %%%%
-
 %% Marginer %%
 \setlrmarginsandblock{3.5cm}{2.5cm}{*}		% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
 \setulmarginsandblock{2.5cm}{3.0cm}{*}		% \setulmarginsandblock{Top}{Bund}{Ratio}
