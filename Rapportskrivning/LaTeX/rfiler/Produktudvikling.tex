@@ -10,7 +10,7 @@ Nedenstående domænemodel på figur \ref{domain} viser de overordnede moduler o
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{figurer/d/Design/uml_domain}
+    \includegraphics[width=0.65\textwidth]{figurer/d/Design/uml_domain}
     \caption{Domænemodel for Automatisk Ultralydsscanner}
     \label{domain}
 \end{figure}
@@ -36,8 +36,7 @@ Detaljerne i interaktionen mellem de enkelte blokke er beskrevet i Internal Bloc
 \end{figure}
 
 \subsection{Pakkediagram}
-For at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation, se figur \ref{pakke} nedenfor. Der blev identificeret behovet for en GUI (AutoSonographyWPF), indhentning af en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregning af positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). \newline
-De forskellige biblioteker anvender fælles datastrukturer som blev samlet i ét bibliotek for at undgå cykliske forbindelser (DataStructures). Bemærk at AutoSonographyWPF afhænger af alle bibliotekerne, men at de tre hovedbiblioteker ikke afhænger af hinanden.
+ Se figur \ref{pakke} nedenfor for at se et overblik over afhængighederne mellem store moduler (pakker) i PC Applikation. Der blev identificeret behovet for fire pakker, plus en datastruktur for at undgå cykliske forbindelser, en grænseflade til systemets funktioner (AutoSonographyWPF), indhente af en 3D scanning fra 3D kamera (ComputerVisionLibrary), beregning af positioner og rotationer på baggrund af en 3D scanning (CalculationLibrary), samt at sende positurer til Robotarm (RoboLibrary). De forskellige biblioteker anvender fælles datastrukturer (DataStructures). Bemærk at AutoSonographyWPF afhænger af alle bibliotekerne, men at de tre hovedbiblioteker ikke afhænger af hinanden.
 
 \begin{figure}[H]
     \centering
@@ -48,8 +47,8 @@ De forskellige biblioteker anvender fælles datastrukturer som blev samlet i ét
 
 \newpage
 \section{Systemdesign} \label{Systemdesign}
-Systemdesignet beskriver hvordan PC Applikations individuelle moduler er opbygget og hvordan disse interagerer med hinanden.  
-Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se Bilag \ref{Udviklingsdokument} Udviklingsdokument.
+Systemdesignet beskriver, hvordan PC Applikations individuelle moduler er opbygget, og hvordan disse interagerer med hinanden.  
+Nedenfor vil relevante diagrammer blive gennemgået. For detaljeret gennemgang af systemdesign for Automatisk Ultralydsscanner se bilag \ref{Udviklingsdokument} Dokumentation.
 
 Klassediagrammerne viser strukturen i PC Applikations klasser og afhængighederne mellem disse. Hver klasse i diagrammerne indeholder de vigtigste metoder og attributer fra klassen, der udgør funktionaliteten i PC Applikation. Opbygningen er valgt for at skabe høj samhørighed og lav kobling - men også med den tanke at hele eller dele af projektet skal kunne genbruges.
 
@@ -86,25 +85,28 @@ Biblioteket giver mulighed for at kommunikere med Robotarm. Her sættes dens acc
 \end{itemize}
 
 Her skal det nævnes at de lavestliggende kommunikationsklasser i RoboLibrary er lånt fra et tidligere bachelorprojekt (TRU). Klasserne er kopieret og skrevet til, så de passer ind i PC Applikation. Såfremt andet kode er kopieret, er det nævnt i koden med en reference til kilden.
-For at få en dybere forståelse af logik og data-kommunikationen i ComputerVisionLibrary, CalculationLibrary samt RoboLibrary, se klassediagrammerne for de enkelte biblioteker i bilag \ref{Klassediagram} Udviklingsdokument. 
+For at få en dybere forståelse af logik og data-kommunikationen i ComputerVisionLibrary, CalculationLibrary samt RoboLibrary, se klassediagrammerne for de enkelte biblioteker i bilag \ref{Udviklingsdokument} Udviklingsdokument. 
 \newpage
 
 \subsection{3D behandling}
-En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter scanningen er foretaget, er det næste skridt at finde ud af hvor Robotarm skal bevæge sig hen. På figur \ref{seq_pathcreation} ses processen for de trin der skal til for at gøre dette. CalculationMaster virker som en grænseflade mellem GUI'en (MainWindow) og de underliggende 3D-behandlingsklasser. CameraToRobotCalibrator sørger for at placere 3D scanningen i Robotarms rum. Da der kan forekomme ujævnheder i scanningen, vil Smoother forsøge at jævne disse ud. PathCreator finder interessante punkter i scanningen, der skal til for at afdække brystet i en ultralydsscanning, j.f. figur \ref{Probensbevagelse} på side \pageref{Probensbevagelse}. Til sidst ekstrapoleres punkterne, så det passer med at Robotarm vil være roteret mod punkterne i 3D scanningen med et offset der svarer til ultralydsprobens længde.
-Disse positurer gives tilbage til MainWindow, for senere at blive sendt videre til Robotarm. 
-Denne opdeling af processen er valgt så enkelte moduler kan udskiftes eller forbedres uden at skulle ændre meget i koden.
+En vigtig del af produktet er bindeledet mellem 3D kamera og Robotarm. Efter scanningen er foretaget, er det næste skridt at finde ud af hvor Robotarm skal bevæge sig hen. På figur \ref{seq_pathcreation} næste side ses processen for de trin, der skal til for at gøre dette. CalculationMaster virker som en grænseflade mellem GUI'en (MainWindow) og de underliggende 3D-behandlingsklasser. CameraToRobotCalibrator sørger for at placere 3D scanningen i Robotarms rum. Da der kan forekomme ujævnheder i scanningen, vil Smoother forsøge at jævne disse ud. PathCreator finder interessante punkter i scanningen, der skal til for at afdække brystet i en ultralydsscanning, j.f. figur \ref{Probensbevagelse} på side \pageref{Probensbevagelse}. Til sidst ekstrapoleres punkterne, så det passer med, at Robotarm vil være roteret mod punkterne i 3D scanningen med et offset, der svarer til ultralydsprobens længde. Disse positurer gives tilbage til MainWindow, for senere at blive sendt videre til Robotarm. Denne opdeling af processen er valgt så enkelte moduler kan udskiftes eller forbedres uden at skulle ændre meget i koden.
+
+\newpage
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figurer/d/Design/Sequence/sd_pathcreation}
+    \includegraphics[width=1\textwidth, angle = 90]{figurer/d/Design/Sequence/sd_pathcreation}
     \caption{Sekvensdiagram for 3D Path Creation}
     \label{seq_pathcreation}
 \end{figure}
+
 \newpage
+
 \section{Implementering}
-I dette afsnit omtales de det implementerede hardware samt software der er nødvendige for at realisere Automatisk Ultralydsscanner.
+I dette afsnit omtales det implementerede hardware samt software, der er nødvendige for at realisere Automatisk Ultralydsscanner.
 Prototype-versionen af produktet inkluderer: Robotarm af typen Universal Robots 10, 3D kamera af typen Microsoft Kinect 2.0, Access Point af typen D-Link DAP-1160, og PC Applikation som en WPF applikation programmeret i C\#.
 \subsection{Hardware}
-Opstillingen af Automatisk Ultralydsscanner ses på figur \ref{setup} og som en skitse på figur \ref{3dsetup}, hvor forbindelserne til den PC der har PC Applikation er udeladt. 
+Opstillingen af Automatisk Ultralydsscanner ses på figur \ref{setup} og som en skitse på figur \ref{3dsetup}, hvor forbindelserne til den PC, der har PC Applikation, er udeladt. 
 
 \begin{figure}[H]
   \centering
@@ -121,10 +123,10 @@ Opstillingen af Automatisk Ultralydsscanner ses på figur \ref{setup} og som en 
   \end{minipage}
 \end{figure}
 
-Der blev ikke udviklet noget nyt hardware til Automatisk Ultralydsscanner - altså blev der kun brugt det ovennævnte eksisterende hardware. Valget for UR10 blev dannet på baggrund af dens arms spændvidde, da fx UR5 ville være for lille til dette projekt. Grundlaget for Microsoft Kinect som 3D kamera uddybes i næste sektion.
+Der blev ikke udviklet nyt hardware til Automatisk Ultralydsscanner - altså blev der kun brugt det ovennævnte eksisterende hardware. Valget for UR10 blev dannet på baggrund af dens arms spændvidde, da fx UR5 ville være for lille til dette projekt. Grundlaget for Microsoft Kinect som 3D kamera uddybes i næste sektion.
 
 \subsection{Software}
-PC Applikation er opbygget som en Visual Studio solution, hvor hver pakke fra pakkediagrammet, vist på figur \ref{pakke} på side \pageref{pakke}, er implementeret som projekter. Projektet der startes i solutionen, og dermed er det eksekverbare program der skal køres, er WPF-projektet 'AutoSonographyWPF'. Der kan ses en af de vigtigste skærmbilleder fra WPF-projektet på figur \ref{screenshot_3dscan} \newline
+PC Applikation er opbygget som en Visual Studio solution, hvor hver pakke fra pakkediagrammet, vist på figur \ref{pakke} på side \pageref{pakke}, er implementeret som projekter. Projektet, der startes i solutionen, og dermed er det eksekverbare program, der skal køres, er WPF-projektet 'AutoSonographyWPF'. Der kan ses en af de vigtigste skærmbilleder fra WPF-projektet på figur \ref{screenshot_3dscan} \newline
 
 \begin{figure}[H]
     \centering
@@ -133,19 +135,18 @@ PC Applikation er opbygget som en Visual Studio solution, hvor hver pakke fra pa
     \label{screenshot_3dscan}
 \end{figure}
 
-Der blev brugt meget tid på at finde et computervision-bibliotek der kunne bruges til 3D scannings-forløbet, givet et vilkårligt 3D kamera. Da det blev konstateret at Microsoft's eget API fungerede sammen med Microsoft Kinect 2.0, og at denne havde adskillige funktioner der var vitale for Automatisk Ultralydsscanner, faldte valget på dette som API, og Microsoft Kinect 2.0 som 3D kamera. 
+Der blev brugt meget tid på at finde et computervision-bibliotek der kunne bruges til 3D scannings-forløbet, givet et vilkårligt 3D kamera. Der blev brugt meget tid på at finde et computervision-bibliotek, der kunne bruges til 3D scannings-forløbet, givet et vilkårligt 3D kamera. Valget faldt på Microsoft's eget API, da det blev konstateret, at denne fungerede sammen med Microsoft Kinect 2.0 og havde adskillige funktioner, der var vitale for Automatisk Ultralydsscanner. 
 Valget for at programmere PC Applikation i C\# er dannet på baggrund af at lånt kode til kommunikation med Robotarm i RoboLibrary er programmeret i .NET/C\#, Kinect API'et understøtter C\#, og at der er tidligere kendskab til WPF, .NET og C\# generelt.
 \newline
 Kinect API'et er inkluderet i solutionen som .dll-filer.
 
+Solutionen indeholder også en række testprojekter med unittests, som beskrives nærmere i bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Test'. For at se hvilke udviklingsværktøjer der blev brugt, se samme bilag, i afsnittet 'Udviklingsmiljø'. 
 
-Solutionen indeholder også en række testprojekter med unittests som beskrives nærmere i bilag \ref{Udviklingsdokument} Dokumentation, i afsnit 'Test'. For at se hvilke udviklingsværktøjer der blev brugt, se samme bilag, i afsnit 'Udviklingsmiljø'. 
-
-Der er implementeret en række funktioner der senere kan give anledning til diskussion. 
+Der er implementeret en række funktioner, der senere kan give anledning til diskussion. 
 For at kunne rotere Robotarm er det nødvendigt at sende den en rotationsvektor. Som input fra 3D scanningen er der en retningsvektor på 3D modellen, og denne skal konverteres til rotationsvektor. For at se udregningerne bag dette, se afsnittet om rotationsmatematik på side \pageref{rotationsmatematik} i bilag \ref{Udviklingsdokument}, Dokumentation.
 \newline
-For at flytte Robotarm er der brugt UR10's URScript-funktion \textit{movel}, som flytter Robotarms TCP lineart over tid. Robotarm finder selv ud af hvordan den skal rotere hvert af dens led for at opnå en given positur. Ved hver positur der skal sendes Robotarm gives der en accelerationsværdi, hastighedsværdi samt posituren. Fra startpunkt til slutpunkt gennem en \text{movel}-kommando sker en acceleration, dernæst konstant hastighed efterfulgt af en deceleration - se figur \ref{ur10velocity} og tilhørende tekst på side \pageref{ur10velocity} i bilag \ref{Udviklingsdokument} Dokumentation for mere information.
+For at flytte Robotarm er der brugt UR10's URScript-funktion \textit{movel}, som flytter Robotarms TCP lineart over tid. Robotarm finder selv ud af, hvordan den skal rotere hvert af dens led for at opnå en given positur. Ved hver positur der skal sendes til Robotarm, gives der en accelerationsværdi, hastighedsværdi samt posituren. Fra startpunkt til slutpunkt gennem en \text{movel}-kommando sker en acceleration, dernæst konstant hastighed efterfulgt af en deceleration - se figur \ref{ur10velocity} og tilhørende tekst på side \pageref{ur10velocity} i bilag \ref{Udviklingsdokument} Dokumentation for mere information.
 \newline
 Da Kinect'en ikke giver et fuldstændigt glat billede, har det været nødvendigt at anvende en udglatnings-algoritme. Dette er gjort for at forhindre ekstreme normaler, så Robotarm ikke roteres forkert mod en anomali i 3D scanningen. Se yderligere forklaring af udglatnings-algoritmen på side \pageref{calculationlibraryafsnit} i bilag \ref{Udviklingsdokument} Dokumentation.
 
-Kildekoden er vedlagt som bilag \ref{Kildekode}, og dokumentation til kildekod som bilag \ref{Kodedokumentation}
+Kildekoden er vedlagt som bilag \ref{Kildekode}, og dokumentation til kildekode som bilag \ref{Kildekode}
