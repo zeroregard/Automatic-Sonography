@@ -28,7 +28,6 @@ Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 
 \textbf{Forsøgsopstilling:}
 \begin{enumerate}
 \item PC Applikation er startet 
-\item 3D kamera er tilsluttet
 \item Robotarm er tilsluttet
 \item UC2 er gennemløbet
 \end{enumerate}
@@ -36,7 +35,6 @@ Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 
 \begin{enumerate}
 \item Testperson
 \item Testobjekt
-\item 3D kamera
 \item Robotarm
 \end{enumerate} 
 
@@ -45,9 +43,36 @@ Testperson trykker på 'AutoSonography.exe' på computerens skrivebord & Menuen 
 \hline
 \textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline    
 Testperson trykker på knappen \newline [Ultralydsscan] på GUI's 'Startup Menu' & Skærmbillede skifter til menuen 'Ultralydsscan Menu' &  \checkmark \\\hline
-Testperson observere, om GUI har en procent-indikator for ultralydsscannings gennemløb & GUI har en procent-indikator for ultralydsscanningens gennemløb &  \checkmark \\\hline
+Testperson observerer, om GUI har en procent-indikator for ultralydsscannings gennemløb & GUI har en procent-indikator for ultralydsscanningens gennemløb &  \checkmark \\\hline
 \end{tabularx}
-\caption{Usability 1}
+\caption{Usability 2}
+\label{U2}
+\end{table}
+
+\newpage
+
+\subsubsection{U3. GUI skal vise en 3D model af 3D scanningen}
+\textbf{Forsøgsopstilling:}
+\begin{enumerate}
+\item PC Applikation er startet 
+\item 3D kamera er tilsluttet
+\item UC1 er gennemløbet
+\end{enumerate}
+\textbf{Aktører:}
+\begin{enumerate}
+\item Testperson
+\item Testobjekt
+\item 3D kamera
+\end{enumerate} 
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{|X|X|p{2cm}|}
+\hline
+\textbf{Test} & \textbf{Visuelt resultat} &\textbf{Godkendt}\\\hline  
+Testperson trykker på knappen \newline [3D Scan] på GUI's 'Startup Menu' & Skærmbilledet skifter til menuen '3D Scan Menu' &  \checkmark  \\\hline
+Testperson trykker på knappen [Scan] på GUI's '3D Scan Menu' & UC2: 3D scan gennemføres, og menuen '3D Scan Menu' viser en 3D model af scanningen &  \checkmark \\\hline
+\end{tabularx}
+\caption{Usability 3}
 \label{U2}
 \end{table}
 
