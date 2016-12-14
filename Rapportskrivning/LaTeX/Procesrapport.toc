@@ -15,12 +15,13 @@
 \contentsline {section}{\numberline {2.8}Udviklingsforl\IeC {\o }b af koden}{7}{section.2.8}
 \contentsline {section}{\numberline {2.9}Udviklingsforl\IeC {\o }b}{7}{section.2.9}
 \contentsline {subsection}{\numberline {2.9.1}Evaluering af de enkelte sprints}{8}{subsection.2.9.1}
-\contentsline {section}{\numberline {2.10}M\IeC {\o }der}{8}{section.2.10}
-\contentsline {section}{\numberline {2.11}Konflikth\IeC {\r a}ndtering}{9}{section.2.11}
-\contentsline {section}{\numberline {2.12}Opn\IeC {\r a}ede erfaringer}{9}{section.2.12}
-\contentsline {subsection}{\numberline {2.12.1}Charlotte S\IeC {\o }gaard Kristensen}{10}{subsection.2.12.1}
-\contentsline {subsection}{\numberline {2.12.2}Marie Kirkegaard}{10}{subsection.2.12.2}
-\contentsline {subsection}{\numberline {2.12.3}Mathias Siig N\IeC {\o }rregaard}{10}{subsection.2.12.3}
-\contentsline {section}{\numberline {2.13}Fremtidig arbejdsproces}{10}{section.2.13}
+\contentsline {section}{\numberline {2.10}Litteraturstude}{8}{section.2.10}
+\contentsline {section}{\numberline {2.11}M\IeC {\o }der}{9}{section.2.11}
+\contentsline {section}{\numberline {2.12}Konflikth\IeC {\r a}ndtering}{9}{section.2.12}
+\contentsline {section}{\numberline {2.13}Opn\IeC {\r a}ede erfaringer}{9}{section.2.13}
+\contentsline {subsection}{\numberline {2.13.1}Charlotte S\IeC {\o }gaard Kristensen}{10}{subsection.2.13.1}
+\contentsline {subsection}{\numberline {2.13.2}Marie Kirkegaard}{10}{subsection.2.13.2}
+\contentsline {subsection}{\numberline {2.13.3}Mathias Siig N\IeC {\o }rregaard}{10}{subsection.2.13.3}
+\contentsline {section}{\numberline {2.14}Fremtidig arbejdsproces}{11}{section.2.14}
 \contentsline {chapter}{\chapternumberline {3}Konklusion}{13}{chapter.3}
 \contentsline {chapter}{Bilag}{14}{chapter*.9}
