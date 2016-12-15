@@ -1,4 +1,3 @@
-\changetocdepth {2}
 \select@language {danish}
 \contentsline {chapter}{Indholdsfortegnelse}{1}{section*.1}
 \contentsline {chapter}{\chapternumberline {1}Indledning}{2}{chapter.1}

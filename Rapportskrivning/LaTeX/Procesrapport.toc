@@ -1,8 +1,8 @@
 \changetocdepth {2}
 \select@language {danish}
 \contentsline {chapter}{Forkortelser}{i}{chapter*.1}
-\contentsline {chapter}{Indholdsfortegnelse}{ii}{section*.3}
-\contentsline {chapter}{Forord}{iii}{chapter*.4}
+\contentsline {chapter}{Forord}{ii}{chapter*.3}
+\contentsline {chapter}{Indholdsfortegnelse}{iii}{section*.4}
 \contentsline {chapter}{\chapternumberline {1}Indledning}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}Projektgennemf\IeC {\o }relse}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}Gruppedannelse}{2}{section.2.1}
@@ -12,16 +12,12 @@
 \contentsline {section}{\numberline {2.5}Planl\IeC {\ae }gning}{4}{section.2.5}
 \contentsline {section}{\numberline {2.6}Projektledelse}{4}{section.2.6}
 \contentsline {section}{\numberline {2.7}Projektadministration}{4}{section.2.7}
-\contentsline {section}{\numberline {2.8}Udviklingsforl\IeC {\o }b af koden}{7}{section.2.8}
-\contentsline {section}{\numberline {2.9}Udviklingsforl\IeC {\o }b}{7}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Evaluering af de enkelte sprints}{8}{subsection.2.9.1}
-\contentsline {section}{\numberline {2.10}Litteraturstude}{8}{section.2.10}
-\contentsline {section}{\numberline {2.11}M\IeC {\o }der}{9}{section.2.11}
-\contentsline {section}{\numberline {2.12}Konflikth\IeC {\r a}ndtering}{9}{section.2.12}
+\contentsline {section}{\numberline {2.8}Udviklingsforl\IeC {\o }b af koden}{5}{section.2.8}
+\contentsline {section}{\numberline {2.9}Udviklingsforl\IeC {\o }b}{5}{section.2.9}
+\contentsline {section}{\numberline {2.10}Litteraturstudium}{8}{section.2.10}
+\contentsline {section}{\numberline {2.11}M\IeC {\o }der}{8}{section.2.11}
+\contentsline {section}{\numberline {2.12}Konflikth\IeC {\r a}ndtering}{8}{section.2.12}
 \contentsline {section}{\numberline {2.13}Opn\IeC {\r a}ede erfaringer}{9}{section.2.13}
-\contentsline {subsection}{\numberline {2.13.1}Charlotte S\IeC {\o }gaard Kristensen}{10}{subsection.2.13.1}
-\contentsline {subsection}{\numberline {2.13.2}Marie Kirkegaard}{10}{subsection.2.13.2}
-\contentsline {subsection}{\numberline {2.13.3}Mathias Siig N\IeC {\o }rregaard}{10}{subsection.2.13.3}
-\contentsline {section}{\numberline {2.14}Fremtidig arbejdsproces}{11}{section.2.14}
-\contentsline {chapter}{\chapternumberline {3}Konklusion}{13}{chapter.3}
-\contentsline {chapter}{Bilag}{14}{chapter*.9}
+\contentsline {section}{\numberline {2.14}Fremtidig arbejdsproces}{10}{section.2.14}
+\contentsline {chapter}{\chapternumberline {3}Konklusion}{11}{chapter.3}
+\contentsline {chapter}{Bilag}{12}{chapter*.9}
