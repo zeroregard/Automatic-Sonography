@@ -2,8 +2,8 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: Projektrapport.aux
 The style file: plain.bst
 A level-1 auxiliary file: formalia/RForside.aux
 A level-1 auxiliary file: formalia/Underskrifter.aux
-A level-1 auxiliary file: rfiler/Resume.aux
 A level-1 auxiliary file: rfiler/Abstract.aux
+A level-1 auxiliary file: rfiler/Resume.aux
 A level-1 auxiliary file: rfiler/Forkortelser.aux
 A level-1 auxiliary file: rfiler/Forordx.aux
 A level-1 auxiliary file: rfiler/Indledning.aux
@@ -25,11 +25,29 @@ Illegal, another \bibstyle command---line 47 of file Projektrapport.aux
  :          {plain}
 I'm skipping whatever remains of this command
 Database file #1: bibliografi/PRJ3.bib
+I was expecting a `,' or a `}'---line 175 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 12. december 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 181 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 21. november 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 187 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 14. december 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Erhvervsokonomi"
 Warning--empty journal in MDD
+Warning--empty journal in 60601
+Warning--empty year in 60601
 Warning--empty journal in 13485
 Warning--empty year in 13485
 Warning--empty journal in 14971
 Warning--empty year in 14971
 Warning--empty journal in software
 Warning--empty year in software
-(There was 1 error message)
+(There were 4 error messages)

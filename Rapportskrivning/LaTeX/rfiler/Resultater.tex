@@ -1,8 +1,8 @@
 \chapter{Resultater}\label{kapitel_Resultater}
-I dette afsnit er projektets resultat fra accepttesten beskrevet. De opnåede resultater er dokumenteret i accepttest-dokumentet og der henvises derfor til Bilag \ref{Accepttest} Accepttest, for detaljeret beskrivelse af accepttesten. 
+I dette afsnit er projektets resultat fra accepttesten beskrevet. De opnåede resultater er dokumenteret i bilag \ref{Accepttest}, Accepttest. Se denne for en detaljeret beskrivelse af accepttesten. 
 
 \section{Automatisk Ultralydsscanner}
-I accepttesten blev de funktionelle og ikke-funktionelle krav for Automatisk Ultralydsscanner testet. Resultatet af accepttesten var at alle tests blev godkendt, på nær UC3: Hovedscenarie. Se Tabel \ref{funk} og \ref{ikke}. 
+I accepttesten blev de funktionelle og ikke-funktionelle krav for Automatisk Ultralydsscanner testet. Resultatet af accepttesten var, at alle tests blev godkendt, på nær UC3: Hovedscenarie. Se tabel \ref{funk} nedenfor og tabel \ref{ikke} på næste side. 
 
 \subsection{Funktionelle krav}
 De funktionelle krav for Automatisk Ultralydsscanner blev godkendt ved test af use cases. 
@@ -13,7 +13,8 @@ De funktionelle krav for Automatisk Ultralydsscanner blev godkendt ved test af u
 \textbf{Testens navn} & \textbf{Godkendt} \\\hline
 UC1: Hovedscenarie & \checkmark \\\hline 
 UC2: Hovedscenarie & \checkmark \\\hline 
-UC2: Undtagelse: Juster 3D billedets skæring & \checkmark \\\hline 
+UC2: Udvidelse: Juster 3D billedets skæring & \checkmark \\\hline 
+UC2: Undtagelse: Scanning er ikke godkendt & \checkmark \\\hline 
 UC3: Hovedscenarie & - \\\hline 
 UC3: Udvidelse: Operatør pauser scanning & \checkmark \\\hline 
 UC3: Undtagelse: Operatør stopper scanning & \checkmark \\\hline 
@@ -24,7 +25,7 @@ UC4: Hovedscenarie & \checkmark \\\hline
 
 Automatisk Ultralydsscanner blev udviklet, så det er muligt for Operatør at interagere med PC Applikation, udføre en 3D scanning, og instruere Robotarm til at udføre en ultralydsscanning. 3D billedet kan afgrænses, og ultralydsscanningen kan pauses og stoppes. 
 
-Det var ikke muligt for Robotarm at køre i det specifikke bevægelsesmønster beskrevet i bilag \ref{Kravspecifikation} Kravspecifikation, og dette var grunden til at UC3: Hovedsenarie fejlede i punkt 2.1 - Testperson observerer, om Robotarm roterer omkring Testobjekt i et specifikt bevægelsesmønster. 
+Det var ikke muligt for Robotarm at køre i det specifikke bevægelsesmønster beskrevet i bilag \ref{Kravspecifikation} Kravspecifikation, og dette var grunden til, at UC3: Hovedsenarie fejlede i punkt 2.1 - Testperson observerer, om Robotarm roterer omkring Testobjekt i et specifikt bevægelsesmønster. 
 \newpage
 
 \subsection{Ikke-funktionelle krav}
@@ -36,7 +37,8 @@ De ikke-funktionelle krav for Automatisk Ultralydsscanner blev godkendt ved test
 \hline
 \textbf{Type} & \textbf{Navn} & \textbf{Godkendt}\\\hline
 Usability & U1. PC Applikation skal have en GUI & \checkmark \\\hline 
-Usability & U2.GUI skal have en procent-indikator for ultralydsscanningens gennemløb & \checkmark \\\hline 
+Usability & U2. GUI skal have en procent-indikator for ultralydsscanningens gennemløb & \checkmark \\\hline 
+Usability & U3. GUI skal vise en 3D model af 3D scanningen & \checkmark \\\hline 
 Performance & P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen & \checkmark \\\hline 
 Performance & P2. Startoptid på PC Applikation skal være max 10 sekunder & \checkmark \\\hline
 Performance & P3. 3D kamera skal max bruge 10 sekunder på at tage 3D billedet & \checkmark \\\hline 
@@ -45,6 +47,6 @@ Performance & P4. PC Applikation skal max bruge 10 sekunder på at færdiggøre 
 \caption{Ikke-funktionelle krav}\label{ikke}
 \end{table}
 
-Det vil sige, at PC Applikation blev udviklet med en GUI. Det var muligt at udføre en 3D scanning og ultralydsscanning på 3 minutter. Starttiden på PC Applikation var under 3 sekunder, og det tog under 2 sekunder at tage et 3D billede. PC Applikation brugte under 5 sekunder på at færdiggøre positurer til ultralydsscanning af brystområdet.  
+Det vil sige, at PC Applikation blev udviklet med en GUI, hvori det var muligt at se en 3D model samt procentvis-indikator for ultralydsscanningens gennemløb. Det var muligt at udføre en 3D scanning og ultralydsscanning på sammenlagt 3 minutter. Starttiden på PC Applikation var under 3 sekunder, og det tog under 2 sekunder at tage lave en 3D scanning. PC Applikation brugte under 5 sekunder på at færdiggøre positurer til ultralydsscanning af brystområdet.  
 
 For at detaljerede resultater af accepttest se bilag \ref{Accepttest} Accepttest. 

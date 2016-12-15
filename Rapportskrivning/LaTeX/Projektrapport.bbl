@@ -5,7 +5,12 @@ Kræftens Bekæmpelse.
 \newblock Kort om brystkræft hos mænd.
 \newblock
   \url{https://www.cancer.dk/brystkraeft-maend-mammacancer/kort-om-brystkraeft-maend/}.
-\newblock Senest besøgt den 21. november 2016.
+
+\bibitem{Mammografi}
+Kræftens Bekæmpelse.
+\newblock Mammografi - røntgenundersøgelse af brystet.
+\newblock
+  \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/mammografi/}.
 
 \bibitem{Bryst}
 Kræftens Bekæmpelse.
@@ -13,6 +18,20 @@ Kræftens Bekæmpelse.
 \newblock
   \url{https://www.cancer.dk/brystkraeft-mammacancer/biologiske-fakta-brystet/}.
 \newblock Senest besøgt den 21. november 2016.
+
+\bibitem{Rontgenundersogelse}
+Kræftens Bekæmpelse.
+\newblock Røntgenundersøgelse.
+\newblock
+  \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/roentgenundersoegelse/}.
+\newblock Senest besøgt den 21. november 2016.
+
+\bibitem{StadieOmkostninger}
+Kræftens Bekæmpelse.
+\newblock Statistik om brystkræft.
+\newblock
+  \url{https://www.cancer.dk/brystkraeft-mammacancer/statistik-brystkraeft/}.
+\newblock Senest besøgt den 9. november 2016.
 
 \bibitem{Udvikling}
 Kræftens Bekæmpelse.
@@ -28,19 +47,26 @@ Kræftens Bekæmpelse.
   \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/ultralydsscanning/}.
 \newblock Senest besøgt den 21. november 2016.
 
-\bibitem{Rontgenundersogelse}
-Kræftens Bekæmpelse.
-\newblock Ultralydsscanning.
-\newblock
-  \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/roentgenundersoegelse/}.
-\newblock Senest besøgt den 21. november 2016.
-
 \bibitem{Ultralyd}
 Kræftens Bekæmpelse.
 \newblock Ultralydsscanning af brystet.
 \newblock
   \url{https://www.cancer.dk/hjaelp-viden/undersoegelser-for-kraeft/scanninger-billedundersoegelser/ultralydsscanning-af-brystet/}.
 \newblock Senest besøgt den 8. november 2016.
+
+\bibitem{Frekvens}
+Den~Store Danske.
+\newblock Ultralydsundersøgelse.
+\newblock
+  \url{http://denstoredanske.dk/Krop,_psyke_og_sundhed/Sundhedsvidenskab/Medicinske_billedteknikker/ultralydunders\%C3\%B8gelse}.
+\newblock Senest besøgt den 13. december 2016.
+
+\bibitem{Delta}
+Delta.
+\newblock Medicinsk udstyr - udvikling med agile metoder.
+\newblock
+  \url{http://assets.madebydelta.com/docs/share/Medico/agil_bog_181214_01.pdf}.
+\newblock Senest besøgt den 13. december 2016.
 
 \bibitem{esundhed}
 esundhed.dk.
@@ -68,6 +94,12 @@ Noriaki~Ohuchi et~al.
   anti-cancer randomized trial (j-start): a randomised controlled trial.
 \newblock {\em The Lancet}, Vol 387, 2016.
 
+\bibitem{NHS}
+Paul D P~Pharoah et~al.
+\newblock Cost effectiveness of the nhs breast screening programme - life table
+  model.
+\newblock {\em BMJ}, Vol 346, 2013.
+
 \bibitem{Afsloring}
 EVBHealth.
 \newblock Ultralyd for brystkræft afsløring.
@@ -80,22 +112,33 @@ Rådet for~de Europæiske~Fællesskaber.
 \newblock Oktober 2007.
 \newblock Dansk udgave.
 
+\bibitem{60601}
+Danish~Standards Foundation.
+\newblock Ds/en 60601-1:2006. elektromedicinsk udstyr - del 1: Generelle
+  sikkerhedskrav og væsentlige funktionskrav.
+\newblock 2. udgave, 12. december 2006.
+
 \bibitem{13485}
 Danish~Standards Foundation.
 \newblock Ds/en iso 13485. medical devices – quality management systems –
   requirements for regulatory purposes.
-\newblock 3. udgave edition, 28. Februar 2012.
+\newblock 3. udgave, 28. februar 2012.
 
 \bibitem{14971}
 Danish~Standards Foundation.
 \newblock Ds/en iso 14971. medical devices – application of risk management
   to medical devices.
-\newblock 6. udgave edition, 21. December 2012.
+\newblock 6. udgave, 21. december 2012.
 
 \bibitem{Gotzche}
 Jørgensen~KJ Gøtzche~PC.
 \newblock Screening for breast cancer with mammography (review).
 \newblock {\em Cochrane}, Issue 6, 2013.
+
+\bibitem{MetoderBruger}
+GymPortalen.
+\newblock Kvantitativ og kvalitativ metode.
+\newblock \url{http://gymportalen.dk/politiksdan/15203}.
 
 \bibitem{Lon}
 Løn Info.
@@ -103,18 +146,45 @@ Løn Info.
 \newblock \url{http://xn--ln-lka.info/ }.
 \newblock Senest besøgt den 29. november 2016.
 
+\bibitem{SysML}
+Teknisk IT.
+\newblock Eksamensforberedelser.
+\newblock
+  \url{http://tekniskit.blogspot.dk/2013/03/eksamensforberedelser.html}.
+\newblock Senest besøgt den 14. december 2016.
+
+\bibitem{Pres}
+KL.
+\newblock Det næsre samfund.
+\newblock
+  \url{https://www.sst.dk/da/planlaegning/\~/media/A92CFB652015453FB5E26616C0CDD2BF.ashx}.
+\newblock Senest besøgt den 13. december 2016.
+
 \bibitem{Klasse}
 Lægemiddelstyrelsen.
 \newblock Vejledning til fabrikanter af medicinsk udstyr i klasse 1.
 \newblock
   \url{https://laegemiddelstyrelsen.dk/da/udstyr/lovgivning-og-vejledning/sundhedsstyrelsens-vejledninger/vejledning-til-fabrikanter-af-medicinsk-udstyr-i-klasse-i}.
-\newblock Senest besøgt den 8. november 2016.
+\newblock Senest besøgt d. 8. november 2016.
+
+\bibitem{Vej}
+Lægemiddelstyrelsen.
+\newblock Vejledning til nystartede fabrikanter af medicinsk udstyr.
+\newblock
+  \url{https://laegemiddelstyrelsen.dk/da/udstyr/lovgivning-og-vejledning/sundhedsstyrelsens-vejledninger/vejledning-til-nystartede-fabrikanter-af-medicinsk-udstyr}.
+\newblock Senest besøgt d. 13. december 2016.
 
 \bibitem{Panel}
 Michael Marmot.
-\newblock The benefits and harms of breast cancer screening: an independent
+\newblock The benefits and harms of breast cancer screening an independent
   review.
 \newblock {\em The Lancet}, Vol 380, 2012.
+
+\bibitem{Be}
+Retsinformation.dk.
+\newblock Bekendtgørelse om medicinsk udstyr.
+\newblock \url{https://www.retsinformation.dk/forms/R0710.aspx?id=122694}.
+\newblock Senest besøgt d. 13. december 2016.
 
 \bibitem{CancerSociety}
 American~Cancer Society.
@@ -137,19 +207,26 @@ Danmarks Statisik.
   \url{http://www.dst.dk/da/Statistik/emner/befolkning-og-befolkningsfremskrivning/befolkningsfremskrivning?tab=dok}.
 \newblock Senest besøgt den 9. november 2016.
 
-\bibitem{SysML}
-Jakob Sulby.
-\newblock Ultralydsscanning.
+\bibitem{Risk}
+SundhedDK.
+\newblock Røntgenstråling og kræftrisiko.
 \newblock
-  \url{http://tekniskit.blogspot.dk/2013/03/eksamensforberedelser.html}.
-\newblock Senest besøgt den 14. november 2016.
+  \url{https://www.sundhed.dk/borger/patienthaandbogen/undersoegelser/illustrationer/straaling/roentgenstraaling-og-kraeftrisiko/}.
+\newblock Senest besøgt den 08. december 2016.
+
+\bibitem{Lagemangel}
+Sundhedsstyrelsen.
+\newblock Bilag til kræftplan ii.
+\newblock
+  \url{http://www.sst.dk/~/media/9A18089B746A4248BB9673DD1293642F.ashx}.
+\newblock Senest besøgt den 7. december 2016.
 
 \bibitem{QALY}
 Sundhedsstyrelsen.
 \newblock Fotodynamisk behandling af karnydannelse bag øjets nethinde - en
   medicinsk teknologivurdering.
 \newblock
-  \url{https://www.sst.dk/~/media/9D073C69B6B646E2A9412B9116064B0C.ashx}.
+  \url{https://www.sst.dk/\~/media/9D073C69B6B646E2A9412B9116064B0C.ashx}.
 \newblock Senest besøgt den 08. december 2016.
 
 \bibitem{Argumenter}
@@ -170,6 +247,6 @@ Sundhedsstyrelsen.
 SuperUsers.
 \newblock Uml.
 \newblock \url{http://www.superusers.dk/artikel/uml/}.
-\newblock Senest besøgt den 14. november 2016.
+\newblock Senest besøgt den 14. december 2016.
 
 \end{thebibliography}
