@@ -19,11 +19,12 @@
 \contentsline {section}{\numberline {5.8}Test: UC4: Hovedscenarie}{13}{section.5.8}
 \contentsline {chapter}{\chapternumberline {6}Ikke-funktionelle krav}{14}{chapter.6}
 \contentsline {section}{\numberline {6.1}Usability}{14}{section.6.1}
-\contentsline {subsubsection}{U1. PC Applikation skal have en GUI}{14}{section*.11}
-\contentsline {subsubsection}{U2. GUI skal have en procent-indikator for ultralydsscanningens genneml\IeC {\o }b}{15}{section*.13}
-\contentsline {section}{\numberline {6.2}Performance}{16}{section.6.2}
-\contentsline {subsubsection}{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}{16}{section*.15}
-\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 10 sekunder}{17}{section*.17}
-\contentsline {subsubsection}{P3. 3D kamera skal max bruge 10 sekunder om at tage 3D billedet}{18}{section*.19}
-\contentsline {subsubsection}{P4. PC Applikation skal max bruge 10 sekunder p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{19}{section*.21}
-\contentsline {chapter}{Bilag}{20}{chapter*.23}
+\contentsline {subsubsection}{U1. PC Applikation skal have en GUI}{14}{section*.12}
+\contentsline {subsubsection}{U2. GUI skal have en procent-indikator for ultralydsscanningens genneml\IeC {\o }b}{15}{section*.14}
+\contentsline {subsubsection}{U3. GUI skal vise en 3D model af 3D scanningen}{16}{section*.16}
+\contentsline {section}{\numberline {6.2}Performance}{17}{section.6.2}
+\contentsline {subsubsection}{P1. Scanningen med 3D kamera og ultralydsscanning skal max tage 10 minutter til sammen}{17}{section*.18}
+\contentsline {subsubsection}{P2. Startoptid p\IeC {\r a} PC Applikation skal v\IeC {\ae }re max 10 sekunder}{18}{section*.20}
+\contentsline {subsubsection}{P3. 3D kamera skal max bruge 10 sekunder om at tage 3D billedet}{19}{section*.22}
+\contentsline {subsubsection}{P4. PC Applikation skal max bruge 10 sekunder p\IeC {\r a} at f\IeC {\ae }rdigg\IeC {\o }re brystomr\IeC {\r a}dets positurer til Robotarm}{20}{section*.24}
+\contentsline {chapter}{Bilag}{21}{chapter*.26}
