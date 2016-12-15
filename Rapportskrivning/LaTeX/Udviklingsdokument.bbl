@@ -1,5 +1,30 @@
 \begin{thebibliography}{1}
 
+\bibitem{RumTransformation}
+Codind Labs.
+\newblock World, view and projection transformation matrices.
+\newblock
+  \url{http://www.codinglabs.net/article_world_view_projection_matrix.aspx/}.
+\newblock Senest besøgt den 7. november 2016.
+
+\bibitem{KinectAPI}
+Microsoft.
+\newblock Kinect api overview.
+\newblock \url{https://msdn.microsoft.com/en-us/library/dn782033.aspx}.
+\newblock Senest besøgt d. 7. december 2016.
+
+\bibitem{KinectFusionExplorer}
+Microsoft.
+\newblock Kinect fusion explorer.
+\newblock \url{https://msdn.microsoft.com/en-us/library/dn193975.aspx}.
+\newblock Senest besøgt d. 7. december 2016.
+
+\bibitem{KinectFusion}
+Microsoft.
+\newblock Kinect fusion overview.
+\newblock \url{https://msdn.microsoft.com/en-us/library/dn188670.aspx}.
+\newblock Senest besøgt d. 7. december 2016.
+
 \bibitem{Smooth}
 Wikipedia.
 \newblock Laplacian smoothing.

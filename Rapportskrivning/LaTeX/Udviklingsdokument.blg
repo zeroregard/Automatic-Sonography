@@ -13,4 +13,19 @@ Illegal, another \bibstyle command---line 36 of file Udviklingsdokument.aux
  :          {plain}
 I'm skipping whatever remains of this command
 Database file #1: bibliografi/PRJ3.bib
-(There was 1 error message)
+I was expecting a `,' or a `}'---line 175 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 12. december 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 181 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 21. november 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 187 of file bibliografi/PRJ3.bib
+ :  
+ :  Note = {Senest besøgt den 14. december 2016}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 4 error messages)
