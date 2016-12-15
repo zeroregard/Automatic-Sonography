@@ -16,7 +16,7 @@ namespace RoboLibrary
         public ConfigurationData CurrentConfiguration;
         public IWriter writer;
         public IReader reader;
-        public static string IP_ADDRESS = "192.168.0.103";
+        public static string IP_ADDRESS = "192.168.0.100";
         private const float INITIAL_SPEED = 0.075f;
         private const float INITIAL_ACCELERATION = 0.65f;
         public float Speed { get; private set; }
