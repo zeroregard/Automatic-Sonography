@@ -180,11 +180,22 @@ Michael Marmot.
   review.
 \newblock {\em The Lancet}, Vol 380, 2012.
 
+\bibitem{MSK}
+Europa palamentets og~rådets direktiv.
+\newblock Maskindirektivet 2006/42/ef.
+\newblock 9. juli 2006.
+
 \bibitem{Be}
 Retsinformation.dk.
 \newblock Bekendtgørelse om medicinsk udstyr.
 \newblock \url{https://www.retsinformation.dk/forms/R0710.aspx?id=122694}.
 \newblock Senest besøgt d. 13. december 2016.
+
+\bibitem{ur10kilde}
+Universal Robots.
+\newblock Ur10 robot.
+\newblock \url{https://www.universal-robots.com/products/ur10-robot/}.
+\newblock Senest besøgt den 08. december 2016.
 
 \bibitem{CancerSociety}
 American~Cancer Society.
@@ -193,6 +204,11 @@ American~Cancer Society.
   \url{http://www.cancer.org/cancer/breastcancer/detailedguide/breast-cancer-survival-by-stage
   }.
 \newblock Senest besøgt den 08. december 2016.
+
+\bibitem{Erhvervsokonomi}
+Lone~Hansen Søren Holm-Rasmussen, Jens Ocksen~Jensen.
+\newblock {\em Erhvervøkonomi - til akademiuddannelserne}.
+\newblock Forfatterne og Academica, 2. udgave edition, 2010.
 
 \bibitem{software}
 Dansk standard.
@@ -248,5 +264,12 @@ SuperUsers.
 \newblock Uml.
 \newblock \url{http://www.superusers.dk/artikel/uml/}.
 \newblock Senest besøgt den 14. december 2016.
+
+\bibitem{kinectkilde}
+Wikipedia.
+\newblock Kinect for xbox one.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Kinect\_for\_Xbox\_One\#Kinect\_for\_Windows}.
+\newblock Senest besøgt d. 15. december 2016.
 
 \end{thebibliography}

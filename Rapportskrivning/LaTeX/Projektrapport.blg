@@ -40,7 +40,6 @@ I was expecting a `,' or a `}'---line 187 of file bibliografi/PRJ3.bib
  :  Note = {Senest besøgt den 14. december 2016}}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Erhvervsokonomi"
 Warning--empty journal in MDD
 Warning--empty journal in 60601
 Warning--empty year in 60601
@@ -48,6 +47,7 @@ Warning--empty journal in 13485
 Warning--empty year in 13485
 Warning--empty journal in 14971
 Warning--empty year in 14971
+Warning--empty journal in MSK
 Warning--empty journal in software
 Warning--empty year in software
 (There were 4 error messages)
