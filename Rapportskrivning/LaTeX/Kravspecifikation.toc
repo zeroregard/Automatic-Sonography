@@ -16,13 +16,14 @@
 \contentsline {subsection}{\numberline {5.2.4}Use Case 4}{11}{subsection.5.2.4}
 \contentsline {chapter}{\chapternumberline {6}Ikke-funktionelle krav}{12}{chapter.6}
 \contentsline {section}{\numberline {6.1}Usability}{12}{section.6.1}
-\contentsline {section}{\numberline {6.2}Performance}{12}{section.6.2}
+\contentsline {section}{\numberline {6.2}Performance}{13}{section.6.2}
 \contentsline {section}{\numberline {6.3}Supportability}{13}{section.6.3}
 \contentsline {section}{\numberline {6.4}Ekstra(+)}{13}{section.6.4}
-\contentsline {chapter}{\chapternumberline {7}Brugergr\IeC {\ae }nseflade}{14}{chapter.7}
-\contentsline {section}{\numberline {7.1}Menuer}{14}{section.7.1}
-\contentsline {section}{\numberline {7.2}Knapper}{14}{section.7.2}
-\contentsline {section}{\numberline {7.3}Track bars}{15}{section.7.3}
-\contentsline {section}{\numberline {7.4}Skitser}{16}{section.7.4}
-\contentsline {chapter}{Bilag}{17}{chapter*.10}
-\contentsline {chapter}{Litteratur}{18}{section*.12}
+\contentsline {chapter}{\chapternumberline {7}Krav til specifikt bev\IeC {\ae }gelsesm\IeC {\o }nster}{14}{chapter.7}
+\contentsline {chapter}{\chapternumberline {8}Brugergr\IeC {\ae }nseflade}{15}{chapter.8}
+\contentsline {section}{\numberline {8.1}Menuer}{15}{section.8.1}
+\contentsline {section}{\numberline {8.2}Knapper}{15}{section.8.2}
+\contentsline {section}{\numberline {8.3}Track bars}{16}{section.8.3}
+\contentsline {section}{\numberline {8.4}Skitser}{16}{section.8.4}
+\contentsline {chapter}{Bilag}{18}{chapter*.11}
+\contentsline {chapter}{Litteratur}{19}{section*.13}
