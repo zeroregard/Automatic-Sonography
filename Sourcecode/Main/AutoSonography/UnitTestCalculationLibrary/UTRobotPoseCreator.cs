@@ -104,7 +104,7 @@ namespace UnitTestCalculationLibrary
             Vector3 rpy = uut.ToRollPitchYaw(right);
             Assert.AreEqual(Math.PI / 2, rpy.X, 0.0001);
             Assert.AreEqual(0, rpy.Y, 0.0001);
-            Assert.AreEqual(Math.PI, rpy.Z, 0.0001);
+            Assert.AreEqual(-Math.PI, rpy.Z, 0.0001);
         }
 
         [TestMethod]
@@ -114,7 +114,7 @@ namespace UnitTestCalculationLibrary
             Vector3 rpy = uut.ToRollPitchYaw(forward);
             Assert.AreEqual(Math.PI / 2, rpy.X, 0.0001);
             Assert.AreEqual(0, rpy.Y, 0.0001);
-            Assert.AreEqual(Math.PI / 2, rpy.Z, 0.0001);
+            Assert.AreEqual(-Math.PI / 2, rpy.Z, 0.0001);
         }
 
         [TestMethod]

@@ -80,7 +80,10 @@ namespace CalculationLibrary
             {
                 Vector3 noZ = new Vector3 { X = d.X, Y = d.Y, Z = 0 };
                 noZ = Extensions.Normalize(noZ);
-                yaw = Math.Acos(-noZ.Y);
+                if (d.X <= 0)
+                    yaw = -Math.Acos(-noZ.Y);
+                else
+                    yaw = Math.Acos(-noZ.Y);
             }
             Vector3 rpy = new Vector3 { X = (float)roll, Y = (float)pitch, Z = (float)yaw };
             return rpy;
